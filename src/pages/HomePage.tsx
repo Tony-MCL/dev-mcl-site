@@ -37,7 +37,6 @@ const HomePage: React.FC = () => {
                 marginTop: "1rem",
               }}
             >
-              {/* Ekstern lenke til ManageSystem */}
               <a
                 href={LINKS.ms}
                 className="hero-cta"
@@ -57,6 +56,20 @@ const HomePage: React.FC = () => {
                 {t("home.cards.progress.contactCta")}
               </Link>
             </div>
+          </div>
+
+          {/* HUSKET */}
+          <div className="intro-card">
+            <div className="app-card-topline">
+              <span className="badge">{t("home.cards.husket.badge")}</span>
+            </div>
+
+            <h3>{t("home.cards.husket.title")}</h3>
+            <p>{t("home.cards.husket.body")}</p>
+
+            <p style={{ marginTop: "0.7rem" }}>
+              <Link to="/husket">{t("home.cards.husket.cta")}</Link>
+            </p>
           </div>
 
           {/* TJENESTER */}
