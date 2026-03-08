@@ -12,7 +12,7 @@ const HusketPage: React.FC = () => {
       <section className="husket-hero-layout">
         <div className="husket-logo-wrap" aria-hidden="true">
           <img
-            src={`${import.meta.env.BASE_URL}husketlogo.gif`}
+            src={`${import.meta.env.BASE_URL}husketlogo.svg`}
             alt="Husk'et"
             className="husket-logo-image"
           />
