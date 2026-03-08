@@ -120,32 +120,32 @@ const no = {
     hero: {
       title: "husk'et",
       tagline:
-        "En mobil app for å fange det du vil huske – med lav friksjon, ryddig struktur og fokus på det som faktisk betyr noe.",
+        "Et bilde hjelper deg å huske øyeblikket. husk'et hjelper deg å huske detaljene.",
       intro:
-        "husk'et er laget for raske registreringer i hverdagen. Du kan lagre ting du vil huske, organisere dem på en enkel måte og finne dem igjen når du faktisk trenger dem. Målet er ikke flere systemer, men mindre støy.",
+        "husk'et hjelper deg å holde fast i de små tingene som er lette å glemme senere, som hvor du var, hva du la merke til, eller hvorfor øyeblikket betydde noe. Legg til et notat eller en kategori for å holde det organisert og enkelt å finne igjen når du trenger det.",
       badgeOne: "Mobil app",
       badgeTwo: "Offline-first",
     },
     cards: {
       capture: {
-        title: "Fang ting med en gang",
+        title: "Fang det raskt",
         body:
-          "Når noe først er verdt å huske, bør det være raskt å lagre det. husk'et er laget for enkel registrering uten unødvendige steg.",
+          "Når noe er verdt å huske, bør det bare ta et øyeblikk å lagre det. Legg til et bilde og noen få detaljer uten å bryte flyten.",
       },
       structure: {
-        title: "Ryddig i stedet for rotete",
+        title: "Ta vare på detaljene",
         body:
-          "Appen er bygget for å gi struktur uten å bli tung. Det skal være lett å lagre, lett å bla og lett å finne tilbake.",
+          "Et bilde viser øyeblikket, men ikke alt rundt det. Notater, kategorier og vurderinger hjelper deg å huske hva som gjorde det meningsfullt.",
       },
       offline: {
-        title: "Bygget for ekte bruk",
+        title: "Finn det igjen",
         body:
-          "husk'et er laget for daglig bruk på mobilen – også i situasjoner der nettet ikke alltid er stabilt eller oppmerksomheten er et knapphetsgode.",
+          "Ingen endeløs scrolling gjennom kamerarullen. Søk og kategorier hjelper deg tilbake til øyeblikkene som betyr noe.",
       },
       privacy: {
-        title: "Data med respekt",
+        title: "Minnene dine forblir dine",
         body:
-          "Vi ønsker tydelige rammer rundt hva appen gjør og hvordan data håndteres. Derfor ligger egne legal-sider for husk'et samlet her.",
+          "Alt blir liggende på telefonen din. Ingen feed, ingen følgere og ingen forventning om å dele.",
       },
     },
     legal: {
@@ -169,15 +169,15 @@ const no = {
         three: "Skjermdump 3 fra husk'et",
       },
       caption: {
-        one: "Rask registrering",
-        two: "Ryddig oversikt",
-        three: "Laget for faktisk bruk",
+        one: "Skill galleriene dine",
+        two: "Legg til detaljene",
+        three: "Sett det opp på din måte",
       },
     },
     next: {
-      title: "Videre",
+      title: "Kommer snart",
       body:
-        "husk'et er en del av Morning Coffee Labs sin voksende portefølje av små, fokuserte verktøy – laget for faktisk bruk, ikke bare fine demoer.",
+        "husk'et nærmer seg lansering. Snart vil du kunne laste det ned fra App Store og Google Play. Hvis du vil høre når det går live, legg igjen e-posten din under. (mailto:post@morningcoffeelabs.no)",
     },
   },
 
