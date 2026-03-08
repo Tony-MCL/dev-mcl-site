@@ -116,7 +116,7 @@ const en = {
       "Tools for people who work in a structured way with projects, follow-up, and delivery — and who want overview, control, and documentation without the tool becoming a burden.",
   },
 
-  husket: {
+     husket: {
     hero: {
       title: "Husk'et",
       tagline:
@@ -157,6 +157,21 @@ const en = {
         termsUse: "Terms of use",
         termsPurchase: "Purchase terms",
         refund: "Refunds",
+      },
+    },
+    glimpse: {
+      title: "A quick glimpse",
+      body:
+        "Three quick glimpses from the app — showing mood, flow, and visual expression without filling the page with too much detail.",
+      alt: {
+        one: "Screenshot 1 from Husk'et",
+        two: "Screenshot 2 from Husk'et",
+        three: "Screenshot 3 from Husk'et",
+      },
+      caption: {
+        one: "Quick capture",
+        two: "Clear overview",
+        three: "Built for real use",
       },
     },
     next: {
