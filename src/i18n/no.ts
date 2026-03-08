@@ -116,7 +116,7 @@ const no = {
       "Dette er verktøy for folk som jobber strukturert med prosjekter, oppfølging og gjennomføring – og som ønsker oversikt, kontroll og dokumentasjon uten at verktøyet blir en belastning i seg selv.",
   },
 
-  husket: {
+    husket: {
     hero: {
       title: "Husk'et",
       tagline:
@@ -157,6 +157,21 @@ const no = {
         termsUse: "Brukervilkår",
         termsPurchase: "Kjøpsvilkår",
         refund: "Refusjon",
+      },
+    },
+    glimpse: {
+      title: "En liten sniktitt",
+      body:
+        "Tre raske glimt fra appen – for å vise stemning, flyt og uttrykk uten å fylle siden med for mye detaljer.",
+      alt: {
+        one: "Skjermdump 1 fra Husk'et",
+        two: "Skjermdump 2 fra Husk'et",
+        three: "Skjermdump 3 fra Husk'et",
+      },
+      caption: {
+        one: "Rask registrering",
+        two: "Ryddig oversikt",
+        three: "Laget for faktisk bruk",
       },
     },
     next: {
