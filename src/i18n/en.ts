@@ -34,10 +34,10 @@ const en = {
       refund: "Refunds",
     },
     husketLinks: {
-      termsPurchase: "Husk'et purchase terms",
-      termsUse: "Husk'et terms of use",
-      privacy: "Husk'et privacy policy",
-      refund: "Husk'et refunds",
+      termsPurchase: "husk'et purchase terms",
+      termsUse: "husk'et terms of use",
+      privacy: "husk'et privacy policy",
+      refund: "husk'et refunds",
     },
   },
 
@@ -71,7 +71,7 @@ const en = {
         badge: "App",
         body:
           "husk'et is a mobile app for saving things you want to remember. Take a photo, add a note or category, and keep the details that make the moment easy to find later. Some photos are meant to be shared. Others are just for you. Your memories, organized your way.",
-        cta: "See Husk'et →",
+        cta: "See husk'et →",
       },
 
       services: {
@@ -116,13 +116,13 @@ const en = {
       "Tools for people who work in a structured way with projects, follow-up, and delivery — and who want overview, control, and documentation without the tool becoming a burden.",
   },
 
-     husket: {
+  husket: {
     hero: {
-      title: "Husk'et",
+      title: "husk'et",
       tagline:
         "A mobile app for capturing what you want to remember — with low friction, clear structure, and focus on what actually matters.",
       intro:
-        "Husk'et is built for quick capture in everyday life. You can save things you want to remember, organize them simply, and find them again when you actually need them. The goal is not more systems — just less noise.",
+        "husk'et is built for quick capture in everyday life. You can save things you want to remember, organize them simply, and find them again when you actually need them. The goal is not more systems — just less noise.",
       badgeOne: "Mobile app",
       badgeTwo: "Offline-first",
     },
@@ -130,7 +130,7 @@ const en = {
       capture: {
         title: "Capture things right away",
         body:
-          "When something is worth remembering, it should be fast to save. Husk'et is built for simple capture without unnecessary steps.",
+          "When something is worth remembering, it should be fast to save. husk'et is built for simple capture without unnecessary steps.",
       },
       structure: {
         title: "Organized instead of messy",
@@ -140,18 +140,18 @@ const en = {
       offline: {
         title: "Built for real use",
         body:
-          "Husk'et is designed for daily mobile use — including situations where network coverage is unstable or attention is limited.",
+          "husk'et is designed for daily mobile use — including situations where network coverage is unstable or attention is limited.",
       },
       privacy: {
         title: "Data handled with respect",
         body:
-          "We want clear boundaries around what the app does and how data is handled. That is why Husk'et has its own legal pages gathered here.",
+          "We want clear boundaries around what the app does and how data is handled. That is why husk'et has its own legal pages gathered here.",
       },
     },
     legal: {
-      title: "Legal for Husk'et",
+      title: "Legal for husk'et",
       body:
-        "These pages apply specifically to Husk'et and can be used both from the website and as legal links from inside the app.",
+        "These pages apply specifically to husk'et and can be used both from the website and as legal links from inside the app.",
       links: {
         privacy: "Privacy policy",
         termsUse: "Terms of use",
@@ -164,9 +164,9 @@ const en = {
       body:
         "Three quick glimpses from the app — showing mood, flow, and visual expression without filling the page with too much detail.",
       alt: {
-        one: "Screenshot 1 from Husk'et",
-        two: "Screenshot 2 from Husk'et",
-        three: "Screenshot 3 from Husk'et",
+        one: "Screenshot 1 from husk'et",
+        two: "Screenshot 2 from husk'et",
+        three: "Screenshot 3 from husk'et",
       },
       caption: {
         one: "Quick capture",
@@ -177,7 +177,7 @@ const en = {
     next: {
       title: "Next",
       body:
-        "Husk'et is part of Morning Coffee Labs’ growing portfolio of small, focused tools — built for actual use, not just polished demos.",
+        "husk'et is part of Morning Coffee Labs’ growing portfolio of small, focused tools — built for actual use, not just polished demos.",
     },
   },
 
@@ -555,13 +555,13 @@ const en = {
 
   husketLegal: {
     terms: {
-      title: "Terms of use for Husk'et",
+      title: "Terms of use for husk'et",
       intro:
-        "These terms of use apply to the use of the Husk'et app provided by Mathisens Morning Coffee Labs.",
+        "These terms of use apply to the use of the husk'et app provided by Mathisens Morning Coffee Labs.",
       s1: {
         title: "1. Use of the app",
         body:
-          "Husk'et gives you a personal, non-transferable right to use the app in accordance with the functionality available in the relevant version. The app must not be resold, redistributed, or used in violation of applicable law.",
+          "husk'et gives you a personal, non-transferable right to use the app in accordance with the functionality available in the relevant version. The app must not be resold, redistributed, or used in violation of applicable law.",
       },
       s2: {
         title: "2. Content you store",
@@ -576,7 +576,7 @@ const en = {
       s4: {
         title: "4. Limitation of liability",
         body:
-          "Husk'et is provided as is. To the extent permitted by law, we are not liable for indirect losses, loss of data, loss of profit, or other consequential damages arising from the use of the app.",
+          "husk'et is provided as is. To the extent permitted by law, we are not liable for indirect losses, loss of data, loss of profit, or other consequential damages arising from the use of the app.",
       },
       s5: {
         title: "5. Termination and changes",
@@ -590,14 +590,14 @@ const en = {
       },
     },
 
-       privacy: {
-      title: "Privacy policy for Husk'et",
+    privacy: {
+      title: "Privacy policy for husk'et",
       intro:
-        "This privacy policy describes how Husk'et handles information in the app. Husk'et is designed so that the content you create is stored locally on your own device. The app does not collect personal data and does not transmit user content or information to Morning Coffee Labs or any third parties.",
+        "This privacy policy describes how husk'et handles information in the app. husk'et is designed so that the content you create is stored locally on your own device. The app does not collect personal data and does not transmit user content or information to Morning Coffee Labs or any third parties.",
       s1: {
         title: "1. Data controller",
         body:
-          "Mathisens Morning Coffee Labs is the data controller for any personal data that may be processed in connection with Husk'et.",
+          "Mathisens Morning Coffee Labs is the data controller for any personal data that may be processed in connection with husk'et.",
       },
       s2: {
         title: "2. What information the app may process",
@@ -620,12 +620,12 @@ const en = {
       s4: {
         title: "4. Storage",
         body:
-          "All content you create in Husk'et is stored locally on your own device. The app does not use user accounts, cloud storage, or servers to store user content. Morning Coffee Labs therefore does not have access to the content you store in the app.",
+          "All content you create in husk'et is stored locally on your own device. The app does not use user accounts, cloud storage, or servers to store user content. Morning Coffee Labs therefore does not have access to the content you store in the app.",
       },
       s5: {
         title: "5. Sharing with third parties",
         body:
-          "Husk'et does not share data with Morning Coffee Labs or any third parties. If you choose to export or share content from the app, this happens only by your own choice and through services or apps you choose yourself.",
+          "husk'et does not share data with Morning Coffee Labs or any third parties. If you choose to export or share content from the app, this happens only by your own choice and through services or apps you choose yourself.",
       },
       s6: {
         title: "6. Your choices and rights",
@@ -640,14 +640,14 @@ const en = {
       s8: {
         title: "8. Contact",
         body:
-          "For privacy-related questions about Husk'et, contact us at post@morningcoffeelabs.no.",
+          "For privacy-related questions about husk'et, contact us at post@morningcoffeelabs.no.",
       },
     },
 
     purchase: {
-      title: "Purchase terms for Husk'et",
+      title: "Purchase terms for husk'et",
       intro:
-        "These purchase terms apply if Husk'et is offered with in-app purchases, subscriptions, or other paid features.",
+        "These purchase terms apply if husk'et is offered with in-app purchases, subscriptions, or other paid features.",
       s1: {
         title: "1. The parties",
         body:
@@ -656,7 +656,7 @@ const en = {
       s2: {
         title: "2. Product",
         body:
-          "Husk'et is delivered as digital software. In the event of a purchase, you receive access to the functionality described in the app or in the relevant purchase flow.",
+          "husk'et is delivered as digital software. In the event of a purchase, you receive access to the functionality described in the app or in the relevant purchase flow.",
       },
       s3: {
         title: "3. Price and payment",
@@ -671,7 +671,7 @@ const en = {
       s5: {
         title: "5. Subscription and cancellation",
         body:
-          "If Husk'et is offered as a subscription, future renewals can be stopped through the platform where the purchase was made. Access normally continues until the end of the current paid period.",
+          "If husk'et is offered as a subscription, future renewals can be stopped through the platform where the purchase was made. Access normally continues until the end of the current paid period.",
       },
       s6: {
         title: "6. Right of withdrawal",
@@ -691,13 +691,13 @@ const en = {
     },
 
     refund: {
-      title: "Refunds and complaints for Husk'et",
+      title: "Refunds and complaints for husk'et",
       intro:
-        "Here we describe how we handle refunds, incorrect charges, and complaints related to paid features in Husk'et.",
+        "Here we describe how we handle refunds, incorrect charges, and complaints related to paid features in husk'et.",
       s1: {
         title: "1. Digital purchases",
         p1:
-          "If paid features in Husk'et are delivered digitally and activated immediately, the right of withdrawal may lapse once delivery has started with your consent. This typically applies when:",
+          "If paid features in husk'et are delivered digitally and activated immediately, the right of withdrawal may lapse once delivery has started with your consent. This typically applies when:",
         bullets: [
           "you request delivery to begin immediately, and",
           "you confirm that the right of withdrawal may lapse once the feature is activated.",
@@ -707,7 +707,7 @@ const en = {
       s2: {
         title: "2. Technical issues",
         p1:
-          "If you have paid for a feature in Husk'et that is not made available due to a technical issue on our side or on the platform side, we will normally:",
+          "If you have paid for a feature in husk'et that is not made available due to a technical issue on our side or on the platform side, we will normally:",
         bullets: [
           "attempt to fix the issue as quickly as possible",
           "consider a refund or another reasonable solution if the issue cannot be resolved within a reasonable time",
@@ -716,7 +716,7 @@ const en = {
       s3: {
         title: "3. Subscription charges",
         body:
-          "For any subscriptions in Husk'et, future renewals can be stopped through the platform where you made the purchase. Periods already charged are normally not refunded, but access remains until the end of the paid period.",
+          "For any subscriptions in husk'et, future renewals can be stopped through the platform where you made the purchase. Periods already charged are normally not refunded, but access remains until the end of the paid period.",
       },
       s4: {
         title: "4. Incorrect charges",
