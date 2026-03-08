@@ -120,32 +120,32 @@ const en = {
     hero: {
       title: "husk'et",
       tagline:
-        "A mobile app for capturing what you want to remember — with low friction, clear structure, and focus on what actually matters.",
+        "A photo helps you remember the moment. husk'et helps you remember the details.",
       intro:
-        "husk'et is built for quick capture in everyday life. You can save things you want to remember, organize them simply, and find them again when you actually need them. The goal is not more systems — just less noise.",
+        "husk'et helps you hold onto the small things that are easy to forget later, like where you were, what you noticed, or why the moment mattered. Add a note or category to keep it organized and easy to find when you need it.",
       badgeOne: "Mobile app",
       badgeTwo: "Offline-first",
     },
     cards: {
       capture: {
-        title: "Capture things right away",
+        title: "Capture quickly",
         body:
-          "When something is worth remembering, it should be fast to save. husk'et is built for simple capture without unnecessary steps.",
+          "When something is worth remembering, saving it should take only a moment. Add a photo and a few details without breaking your flow.",
       },
       structure: {
-        title: "Organized instead of messy",
+        title: "Keep the details",
         body:
-          "The app is built to provide structure without becoming heavy. It should be easy to save, easy to browse, and easy to find things again.",
+          "A photo shows the moment, but not everything about it. Notes, categories, and ratings help you remember what made it meaningful.",
       },
       offline: {
-        title: "Built for real use",
+        title: "Find it again",
         body:
-          "husk'et is designed for daily mobile use — including situations where network coverage is unstable or attention is limited.",
+          "No endless scrolling through your camera roll. Search and categories help you get back to the moments that matter.",
       },
       privacy: {
-        title: "Data handled with respect",
+        title: "Your memories stay yours",
         body:
-          "We want clear boundaries around what the app does and how data is handled. That is why husk'et has its own legal pages gathered here.",
+          "Everything stays on your phone. No feeds, no followers, and no pressure to share.",
       },
     },
     legal: {
@@ -169,15 +169,15 @@ const en = {
         three: "Screenshot 3 from husk'et",
       },
       caption: {
-        one: "Quick capture",
-        two: "Clear overview",
-        three: "Built for real use",
+        one: "Separate your galleries",
+        two: "Add the details",
+        three: "Set it up your way",
       },
     },
     next: {
-      title: "Next",
+      title: "Coming soon",
       body:
-        "husk'et is part of Morning Coffee Labs’ growing portfolio of small, focused tools — built for actual use, not just polished demos.",
+        "husk'et is nearing launch. Soon you will be able to download it from the App Store and Google Play. If you would like to hear when it goes live, leave your email below. (mailto:post@morningcoffeelabs.no)",
     },
   },
 
