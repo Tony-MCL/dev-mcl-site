@@ -13,7 +13,7 @@ const HusketPage: React.FC = () => {
         <div className="husket-logo-wrap" aria-hidden="true">
           <img
             src={`${import.meta.env.BASE_URL}husketlogo.svg`}
-            alt="Husk'et"
+            alt="husk'et"
             className="husket-logo-image"
           />
         </div>
@@ -37,6 +37,9 @@ const HusketPage: React.FC = () => {
               alt={t("husket.glimpse.alt.one")}
               className="husket-glimpse-image"
             />
+            <figcaption className="husket-glimpse-caption">
+              {t("husket.glimpse.caption.one")}
+            </figcaption>
           </figure>
 
           <figure className="husket-glimpse-card">
@@ -45,6 +48,9 @@ const HusketPage: React.FC = () => {
               alt={t("husket.glimpse.alt.two")}
               className="husket-glimpse-image"
             />
+            <figcaption className="husket-glimpse-caption">
+              {t("husket.glimpse.caption.two")}
+            </figcaption>
           </figure>
 
           <figure className="husket-glimpse-card">
@@ -53,6 +59,9 @@ const HusketPage: React.FC = () => {
               alt={t("husket.glimpse.alt.three")}
               className="husket-glimpse-image"
             />
+            <figcaption className="husket-glimpse-caption">
+              {t("husket.glimpse.caption.three")}
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -81,9 +90,18 @@ const HusketPage: React.FC = () => {
           <p>{t("husket.cards.privacy.body")}</p>
         </div>
 
+        {/* =============================== */}
+        {/* NEXT / COMING SOON */}
+        {/* =============================== */}
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
           <h3 style={{ marginTop: 0 }}>{t("husket.next.title")}</h3>
-          <p style={{ marginBottom: 0 }}>{t("husket.next.body")}</p>
+
+          <p style={{ marginBottom: 0 }}>
+            {t("husket.next.body")}{" "}
+            <a href="mailto:post@morningcoffeelabs.no">
+              post@morningcoffeelabs.no
+            </a>
+          </p>
         </div>
       </section>
     </main>
