@@ -61,7 +61,7 @@
 
 /* ===== Intro grid – 2-column variant (samme bredde som 3) ===== */
 .intro-grid.two-columns {
-  max-width: 1080px; /* samme bredde som forsiden */
+  max-width: 1080px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -83,6 +83,12 @@
   margin: 0;
   color: var(--mcl-text-dim);
   line-height: 1.5;
+}
+
+.app-card-topline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
 }
 
 /* ===== Simple badge ===== */
@@ -239,6 +245,49 @@ html[data-theme="dark"] .form-row textarea {
   line-height: 1.55;
 }
 
+/* ===== Husket landing ===== */
+
+.husket-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.husket-hero {
+  margin-top: 0.5rem;
+}
+
+.husket-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.husket-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  margin-top: 1rem;
+}
+
+.husket-legal-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--mcl-border);
+  background: rgba(196, 139, 65, 0.08);
+  color: var(--mcl-text);
+  text-decoration: none;
+}
+
+.husket-legal-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
 /* ===== Legal pages ===== */
 
 .legal-page {
@@ -295,7 +344,16 @@ html[data-theme="dark"] .form-row textarea {
   .about-hero h1 {
     font-size: 2rem;
   }
+
+  .intro-grid.two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .husket-legal-links {
+    flex-direction: column;
+  }
 }
+
 /* ===== Theme toggle (Progress-ish pill) ===== */
 
 .theme-toggle {
@@ -352,6 +410,7 @@ html[data-theme="dark"] .theme-toggle {
     display: block;
   }
 }
+
 .header::after {
   content: "";
   position: absolute;
