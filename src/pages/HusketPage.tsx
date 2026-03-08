@@ -25,6 +25,39 @@ const HusketPage: React.FC = () => {
       </section>
 
       {/* =============================== */}
+      {/* QUICK GLIMPSE */}
+      {/* =============================== */}
+      <section className="intro-card">
+        <h3 style={{ marginTop: 0 }}>{t("husket.glimpse.title")}</h3>
+
+        <div className="husket-glimpse-grid">
+          <figure className="husket-glimpse-card">
+            <img
+              src={`${import.meta.env.BASE_URL}husket-screen-1.png`}
+              alt={t("husket.glimpse.alt.one")}
+              className="husket-glimpse-image"
+            />
+          </figure>
+
+          <figure className="husket-glimpse-card">
+            <img
+              src={`${import.meta.env.BASE_URL}husket-screen-2.png`}
+              alt={t("husket.glimpse.alt.two")}
+              className="husket-glimpse-image"
+            />
+          </figure>
+
+          <figure className="husket-glimpse-card">
+            <img
+              src={`${import.meta.env.BASE_URL}husket-screen-3.png`}
+              alt={t("husket.glimpse.alt.three")}
+              className="husket-glimpse-image"
+            />
+          </figure>
+        </div>
+      </section>
+
+      {/* =============================== */}
       {/* CONTENT */}
       {/* =============================== */}
       <section className="intro-grid two-columns">
@@ -46,40 +79,6 @@ const HusketPage: React.FC = () => {
         <div className="intro-card">
           <h3>{t("husket.cards.privacy.title")}</h3>
           <p>{t("husket.cards.privacy.body")}</p>
-        </div>
-
-        <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h3 style={{ marginTop: 0 }}>{t("husket.glimpse.title")}</h3>
-          <p>{t("husket.glimpse.body")}</p>
-
-          <div className="husket-glimpse-grid">
-            <figure className="husket-glimpse-card">
-              <img
-                src={`${import.meta.env.BASE_URL}husket-screen-1.png`}
-                alt={t("husket.glimpse.alt.one")}
-                className="husket-glimpse-image"
-              />
-              <figcaption>{t("husket.glimpse.caption.one")}</figcaption>
-            </figure>
-
-            <figure className="husket-glimpse-card">
-              <img
-                src={`${import.meta.env.BASE_URL}husket-screen-2.png`}
-                alt={t("husket.glimpse.alt.two")}
-                className="husket-glimpse-image"
-              />
-              <figcaption>{t("husket.glimpse.caption.two")}</figcaption>
-            </figure>
-
-            <figure className="husket-glimpse-card">
-              <img
-                src={`${import.meta.env.BASE_URL}husket-screen-3.png`}
-                alt={t("husket.glimpse.alt.three")}
-                className="husket-glimpse-image"
-              />
-              <figcaption>{t("husket.glimpse.caption.three")}</figcaption>
-            </figure>
-          </div>
         </div>
 
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
