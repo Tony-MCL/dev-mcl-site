@@ -177,7 +177,7 @@ const en = {
     next: {
       title: "Coming soon",
       body:
-        "husk'et is nearing launch. Soon you will be able to download it from the App Store and Google Play. If you would like to hear when it goes live, leave your email below. (mailto:post@morningcoffeelabs.no)",
+        "husk'et is nearing launch. Soon you will be able to download it from the App Store and Google Play. If you would like to hear when it goes live, leave your email below.",
     },
   },
 
