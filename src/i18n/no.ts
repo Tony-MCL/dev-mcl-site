@@ -511,60 +511,58 @@ const no = {
     },
 
     privacy: {
-      title: "Personvern for Husk'et",
-      intro:
-        "Denne personvernerklæringen beskriver hvordan Husk'et behandler opplysninger i appen og i tilknytning til eventuelle kjøp eller henvendelser.",
-      s1: {
-        title: "1. Behandlingsansvarlig",
-        body:
-          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som behandles i forbindelse med Husk'et.",
-      },
-      s2: {
-        title: "2. Hvilke opplysninger som kan behandles",
-        lead: "Avhengig av hvordan du bruker appen, kan dette omfatte:",
-        bullets: [
-          "kontaktopplysninger ved kjøp, henvendelser eller support",
-          "opplysninger du selv registrerer i appen, som tekst, bilder, vurderinger og kategorier",
-          "tekniske opplysninger knyttet til bruk av appen",
-          "lokasjonsdata dersom du aktivt gir appen tilgang til dette",
-        ],
-      },
-      s3: {
-        title: "3. Hva opplysningene brukes til",
-        lead: "Opplysningene brukes blant annet til å:",
-        bullets: [
-          "levere og drifte appens funksjonalitet",
-          "lagre og vise innhold du selv oppretter i appen",
-          "håndtere kjøp, lisens, support og feilsøking",
-          "forbedre stabilitet, funksjon og brukeropplevelse over tid",
-        ],
-      },
-      s4: {
-        title: "4. Lagring",
-        body:
-          "Innhold du registrerer i appen lagres i tråd med den tekniske løsningen som til enhver tid brukes i appen. Dersom funksjoner er lokale på enheten, vil data kunne være lagret lokalt. Dersom skytjenester tilbys senere, vil dette beskrives tydelig.",
-      },
-      s5: {
-        title: "5. Deling med tredjeparter",
-        body:
-          "Vi deler ikke innholdet ditt med tredjeparter med mindre det er nødvendig for drift av appen, betaling, hosting eller lovpålagte formål. Eventuelle databehandlere er bundet av avtaler og skal ikke bruke data til egne formål.",
-      },
-      s6: {
-        title: "6. Dine rettigheter",
-        body:
-          "Du kan be om innsyn, retting eller sletting av personopplysninger vi behandler om deg, i den grad dette følger av gjeldende lovverk. Du kan også trekke tilbake eventuelle samtykker.",
-      },
-      s7: {
-        title: "7. Endringer i erklæringen",
-        body:
-          "Vi kan oppdatere denne erklæringen ved behov. Siste versjon vil alltid være tilgjengelig på denne siden.",
-      },
-      s8: {
-        title: "8. Kontakt",
-        body:
-          "For spørsmål om personvern knyttet til Husk'et, kontakt oss på post@morningcoffeelabs.no.",
-      },
-    },
+  title: "Personvern for Husk'et",
+  intro:
+    "Denne personvernerklæringen beskriver hvordan Husk'et behandler opplysninger i appen slik den fungerer i dag.",
+  s1: {
+    title: "1. Behandlingsansvarlig",
+    body:
+      "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som eventuelt behandles i forbindelse med Husk'et.",
+  },
+  s2: {
+    title: "2. Hvilke opplysninger appen kan behandle",
+    lead: "Når du bruker appen, kan dette omfatte:",
+    bullets: [
+      "opplysninger du selv registrerer i appen, som tekst, bilder, vurderinger og kategorier",
+      "lokasjonsdata dersom du aktivt gir appen tilgang til dette",
+      "begrenset teknisk informasjon som er nødvendig for at appen skal fungere på enheten",
+    ],
+  },
+  s3: {
+    title: "3. Hva opplysningene brukes til",
+    lead: "Opplysningene brukes til å:",
+    bullets: [
+      "lagre og vise innhold du selv oppretter i appen",
+      "knytte lokasjon til innhold dersom du velger å bruke denne funksjonen",
+      "sørge for at appens funksjoner virker som de skal på enheten din",
+    ],
+  },
+  s4: {
+    title: "4. Lagring",
+    body:
+      "Innhold du registrerer i Husk'et lagres lokalt på din egen enhet. Appen krever ikke brukerkonto, og innholdet sendes ikke til Morning Coffee Labs sine servere som en del av normal bruk.",
+  },
+  s5: {
+    title: "5. Deling med tredjeparter",
+    body:
+      "Husk'et deler ikke innholdet ditt med tredjeparter. Dersom appen senere tilbyr eksport eller deling, skjer dette kun når du selv velger det og via kanaler eller apper du selv bruker.",
+  },
+  s6: {
+    title: "6. Dine valg og rettigheter",
+    body:
+      "Du kan selv velge om du vil gi appen tilgang til lokasjon. Du kan også slette innhold fra appen på enheten din og styre tillatelser i enhetens innstillinger.",
+  },
+  s7: {
+    title: "7. Endringer i erklæringen",
+    body:
+      "Vi kan oppdatere denne erklæringen dersom appens funksjoner eller behandlingen av opplysninger endrer seg. Siste versjon vil alltid være tilgjengelig på denne siden.",
+  },
+  s8: {
+    title: "8. Kontakt",
+    body:
+      "For spørsmål om personvern knyttet til Husk'et, kontakt oss på post@morningcoffeelabs.no.",
+  },
+},
 
     purchase: {
       title: "Kjøpsvilkår for Husk'et",
