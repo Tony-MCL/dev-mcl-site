@@ -7,23 +7,35 @@ const HusketPage: React.FC = () => {
 
   return (
     <main className="page husket-page">
-      <section className="fs-hero husket-hero">
-        <div className="husket-hero-badges">
-          <span className="badge">{t("husket.hero.badgeOne")}</span>
-          <span className="badge">{t("husket.hero.badgeTwo")}</span>
+      {/* =============================== */}
+      {/* HERO */}
+      {/* =============================== */}
+      <section className="husket-hero-layout">
+        <div className="husket-logo-wrap" aria-hidden="true">
+          <img
+            src="/husketlogo.svg"
+            alt="Husk'et"
+            className="husket-logo-image"
+          />
         </div>
 
-        <h1>{t("husket.hero.title")}</h1>
-
-        <p className="fs-tagline" style={{ maxWidth: 980 }}>
-          {t("husket.hero.tagline")}
-        </p>
-
-        <p style={{ maxWidth: 980, marginTop: "1rem" }}>
-          {t("husket.hero.intro")}
-        </p>
+        <div className="husket-hero-copy">
+          <p className="husket-hero-tagline">{t("husket.hero.tagline")}</p>
+          <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
+        </div>
       </section>
 
+      {/* =============================== */}
+      {/* BADGES */}
+      {/* =============================== */}
+      <section className="husket-meta-row">
+        <span className="badge">{t("husket.hero.badgeOne")}</span>
+        <span className="badge">{t("husket.hero.badgeTwo")}</span>
+      </section>
+
+      {/* =============================== */}
+      {/* CONTENT */}
+      {/* =============================== */}
       <section className="intro-grid two-columns">
         <div className="intro-card">
           <h3>{t("husket.cards.capture.title")}</h3>
@@ -50,10 +62,18 @@ const HusketPage: React.FC = () => {
           <p>{t("husket.legal.body")}</p>
 
           <div className="husket-legal-links">
-            <Link to="/husket/personvern">{t("husket.legal.links.privacy")}</Link>
-            <Link to="/husket/brukervilkar">{t("husket.legal.links.termsUse")}</Link>
-            <Link to="/husket/kjopsvilkar">{t("husket.legal.links.termsPurchase")}</Link>
-            <Link to="/husket/refusjon">{t("husket.legal.links.refund")}</Link>
+            <Link to="/husket/personvern">
+              {t("husket.legal.links.privacy")}
+            </Link>
+            <Link to="/husket/brukervilkar">
+              {t("husket.legal.links.termsUse")}
+            </Link>
+            <Link to="/husket/kjopsvilkar">
+              {t("husket.legal.links.termsPurchase")}
+            </Link>
+            <Link to="/husket/refusjon">
+              {t("husket.legal.links.refund")}
+            </Link>
           </div>
         </div>
 
