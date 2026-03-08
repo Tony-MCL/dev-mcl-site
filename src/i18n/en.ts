@@ -642,7 +642,7 @@ const en = {
         body:
           "For privacy-related questions about Husk'et, contact us at post@morningcoffeelabs.no.",
       },
-    },,
+    },
 
     purchase: {
       title: "Purchase terms for Husk'et",
