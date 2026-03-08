@@ -67,10 +67,10 @@ const en = {
       },
 
       husket: {
-        title: "Husk'et",
+        title: "husk'et",
         badge: "App",
         body:
-          "Husk'et is a mobile app for saving things you want to remember — quickly, clearly, and without noise. Built for real use, with focus on simple capture, structure, and control over your own data.",
+          "husk'et is a mobile app for saving things you want to remember. Take a photo, add a note or category, and keep the details that make the moment easy to find later. Some photos are meant to be shared. Others are just for you. Your memories, organized your way.",
         cta: "See Husk'et →",
       },
 
