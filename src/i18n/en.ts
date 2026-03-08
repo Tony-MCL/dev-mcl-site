@@ -591,60 +591,58 @@ const en = {
     },
 
     privacy: {
-      title: "Privacy policy for Husk'et",
-      intro:
-        "This privacy policy describes how Husk'et processes information in the app and in connection with any purchases or support inquiries.",
-      s1: {
-        title: "1. Data controller",
-        body:
-          "Mathisens Morning Coffee Labs is the data controller for personal data processed in connection with Husk'et.",
-      },
-      s2: {
-        title: "2. What information may be processed",
-        lead: "Depending on how you use the app, this may include:",
-        bullets: [
-          "contact details for purchases, support, or inquiries",
-          "information you enter in the app yourself, such as text, photos, ratings, and categories",
-          "technical information related to use of the app",
-          "location data if you actively grant the app access to it",
-        ],
-      },
-      s3: {
-        title: "3. What the information is used for",
-        lead: "The information is used, among other things, to:",
-        bullets: [
-          "deliver and operate the app’s functionality",
-          "store and display content you create in the app",
-          "handle purchases, licensing, support, and troubleshooting",
-          "improve stability, functionality, and user experience over time",
-        ],
-      },
-      s4: {
-        title: "4. Storage",
-        body:
-          "Content you register in the app is stored according to the technical solution used in the app at any given time. If features are local to the device, data may be stored locally. If cloud services are offered later, this will be described clearly.",
-      },
-      s5: {
-        title: "5. Sharing with third parties",
-        body:
-          "We do not share your content with third parties unless this is necessary for operating the app, payments, hosting, or legal obligations. Any processors are bound by agreements and may not use data for their own purposes.",
-      },
-      s6: {
-        title: "6. Your rights",
-        body:
-          "You may request access to, correction of, or deletion of personal data we process about you, to the extent provided by applicable law. You may also withdraw any consent you have given.",
-      },
-      s7: {
-        title: "7. Changes to this policy",
-        body:
-          "We may update this policy when needed. The latest version will always be available on this page.",
-      },
-      s8: {
-        title: "8. Contact",
-        body:
-          "For privacy-related questions about Husk'et, contact us at post@morningcoffeelabs.no.",
-      },
-    },
+  title: "Privacy policy for Husk'et",
+  intro:
+    "This privacy policy describes how Husk'et processes information in the app as it works today.",
+  s1: {
+    title: "1. Data controller",
+    body:
+      "Mathisens Morning Coffee Labs is the data controller for any personal data processed in connection with Husk'et.",
+  },
+  s2: {
+    title: "2. What information the app may process",
+    lead: "When you use the app, this may include:",
+    bullets: [
+      "information you enter in the app yourself, such as text, photos, ratings, and categories",
+      "location data if you actively grant the app access to it",
+      "limited technical information required for the app to function on your device",
+    ],
+  },
+  s3: {
+    title: "3. What the information is used for",
+    lead: "The information is used to:",
+    bullets: [
+      "store and display content you create in the app",
+      "associate location with content if you choose to use that feature",
+      "ensure that the app functions properly on your device",
+    ],
+  },
+  s4: {
+    title: "4. Storage",
+    body:
+      "Content you create in Husk'et is stored locally on your own device. The app does not require an account, and your content is not transmitted to Morning Coffee Labs servers as part of normal use.",
+  },
+  s5: {
+    title: "5. Sharing with third parties",
+    body:
+      "Husk'et does not share your content with third parties. If the app later offers export or sharing features, this will only happen when you choose to do so and through services or apps you choose yourself.",
+  },
+  s6: {
+    title: "6. Your choices and rights",
+    body:
+      "You can choose whether to grant the app access to location. You can also delete content from the app on your device and manage permissions in your device settings.",
+  },
+  s7: {
+    title: "7. Changes to this policy",
+    body:
+      "We may update this policy if the app’s features or data practices change. The latest version will always be available on this page.",
+  },
+  s8: {
+    title: "8. Contact",
+    body:
+      "For privacy-related questions about Husk'et, contact us at post@morningcoffeelabs.no.",
+  },
+},
 
     purchase: {
       title: "Purchase terms for Husk'et",
