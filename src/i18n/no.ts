@@ -177,7 +177,7 @@ const no = {
     next: {
       title: "Kommer snart",
       body:
-        "husk'et nærmer seg lansering. Snart vil du kunne laste det ned fra App Store og Google Play. Hvis du vil høre når det går live, legg igjen e-posten din under. (mailto:post@morningcoffeelabs.no)",
+        "husk'et nærmer seg lansering. Snart vil du kunne laste det ned fra App Store og Google Play. Hvis du vil høre når det går live, legg igjen e-posten din under.",
     },
   },
 
