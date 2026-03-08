@@ -34,10 +34,10 @@ const no = {
       refund: "Refusjon",
     },
     husketLinks: {
-      termsPurchase: "Husket kjøpsvilkår",
-      termsUse: "Husket brukervilkår",
-      privacy: "Husket personvern",
-      refund: "Husket refusjon",
+      termsPurchase: "husk'et kjøpsvilkår",
+      termsUse: "husk'et brukervilkår",
+      privacy: "husk'et personvern",
+      refund: "husk'et refusjon",
     },
   },
 
@@ -67,11 +67,11 @@ const no = {
       },
 
       husket: {
-        title: "Husk'et",
+        title: "husk'et",
         badge: "App",
         body:
           "husk'et er en mobilapp for å lagre ting du vil huske. Ta et bilde, legg til et notat eller en kategori, og behold detaljene som gjør det enkelt å finne igjen senere. Noen bilder er ment å deles. Andre er bare for deg. Dine minner – organisert på din måte.",
-        cta: "Se Husk'et →",
+        cta: "Se husk'et →",
       },
 
       services: {
@@ -116,13 +116,13 @@ const no = {
       "Dette er verktøy for folk som jobber strukturert med prosjekter, oppfølging og gjennomføring – og som ønsker oversikt, kontroll og dokumentasjon uten at verktøyet blir en belastning i seg selv.",
   },
 
-    husket: {
+  husket: {
     hero: {
-      title: "Husk'et",
+      title: "husk'et",
       tagline:
         "En mobil app for å fange det du vil huske – med lav friksjon, ryddig struktur og fokus på det som faktisk betyr noe.",
       intro:
-        "Husk'et er laget for raske registreringer i hverdagen. Du kan lagre ting du vil huske, organisere dem på en enkel måte og finne dem igjen når du faktisk trenger dem. Målet er ikke flere systemer, men mindre støy.",
+        "husk'et er laget for raske registreringer i hverdagen. Du kan lagre ting du vil huske, organisere dem på en enkel måte og finne dem igjen når du faktisk trenger dem. Målet er ikke flere systemer, men mindre støy.",
       badgeOne: "Mobil app",
       badgeTwo: "Offline-first",
     },
@@ -130,7 +130,7 @@ const no = {
       capture: {
         title: "Fang ting med en gang",
         body:
-          "Når noe først er verdt å huske, bør det være raskt å lagre det. Husk'et er laget for enkel registrering uten unødvendige steg.",
+          "Når noe først er verdt å huske, bør det være raskt å lagre det. husk'et er laget for enkel registrering uten unødvendige steg.",
       },
       structure: {
         title: "Ryddig i stedet for rotete",
@@ -140,18 +140,18 @@ const no = {
       offline: {
         title: "Bygget for ekte bruk",
         body:
-          "Husk'et er laget for daglig bruk på mobilen – også i situasjoner der nettet ikke alltid er stabilt eller oppmerksomheten er et knapphetsgode.",
+          "husk'et er laget for daglig bruk på mobilen – også i situasjoner der nettet ikke alltid er stabilt eller oppmerksomheten er et knapphetsgode.",
       },
       privacy: {
         title: "Data med respekt",
         body:
-          "Vi ønsker tydelige rammer rundt hva appen gjør og hvordan data håndteres. Derfor ligger egne legal-sider for Husk'et samlet her.",
+          "Vi ønsker tydelige rammer rundt hva appen gjør og hvordan data håndteres. Derfor ligger egne legal-sider for husk'et samlet her.",
       },
     },
     legal: {
-      title: "Legal for Husk'et",
+      title: "Legal for husk'et",
       body:
-        "Disse sidene gjelder spesifikt for Husk'et, og kan brukes både fra nettsiden og som juridiske lenker fra appen.",
+        "Disse sidene gjelder spesifikt for husk'et, og kan brukes både fra nettsiden og som juridiske lenker fra appen.",
       links: {
         privacy: "Personvern",
         termsUse: "Brukervilkår",
@@ -164,9 +164,9 @@ const no = {
       body:
         "Tre raske glimt fra appen – for å vise stemning, flyt og uttrykk uten å fylle siden med for mye detaljer.",
       alt: {
-        one: "Skjermdump 1 fra Husk'et",
-        two: "Skjermdump 2 fra Husk'et",
-        three: "Skjermdump 3 fra Husk'et",
+        one: "Skjermdump 1 fra husk'et",
+        two: "Skjermdump 2 fra husk'et",
+        three: "Skjermdump 3 fra husk'et",
       },
       caption: {
         one: "Rask registrering",
@@ -177,7 +177,7 @@ const no = {
     next: {
       title: "Videre",
       body:
-        "Husk'et er en del av Morning Coffee Labs sin voksende portefølje av små, fokuserte verktøy – laget for faktisk bruk, ikke bare fine demoer.",
+        "husk'et er en del av Morning Coffee Labs sin voksende portefølje av små, fokuserte verktøy – laget for faktisk bruk, ikke bare fine demoer.",
     },
   },
 
@@ -372,19 +372,40 @@ const no = {
       title: "Brukervilkår",
       intro:
         "Disse brukervilkårene regulerer hvordan du kan bruke tjenester og apper levert av Mathisens Morning Coffee Labs.",
-      s1: { title: "1. Lisens og bruk", body: "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten." },
-      s2: { title: "2. Konto og tilgang", body: "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig." },
-      s3: { title: "3. Akseptabel bruk", body: "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer." },
-      s4: { title: "4. Tilgjengelighet og endringer", body: "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet." },
-      s5: { title: "5. Ansvarsbegrensning", body: "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett." },
-      s6: { title: "6. Endringer i brukervilkår", body: "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her." },
+      s1: {
+        title: "1. Lisens og bruk",
+        body: "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten.",
+      },
+      s2: {
+        title: "2. Konto og tilgang",
+        body: "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig.",
+      },
+      s3: {
+        title: "3. Akseptabel bruk",
+        body: "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer.",
+      },
+      s4: {
+        title: "4. Tilgjengelighet og endringer",
+        body: "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet.",
+      },
+      s5: {
+        title: "5. Ansvarsbegrensning",
+        body: "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett.",
+      },
+      s6: {
+        title: "6. Endringer i brukervilkår",
+        body: "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her.",
+      },
     },
 
     privacy: {
       title: "Personvernerklæring",
       intro:
         "Denne personvernerklæringen beskriver hvordan Mathisens Morning Coffee Labs behandler personopplysninger i tilknytning til våre nettsider og digitale tjenester.",
-      s1: { title: "1. Behandlingsansvarlig", body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene." },
+      s1: {
+        title: "1. Behandlingsansvarlig",
+        body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene.",
+      },
       s2: {
         title: "2. Hvilke opplysninger vi samler inn",
         lead: "Typiske opplysninger vi kan behandle er for eksempel:",
@@ -405,25 +426,64 @@ const no = {
           "sende relevant informasjon dersom du har samtykket til dette (nyhetsbrev o.l.).",
         ],
       },
-      s4: { title: "4. Lagring og sletting", body: "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert." },
-      s5: { title: "5. Dine rettigheter", body: "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker." },
-      s6: { title: "6. Tredjeparter og databehandlere", body: "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål." },
-      s7: { title: "7. Endringer i personvernerklæringen", body: "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden." },
-      s8: { title: "8. Kontakt", body: "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden." },
+      s4: {
+        title: "4. Lagring og sletting",
+        body: "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert.",
+      },
+      s5: {
+        title: "5. Dine rettigheter",
+        body: "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker.",
+      },
+      s6: {
+        title: "6. Tredjeparter og databehandlere",
+        body: "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål.",
+      },
+      s7: {
+        title: "7. Endringer i personvernerklæringen",
+        body: "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
+      },
+      s8: {
+        title: "8. Kontakt",
+        body: "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden.",
+      },
     },
 
     purchase: {
       title: "Kjøpsvilkår",
       intro:
         "Disse kjøpsvilkårene gjelder for kjøp av digitale produkter fra Mathisens Morning Coffee Labs («vi», «oss» eller «selgeren»).",
-      s1: { title: "1. Partene", body: "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper." },
-      s2: { title: "2. Produkt og lisens", body: "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen." },
-      s3: { title: "3. Pris og betaling", body: "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp." },
-      s4: { title: "4. Levering av digitalt innhold", body: "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt." },
-      s5: { title: "5. Angrerett og oppsigelse", body: "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode." },
-      s6: { title: "6. Reklamasjon", body: "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning." },
-      s7: { title: "7. Endringer i vilkår", body: "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden." },
-      s8: { title: "8. Kontaktinformasjon", body: "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden." },
+      s1: {
+        title: "1. Partene",
+        body: "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper.",
+      },
+      s2: {
+        title: "2. Produkt og lisens",
+        body: "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen.",
+      },
+      s3: {
+        title: "3. Pris og betaling",
+        body: "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp.",
+      },
+      s4: {
+        title: "4. Levering av digitalt innhold",
+        body: "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt.",
+      },
+      s5: {
+        title: "5. Angrerett og oppsigelse",
+        body: "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode.",
+      },
+      s6: {
+        title: "6. Reklamasjon",
+        body: "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning.",
+      },
+      s7: {
+        title: "7. Endringer i vilkår",
+        body: "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
+      },
+      s8: {
+        title: "8. Kontaktinformasjon",
+        body: "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden.",
+      },
     },
 
     refund: {
@@ -451,13 +511,11 @@ const no = {
       },
       s3: {
         title: "3. Avslutning av abonnement",
-        body:
-          "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
+        body: "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
       },
       s4: {
         title: "4. Feil ved belastning",
-        body:
-          "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
+        body: "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
       },
       s5: {
         title: "5. Slik kontakter du oss",
@@ -475,13 +533,13 @@ const no = {
 
   husketLegal: {
     terms: {
-      title: "Brukervilkår for Husk'et",
+      title: "Brukervilkår for husk'et",
       intro:
-        "Disse brukervilkårene gjelder for bruk av appen Husk'et, levert av Mathisens Morning Coffee Labs.",
+        "Disse brukervilkårene gjelder for bruk av appen husk'et, levert av Mathisens Morning Coffee Labs.",
       s1: {
         title: "1. Bruk av appen",
         body:
-          "Husk'et gir deg en personlig, ikke-overførbar rett til å bruke appen i samsvar med den funksjonaliteten som tilbys i den aktuelle versjonen. Appen skal ikke videreselges, redistribueres eller brukes i strid med gjeldende lovverk.",
+          "husk'et gir deg en personlig, ikke-overførbar rett til å bruke appen i samsvar med den funksjonaliteten som tilbys i den aktuelle versjonen. Appen skal ikke videreselges, redistribueres eller brukes i strid med gjeldende lovverk.",
       },
       s2: {
         title: "2. Innhold du lagrer",
@@ -496,7 +554,7 @@ const no = {
       s4: {
         title: "4. Begrensning av ansvar",
         body:
-          "Husk'et leveres som den er. Så langt loven tillater det, er vi ikke ansvarlige for indirekte tap, tap av data, tapt fortjeneste eller andre følgeskader som kan oppstå ved bruk av appen.",
+          "husk'et leveres som den er. Så langt loven tillater det, er vi ikke ansvarlige for indirekte tap, tap av data, tapt fortjeneste eller andre følgeskader som kan oppstå ved bruk av appen.",
       },
       s5: {
         title: "5. Oppsigelse og endringer",
@@ -510,14 +568,14 @@ const no = {
       },
     },
 
-      privacy: {
-      title: "Personvern for Husk'et",
+    privacy: {
+      title: "Personvern for husk'et",
       intro:
-        "Denne personvernerklæringen beskriver hvordan Husk'et håndterer informasjon i appen. Husk'et er utviklet slik at innholdet du oppretter lagres lokalt på din egen enhet. Appen samler ikke inn personopplysninger og sender ikke innhold eller data til Morning Coffee Labs eller andre tredjeparter.",
+        "Denne personvernerklæringen beskriver hvordan husk'et håndterer informasjon i appen. husk'et er utviklet slik at innholdet du oppretter lagres lokalt på din egen enhet. Appen samler ikke inn personopplysninger og sender ikke innhold eller data til Morning Coffee Labs eller andre tredjeparter.",
       s1: {
         title: "1. Behandlingsansvarlig",
         body:
-          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som eventuelt behandles i forbindelse med Husk'et.",
+          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som eventuelt behandles i forbindelse med husk'et.",
       },
       s2: {
         title: "2. Hvilke opplysninger appen kan behandle",
@@ -540,12 +598,12 @@ const no = {
       s4: {
         title: "4. Lagring",
         body:
-          "Alt innhold du oppretter i Husk'et lagres lokalt på din egen enhet. Appen bruker ikke brukerkonto, skybasert lagring eller servere til å lagre brukerinnhold. Morning Coffee Labs har derfor ikke tilgang til innholdet du lagrer i appen.",
+          "Alt innhold du oppretter i husk'et lagres lokalt på din egen enhet. Appen bruker ikke brukerkonto, skybasert lagring eller servere til å lagre brukerinnhold. Morning Coffee Labs har derfor ikke tilgang til innholdet du lagrer i appen.",
       },
       s5: {
         title: "5. Deling med tredjeparter",
         body:
-          "Husk'et deler ikke data med Morning Coffee Labs eller andre tredjeparter. Dersom du velger å eksportere eller dele innhold fra appen, skjer dette kun etter ditt eget valg og via tjenester eller apper du selv bruker.",
+          "husk'et deler ikke data med Morning Coffee Labs eller andre tredjeparter. Dersom du velger å eksportere eller dele innhold fra appen, skjer dette kun etter ditt eget valg og via tjenester eller apper du selv bruker.",
       },
       s6: {
         title: "6. Dine valg og rettigheter",
@@ -560,14 +618,14 @@ const no = {
       s8: {
         title: "8. Kontakt",
         body:
-          "For spørsmål om personvern knyttet til Husk'et, kontakt oss på post@morningcoffeelabs.no.",
+          "For spørsmål om personvern knyttet til husk'et, kontakt oss på post@morningcoffeelabs.no.",
       },
     },
-    
+
     purchase: {
-      title: "Kjøpsvilkår for Husk'et",
+      title: "Kjøpsvilkår for husk'et",
       intro:
-        "Disse kjøpsvilkårene gjelder dersom Husk'et tilbys med kjøp i app, abonnement eller andre betalte funksjoner.",
+        "Disse kjøpsvilkårene gjelder dersom husk'et tilbys med kjøp i app, abonnement eller andre betalte funksjoner.",
       s1: {
         title: "1. Partene",
         body:
@@ -576,7 +634,7 @@ const no = {
       s2: {
         title: "2. Produkt",
         body:
-          "Husk'et leveres som digital programvare. Ved eventuelle kjøp får du tilgang til den funksjonaliteten som er beskrevet i appen eller i den aktuelle kjøpsflyten.",
+          "husk'et leveres som digital programvare. Ved eventuelle kjøp får du tilgang til den funksjonaliteten som er beskrevet i appen eller i den aktuelle kjøpsflyten.",
       },
       s3: {
         title: "3. Pris og betaling",
@@ -591,7 +649,7 @@ const no = {
       s5: {
         title: "5. Abonnement og oppsigelse",
         body:
-          "Dersom Husk'et tilbys med abonnement, kan videre fornyelse stoppes via den plattformen kjøpet ble gjort gjennom. Tilgangen varer normalt ut inneværende betalte periode.",
+          "Dersom husk'et tilbys med abonnement, kan videre fornyelse stoppes via den plattformen kjøpet ble gjort gjennom. Tilgangen varer normalt ut inneværende betalte periode.",
       },
       s6: {
         title: "6. Angrerett",
@@ -611,13 +669,13 @@ const no = {
     },
 
     refund: {
-      title: "Refusjon og klage for Husk'et",
+      title: "Refusjon og klage for husk'et",
       intro:
-        "Her beskriver vi hvordan vi håndterer refusjoner, feilbelastninger og klager knyttet til betalte funksjoner i Husk'et.",
+        "Her beskriver vi hvordan vi håndterer refusjoner, feilbelastninger og klager knyttet til betalte funksjoner i husk'et.",
       s1: {
         title: "1. Digitale kjøp",
         p1:
-          "Dersom betalte funksjoner i Husk'et leveres digitalt og aktiveres umiddelbart, kan angreretten bortfalle når levering er startet etter ditt samtykke. Dette gjelder typisk når:",
+          "Dersom betalte funksjoner i husk'et leveres digitalt og aktiveres umiddelbart, kan angreretten bortfalle når levering er startet etter ditt samtykke. Dette gjelder typisk når:",
         bullets: [
           "du ber om at leveringen starter med en gang, og",
           "du bekrefter at angreretten kan bortfalle når funksjonen er aktivert.",
@@ -627,7 +685,7 @@ const no = {
       s2: {
         title: "2. Tekniske problemer",
         p1:
-          "Dersom du har betalt for en funksjon i Husk'et som ikke blir tilgjengelig på grunn av teknisk feil hos oss eller plattformen, vil vi normalt:",
+          "Dersom du har betalt for en funksjon i husk'et som ikke blir tilgjengelig på grunn av teknisk feil hos oss eller plattformen, vil vi normalt:",
         bullets: [
           "forsøke å rette feilen så raskt som mulig",
           "vurdere refusjon eller annen rimelig løsning dersom problemet ikke kan løses innen rimelig tid",
@@ -636,7 +694,7 @@ const no = {
       s3: {
         title: "3. Abonnement",
         body:
-          "For eventuelle abonnement i Husk'et kan videre fornyelse stoppes via den plattformen du kjøpte gjennom. Allerede belastede perioder refunderes normalt ikke, men tilgangen beholdes ut perioden.",
+          "For eventuelle abonnement i husk'et kan videre fornyelse stoppes via den plattformen du kjøpte gjennom. Allerede belastede perioder refunderes normalt ikke, men tilgangen beholdes ut perioden.",
       },
       s4: {
         title: "4. Feilbelastning",
