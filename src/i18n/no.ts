@@ -70,7 +70,7 @@ const no = {
         title: "Husk'et",
         badge: "App",
         body:
-          "Husk'et er en mobil app for å lagre ting du vil huske – raskt, ryddig og uten støy. Bygget for ekte bruk, med fokus på enkel registrering, struktur og kontroll over egne data.",
+          "husk'et er en mobilapp for å lagre ting du vil huske. Ta et bilde, legg til et notat eller en kategori, og behold detaljene som gjør det enkelt å finne igjen senere. Noen bilder er ment å deles. Andre er bare for deg. Dine minner – organisert på din måte.",
         cta: "Se Husk'et →",
       },
 
