@@ -250,18 +250,62 @@ html[data-theme="dark"] .form-row textarea {
 .husket-page {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-.husket-hero {
-  margin-top: 0.5rem;
+.husket-hero-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  column-gap: 2.5rem;
+  align-items: center;
+  margin-top: 1rem;
+  max-width: 1100px;
 }
 
-.husket-hero-badges {
+.husket-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 260px;
+}
+
+.husket-logo-image {
+  display: block;
+  width: 220px;
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.husket-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+  max-width: 820px;
+}
+
+.husket-hero-tagline,
+.husket-hero-intro {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.husket-hero-tagline {
+  font-size: 1.2rem;
+  color: var(--mcl-text);
+}
+
+.husket-hero-intro {
+  font-size: 1rem;
+  color: var(--mcl-text);
+}
+
+.husket-meta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-bottom: 1rem;
+  margin-top: -0.25rem;
 }
 
 .husket-legal-links {
@@ -286,6 +330,39 @@ html[data-theme="dark"] .form-row textarea {
 .husket-legal-links a:hover {
   opacity: 1;
   transform: translateY(-1px);
+}
+
+/* =============================== */
+/* MOBILE */
+/* =============================== */
+@media (max-width: 800px) {
+  .husket-hero-layout {
+    grid-template-columns: 1fr;
+    row-gap: 1.2rem;
+    align-items: start;
+  }
+
+  .husket-logo-wrap {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .husket-logo-image {
+    width: 160px;
+    max-width: 160px;
+  }
+
+  .husket-hero-tagline {
+    font-size: 1.1rem;
+  }
+
+  .husket-hero-intro {
+    font-size: 1rem;
+  }
+
+  .husket-legal-links {
+    flex-direction: column;
+  }
 }
 
 /* ===== Legal pages ===== */
