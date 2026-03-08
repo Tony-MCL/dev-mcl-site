@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useI18n } from "../i18n/useI18n";
 
 const HusketPage: React.FC = () => {
   const { t } = useI18n();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
 
   return (
     <main className="page husket-page">
