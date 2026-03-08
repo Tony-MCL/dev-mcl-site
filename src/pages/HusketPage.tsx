@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 
 const HusketPage: React.FC = () => {
@@ -23,14 +22,6 @@ const HusketPage: React.FC = () => {
           <p className="husket-hero-tagline">{t("husket.hero.tagline")}</p>
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
         </div>
-      </section>
-
-      {/* =============================== */}
-      {/* BADGES */}
-      {/* =============================== */}
-      <section className="husket-meta-row">
-        <span className="badge">{t("husket.hero.badgeOne")}</span>
-        <span className="badge">{t("husket.hero.badgeTwo")}</span>
       </section>
 
       {/* =============================== */}
@@ -58,22 +49,36 @@ const HusketPage: React.FC = () => {
         </div>
 
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h3 style={{ marginTop: 0 }}>{t("husket.legal.title")}</h3>
-          <p>{t("husket.legal.body")}</p>
+          <h3 style={{ marginTop: 0 }}>{t("husket.glimpse.title")}</h3>
+          <p>{t("husket.glimpse.body")}</p>
 
-          <div className="husket-legal-links">
-            <Link to="/husket/personvern">
-              {t("husket.legal.links.privacy")}
-            </Link>
-            <Link to="/husket/brukervilkar">
-              {t("husket.legal.links.termsUse")}
-            </Link>
-            <Link to="/husket/kjopsvilkar">
-              {t("husket.legal.links.termsPurchase")}
-            </Link>
-            <Link to="/husket/refusjon">
-              {t("husket.legal.links.refund")}
-            </Link>
+          <div className="husket-glimpse-grid">
+            <figure className="husket-glimpse-card">
+              <img
+                src={`${import.meta.env.BASE_URL}husket-screen-1.png`}
+                alt={t("husket.glimpse.alt.one")}
+                className="husket-glimpse-image"
+              />
+              <figcaption>{t("husket.glimpse.caption.one")}</figcaption>
+            </figure>
+
+            <figure className="husket-glimpse-card">
+              <img
+                src={`${import.meta.env.BASE_URL}husket-screen-2.png`}
+                alt={t("husket.glimpse.alt.two")}
+                className="husket-glimpse-image"
+              />
+              <figcaption>{t("husket.glimpse.caption.two")}</figcaption>
+            </figure>
+
+            <figure className="husket-glimpse-card">
+              <img
+                src={`${import.meta.env.BASE_URL}husket-screen-3.png`}
+                alt={t("husket.glimpse.alt.three")}
+                className="husket-glimpse-image"
+              />
+              <figcaption>{t("husket.glimpse.caption.three")}</figcaption>
+            </figure>
           </div>
         </div>
 
