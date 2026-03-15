@@ -106,7 +106,7 @@ const HusketPage: React.FC = () => {
             href="https://groups.google.com/g/husket-testpanel/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="primary-button"
+            className="hero-cta"
           >
             {t("husket.next.cta")}
           </a>
