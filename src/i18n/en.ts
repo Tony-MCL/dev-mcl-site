@@ -175,9 +175,10 @@ const en = {
       },
     },
     next: {
-      title: "Coming soon",
+      title: "Early access",
       body:
-        "husk'et is nearing launch. Soon you will be able to download it from the App Store and Google Play. If you would like to hear when it goes live, leave your email below.",
+        "husk'et is now available in early access on Google Play. If you would like to try the app before the official launch, you can join the husk'et test panel. Members of the group get access to the current test version and can help shape the app before release.",
+      cta: "Join the test panel →",
     },
   },
 
