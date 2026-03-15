@@ -175,9 +175,10 @@ const no = {
       },
     },
     next: {
-      title: "Kommer snart",
+      title: "Early access",
       body:
-        "husk'et nærmer seg lansering. Snart vil du kunne laste det ned fra App Store og Google Play. Hvis du vil høre når det går live, legg igjen e-posten din under.",
+        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
+      cta: "Bli med i testpanelet →",
     },
   },
 
