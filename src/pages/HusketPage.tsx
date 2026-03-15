@@ -25,6 +25,15 @@ const HusketPage: React.FC = () => {
         <div className="husket-hero-copy">
           <p className="husket-hero-tagline">{t("husket.hero.tagline")}</p>
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
+        
+          <a
+            href="https://groups.google.com/g/husket-testpanel/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-cta"
+          >
+            Get Early Access
+          </a>
         </div>
       </section>
 
