@@ -99,13 +99,17 @@ const HusketPage: React.FC = () => {
         {/* =============================== */}
         <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
           <h3 style={{ marginTop: 0 }}>{t("husket.next.title")}</h3>
-
-          <p style={{ marginBottom: 0 }}>
-            {t("husket.next.body")}{" "}
-            <a href="mailto:post@morningcoffeelabs.no">
-              post@morningcoffeelabs.no
-            </a>
-          </p>
+        
+          <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
+        
+          <a
+            href="https://groups.google.com/g/husket-testpanel/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="primary-button"
+          >
+            {t("husket.next.cta")}
+          </a>
         </div>
       </section>
     </main>
