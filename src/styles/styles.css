@@ -301,6 +301,10 @@ html[data-theme="dark"] .form-row textarea {
   color: var(--mcl-text);
 }
 
+.husket-hero-copy .hero-cta {
+  align-self: flex-start;
+}
+
 .husket-glimpse-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
