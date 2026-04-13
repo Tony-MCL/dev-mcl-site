@@ -715,6 +715,92 @@ const no = {
       },
     },
   },
+
+  receipt: {
+  hero: {
+    title: "Aldri mist en kvittering igjen.",
+    sub: "Fra lagring til garanti – alt samlet på ett sted, klart når du trenger det.",
+    line: "Enklere enn papir. Tryggere enn kamerarullen.",
+    cta: "Prøv tidlig tilgang"
+  },
+
+  visual: {
+    before: "Rotete kvitteringer",
+    after: "Organiserte kvitteringer i app"
+  },
+
+  problem: {
+    one: "Du trengte en kvittering – og fant den ikke",
+    two: "Den ble uleselig i bilen",
+    three: "Du vasket den bort",
+    four: "Du fikk ikke refusjon",
+    five: "Du mistet garantien",
+    line1: "Dette er ikke sjeldent. Det skjer hele tiden.",
+    line2: "Denne appen finnes på grunn av dette."
+  },
+
+  how: {
+    save: {
+      title: "Lagre",
+      body: "Ta bilde eller importer på sekunder."
+    },
+    store: {
+      title: "Oppbevar",
+      body: "Alt organiseres automatisk."
+    },
+    use: {
+      title: "Bruk",
+      body: "Finn, del eller bruk når det gjelder."
+    }
+  },
+
+  features: {
+    capture: {
+      title: "Ta bilde på sekunder",
+      body: "Appen åpner rett i kamera. Fordi fart betyr noe."
+    },
+    import: {
+      title: "Importer digitale kvitteringer",
+      body: "PDF, e-post, skjermbilder. Alt samlet."
+    },
+    autofill: {
+      title: "Smart autofyll",
+      body: "Dato, beløp og butikk fylles inn automatisk."
+    },
+    archive: {
+      title: "Alt på ett sted",
+      body: "Ingen bunker. Ingen mapper. Bare oversikt."
+    },
+    warranty: {
+      title: "Garantipåminnelser",
+      body: "Før det er for sent."
+    },
+    share: {
+      title: "Del når det gjelder",
+      body: "Refusjon, retur, dokumentasjon."
+    }
+  },
+
+  moment: {
+    title: "Forskjellen er timing",
+    body: "«Den gikk ut i går…» vs «Jeg fikset det i tide»"
+  },
+
+  extra: {
+    title: "Kvitteringen følger produktet",
+    body: "Når du selger noe, send med kvitteringen. Enklere og tryggere."
+  },
+
+  positioning: {
+    title: "Hva dette er",
+    body: "Et trygt sted for kvitteringene dine."
+  },
+
+  cta: {
+    title: "Lagre nå. Takk deg selv senere.",
+    button: "Last ned på Google Play"
+  }
+}
 } as const;
 
 export default no;
