@@ -737,6 +737,92 @@ const en = {
       },
     },
   },
+
+  receipt: {
+  hero: {
+    title: "Never lose a receipt again.",
+    sub: "From capture to warranty — everything in one place, ready when you need it.",
+    line: "Simpler than paper. Safer than your camera roll.",
+    cta: "Try early access"
+  },
+
+  visual: {
+    before: "Messy receipts",
+    after: "Organized receipts in app"
+  },
+
+  problem: {
+    one: "You needed a receipt — and could not find it",
+    two: "It faded in your car",
+    three: "You washed it",
+    four: "You could not get reimbursed",
+    five: "You lost a warranty",
+    line1: "This is not rare. It happens all the time.",
+    line2: "This app exists because of this."
+  },
+
+  how: {
+    save: {
+      title: "Save it",
+      body: "Snap or import in seconds."
+    },
+    store: {
+      title: "Store it",
+      body: "Everything organized automatically."
+    },
+    use: {
+      title: "Use it",
+      body: "Find, share, or act when it matters."
+    }
+  },
+
+  features: {
+    capture: {
+      title: "Capture in seconds",
+      body: "The app opens straight to the camera. Because speed matters."
+    },
+    import: {
+      title: "Import digital receipts",
+      body: "PDFs, emails, screenshots. All in one place."
+    },
+    autofill: {
+      title: "Smart autofill",
+      body: "Date, amount, store. Already filled. You just confirm."
+    },
+    archive: {
+      title: "Everything in one place",
+      body: "No piles. No folders. Just a clean archive you can trust."
+    },
+    warranty: {
+      title: "Warranty reminders",
+      body: "Before it expires. Not after."
+    },
+    share: {
+      title: "Share when it matters",
+      body: "Reimbursements. Returns. Proof. Send it however you already work."
+    }
+  },
+
+  moment: {
+    title: "The difference is timing",
+    body: "“It expired yesterday…” vs “I fixed it in time”"
+  },
+
+  extra: {
+    title: "The receipt follows the product",
+    body: "When you sell something, send the receipt with it. Better trust. Easier resale."
+  },
+
+  positioning: {
+    title: "What this is",
+    body: "A safe place for your receipts."
+  },
+
+  cta: {
+    title: "Save it now. Thank yourself later.",
+    button: "Download on Google Play"
+  }
+}
 } as const;
 
 export default en;
