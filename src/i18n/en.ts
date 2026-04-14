@@ -819,8 +819,10 @@ const en = {
   },
 
   cta: {
-    title: "Interested?",
-    button: "Get in touch"
+    title: "Want early access?",
+    sub: "Get early access and help shape the product.",
+    button: "Get in touch",
+    note: "No commitment. Just genuine interest."
   }
 }
 } as const;
