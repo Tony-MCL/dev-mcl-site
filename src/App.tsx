@@ -26,11 +26,15 @@ import HusketRefusjonPage from "./pages/HusketRefusjonPage";
 const AppShell: React.FC = () => {
   const location = useLocation();
 
-  const isHusketRoute = location.pathname === "/husket" || location.pathname.startsWith("/husket/");
+  const isCleanProductRoute =
+    location.pathname === "/husket" ||
+    location.pathname.startsWith("/husket/") ||
+    location.pathname === "/receipts" ||
+    location.pathname.startsWith("/receipts/");
 
   return (
     <div className="app-shell">
-      {!isHusketRoute ? <WatermarkLayer /> : null}
+      {!isCleanProductRoute ? <WatermarkLayer /> : null}
 
       <Header />
 
