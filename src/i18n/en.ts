@@ -74,6 +74,14 @@ const en = {
         cta: "See husk'et →",
       },
 
+      receipts: {
+        title: "Receipt app (production name)" ,
+        badge: "App",
+        body:
+          "A practical mobile app for saving, organizing, and finding receipts when they actually matter. Snap them, import PDFs or screenshots, and keep your documentation ready for reimbursements, returns, warranties, or resale.",
+        cta: "See the receipt app →",
+      },
+
       services: {
         title: "From challenge to solution",
         body:
