@@ -72,6 +72,20 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
+          {/* RECEIPT APP */}
+          <div className="intro-card">
+            <div className="app-card-topline">
+              <span className="badge">{t("home.cards.receipts.badge")}</span>
+            </div>
+
+            <h3>{t("home.cards.receipts.title")}</h3>
+            <p>{t("home.cards.receipts.body")}</p>
+
+            <p style={{ marginTop: "0.7rem" }}>
+              <Link to="/receipts">{t("home.cards.receipts.cta")}</Link>
+            </p>
+          </div>
+
           {/* TJENESTER */}
           <div className="intro-card">
             <h3>{t("home.cards.services.title")}</h3>
