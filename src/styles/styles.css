@@ -360,6 +360,33 @@ html[data-theme="dark"] .form-row textarea {
   }
 }
 
+/* ===== Receipt landing ===== */
+
+.receipt-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.receipt-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.receipt-visual-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+  .receipt-visual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =============================== */
 /* MOBILE */
 /* =============================== */
