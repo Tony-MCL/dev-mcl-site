@@ -797,9 +797,10 @@ const no = {
   },
 
   cta: {
-    title: "Interessert?",
-    button: "Ta kontakt"
-  }
+  title: "Vil du teste før lansering?",
+  sub: "Få tidlig tilgang og hjelp oss forme løsningen videre.",
+  button: "Ta kontakt",
+  note: "Ingen forpliktelser. Bare ekte interesse."
 }
 } as const;
 
