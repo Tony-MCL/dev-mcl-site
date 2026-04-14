@@ -26,22 +26,21 @@ const ReceiptPage: React.FC = () => {
       {/* =============================== */}
       {/* BEFORE / AFTER */}
       {/* =============================== */}
-      <section className="intro-card">
-        <div className="intro-grid two-columns">
-          <div>
-            <img
-              src={`${import.meta.env.BASE_URL}receipt-before.png`}
-              alt={t("receipt.visual.before")}
-              style={{ width: "100%", borderRadius: "12px" }}
-            />
-          </div>
-          <div>
-            <img
-              src={`${import.meta.env.BASE_URL}receipt-after.png`}
-              alt={t("receipt.visual.after")}
-              style={{ width: "100%", borderRadius: "12px" }}
-            />
-          </div>
+      <section className="receipt-visual-grid">
+        <div className="intro-card">
+          <img
+            src={`${import.meta.env.BASE_URL}receipt-before.png`}
+            alt={t("receipt.visual.before")}
+            className="receipt-visual-image"
+          />
+        </div>
+      
+        <div className="intro-card">
+          <img
+            src={`${import.meta.env.BASE_URL}receipt-after.png`}
+            alt={t("receipt.visual.after")}
+            className="receipt-visual-image"
+          />
         </div>
       </section>
 
