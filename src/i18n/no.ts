@@ -797,8 +797,8 @@ const no = {
   },
 
   cta: {
-    title: "Lagre nå. Takk deg selv senere.",
-    button: "Last ned på Google Play"
+    title: "Interessert?"
+    button: "Ta kontakt"
   }
 }
 } as const;
