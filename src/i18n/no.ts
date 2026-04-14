@@ -797,7 +797,7 @@ const no = {
   },
 
   cta: {
-    title: "Interessert?"
+    title: "Interessert?",
     button: "Ta kontakt"
   }
 }
