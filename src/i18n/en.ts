@@ -819,8 +819,8 @@ const en = {
   },
 
   cta: {
-    title: "Save it now. Thank yourself later.",
-    button: "Download on Google Play"
+    title: "Interested?"
+    button: "Get in touch"
   }
 }
 } as const;
