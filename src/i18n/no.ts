@@ -74,6 +74,14 @@ const no = {
         cta: "Se husk'et →",
       },
 
+      receipts: {
+        title: "Kvitteringsapp" (arbeidstittel),
+        badge: "App",
+        body:
+          "En praktisk mobilapp for å lagre, organisere og finne igjen kvitteringer når du faktisk trenger dem. Ta bilde, importer PDF eller skjermbilder, og ha dokumentasjonen klar for refusjon, retur, garanti eller videresalg.",
+        cta: "Se kvitteringsappen →",
+      },
+
       services: {
         title: "Fra utfordring til løsning",
         body:
