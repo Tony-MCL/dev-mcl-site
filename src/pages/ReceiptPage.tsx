@@ -18,8 +18,11 @@ const ReceiptPage: React.FC = () => {
         <p className="hero-tagline">{t("receipt.hero.sub")}</p>
         <p className="hero-sub">{t("receipt.hero.line")}</p>
 
-        <a href="#" className="hero-cta">
-          {t("receipt.hero.cta")}
+        <a
+          href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
+          className="hero-cta"
+        >
+          {t("receipt.cta.button")}
         </a>
       </section>
 
