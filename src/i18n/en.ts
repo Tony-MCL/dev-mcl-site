@@ -819,7 +819,7 @@ const en = {
   },
 
   cta: {
-    title: "Interested?"
+    title: "Interested?",
     button: "Get in touch"
   }
 }
