@@ -145,11 +145,20 @@ const ReceiptPage: React.FC = () => {
       {/* =============================== */}
       {/* FINAL CTA */}
       {/* =============================== */}
-      <section className="intro-card" style={{ textAlign: "center" }}>
-        <h3>{t("receipt.cta.title")}</h3>
-        <a href="#" className="hero-cta">
-          {t("receipt.cta.button")}
-        </a>
+      <section className="receipt-cta">
+        <div className="receipt-cta-inner">
+          <h2>{t("receipt.cta.title")}</h2>
+          <p className="receipt-cta-sub">{t("receipt.cta.sub")}</p>
+      
+          <a
+            href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
+            className="hero-cta receipt-cta-button"
+          >
+            {t("receipt.cta.button")}
+          </a>
+      
+          <p className="receipt-cta-note">{t("receipt.cta.note")}</p>
+        </div>
       </section>
     </main>
   );
