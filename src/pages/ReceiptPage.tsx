@@ -37,6 +37,8 @@ const ReceiptPage: React.FC = () => {
             className="receipt-visual-image"
           />
         </div>
+
+        <div className="receipt-arrow">→</div>
       
         <div className="intro-card">
           <img
