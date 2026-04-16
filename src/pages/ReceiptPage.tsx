@@ -86,37 +86,43 @@ const ReceiptPage: React.FC = () => {
       {/* =============================== */}
       {/* FEATURES */}
       {/* =============================== */}
-      <section className="intro-grid">
-        <div className="intro-card">
-          <h3>{t("receipt.features.capture.title")}</h3>
-          <p>{t("receipt.features.capture.body")}</p>
-        </div>
+      <section className="receipt-feature-columns">
+  {/* COLUMN 1 */}
+  <div className="intro-card">
+    <h3>{t("receipt.how.save.title")}</h3>
+    <p>{t("receipt.how.save.body")}</p>
 
-        <div className="intro-card">
-          <h3>{t("receipt.features.import.title")}</h3>
-          <p>{t("receipt.features.import.body")}</p>
-        </div>
+    <h3 className="feature-sub">{t("receipt.features.capture.title")}</h3>
+    <p>{t("receipt.features.capture.body")}</p>
 
-        <div className="intro-card">
-          <h3>{t("receipt.features.autofill.title")}</h3>
-          <p>{t("receipt.features.autofill.body")}</p>
-        </div>
+    <h3 className="feature-sub">{t("receipt.features.import.title")}</h3>
+    <p>{t("receipt.features.import.body")}</p>
+  </div>
 
-        <div className="intro-card">
-          <h3>{t("receipt.features.archive.title")}</h3>
-          <p>{t("receipt.features.archive.body")}</p>
-        </div>
+  {/* COLUMN 2 */}
+  <div className="intro-card">
+    <h3>{t("receipt.how.store.title")}</h3>
+    <p>{t("receipt.how.store.body")}</p>
 
-        <div className="intro-card">
-          <h3>{t("receipt.features.warranty.title")}</h3>
-          <p>{t("receipt.features.warranty.body")}</p>
-        </div>
+    <h3 className="feature-sub">{t("receipt.features.archive.title")}</h3>
+    <p>{t("receipt.features.archive.body")}</p>
 
-        <div className="intro-card">
-          <h3>{t("receipt.features.share.title")}</h3>
-          <p>{t("receipt.features.share.body")}</p>
-        </div>
-      </section>
+    <h3 className="feature-sub">{t("receipt.features.autofill.title")}</h3>
+    <p>{t("receipt.features.autofill.body")}</p>
+  </div>
+
+  {/* COLUMN 3 */}
+  <div className="intro-card">
+    <h3>{t("receipt.how.use.title")}</h3>
+    <p>{t("receipt.how.use.body")}</p>
+
+    <h3 className="feature-sub">{t("receipt.features.share.title")}</h3>
+    <p>{t("receipt.features.share.body")}</p>
+
+    <h3 className="feature-sub">{t("receipt.features.warranty.title")}</h3>
+    <p>{t("receipt.features.warranty.body")}</p>
+  </div>
+</section>
 
       {/* =============================== */}
       {/* MOMENT OF TRUTH */}
