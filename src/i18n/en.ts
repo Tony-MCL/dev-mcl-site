@@ -750,7 +750,7 @@ const en = {
   hero: {
     title: "Never lose a receipt again.",
     sub: "From capture to warranty — everything in one place, ready when you need it.",
-    line: "Simpler than paper. Safer than your camera roll.",
+    line: "Simpler and safer than paper. More organized than your camera roll.",
     cta: "Try early access"
   },
 
