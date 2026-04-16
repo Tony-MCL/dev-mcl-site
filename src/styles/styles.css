@@ -521,6 +521,27 @@ html[data-theme="dark"] .theme-toggle {
   box-shadow: 0 10px 24px rgba(0,0,0,0.55);
 }
 
+/* ===== Receipt feature columns ===== */
+
+.receipt-feature-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.feature-sub {
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+  .receipt-feature-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Receipt CTA ===== */
 
 .receipt-cta {
