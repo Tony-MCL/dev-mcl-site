@@ -728,7 +728,7 @@ const no = {
   hero: {
     title: "Aldri mist en kvittering igjen.",
     sub: "Fra lagring til garanti – alt samlet på ett sted, klart når du trenger det.",
-    line: "Enklere enn papir. Tryggere enn kamerarullen.",
+    line: "Enklere og tryggere enn papir. Mer organisert enn kamerarullen.",
     cta: "Prøv tidlig tilgang"
   },
 
