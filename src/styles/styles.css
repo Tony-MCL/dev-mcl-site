@@ -381,170 +381,7 @@ html[data-theme="dark"] .form-row textarea {
   border-radius: 12px;
 }
 
-@media (max-width: 800px) {
-  .receipt-visual-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =============================== */
-/* MOBILE */
-/* =============================== */
-@media (max-width: 800px) {
-  .husket-hero-layout {
-    grid-template-columns: 1fr;
-    row-gap: 1.2rem;
-    align-items: start;
-  }
-
-  .husket-logo-wrap {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .husket-logo-image {
-    width: 160px;
-    max-width: 160px;
-  }
-
-  .husket-hero-tagline {
-    font-size: 1.1rem;
-  }
-
-  .husket-hero-intro {
-    font-size: 1rem;
-  }
-}
-
-/* ===== Legal pages ===== */
-
-.legal-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.legal-header h1 {
-  font-size: 2.1rem;
-  margin-bottom: 0.4rem;
-}
-
-.legal-intro {
-  margin: 0;
-  max-width: 760px;
-  color: var(--mcl-text-dim);
-  line-height: 1.6;
-}
-
-.legal-section h2 {
-  margin-top: 0;
-  margin-bottom: 0.3rem;
-}
-
-.legal-section p,
-.legal-section ul {
-  margin-top: 0;
-  max-width: 760px;
-  color: var(--mcl-text-dim);
-  line-height: 1.6;
-}
-
-.legal-section ul {
-  padding-left: 1.2rem;
-}
-
-/* MOBILE TWEAKS */
-@media (max-width: 800px) {
-  .hero {
-    text-align: left;
-    margin-top: 0.8rem;
-    padding-left: 0;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .form-card {
-    padding: 1.4rem 1.1rem 1.2rem;
-  }
-
-  .about-hero h1 {
-    font-size: 2rem;
-  }
-
-  .intro-grid.two-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .husket-legal-links {
-    flex-direction: column;
-  }
-}
-
-/* ===== Theme toggle (Progress-ish pill) ===== */
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.10);
-  background: rgba(255, 255, 255, 0.55);
-  color: var(--mcl-text);
-  cursor: pointer;
-  user-select: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
-  transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
-}
-
-.theme-toggle:hover {
-  transform: translateY(-1px);
-  opacity: 0.95;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
-}
-
-.theme-icon {
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.theme-label {
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
-html[data-theme="dark"] .theme-toggle {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.45);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
-}
-
-/* ===== Receipt feature columns ===== */
-
-.intro-card h3:first-child {
-  font-size: 1.25rem;
-}
-
-.receipt-feature-columns {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.feature-sub {
-  margin-top: 1.2rem;
-  margin-bottom: 1.3rem;
-  font-size: 1.05rem;
-}
-
-@media (max-width: 900px) {
-  .receipt-feature-columns {
-    grid-template-columns: 1fr;
-  }
-}
+/* ===== Receipt flow section ===== */
 
 .receipt-flow-grid {
   display: grid;
@@ -559,9 +396,15 @@ html[data-theme="dark"] .theme-toggle {
   align-items: stretch;
 }
 
-.receipt-flow-card,
-.receipt-flow-target {
-  min-height: 100%;
+.receipt-flow-card > h3:first-child,
+.receipt-flow-target > h3:first-child {
+  font-size: 1.25rem;
+}
+
+.feature-sub {
+  margin-top: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
 }
 
 .receipt-flow-arrow {
@@ -590,34 +433,6 @@ html[data-theme="dark"] .theme-toggle {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 10px solid var(--mcl-accent-light);
-}
-
-.feature-sub {
-  margin-top: 1.1rem;
-  margin-bottom: 0.3rem;
-  font-size: 1.05rem;
-}
-
-.receipt-flow-card > h3:first-child {
-  font-size: 1.25rem;
-}
-
-@media (max-width: 900px) {
-  .receipt-flow-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .receipt-flow-arrow {
-    height: 34px;
-  }
-
-  .receipt-flow-arrow::before {
-    height: 18px;
-  }
-
-  .receipt-flow-arrow::after {
-    top: 18px;
-  }
 }
 
 /* ===== Receipt CTA ===== */
@@ -662,6 +477,141 @@ html[data-theme="dark"] .theme-toggle {
   opacity: 0.8;
 }
 
+/* =============================== */
+/* MOBILE */
+/* =============================== */
+@media (max-width: 800px) {
+  .husket-hero-layout {
+    grid-template-columns: 1fr;
+    row-gap: 1.2rem;
+    align-items: start;
+  }
+
+  .husket-logo-wrap {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .husket-logo-image {
+    width: 160px;
+    max-width: 160px;
+  }
+
+  .husket-hero-tagline {
+    font-size: 1.1rem;
+  }
+
+  .husket-hero-intro {
+    font-size: 1rem;
+  }
+
+  .receipt-visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    text-align: left;
+    margin-top: 0.8rem;
+    padding-left: 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .form-card {
+    padding: 1.4rem 1.1rem 1.2rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .intro-grid.two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .husket-legal-links {
+    flex-direction: column;
+  }
+}
+
+/* ===== Legal pages ===== */
+
+.legal-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.legal-header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.legal-intro {
+  margin: 0;
+  max-width: 760px;
+  color: var(--mcl-text-dim);
+  line-height: 1.6;
+}
+
+.legal-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.legal-section p,
+.legal-section ul {
+  margin-top: 0;
+  max-width: 760px;
+  color: var(--mcl-text-dim);
+  line-height: 1.6;
+}
+
+.legal-section ul {
+  padding-left: 1.2rem;
+}
+
+/* ===== Theme toggle (Progress-ish pill) ===== */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--mcl-text);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+}
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
+}
+
 /* Mobile: show only inside hamburger menu */
 @media (max-width: 800px) {
   .theme-toggle {
@@ -680,6 +630,24 @@ html[data-theme="dark"] .theme-toggle {
   }
 }
 
+@media (max-width: 900px) {
+  .receipt-flow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt-flow-arrow {
+    height: 34px;
+  }
+
+  .receipt-flow-arrow::before {
+    height: 18px;
+  }
+
+  .receipt-flow-arrow::after {
+    top: 18px;
+  }
+}
+
 .header::after {
   content: "";
   position: absolute;
@@ -694,3 +662,5 @@ html[data-theme="dark"] .theme-toggle {
 html[data-theme="dark"] .header::after {
   background: rgba(255, 255, 255, 0.10);
 }
+``
+ppassasje to smallား
