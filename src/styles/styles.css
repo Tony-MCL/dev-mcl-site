@@ -523,6 +523,10 @@ html[data-theme="dark"] .theme-toggle {
 
 /* ===== Receipt feature columns ===== */
 
+.intro-card h3:first-child {
+  font-size: 1.25rem;
+}
+
 .receipt-feature-columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -532,7 +536,7 @@ html[data-theme="dark"] .theme-toggle {
 
 .feature-sub {
   margin-top: 1.2rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1.3rem;
   font-size: 1.05rem;
 }
 
