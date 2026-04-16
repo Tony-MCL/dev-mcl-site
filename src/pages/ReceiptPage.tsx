@@ -64,26 +64,6 @@ const ReceiptPage: React.FC = () => {
       </section>
 
       {/* =============================== */}
-      {/* HOW IT WORKS */}
-      {/* =============================== */}
-      <section className="intro-grid">
-        <div className="intro-card">
-          <h3>{t("receipt.how.save.title")}</h3>
-          <p>{t("receipt.how.save.body")}</p>
-        </div>
-
-        <div className="intro-card">
-          <h3>{t("receipt.how.store.title")}</h3>
-          <p>{t("receipt.how.store.body")}</p>
-        </div>
-
-        <div className="intro-card">
-          <h3>{t("receipt.how.use.title")}</h3>
-          <p>{t("receipt.how.use.body")}</p>
-        </div>
-      </section>
-
-      {/* =============================== */}
       {/* FEATURES */}
       {/* =============================== */}
       <section className="receipt-feature-columns">
