@@ -748,62 +748,62 @@ const no = {
   },
 
   how: {
-    save: {
-      title: "Lagre",
-      body: "Ta bilde eller importer på sekunder."
-    },
-    store: {
-      title: "Oppbevar",
-      body: "Alt organiseres automatisk."
-    },
-    use: {
-      title: "Bruk",
-      body: "Finn, del eller bruk når det gjelder."
-    }
+  save: {
+    title: "Lagre det",
+    body: "Ta bilde eller importer på sekunder",
   },
-
-  features: {
-    capture: {
-      title: "Ta bilde på sekunder",
-      body: "Appen åpner rett i kamera. Fordi fart betyr noe."
-    },
-    import: {
-      title: "Importer digitale kvitteringer",
-      body: "PDF, e-post, skjermbilder. Alt samlet."
-    },
-    autofill: {
-      title: "Smart autofyll",
-      body: "Dato, beløp og butikk fylles inn automatisk."
-    },
-    archive: {
-      title: "Alt på ett sted",
-      body: "Ingen bunker. Ingen mapper. Bare oversikt."
-    },
-    warranty: {
-      title: "Garantipåminnelser",
-      body: "Før det er for sent."
-    },
-    share: {
-      title: "Del når det gjelder",
-      body: "Refusjon, retur, dokumentasjon."
-    }
+  store: {
+    title: "Oppbevar det",
+    body: "Alt organiseres automatisk",
   },
-
-  moment: {
-    title: "Forskjellen er timing",
-    body: "«Den gikk ut i går…» vs «Jeg fikset det i tide»"
+  use: {
+    title: "Bruk det",
+    body: "Finn, del eller bruk det når det gjelder",
   },
+},
 
-  extra: {
-    title: "Kvitteringen følger produktet",
-    body: "Når du selger noe, send med kvitteringen. Enklere og tryggere."
+features: {
+  capture: {
+    title: "Ta bilde eller importer på sekunder",
+    body: "Åpne appen og fang det med en gang. Fart betyr noe.",
   },
-
-  positioning: {
-    title: "Hva dette er",
-    body: "Et trygt sted for kvitteringene dine."
+  import: {
+    title: "Importer digitale kvitteringer",
+    body: "PDF, e-post, skjermbilder. Alt samlet på ett sted.",
   },
+  autofill: {
+    title: "Smart autofyll",
+    body: "Dato, beløp, butikk. Ferdig utfylt. Du bare bekrefter.",
+  },
+  archive: {
+    title: "Alt organiseres automatisk",
+    body: "Ingen bunker. Ingen mapper. Bare et ryddig arkiv du kan stole på.",
+  },
+  warranty: {
+    title: "Garantipåminnelser",
+    body: "Før det utløper. Ikke etterpå.",
+  },
+  share: {
+    title: "Refusjon. Retur. Dokumentasjon.",
+    body: "Lagre, del og eksporter kvitteringene dine på din måte.",
+  },
+},
 
+moment: {
+  title: "Forskjellen er timing",
+  body: "«Den gikk ut i går.» vs «Jeg fikset det i tide.»",
+},
+
+extra: {
+  title: "Kvitteringen følger produktet",
+  body: "Når du selger noe, send kvitteringen med. Mer tillit. Enklere videresalg.",
+},
+
+positioning: {
+  title: "Et trygt sted for kvitteringene dine",
+  body: "Enkelt. Privat. Alltid tilgjengelig.",
+},
+    
   cta: {
     title: "Vil du teste før lansering?",
     sub: "Få tidlig tilgang og hjelp oss forme løsningen videre.",
