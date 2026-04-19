@@ -770,62 +770,62 @@ const en = {
   },
 
   how: {
-    save: {
-      title: "Save it",
-      body: "Snap or import in seconds."
-    },
-    store: {
-      title: "Store it",
-      body: "Everything organized automatically."
-    },
-    use: {
-      title: "Use it",
-      body: "Find, share, or act when it matters."
-    }
+  save: {
+    title: "Save it",
+    body: "Snap or import in seconds",
   },
-
-  features: {
-    capture: {
-      title: "Capture in seconds",
-      body: "The app opens straight to the camera. Because speed matters."
-    },
-    import: {
-      title: "Import digital receipts",
-      body: "PDFs, emails, screenshots. All in one place."
-    },
-    autofill: {
-      title: "Smart autofill",
-      body: "Date, amount, store. Already filled. You just confirm."
-    },
-    archive: {
-      title: "Everything in one place",
-      body: "No piles. No folders. Just a clean archive you can trust."
-    },
-    warranty: {
-      title: "Warranty reminders",
-      body: "Before it expires. Not after."
-    },
-    share: {
-      title: "Share when it matters",
-      body: "Reimbursements. Returns. Proof. Send it however you already work."
-    }
+  store: {
+    title: "Store it",
+    body: "Everything organized automatically",
   },
-
-  moment: {
-    title: "The difference is timing",
-    body: "“It expired yesterday…” vs “I fixed it in time”"
+  use: {
+    title: "Use it",
+    body: "Find, share, or act when it matters",
   },
+},
 
-  extra: {
-    title: "The receipt follows the product",
-    body: "When you sell something, send the receipt with it. Better trust. Easier resale."
+features: {
+  capture: {
+    title: "Snap or import in seconds",
+    body: "Open the app and capture instantly. Speed matters.",
   },
-
-  positioning: {
-    title: "What this is",
-    body: "A safe place for your receipts."
+  import: {
+    title: "Import digital receipts",
+    body: "PDFs, emails, screenshots. All in one place.",
   },
+  autofill: {
+    title: "Smart autofill",
+    body: "Date, amount, store. Already filled. You just confirm.",
+  },
+  archive: {
+    title: "Everything organized automatically",
+    body: "No piles. No folders. Just a clean archive you can trust.",
+  },
+  warranty: {
+    title: "Warranty reminders",
+    body: "Before it expires. Not after.",
+  },
+  share: {
+    title: "Reimbursements. Returns. Proof.",
+    body: "Save, share, and export your receipts your way.",
+  },
+},
 
+moment: {
+  title: "The difference is timing",
+  body: "“It expired yesterday.” vs “I fixed it in time.”",
+},
+
+extra: {
+  title: "The receipt follows the product",
+  body: "When you sell something, send the receipt with it. More trust. Easier resale.",
+},
+
+positioning: {
+  title: "A safe place for your receipts",
+  body: "Simple. Private. Always available.",
+},
+    
   cta: {
     title: "Want early access?",
     sub: "Get early access and help shape the product.",
