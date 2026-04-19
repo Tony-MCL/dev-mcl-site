@@ -724,93 +724,95 @@ const no = {
     },
   },
 
-  receipt: {
-  hero: {
-    title: "Aldri mist en kvittering igjen.",
-    sub: "Fra lagring til garanti – alt samlet på ett sted, klart når du trenger det.",
-    line: "Enklere og tryggere enn papir. Mer organisert enn kamerarullen.",
-    cta: "Prøv tidlig tilgang"
-  },
+   receipt: {
+    hero: {
+      title: "Mist aldri en kvittering igjen.",
+      sub: "Fra lagring til garanti – alt samlet på ett sted, klart når du trenger det.",
+      line: "Enklere og tryggere enn papir. Mer organisert enn kamerarullen.",
+      cta: "Prøv tidlig tilgang",
+    },
 
-  visual: {
-    before: "Rotete kvitteringer",
-    after: "Organiserte kvitteringer i app"
-  },
+    visual: {
+      before: "Rotete kvitteringer",
+      after: "Organiserte kvitteringer i app",
+    },
 
-  problem: {
-    one: "Du trengte en kvittering – og fant den ikke",
-    two: "Den ble uleselig i bilen",
-    three: "Du vasket den bort",
-    four: "Du fikk ikke refusjon",
-    five: "Du mistet garantien",
-    line1: "Dette er ikke sjeldent. Det skjer hele tiden.",
-    line2: "Denne appen finnes på grunn av dette."
-  },
+    problem: {
+      one: "Du trengte en kvittering – og fant den ikke",
+      two: "Den ble uleselig i bilen",
+      three: "Du vasket den bort",
+      four: "Du fikk ikke refusjon",
+      five: "Du mistet garantien",
+      line1: "Dette er ikke sjeldent. Det skjer hele tiden.",
+      line2: "Denne appen finnes på grunn av dette.",
+    },
 
-  how: {
-  save: {
-    title: "Lagre det",
-    body: "Ta bilde eller importer på sekunder",
-  },
-  store: {
-    title: "Oppbevar det",
-    body: "Alt organiseres automatisk",
-  },
-  use: {
-    title: "Bruk det",
-    body: "Finn, del eller bruk det når det gjelder",
-  },
-},
+    flow: {
+      save: {
+        title: "Lagre den",
+        capture: {
+          title: "Ta bilde eller importer på sekunder.",
+          body: "Åpne appen og fang den med en gang. Fart betyr noe.",
+        },
+        import: {
+          title: "Importer digitale kvitteringer",
+          body: "PDF-er, e-poster, skjermbilder. Alt på ett sted.",
+        },
+      },
 
-features: {
-  capture: {
-    title: "Ta bilde eller importer på sekunder",
-    body: "Åpne appen og fang det med en gang. Fart betyr noe.",
-  },
-  import: {
-    title: "Importer digitale kvitteringer",
-    body: "PDF, e-post, skjermbilder. Alt samlet på ett sted.",
-  },
-  autofill: {
-    title: "Smart autofyll",
-    body: "Dato, beløp, butikk. Ferdig utfylt. Du bare bekrefter.",
-  },
-  archive: {
-    title: "Alt organiseres automatisk",
-    body: "Ingen bunker. Ingen mapper. Bare et ryddig arkiv du kan stole på.",
-  },
-  warranty: {
-    title: "Garantipåminnelser",
-    body: "Før det utløper. Ikke etterpå.",
-  },
-  share: {
-    title: "Refusjon. Retur. Dokumentasjon.",
-    body: "Lagre, del og eksporter kvitteringene dine på din måte.",
-  },
-},
+      store: {
+        title: "Oppbevar den",
+        organized: {
+          title: "Alt organiseres automatisk.",
+          body1: "Alt på ett sted.",
+          body2: "Ingen bunker. Ingen mapper. Bare et ryddig arkiv du kan stole på.",
+        },
+        autofill: {
+          title: "Smart autofyll",
+          body: "Dato, beløp, butikk. Allerede fylt ut. Du bare bekrefter.",
+        },
+      },
 
-moment: {
-  title: "Forskjellen er timing",
-  body: "«Den gikk ut i går.» vs «Jeg fikset det i tide.»",
-},
+      use: {
+        title: "Bruk den",
+        whenNeeded: {
+          title: "Finn, del eller bruk den når det gjelder.",
+          body: "I appen. Klar når du trenger den.",
+        },
+        proof: {
+          title: "Refusjon. Retur. Dokumentasjon.",
+          body: "Lagre, del og eksporter kvitteringene dine på din måte.",
+        },
+        warranty: {
+          title: "Garantipåminnelser",
+          body: "Før det utløper. Ikke etterpå.",
+        },
+      },
 
-extra: {
-  title: "Kvitteringen følger produktet",
-  body: "Når du selger noe, send kvitteringen med. Mer tillit. Enklere videresalg.",
-},
+      bottom: {
+        safe: {
+          title: "Et trygt sted for kvitteringene dine.",
+          body: "Enkelt. Privat. Alltid tilgjengelig.",
+        },
+        product: {
+          title: "Kvitteringen følger produktet.",
+          body1: "Når du selger noe, sender du kvitteringen med.",
+          body2: "Mer tillit. Enklere videresalg.",
+        },
+        timing: {
+          title: "Forskjellen er timing.",
+          body: "«Den gikk ut i går.» vs «Jeg fikset det i tide.»",
+        },
+      },
+    },
 
-positioning: {
-  title: "Et trygt sted for kvitteringene dine",
-  body: "Enkelt. Privat. Alltid tilgjengelig.",
-},
-    
-  cta: {
-    title: "Vil du teste før lansering?",
-    sub: "Få tidlig tilgang og hjelp oss forme løsningen videre.",
-    button: "Ta kontakt",
-    note: "Ingen forpliktelser. Bare ekte interesse."
+    cta: {
+      title: "Vil du teste før lansering?",
+      sub: "Få tidlig tilgang og hjelp oss forme løsningen videre.",
+      button: "Ta kontakt",
+      note: "Ingen forpliktelser. Bare ekte interesse.",
+    },
   }
-}
 } as const;
 
 export default no;
