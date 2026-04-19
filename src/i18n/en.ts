@@ -746,93 +746,95 @@ const en = {
     },
   },
 
-  receipt: {
-  hero: {
-    title: "Never lose a receipt again.",
-    sub: "From capture to warranty — everything in one place, ready when you need it.",
-    line: "Simpler and safer than paper. More organized than your camera roll.",
-    cta: "Try early access"
-  },
+ receipt: {
+    hero: {
+      title: "Never lose a receipt again.",
+      sub: "From capture to warranty — everything in one place, ready when you need it.",
+      line: "Simpler and safer than paper. More organized than your camera roll.",
+      cta: "Try early access",
+    },
 
-  visual: {
-    before: "Messy receipts",
-    after: "Organized receipts in app"
-  },
+    visual: {
+      before: "Messy receipts",
+      after: "Organized receipts in app",
+    },
 
-  problem: {
-    one: "You needed a receipt — and could not find it",
-    two: "It faded in your car",
-    three: "You washed it",
-    four: "You could not get reimbursed",
-    five: "You lost a warranty",
-    line1: "This is not rare. It happens all the time.",
-    line2: "This app exists because of this."
-  },
+    problem: {
+      one: "You needed a receipt — and could not find it",
+      two: "It faded in your car",
+      three: "You washed it",
+      four: "You could not get reimbursed",
+      five: "You lost a warranty",
+      line1: "This is not rare. It happens all the time.",
+      line2: "This app exists because of this.",
+    },
 
-  how: {
-  save: {
-    title: "Save it",
-    body: "Snap or import in seconds",
-  },
-  store: {
-    title: "Store it",
-    body: "Everything organized automatically",
-  },
-  use: {
-    title: "Use it",
-    body: "Find, share, or act when it matters",
-  },
-},
+    flow: {
+      save: {
+        title: "Save it",
+        capture: {
+          title: "Snap or import in seconds.",
+          body: "Open the app and capture instantly. Speed matters.",
+        },
+        import: {
+          title: "Import digital receipts",
+          body: "PDFs, emails, screenshots. All in one place.",
+        },
+      },
 
-features: {
-  capture: {
-    title: "Snap or import in seconds",
-    body: "Open the app and capture instantly. Speed matters.",
-  },
-  import: {
-    title: "Import digital receipts",
-    body: "PDFs, emails, screenshots. All in one place.",
-  },
-  autofill: {
-    title: "Smart autofill",
-    body: "Date, amount, store. Already filled. You just confirm.",
-  },
-  archive: {
-    title: "Everything organized automatically",
-    body: "No piles. No folders. Just a clean archive you can trust.",
-  },
-  warranty: {
-    title: "Warranty reminders",
-    body: "Before it expires. Not after.",
-  },
-  share: {
-    title: "Reimbursements. Returns. Proof.",
-    body: "Save, share, and export your receipts your way.",
-  },
-},
+      store: {
+        title: "Store it",
+        organized: {
+          title: "Everything organized automatically.",
+          body1: "Everything in one place.",
+          body2: "No piles. No folders. Just a clean archive you can trust.",
+        },
+        autofill: {
+          title: "Smart autofill",
+          body: "Date, amount, store. Already filled. You just confirm.",
+        },
+      },
 
-moment: {
-  title: "The difference is timing",
-  body: "“It expired yesterday.” vs “I fixed it in time.”",
-},
+      use: {
+        title: "Use it",
+        whenNeeded: {
+          title: "Find, share, or use it when it matters.",
+          body: "In the app. Ready when you need it.",
+        },
+        proof: {
+          title: "Reimbursements. Returns. Proof.",
+          body: "Save, share, and export your receipts your way.",
+        },
+        warranty: {
+          title: "Warranty reminders",
+          body: "Before it expires. Not after.",
+        },
+      },
 
-extra: {
-  title: "The receipt follows the product",
-  body: "When you sell something, send the receipt with it. More trust. Easier resale.",
-},
+      bottom: {
+        safe: {
+          title: "A safe place for your receipts.",
+          body: "Simple. Private. Always available.",
+        },
+        product: {
+          title: "The receipt follows the product.",
+          body1: "When you sell something, send the receipt with it.",
+          body2: "More trust. Easier resale.",
+        },
+        timing: {
+          title: "The difference is timing.",
+          body: "“It expired yesterday.” vs “I fixed it in time.”",
+        },
+      },
+    },
 
-positioning: {
-  title: "A safe place for your receipts",
-  body: "Simple. Private. Always available.",
-},
-    
-  cta: {
-    title: "Want early access?",
-    sub: "Get early access and help shape the product.",
-    button: "Get in touch",
-    note: "No commitment. Just genuine interest."
+    cta: {
+      title: "Want early access?",
+      sub: "Get early access and help shape the product.",
+      button: "Get in touch",
+      note: "No commitment. Just genuine interest.",
+    },
   }
-}
 } as const;
 
 export default en;
