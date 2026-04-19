@@ -396,9 +396,18 @@ html[data-theme="dark"] .form-row textarea {
   align-items: stretch;
 }
 
-.receipt-flow-card > h3:first-child,
+/* Kolonne-overskrifter (Save / Store / Use) */
+.receipt-flow-card > h3:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+/* Nederste kort (behold litt mindre) */
 .receipt-flow-target > h3:first-child {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .feature-sub {
