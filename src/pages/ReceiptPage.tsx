@@ -71,63 +71,88 @@ const ReceiptPage: React.FC = () => {
       {/* FLOW */}
       {/* =============================== */}
       <section className="receipt-flow-grid">
+        {/* COLUMN 1 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
-            <h3>{t("receipt.how.save.title")}</h3>
-            <p>{t("receipt.how.save.body")}</p>
+            <h3 className="receipt-flow-main-title">
+              {t("receipt.flow.save.title")}
+            </h3>
 
-            <h3 className="feature-sub">{t("receipt.features.capture.title")}</h3>
-            <p>{t("receipt.features.capture.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.save.capture.title")}</h4>
+              <p>{t("receipt.flow.save.capture.body")}</p>
+            </div>
 
-            <h3 className="feature-sub">{t("receipt.features.import.title")}</h3>
-            <p>{t("receipt.features.import.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.save.import.title")}</h4>
+              <p>{t("receipt.flow.save.import.body")}</p>
+            </div>
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
 
           <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.moment.title")}</h3>
-            <p>{t("receipt.moment.body")}</p>
+            <h3>{t("receipt.flow.bottom.safe.title")}</h3>
+            <p>{t("receipt.flow.bottom.safe.body")}</p>
           </div>
         </div>
 
+        {/* COLUMN 2 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
-            <h3>{t("receipt.how.store.title")}</h3>
-            <p>{t("receipt.how.store.body")}</p>
+            <h3 className="receipt-flow-main-title">
+              {t("receipt.flow.store.title")}
+            </h3>
 
-            <h3 className="feature-sub">{t("receipt.features.archive.title")}</h3>
-            <p>{t("receipt.features.archive.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.store.organized.title")}</h4>
+              <p>{t("receipt.flow.store.organized.body1")}</p>
+              <p>{t("receipt.flow.store.organized.body2")}</p>
+            </div>
 
-            <h3 className="feature-sub">{t("receipt.features.autofill.title")}</h3>
-            <p>{t("receipt.features.autofill.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.store.autofill.title")}</h4>
+              <p>{t("receipt.flow.store.autofill.body")}</p>
+            </div>
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
 
           <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.extra.title")}</h3>
-            <p>{t("receipt.extra.body")}</p>
+            <h3>{t("receipt.flow.bottom.product.title")}</h3>
+            <p>{t("receipt.flow.bottom.product.body1")}</p>
+            <p>{t("receipt.flow.bottom.product.body2")}</p>
           </div>
         </div>
 
+        {/* COLUMN 3 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
-            <h3>{t("receipt.how.use.title")}</h3>
-            <p>{t("receipt.how.use.body")}</p>
+            <h3 className="receipt-flow-main-title">
+              {t("receipt.flow.use.title")}
+            </h3>
 
-            <h3 className="feature-sub">{t("receipt.features.share.title")}</h3>
-            <p>{t("receipt.features.share.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.use.whenNeeded.title")}</h4>
+              <p>{t("receipt.flow.use.whenNeeded.body")}</p>
+            </div>
 
-            <h3 className="feature-sub">{t("receipt.features.warranty.title")}</h3>
-            <p>{t("receipt.features.warranty.body")}</p>
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.use.proof.title")}</h4>
+              <p>{t("receipt.flow.use.proof.body")}</p>
+            </div>
+
+            <div className="receipt-flow-block">
+              <h4 className="feature-sub">{t("receipt.flow.use.warranty.title")}</h4>
+              <p>{t("receipt.flow.use.warranty.body")}</p>
+            </div>
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
 
           <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.positioning.title")}</h3>
-            <p>{t("receipt.positioning.body")}</p>
+            <h3>{t("receipt.flow.bottom.timing.title")}</h3>
+            <p>{t("receipt.flow.bottom.timing.body")}</p>
           </div>
         </div>
       </section>
