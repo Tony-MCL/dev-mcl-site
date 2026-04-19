@@ -79,12 +79,16 @@ const ReceiptPage: React.FC = () => {
             </h3>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.save.capture.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.save.capture.title")}
+              </h4>
               <p>{t("receipt.flow.save.capture.body")}</p>
             </div>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.save.import.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.save.import.title")}
+              </h4>
               <p>{t("receipt.flow.save.import.body")}</p>
             </div>
           </div>
@@ -105,13 +109,17 @@ const ReceiptPage: React.FC = () => {
             </h3>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.store.organized.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.store.organized.title")}
+              </h4>
               <p>{t("receipt.flow.store.organized.body1")}</p>
               <p>{t("receipt.flow.store.organized.body2")}</p>
             </div>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.store.autofill.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.store.autofill.title")}
+              </h4>
               <p>{t("receipt.flow.store.autofill.body")}</p>
             </div>
           </div>
@@ -133,17 +141,23 @@ const ReceiptPage: React.FC = () => {
             </h3>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.use.whenNeeded.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.use.whenNeeded.title")}
+              </h4>
               <p>{t("receipt.flow.use.whenNeeded.body")}</p>
             </div>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.use.proof.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.use.proof.title")}
+              </h4>
               <p>{t("receipt.flow.use.proof.body")}</p>
             </div>
 
             <div className="receipt-flow-block">
-              <h4 className="feature-sub">{t("receipt.flow.use.warranty.title")}</h4>
+              <h4 className="feature-sub">
+                {t("receipt.flow.use.warranty.title")}
+              </h4>
               <p>{t("receipt.flow.use.warranty.body")}</p>
             </div>
           </div>
