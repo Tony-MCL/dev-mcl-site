@@ -68,10 +68,9 @@ const ReceiptPage: React.FC = () => {
       </section>
 
       {/* =============================== */}
-      {/* FLOW */}
+      {/* FLOW – TOP ROW */}
       {/* =============================== */}
       <section className="receipt-flow-grid">
-        {/* COLUMN 1 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
             <h3 className="receipt-flow-main-title">
@@ -94,14 +93,8 @@ const ReceiptPage: React.FC = () => {
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
-
-          <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.flow.bottom.safe.title")}</h3>
-            <p>{t("receipt.flow.bottom.safe.body")}</p>
-          </div>
         </div>
 
-        {/* COLUMN 2 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
             <h3 className="receipt-flow-main-title">
@@ -125,15 +118,8 @@ const ReceiptPage: React.FC = () => {
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
-
-          <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.flow.bottom.product.title")}</h3>
-            <p>{t("receipt.flow.bottom.product.body1")}</p>
-            <p>{t("receipt.flow.bottom.product.body2")}</p>
-          </div>
         </div>
 
-        {/* COLUMN 3 */}
         <div className="receipt-flow-column">
           <div className="intro-card receipt-flow-card">
             <h3 className="receipt-flow-main-title">
@@ -163,18 +149,34 @@ const ReceiptPage: React.FC = () => {
           </div>
 
           <div className="receipt-flow-arrow" aria-hidden="true" />
+        </div>
+      </section>
 
-          <div className="intro-card receipt-flow-target">
-            <h3>{t("receipt.flow.bottom.timing.title")}</h3>
-            <p>{t("receipt.flow.bottom.timing.body")}</p>
-          </div>
+      {/* =============================== */}
+      {/* FLOW – BOTTOM ROW */}
+      {/* =============================== */}
+      <section className="receipt-flow-bottom-grid">
+        <div className="intro-card receipt-flow-target">
+          <h3>{t("receipt.flow.bottom.safe.title")}</h3>
+          <p>{t("receipt.flow.bottom.safe.body")}</p>
+        </div>
+
+        <div className="intro-card receipt-flow-target">
+          <h3>{t("receipt.flow.bottom.product.title")}</h3>
+          <p>{t("receipt.flow.bottom.product.body1")}</p>
+          <p>{t("receipt.flow.bottom.product.body2")}</p>
+        </div>
+
+        <div className="intro-card receipt-flow-target">
+          <h3>{t("receipt.flow.bottom.timing.title")}</h3>
+          <p>{t("receipt.flow.bottom.timing.body")}</p>
         </div>
       </section>
 
       {/* =============================== */}
       {/* FINAL CTA */}
       {/* =============================== */}
-      <section className="receipt-cta">
+      <section className="receipt-cta receipt-cta-standalone">
         <div className="receipt-cta-inner">
           <h2>{t("receipt.cta.title")}</h2>
           <p className="receipt-cta-sub">{t("receipt.cta.sub")}</p>
