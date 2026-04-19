@@ -396,24 +396,33 @@ html[data-theme="dark"] .form-row textarea {
   align-items: stretch;
 }
 
-/* Kolonne-overskrifter (Save / Store / Use) */
-.receipt-flow-card > h3:first-child {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
+.receipt-flow-card {
+  min-height: 100%;
 }
 
-/* Nederste kort (behold litt mindre) */
-.receipt-flow-target > h3:first-child {
-  font-size: 1.2rem;
-  font-weight: 600;
+.receipt-flow-main-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 1.35rem;
+  color: var(--mcl-accent-light);
+}
+
+.receipt-flow-block + .receipt-flow-block {
+  margin-top: 1.35rem;
 }
 
 .feature-sub {
-  margin-top: 1.1rem;
-  margin-bottom: 0.3rem;
-  font-size: 1.05rem;
+  margin: 0 0 0.45rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--mcl-accent-light);
+}
+
+.receipt-flow-block p + p,
+.receipt-flow-target p + p {
+  margin-top: 0.45rem;
 }
 
 .receipt-flow-arrow {
@@ -444,7 +453,10 @@ html[data-theme="dark"] .form-row textarea {
   border-top: 10px solid var(--mcl-accent-light);
 }
 
-/* ===== Receipt CTA ===== */
+.receipt-flow-target > h3:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 
 .receipt-cta {
   margin-top: 2rem;
@@ -484,6 +496,30 @@ html[data-theme="dark"] .form-row textarea {
   color: var(--mcl-text-dim);
   margin: 0;
   opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .receipt-flow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt-flow-arrow {
+    height: 34px;
+  }
+
+  .receipt-flow-arrow::before {
+    height: 18px;
+  }
+
+  .receipt-flow-arrow::after {
+    top: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .receipt-visual-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =============================== */
