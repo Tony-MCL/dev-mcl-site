@@ -807,7 +807,7 @@ const no = {
         },
         warranty: {
           title: "Garantipåminnelser",
-          body: "Før det utløper. Ikke etterpå.",
+          body: "Før den utløper. Ikke etterpå.",
         },
       },
 
