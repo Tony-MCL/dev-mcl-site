@@ -383,27 +383,33 @@ const no = {
         "Disse brukervilkårene regulerer hvordan du kan bruke tjenester og apper levert av Mathisens Morning Coffee Labs.",
       s1: {
         title: "1. Lisens og bruk",
-        body: "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten.",
+        body:
+          "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten.",
       },
       s2: {
         title: "2. Konto og tilgang",
-        body: "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig.",
+        body:
+          "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig.",
       },
       s3: {
         title: "3. Akseptabel bruk",
-        body: "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer.",
+        body:
+          "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer.",
       },
       s4: {
         title: "4. Tilgjengelighet og endringer",
-        body: "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet.",
+        body:
+          "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet.",
       },
       s5: {
         title: "5. Ansvarsbegrensning",
-        body: "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett.",
+        body:
+          "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett.",
       },
       s6: {
         title: "6. Endringer i brukervilkår",
-        body: "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her.",
+        body:
+          "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her.",
       },
     },
 
@@ -413,7 +419,8 @@ const no = {
         "Denne personvernerklæringen beskriver hvordan Mathisens Morning Coffee Labs behandler personopplysninger i tilknytning til våre nettsider og digitale tjenester.",
       s1: {
         title: "1. Behandlingsansvarlig",
-        body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene.",
+        body:
+          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene.",
       },
       s2: {
         title: "2. Hvilke opplysninger vi samler inn",
@@ -437,23 +444,28 @@ const no = {
       },
       s4: {
         title: "4. Lagring og sletting",
-        body: "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert.",
+        body:
+          "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert.",
       },
       s5: {
         title: "5. Dine rettigheter",
-        body: "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker.",
+        body:
+          "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker.",
       },
       s6: {
         title: "6. Tredjeparter og databehandlere",
-        body: "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål.",
+        body:
+          "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål.",
       },
       s7: {
         title: "7. Endringer i personvernerklæringen",
-        body: "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
+        body:
+          "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
       },
       s8: {
         title: "8. Kontakt",
-        body: "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden.",
+        body:
+          "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden.",
       },
     },
 
@@ -463,35 +475,43 @@ const no = {
         "Disse kjøpsvilkårene gjelder for kjøp av digitale produkter fra Mathisens Morning Coffee Labs («vi», «oss» eller «selgeren»).",
       s1: {
         title: "1. Partene",
-        body: "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper.",
+        body:
+          "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper.",
       },
       s2: {
         title: "2. Produkt og lisens",
-        body: "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen.",
+        body:
+          "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen.",
       },
       s3: {
         title: "3. Pris og betaling",
-        body: "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp.",
+        body:
+          "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp.",
       },
       s4: {
         title: "4. Levering av digitalt innhold",
-        body: "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt.",
+        body:
+          "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt.",
       },
       s5: {
         title: "5. Angrerett og oppsigelse",
-        body: "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode.",
+        body:
+          "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode.",
       },
       s6: {
         title: "6. Reklamasjon",
-        body: "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning.",
+        body:
+          "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning.",
       },
       s7: {
         title: "7. Endringer i vilkår",
-        body: "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
+        body:
+          "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
       },
       s8: {
         title: "8. Kontaktinformasjon",
-        body: "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden.",
+        body:
+          "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden.",
       },
     },
 
@@ -520,11 +540,13 @@ const no = {
       },
       s3: {
         title: "3. Avslutning av abonnement",
-        body: "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
+        body:
+          "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
       },
       s4: {
         title: "4. Feil ved belastning",
-        body: "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
+        body:
+          "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
       },
       s5: {
         title: "5. Slik kontakter du oss",
@@ -724,11 +746,11 @@ const no = {
     },
   },
 
-   receipt: {
+  receipt: {
     hero: {
       title: "Mist aldri en kvittering igjen.",
-      sub: "Fra lagring til garanti – alt samlet på ett sted, klart når du trenger det.",
-      line: "Enklere og tryggere enn papir. Mer organisert enn kamerarullen.",
+      sub: "Fra fangst til garanti, alt på ett sted. Klart når du trenger det.",
+      line: "Ingen bunker. Ingen leting i bilder eller e-poster. Bare kvitteringene dine, organisert.",
       cta: "Prøv tidlig tilgang",
     },
 
@@ -738,13 +760,13 @@ const no = {
     },
 
     problem: {
-      one: "Du trengte en kvittering – og fant den ikke",
+      one: "Du trengte en kvittering og fant den ikke",
       two: "Den ble uleselig i bilen",
-      three: "Du vasket den bort",
-      four: "Du fikk ikke refusjon",
-      five: "Du mistet garantien",
+      three: "Den gikk gjennom vasken",
+      four: "Du gikk glipp av refusjon",
+      five: "Du mistet et garantikrav",
       line1: "Dette er ikke sjeldent. Det skjer hele tiden.",
-      line2: "Denne appen finnes på grunn av dette.",
+      line2: "Det er derfor denne appen finnes.",
     },
 
     flow: {
@@ -807,8 +829,8 @@ const no = {
     },
 
     cta: {
-      title: "Vil du teste før lansering?",
-      sub: "Få tidlig tilgang og hjelp oss forme løsningen videre.",
+      title: "Vil du ha tidlig tilgang?",
+      sub: "Få tidlig tilgang og hjelp oss forme produktet videre.",
       button: "Ta kontakt",
       note: "Ingen forpliktelser. Bare ekte interesse.",
     },
