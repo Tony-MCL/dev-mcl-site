@@ -1,3 +1,4 @@
+// ReceiptPage.tsx
 import React, { useEffect } from "react";
 import { useI18n } from "../i18n/useI18n";
 
