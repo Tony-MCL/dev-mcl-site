@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* ===== HOME PAGE ===== */
 
 .home-page {
@@ -390,6 +392,14 @@ html[data-theme="dark"] .form-row textarea {
   margin-top: 1.5rem;
 }
 
+.receipt-flow-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: -0.25rem;
+  align-items: stretch;
+}
+
 .receipt-flow-column {
   display: flex;
   flex-direction: column;
@@ -425,6 +435,15 @@ html[data-theme="dark"] .form-row textarea {
   margin-top: 0.45rem;
 }
 
+.receipt-flow-target {
+  min-height: 100%;
+}
+
+.receipt-flow-target > h3:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 .receipt-flow-arrow {
   position: relative;
   width: 100%;
@@ -451,11 +470,6 @@ html[data-theme="dark"] .form-row textarea {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 10px solid var(--mcl-accent-light);
-}
-
-.receipt-flow-target > h3:first-child {
-  font-size: 1.2rem;
-  font-weight: 600;
 }
 
 .receipt-cta {
@@ -499,7 +513,8 @@ html[data-theme="dark"] .form-row textarea {
 }
 
 @media (max-width: 900px) {
-  .receipt-flow-grid {
+  .receipt-flow-grid,
+  .receipt-flow-bottom-grid {
     grid-template-columns: 1fr;
   }
 
@@ -631,14 +646,14 @@ html[data-theme="dark"] .form-row textarea {
   color: var(--mcl-text);
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
   transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
 }
 
 .theme-toggle:hover {
   transform: translateY(-1px);
   opacity: 0.95;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
 .theme-icon {
@@ -654,7 +669,7 @@ html[data-theme="dark"] .form-row textarea {
 html[data-theme="dark"] .theme-toggle {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(0, 0, 0, 0.45);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.55);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
 }
 
 /* Mobile: show only inside hamburger menu */
@@ -676,7 +691,8 @@ html[data-theme="dark"] .theme-toggle {
 }
 
 @media (max-width: 900px) {
-  .receipt-flow-grid {
+  .receipt-flow-grid,
+  .receipt-flow-bottom-grid {
     grid-template-columns: 1fr;
   }
 
@@ -707,5 +723,3 @@ html[data-theme="dark"] .theme-toggle {
 html[data-theme="dark"] .header::after {
   background: rgba(255, 255, 255, 0.10);
 }
-``
-ppassasje to smallား
