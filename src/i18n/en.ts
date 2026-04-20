@@ -749,8 +749,8 @@ const en = {
  receipt: {
     hero: {
       title: "Never lose a receipt again.",
-      sub: "From capture to warranty — everything in one place, ready when you need it.",
-      line: "Simpler and safer than paper. More organized than your camera roll.",
+      sub: "From capture to warranty, everything in one place. Ready when you need it.",
+      line: "No piles. No digging through photos  or e-mails. Just your receipts, organized.",
       cta: "Try early access",
     },
 
@@ -760,13 +760,13 @@ const en = {
     },
 
     problem: {
-      one: "You needed a receipt — and could not find it",
+      one: "You needed a receipt and could not find it",
       two: "It faded in your car",
-      three: "You washed it",
-      four: "You could not get reimbursed",
-      five: "You lost a warranty",
+      three: "It went through the wash",
+      four: "You missed a reimbursement",
+      five: "You lost a warranty claim",
       line1: "This is not rare. It happens all the time.",
-      line2: "This app exists because of this.",
+      line2: "That is why this app exists.",
     },
 
     flow: {
