@@ -1,6 +1,6 @@
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
