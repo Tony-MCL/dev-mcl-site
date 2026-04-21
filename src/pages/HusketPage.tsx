@@ -27,12 +27,12 @@ const HusketPage: React.FC = () => {
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
         
           <a
-            href="https://groups.google.com/g/husket-testpanel/about"
+            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-cta"
           >
-            Get Early Access
+            {t("husket.next.cta")}
           </a>
         </div>
       </section>
@@ -112,7 +112,7 @@ const HusketPage: React.FC = () => {
           <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
         
           <a
-            href="https://groups.google.com/g/husket-testpanel/about"
+            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-cta"
