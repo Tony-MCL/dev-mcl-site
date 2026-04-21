@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "./ScrollToTop";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -36,9 +37,13 @@ const AppShell: React.FC = () => {
     <div className="app-shell">
       {!isCleanProductRoute ? <WatermarkLayer /> : null}
 
+      <Router>
+        <ScrollToTop />
+
       <Header />
 
       <div className="app-content">
+          
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/om" element={<AboutPage />} />
