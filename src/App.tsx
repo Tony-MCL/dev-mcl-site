@@ -1,6 +1,12 @@
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -35,15 +41,13 @@ const AppShell: React.FC = () => {
 
   return (
     <div className="app-shell">
-      {!isCleanProductRoute ? <WatermarkLayer /> : null}
+      <ScrollToTop />
 
-      <Router>
-        <ScrollToTop />
+      {!isCleanProductRoute ? <WatermarkLayer /> : null}
 
       <Header />
 
       <div className="app-content">
-          
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/om" element={<AboutPage />} />
@@ -62,15 +66,23 @@ const AppShell: React.FC = () => {
           <Route path="/refusjon" element={<RefusjonPage />} />
 
           {/* Husket legal */}
-          <Route path="/husket/kjopsvilkar" element={<HusketKjopsvilkarPage />} />
-          <Route path="/husket/brukervilkar" element={<HusketBrukervilkarPage />} />
-          <Route path="/husket/personvern" element={<HusketPersonvernPage />} />
+          <Route
+            path="/husket/kjopsvilkar"
+            element={<HusketKjopsvilkarPage />}
+          />
+          <Route
+            path="/husket/brukervilkar"
+            element={<HusketBrukervilkarPage />}
+          />
+          <Route
+            path="/husket/personvern"
+            element={<HusketPersonvernPage />}
+          />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-        </Router>
 
       <Footer />
     </div>
@@ -78,7 +90,11 @@ const AppShell: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  return <AppShell />;
+  return (
+    <Router>
+      <AppShell />
+    </Router>
+  );
 };
 
 export default App;
