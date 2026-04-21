@@ -70,6 +70,7 @@ const AppShell: React.FC = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
+        </Router>
 
       <Footer />
     </div>
