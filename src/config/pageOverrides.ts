@@ -1,6 +1,13 @@
 import type { Lang } from "../i18n";
 
-export type EditablePageSlug = "about" | "services";
+export type EditablePageSlug =
+  | "about"
+  | "services"
+  | "contact"
+  | "purchase"
+  | "terms"
+  | "privacy"
+  | "refund";
 
 export type PageTextOverride = {
   no?: string;
@@ -11,7 +18,7 @@ export type PageOverrideMap = Partial<
   Record<EditablePageSlug, Record<string, PageTextOverride>>
 >;
 
-export const PAGE_OVERRIDES_STORAGE_KEY = "mcl_page_overrides_v1";
+export const PAGE_OVERRIDES_STORAGE_KEY = "mcl_page_overrides_v2";
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
