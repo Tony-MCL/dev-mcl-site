@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { PRODUCTS, type ProductContentBlock, type ProductDefinition } from "../config/products";
+import { PRODUCTS, type ProductContentBlock, type ProductSlug } from "../config/products";
 import {
   PRODUCT_OVERRIDES_STORAGE_KEY,
   getProductTextValue,
@@ -40,7 +40,7 @@ type DraftField = {
   pageTextEn: Record<string, string>;
 };
 
-type DraftMap = Record<string, DraftField>;
+type DraftMap = Record<ProductSlug, DraftField>;
 
 type PageDraftField = {
   textNo: Record<string, string>;
@@ -48,7 +48,9 @@ type PageDraftField = {
 };
 
 type PageDraftMap = Record<EditablePageSlug, PageDraftField>;
+
 type AdminTab = "products" | "pages";
+type ProductView = "overview" | "builtin" | "custom";
 
 function collectTextKeys(blocks: ProductContentBlock[]): string[] {
   const keys = new Set<string>();
@@ -187,9 +189,59 @@ function makeUniqueSeed(customProducts: CustomProduct[]): number {
   return seed;
 }
 
-const inputStyle: React.CSSProperties = { width: "100%", padding: "0.7rem" };
-const textareaStyle: React.CSSProperties = { width: "100%", padding: "0.7rem", resize: "vertical" };
-const cardStyle: React.CSSProperties = { border: "1px solid rgba(127,127,127,0.22)", borderRadius: 16, padding: "1rem" };
+function normalizeSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function statusChip(status: "draft" | "published") {
+  const isPublished = status === "published";
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "0.2rem 0.55rem",
+        borderRadius: 999,
+        fontSize: "0.8rem",
+        fontWeight: 700,
+        background: isPublished ? "rgba(18, 183, 106, 0.12)" : "rgba(247, 144, 9, 0.14)",
+        color: isPublished ? "#067647" : "#b54708",
+      }}
+    >
+      {isPublished ? "Publisert" : "Kladd"}
+    </span>
+  );
+}
+
+const shellStyle: React.CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "300px minmax(0, 1fr)",
+  gap: "1rem",
+  alignItems: "start",
+};
+
+const panelStyle: React.CSSProperties = {
+  border: "1px solid rgba(127,127,127,0.22)",
+  borderRadius: 18,
+  padding: "1rem",
+  background: "rgba(255,255,255,0.04)",
+};
+
+const softPanelStyle: React.CSSProperties = {
+  border: "1px solid rgba(127,127,127,0.16)",
+  borderRadius: 14,
+  padding: "0.9rem",
+  background: "rgba(127,127,127,0.04)",
+};
+
+const inputStyle: React.CSSProperties = { width: "100%", padding: "0.7rem", borderRadius: 10, border: "1px solid rgba(127,127,127,0.28)" };
+const textareaStyle: React.CSSProperties = { ...inputStyle, resize: "vertical", minHeight: 92 };
+const sectionTitleStyle: React.CSSProperties = { marginTop: 0, marginBottom: "0.65rem" };
 
 const AdminPage: React.FC = () => {
   const [productDrafts, setProductDrafts] = useState<DraftMap | null>(null);
@@ -197,9 +249,13 @@ const AdminPage: React.FC = () => {
   const [customProducts, setCustomProducts] = useState<CustomProduct[]>([]);
   const [savedAt, setSavedAt] = useState<string>("");
   const [saveError, setSaveError] = useState<string>("");
-  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
-  const [expandedPageSlug, setExpandedPageSlug] = useState<EditablePageSlug | null>(null);
   const [activeTab, setActiveTab] = useState<AdminTab>("products");
+  const [productView, setProductView] = useState<ProductView>("overview");
+  const [selectedBuiltInSlug, setSelectedBuiltInSlug] = useState<ProductSlug>(PRODUCTS[0]?.slug ?? "husket");
+  const [selectedCustomKey, setSelectedCustomKey] = useState<string | null>(null);
+  const [selectedPageSlug, setSelectedPageSlug] = useState<EditablePageSlug>(EDITABLE_PAGES[0]?.slug ?? "about");
+  const [productSearch, setProductSearch] = useState("");
+  const [pageSearch, setPageSearch] = useState("");
 
   useEffect(() => {
     let mounted = true;
@@ -211,8 +267,6 @@ const AdminPage: React.FC = () => {
       setProductDrafts(buildProductDrafts(readProductOverrides(), tNo, tEn));
       setPageDrafts(buildPageDrafts(readPageOverrides(), tNo, tEn));
       setCustomProducts(readCustomProducts());
-      setExpandedSlug(PRODUCTS[0]?.slug ?? null);
-      setExpandedPageSlug(EDITABLE_PAGES[0]?.slug ?? null);
     }
     load();
     return () => {
@@ -224,7 +278,7 @@ const AdminPage: React.FC = () => {
     return PRODUCTS.reduce((acc, product) => {
       acc[product.slug] = collectTextKeys(product.blocks);
       return acc;
-    }, {} as Record<string, string[]>);
+    }, {} as Record<ProductSlug, string[]>);
   }, []);
 
   const stats = useMemo(() => {
@@ -240,11 +294,36 @@ const AdminPage: React.FC = () => {
     };
   }, [customProducts]);
 
-  function updateDraft(slug: string, patch: Partial<DraftField>) {
+  const filteredBuiltIn = useMemo(() => {
+    const q = productSearch.trim().toLowerCase();
+    if (!q) return PRODUCTS;
+    return PRODUCTS.filter((product) => {
+      const draft = productDrafts?.[product.slug];
+      const hay = [product.slug, draft?.homeTitleNo, draft?.homeTitleEn, draft?.homeBodyNo, draft?.homeBodyEn].join(" ").toLowerCase();
+      return hay.includes(q);
+    });
+  }, [productDrafts, productSearch]);
+
+  const filteredCustom = useMemo(() => {
+    const q = productSearch.trim().toLowerCase();
+    if (!q) return customProducts;
+    return customProducts.filter((product) => {
+      const hay = [product.slug, product.routePath, product.homeTitle.no, product.homeTitle.en, product.pageTitle.no, product.pageTitle.en].join(" ").toLowerCase();
+      return hay.includes(q);
+    });
+  }, [customProducts, productSearch]);
+
+  const filteredPages = useMemo(() => {
+    const q = pageSearch.trim().toLowerCase();
+    if (!q) return EDITABLE_PAGES;
+    return EDITABLE_PAGES.filter((page) => `${page.title} ${page.slug} ${page.routePath}`.toLowerCase().includes(q));
+  }, [pageSearch]);
+
+  function updateDraft(slug: ProductSlug, patch: Partial<DraftField>) {
     setProductDrafts((current) => (current ? { ...current, [slug]: { ...current[slug], ...patch } } : current));
   }
 
-  function updateProductPageText(slug: string, lang: "no" | "en", textKey: string, value: string) {
+  function updateProductPageText(slug: ProductSlug, lang: "no" | "en", textKey: string, value: string) {
     setProductDrafts((current) => {
       if (!current) return current;
       return {
@@ -282,36 +361,42 @@ const AdminPage: React.FC = () => {
     lang: "no" | "en",
     value: string
   ) {
-    setCustomProducts((current) => current.map((item, itemIndex) => {
-      if (itemIndex !== index) return item;
-      const currentValue = item[field] ?? { no: "", en: "" };
-      return { ...item, [field]: { ...currentValue, [lang]: value } };
-    }));
+    setCustomProducts((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+        const currentValue = item[field] ?? { no: "", en: "" };
+        return { ...item, [field]: { ...currentValue, [lang]: value } };
+      })
+    );
   }
 
   function updateCustomFeature(index: number, featureIndex: number, field: "title" | "body", lang: "no" | "en", value: string) {
-    setCustomProducts((current) => current.map((item, itemIndex) => {
-      if (itemIndex !== index) return item;
-      return {
-        ...item,
-        featureCards: item.featureCards.map((feature, currentFeatureIndex) => (
-          currentFeatureIndex !== featureIndex ? feature : { ...feature, [field]: { ...feature[field], [lang]: value } }
-        )),
-      };
-    }));
+    setCustomProducts((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+        return {
+          ...item,
+          featureCards: item.featureCards.map((feature, currentFeatureIndex) =>
+            currentFeatureIndex !== featureIndex ? feature : { ...feature, [field]: { ...feature[field], [lang]: value } }
+          ),
+        };
+      })
+    );
   }
 
   function addCustomProduct() {
     setCustomProducts((current) => {
       const next = [...current, createEmptyCustomProduct(makeUniqueSeed(current))];
-      setExpandedSlug(`custom-${next.length - 1}`);
+      setActiveTab("products");
+      setProductView("custom");
+      setSelectedCustomKey(`custom-${next.length - 1}`);
       return next;
     });
   }
 
   function removeCustomProduct(index: number) {
     setCustomProducts((current) => current.filter((_, itemIndex) => itemIndex !== index).map((product, itemIndex) => ({ ...product, order: itemIndex + 1 })));
-    setExpandedSlug((current) => (current === `custom-${index}` ? null : current));
+    setSelectedCustomKey((current) => (current === `custom-${index}` ? null : current));
   }
 
   function moveCustomProduct(index: number, direction: -1 | 1) {
@@ -323,14 +408,7 @@ const AdminPage: React.FC = () => {
       next.splice(target, 0, moved);
       return next.map((item, itemIndex) => ({ ...item, order: itemIndex + 1 }));
     });
-  }
-
-  function normalizeSlug(value: string): string {
-    return value
-      .toLowerCase()
-      .replace(/[^a-z0-9-]+/g, "-")
-      .replace(/-{2,}/g, "-")
-      .replace(/^-|-$/g, "");
+    setSelectedCustomKey(`custom-${Math.max(0, index + direction)}`);
   }
 
   function validateCustomProducts(productsToValidate: CustomProduct[]): string | null {
@@ -391,13 +469,15 @@ const AdminPage: React.FC = () => {
 
     writeProductOverrides(productOverrides);
     writePageOverrides(pageOverrides);
-    writeCustomProducts(customProducts.map((product, index) => ({
-      ...product,
-      slug: normalizeSlug(product.slug.trim()),
-      routePath: product.routePath.trim().startsWith("/") ? product.routePath.trim() : `/${product.routePath.trim()}`,
-      order: index + 1,
-      imageUrl: product.imageUrl?.trim() || undefined,
-    })));
+    writeCustomProducts(
+      customProducts.map((product, index) => ({
+        ...product,
+        slug: normalizeSlug(product.slug.trim()),
+        routePath: product.routePath.trim().startsWith("/") ? product.routePath.trim() : `/${product.routePath.trim()}`,
+        order: index + 1,
+        imageUrl: product.imageUrl?.trim() || undefined,
+      }))
+    );
     setSaveError("");
     setSavedAt(new Date().toLocaleString());
   }
@@ -414,24 +494,41 @@ const AdminPage: React.FC = () => {
     setCustomProducts([]);
     setSavedAt("");
     setSaveError("");
+    setSelectedCustomKey(null);
+    setSelectedBuiltInSlug(PRODUCTS[0]?.slug ?? "husket");
+    setSelectedPageSlug(EDITABLE_PAGES[0]?.slug ?? "about");
   }
 
   if (!productDrafts || !pageDrafts) {
-    return <main className="page"><section className="fs-hero"><h1>Admin</h1><p>Laster kontrollpanel…</p></section></main>;
+    return (
+      <main className="page">
+        <section className="fs-hero">
+          <h1>Admin</h1>
+          <p>Laster kontrollpanel…</p>
+        </section>
+      </main>
+    );
   }
+
+  const selectedBuiltInDraft = productDrafts[selectedBuiltInSlug];
+  const selectedPage = EDITABLE_PAGES.find((page) => page.slug === selectedPageSlug) ?? EDITABLE_PAGES[0];
+  const selectedPageDraft = pageDrafts[selectedPage.slug];
+  const selectedCustomIndex = selectedCustomKey ? Number(selectedCustomKey.replace("custom-", "")) : -1;
+  const selectedCustom = selectedCustomIndex >= 0 ? customProducts[selectedCustomIndex] : undefined;
 
   return (
     <main className="page">
       <section className="fs-hero" style={{ maxWidth: 1120 }}>
         <h1>MCL Admin</h1>
-        <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          Kontrollpanel for produkter, produktsider og innholdssider. Denne versjonen gir deg status, rekkefølge, bilder og en ryddigere produktflyt.
+        <p className="fs-tagline" style={{ maxWidth: 920 }}>
+          Et roligere kontrollpanel for nettstedet: produkter, egne produkter og innholdssider samlet i én arbeidsflate.
         </p>
+
         <div className="intro-grid" style={{ marginTop: "1.25rem" }}>
-          <div className="intro-card"><strong>{stats.builtInProducts}</strong><br />Innebygde produkter</div>
+          <div className="intro-card"><strong>{stats.builtInProducts}</strong><br />Standardprodukter</div>
           <div className="intro-card"><strong>{stats.customProducts}</strong><br />Egne produkter</div>
-          <div className="intro-card"><strong>{stats.publishedCustom}</strong><br />Publiserte egne produkter</div>
-          <div className="intro-card"><strong>{stats.drafts}</strong><br />Kladder</div>
+          <div className="intro-card"><strong>{stats.publishedCustom}</strong><br />Publiserte</div>
+          <div className="intro-card"><strong>{stats.editablePages}</strong><br />Innholdssider</div>
         </div>
 
         <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", marginTop: "1rem" }}>
@@ -440,253 +537,421 @@ const AdminPage: React.FC = () => {
           <Link to="/" className="status-button" style={{ textDecoration: "none" }}>Se forsiden</Link>
         </div>
 
-        <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", marginTop: "1rem" }}>
-          <button type="button" className={activeTab === "products" ? "hero-cta" : "status-button"} onClick={() => setActiveTab("products")}>Produkter</button>
-          <button type="button" className={activeTab === "pages" ? "hero-cta" : "status-button"} onClick={() => setActiveTab("pages")}>Innholdssider</button>
-        </div>
-
-        <p style={{ marginTop: "1rem", opacity: 0.8 }}>
-          Produktnøkkel: <code>{PRODUCT_OVERRIDES_STORAGE_KEY}</code> · Egenprodukter: <code>{CUSTOM_PRODUCTS_STORAGE_KEY}</code> · Sidenøkkel: <code>{PAGE_OVERRIDES_STORAGE_KEY}</code>
+        <p style={{ marginTop: "1rem", opacity: 0.78, fontSize: "0.95rem" }}>
+          Produktnøkkel: <code>{PRODUCT_OVERRIDES_STORAGE_KEY}</code> · Egne produkter: <code>{CUSTOM_PRODUCTS_STORAGE_KEY}</code> · Sidenøkkel: <code>{PAGE_OVERRIDES_STORAGE_KEY}</code>
           {savedAt ? ` · sist lagret ${savedAt}` : ""}
         </p>
         {saveError ? <p style={{ color: "#b42318", fontWeight: 700, marginTop: "0.75rem" }}>{saveError}</p> : null}
       </section>
 
-      {activeTab === "products" ? (
-        <section className="intro-grid" style={{ marginTop: "2rem" }}>
-          <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-              <div>
-                <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>Egne produkter</h3>
-                <p style={{ margin: 0, opacity: 0.8 }}>Opprett kladder, legg på bilde, bestem rekkefølge og publiser når siden er klar.</p>
-              </div>
-              <button type="button" className="hero-cta" onClick={addCustomProduct}>Legg til nytt produkt</button>
-            </div>
+      <section style={{ ...shellStyle, marginTop: "1.5rem" }}>
+        <aside style={{ ...panelStyle, position: "sticky", top: 16 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+            <button type="button" className={activeTab === "products" ? "hero-cta" : "status-button"} onClick={() => setActiveTab("products")}>Produkter</button>
+            <button type="button" className={activeTab === "pages" ? "hero-cta" : "status-button"} onClick={() => setActiveTab("pages")}>Innholdssider</button>
           </div>
 
-          {customProducts.map((product, index) => {
-            const editorKey = `custom-${index}`;
-            const expanded = expandedSlug === editorKey;
-            const homeLive = product.status === "published" && product.visible;
-            return (
-              <div key={editorKey} className="intro-card" style={{ gridColumn: "1 / -1" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: "1rem", alignItems: "start" }}>
-                  <div>
-                    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center", marginBottom: "0.35rem" }}>
-                      <h3 style={{ margin: 0 }}>{product.homeTitle.no || product.slug}</h3>
-                      <span className="badge">{product.status === "published" ? "Publisert" : "Kladd"}</span>
-                      {homeLive ? <span className="badge">Vises på forsiden</span> : null}
-                    </div>
-                    <p style={{ margin: 0, opacity: 0.8 }}>Slug: <code>{product.slug}</code> · Rute: <code>{product.routePath}</code> · Sortering: <strong>{product.order}</strong></p>
-                  </div>
-                  <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", justifyContent: "flex-end" }}>
-                    <button type="button" className="status-button" onClick={() => moveCustomProduct(index, -1)} disabled={index === 0}>↑</button>
-                    <button type="button" className="status-button" onClick={() => moveCustomProduct(index, 1)} disabled={index === customProducts.length - 1}>↓</button>
-                    <button type="button" className="status-button" onClick={() => setExpandedSlug(expanded ? null : editorKey)}>{expanded ? "Skjul" : "Rediger"}</button>
-                    <button type="button" className="status-button" onClick={() => removeCustomProduct(index)}>Slett</button>
-                  </div>
-                </div>
-
-                {!expanded ? null : (
-                  <div style={{ marginTop: "1.25rem", display: "grid", gap: "1rem" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem" }}>
-                      <div style={cardStyle}>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}>
-                          <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Status</span>
-                          <select value={product.status} onChange={(e) => updateCustomProduct(index, { status: e.target.value as CustomProduct["status"] })} style={inputStyle}>
-                            <option value="draft">Kladd</option>
-                            <option value="published">Publisert</option>
-                          </select>
-                        </label>
-                        <label style={{ display: "flex", alignItems: "center", gap: "0.65rem", fontWeight: 600 }}>
-                          <input type="checkbox" checked={product.visible} onChange={(e) => updateCustomProduct(index, { visible: e.target.checked })} />
-                          Vis på forsiden når publisert
-                        </label>
-                      </div>
-
-                      <div style={cardStyle}>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}>
-                          <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Slug</span>
-                          <input value={product.slug} onChange={(e) => updateCustomProduct(index, { slug: e.target.value })} style={inputStyle} />
-                        </label>
-                        <label style={{ display: "block" }}>
-                          <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Rute</span>
-                          <input value={product.routePath} onChange={(e) => updateCustomProduct(index, { routePath: e.target.value })} style={inputStyle} />
-                        </label>
-                      </div>
-
-                      <div style={cardStyle}>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}>
-                          <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Bilde-URL</span>
-                          <input value={product.imageUrl ?? ""} onChange={(e) => updateCustomProduct(index, { imageUrl: e.target.value })} style={inputStyle} placeholder="https://..." />
-                        </label>
-                        {product.imageUrl ? <img src={product.imageUrl} alt="Preview" style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: 12 }} /> : <p style={{ margin: 0, opacity: 0.65 }}>Ingen forhåndsvisning ennå.</p>}
-                      </div>
-                    </div>
-
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Forside · Norsk</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Badge</span><input value={product.badge?.no ?? ""} onChange={(e) => updateCustomLocalizedField(index, "badge", "no", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span><input value={product.homeTitle.no} onChange={(e) => updateCustomLocalizedField(index, "homeTitle", "no", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Brødtekst</span><textarea value={product.homeBody.no} onChange={(e) => updateCustomLocalizedField(index, "homeBody", "no", e.target.value)} rows={4} style={textareaStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={product.homeCta.no} onChange={(e) => updateCustomLocalizedField(index, "homeCta", "no", e.target.value)} style={inputStyle} /></label>
-                      </div>
-
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Forside · English</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Badge</span><input value={product.badge?.en ?? ""} onChange={(e) => updateCustomLocalizedField(index, "badge", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span><input value={product.homeTitle.en} onChange={(e) => updateCustomLocalizedField(index, "homeTitle", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Body</span><textarea value={product.homeBody.en} onChange={(e) => updateCustomLocalizedField(index, "homeBody", "en", e.target.value)} rows={4} style={textareaStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={product.homeCta.en} onChange={(e) => updateCustomLocalizedField(index, "homeCta", "en", e.target.value)} style={inputStyle} /></label>
-                      </div>
-                    </div>
-
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Produktside · Norsk</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span><input value={product.pageTitle.no} onChange={(e) => updateCustomLocalizedField(index, "pageTitle", "no", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tagline</span><input value={product.pageTagline.no} onChange={(e) => updateCustomLocalizedField(index, "pageTagline", "no", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Intro</span><textarea value={product.pageIntro.no} onChange={(e) => updateCustomLocalizedField(index, "pageIntro", "no", e.target.value)} rows={4} style={textareaStyle} /></label>
-                      </div>
-
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Produktside · English</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span><input value={product.pageTitle.en} onChange={(e) => updateCustomLocalizedField(index, "pageTitle", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tagline</span><input value={product.pageTagline.en} onChange={(e) => updateCustomLocalizedField(index, "pageTagline", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Intro</span><textarea value={product.pageIntro.en} onChange={(e) => updateCustomLocalizedField(index, "pageIntro", "en", e.target.value)} rows={4} style={textareaStyle} /></label>
-                      </div>
-                    </div>
-
-                    <div style={cardStyle}>
-                      <h4 style={{ marginTop: 0 }}>Fordelskort</h4>
-                      <div style={{ display: "grid", gap: "1rem" }}>
-                        {product.featureCards.map((feature, featureIndex) => (
-                          <div key={feature.id} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem", paddingTop: featureIndex === 0 ? 0 : "1rem", borderTop: featureIndex === 0 ? "none" : "1px solid rgba(127,127,127,0.2)" }}>
-                            <div>
-                              <p style={{ marginTop: 0, fontWeight: 700 }}>Kort {featureIndex + 1} · Norsk</p>
-                              <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span><input value={feature.title.no} onChange={(e) => updateCustomFeature(index, featureIndex, "title", "no", e.target.value)} style={inputStyle} /></label>
-                              <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tekst</span><textarea value={feature.body.no} onChange={(e) => updateCustomFeature(index, featureIndex, "body", "no", e.target.value)} rows={3} style={textareaStyle} /></label>
-                            </div>
-                            <div>
-                              <p style={{ marginTop: 0, fontWeight: 700 }}>Card {featureIndex + 1} · English</p>
-                              <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span><input value={feature.title.en} onChange={(e) => updateCustomFeature(index, featureIndex, "title", "en", e.target.value)} style={inputStyle} /></label>
-                              <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Text</span><textarea value={feature.body.en} onChange={(e) => updateCustomFeature(index, featureIndex, "body", "en", e.target.value)} rows={3} style={textareaStyle} /></label>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Avslutning · Norsk</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span><input value={product.finalTitle.no} onChange={(e) => updateCustomLocalizedField(index, "finalTitle", "no", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tekst</span><textarea value={product.finalBody.no} onChange={(e) => updateCustomLocalizedField(index, "finalBody", "no", e.target.value)} rows={3} style={textareaStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={product.finalCta.no} onChange={(e) => updateCustomLocalizedField(index, "finalCta", "no", e.target.value)} style={inputStyle} /></label>
-                      </div>
-
-                      <div style={cardStyle}>
-                        <h4 style={{ marginTop: 0 }}>Ending · English</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span><input value={product.finalTitle.en} onChange={(e) => updateCustomLocalizedField(index, "finalTitle", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Text</span><textarea value={product.finalBody.en} onChange={(e) => updateCustomLocalizedField(index, "finalBody", "en", e.target.value)} rows={3} style={textareaStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={product.finalCta.en} onChange={(e) => updateCustomLocalizedField(index, "finalCta", "en", e.target.value)} style={inputStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA-lenke</span><input value={product.finalCtaHref} onChange={(e) => updateCustomProduct(index, { finalCtaHref: e.target.value })} style={inputStyle} /></label>
-                      </div>
-                    </div>
-                  </div>
-                )}
+          {activeTab === "products" ? (
+            <>
+              <div style={{ marginTop: "1rem" }}>
+                <input value={productSearch} onChange={(e) => setProductSearch(e.target.value)} placeholder="Søk i produkter" style={inputStyle} />
               </div>
-            );
-          })}
 
-          {PRODUCTS.map((product: ProductDefinition) => {
-            const draft = productDrafts[product.slug];
-            const expanded = expandedSlug === product.slug;
-            return (
-              <div key={product.slug} className="intro-card" style={{ gridColumn: "1 / -1" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
-                  <div>
-                    <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>{product.slug}</h3>
-                    <p style={{ margin: 0, opacity: 0.8 }}>Innebygd produkt · rute: <code>{product.routePath}</code></p>
-                  </div>
-                  <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
-                    <label style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontWeight: 600 }}>
-                      <input type="checkbox" checked={draft.visible} onChange={(event) => updateDraft(product.slug, { visible: event.target.checked })} />
-                      Vis produkt på forsiden
-                    </label>
-                    <button type="button" className="status-button" onClick={() => setExpandedSlug(expanded ? null : product.slug)}>
-                      {expanded ? "Skjul felter" : "Rediger produkt"}
+              <div style={{ marginTop: "1rem", display: "grid", gap: "0.5rem" }}>
+                <button type="button" className={productView === "overview" ? "hero-cta" : "status-button"} onClick={() => setProductView("overview")}>Oversikt</button>
+                <button type="button" className={productView === "builtin" ? "hero-cta" : "status-button"} onClick={() => setProductView("builtin")}>Standardprodukter</button>
+                <button type="button" className={productView === "custom" ? "hero-cta" : "status-button"} onClick={() => setProductView("custom")}>Egne produkter</button>
+              </div>
+
+              {productView === "builtin" ? (
+                <div style={{ marginTop: "1rem", display: "grid", gap: "0.45rem" }}>
+                  {filteredBuiltIn.map((product) => (
+                    <button
+                      key={product.slug}
+                      type="button"
+                      onClick={() => setSelectedBuiltInSlug(product.slug)}
+                      style={{
+                        textAlign: "left",
+                        borderRadius: 12,
+                        border: selectedBuiltInSlug === product.slug ? "1px solid rgba(63, 131, 248, 0.55)" : "1px solid rgba(127,127,127,0.18)",
+                        padding: "0.75rem",
+                        background: selectedBuiltInSlug === product.slug ? "rgba(63,131,248,0.08)" : "transparent",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ fontWeight: 700 }}>{productDrafts[product.slug].homeTitleNo}</div>
+                      <div style={{ opacity: 0.7, fontSize: "0.9rem" }}>{product.routePath}</div>
                     </button>
-                  </div>
+                  ))}
                 </div>
-                {!expanded ? null : (
-                  <div style={{ marginTop: "1.25rem", display: "grid", gap: "1.25rem" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                      <div>
-                        <h4 style={{ marginTop: 0 }}>Forsideflis · Norsk</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span><input value={draft.homeTitleNo} onChange={(e) => updateDraft(product.slug, { homeTitleNo: e.target.value })} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Brødtekst</span><textarea value={draft.homeBodyNo} onChange={(e) => updateDraft(product.slug, { homeBodyNo: e.target.value })} rows={5} style={textareaStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={draft.homeCtaNo} onChange={(e) => updateDraft(product.slug, { homeCtaNo: e.target.value })} style={inputStyle} /></label>
-                      </div>
-                      <div>
-                        <h4 style={{ marginTop: 0 }}>Forsideflis · English</h4>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span><input value={draft.homeTitleEn} onChange={(e) => updateDraft(product.slug, { homeTitleEn: e.target.value })} style={inputStyle} /></label>
-                        <label style={{ display: "block", marginBottom: "0.75rem" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Body</span><textarea value={draft.homeBodyEn} onChange={(e) => updateDraft(product.slug, { homeBodyEn: e.target.value })} rows={5} style={textareaStyle} /></label>
-                        <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span><input value={draft.homeCtaEn} onChange={(e) => updateDraft(product.slug, { homeCtaEn: e.target.value })} style={inputStyle} /></label>
-                      </div>
-                    </div>
-                    <div style={{ display: "grid", gap: "1rem" }}>
-                      {productTextKeys[product.slug].map((textKey) => (
-                        <div key={textKey} style={cardStyle}>
-                          <p style={{ marginTop: 0, marginBottom: "0.35rem", fontWeight: 700 }}>{prettifyKey(textKey)}</p>
-                          <p style={{ marginTop: 0, marginBottom: "0.85rem", opacity: 0.65 }}><code>{textKey}</code></p>
-                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                            <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Norsk</span><textarea value={draft.pageTextNo[textKey] ?? ""} onChange={(e) => updateProductPageText(product.slug, "no", textKey, e.target.value)} rows={3} style={textareaStyle} /></label>
-                            <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>English</span><textarea value={draft.pageTextEn[textKey] ?? ""} onChange={(e) => updateProductPageText(product.slug, "en", textKey, e.target.value)} rows={3} style={textareaStyle} /></label>
-                          </div>
+              ) : null}
+
+              {productView === "custom" ? (
+                <div style={{ marginTop: "1rem", display: "grid", gap: "0.45rem" }}>
+                  <button type="button" className="hero-cta" onClick={addCustomProduct}>Legg til nytt produkt</button>
+                  {filteredCustom.map((product) => {
+                    const realIndex = customProducts.findIndex((p) => p.slug === product.slug && p.routePath === product.routePath);
+                    const editorKey = `custom-${realIndex}`;
+                    const active = selectedCustomKey === editorKey;
+                    return (
+                      <button
+                        key={`${editorKey}-${product.slug}`}
+                        type="button"
+                        onClick={() => setSelectedCustomKey(editorKey)}
+                        style={{
+                          textAlign: "left",
+                          borderRadius: 12,
+                          border: active ? "1px solid rgba(63, 131, 248, 0.55)" : "1px solid rgba(127,127,127,0.18)",
+                          padding: "0.75rem",
+                          background: active ? "rgba(63,131,248,0.08)" : "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "center" }}>
+                          <div style={{ fontWeight: 700 }}>{product.homeTitle.no}</div>
+                          {statusChip(product.status)}
                         </div>
-                      ))}
+                        <div style={{ opacity: 0.7, fontSize: "0.9rem", marginTop: 4 }}>{product.routePath}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <div style={{ marginTop: "1rem" }}>
+                <input value={pageSearch} onChange={(e) => setPageSearch(e.target.value)} placeholder="Søk i innholdssider" style={inputStyle} />
+              </div>
+              <div style={{ marginTop: "1rem", display: "grid", gap: "0.45rem" }}>
+                {filteredPages.map((page) => {
+                  const active = selectedPageSlug === page.slug;
+                  return (
+                    <button
+                      key={page.slug}
+                      type="button"
+                      onClick={() => setSelectedPageSlug(page.slug)}
+                      style={{
+                        textAlign: "left",
+                        borderRadius: 12,
+                        border: active ? "1px solid rgba(63, 131, 248, 0.55)" : "1px solid rgba(127,127,127,0.18)",
+                        padding: "0.75rem",
+                        background: active ? "rgba(63,131,248,0.08)" : "transparent",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ fontWeight: 700 }}>{page.title}</div>
+                      <div style={{ opacity: 0.7, fontSize: "0.9rem" }}>{page.routePath}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </aside>
+
+        <div style={{ display: "grid", gap: "1rem" }}>
+          {activeTab === "products" && productView === "overview" ? (
+            <div style={panelStyle}>
+              <h2 style={sectionTitleStyle}>Produktoversikt</h2>
+              <div className="intro-grid" style={{ marginTop: 0 }}>
+                <div className="intro-card">
+                  <h3 style={{ marginTop: 0 }}>Standardprodukter</h3>
+                  <p>{stats.builtInProducts} produkter styres gjennom samme produktmodell og kan redigeres med overskrifter, flistekster og sideinnhold.</p>
+                  <button type="button" className="status-button" onClick={() => setProductView("builtin")}>Åpne standardprodukter</button>
+                </div>
+                <div className="intro-card">
+                  <h3 style={{ marginTop: 0 }}>Egne produkter</h3>
+                  <p>{stats.customProducts} produkter opprettet fra admin. {stats.publishedCustom} er publisert og {stats.drafts} ligger som kladd.</p>
+                  <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                    <button type="button" className="status-button" onClick={() => setProductView("custom")}>Åpne egne produkter</button>
+                    <button type="button" className="hero-cta" onClick={addCustomProduct}>Legg til nytt produkt</button>
+                  </div>
+                </div>
+                <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
+                  <h3 style={{ marginTop: 0 }}>Neste naturlige arbeidsflyt</h3>
+                  <p style={{ marginBottom: 0 }}>Jobb gjerne slik: opprett produkt → la det stå som kladd → fyll ut sideinnhold → legg inn bilde → sett til publisert → lagre → sjekk forside og produktside.</p>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {activeTab === "products" && productView === "builtin" ? (
+            <div style={panelStyle}>
+              <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                <div>
+                  <h2 style={sectionTitleStyle}>Standardprodukt · {selectedBuiltInDraft.homeTitleNo}</h2>
+                  <p style={{ margin: 0, opacity: 0.78 }}>{PRODUCTS.find((p) => p.slug === selectedBuiltInSlug)?.routePath}</p>
+                </div>
+                <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <input type="checkbox" checked={selectedBuiltInDraft.visible} onChange={(e) => updateDraft(selectedBuiltInSlug, { visible: e.target.checked })} />
+                  Vis på forsiden
+                </label>
+              </div>
+
+              <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                <h3 style={sectionTitleStyle}>Forsideflis</h3>
+                <div className="intro-grid two-columns">
+                  <div>
+                    <label>Norsk tittel</label>
+                    <input style={inputStyle} value={selectedBuiltInDraft.homeTitleNo} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeTitleNo: e.target.value })} />
+                  </div>
+                  <div>
+                    <label>English title</label>
+                    <input style={inputStyle} value={selectedBuiltInDraft.homeTitleEn} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeTitleEn: e.target.value })} />
+                  </div>
+                  <div>
+                    <label>Norsk tekst</label>
+                    <textarea style={textareaStyle} value={selectedBuiltInDraft.homeBodyNo} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeBodyNo: e.target.value })} />
+                  </div>
+                  <div>
+                    <label>English text</label>
+                    <textarea style={textareaStyle} value={selectedBuiltInDraft.homeBodyEn} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeBodyEn: e.target.value })} />
+                  </div>
+                  <div>
+                    <label>Norsk CTA</label>
+                    <input style={inputStyle} value={selectedBuiltInDraft.homeCtaNo} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeCtaNo: e.target.value })} />
+                  </div>
+                  <div>
+                    <label>English CTA</label>
+                    <input style={inputStyle} value={selectedBuiltInDraft.homeCtaEn} onChange={(e) => updateDraft(selectedBuiltInSlug, { homeCtaEn: e.target.value })} />
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                <h3 style={sectionTitleStyle}>Produktside · tekstfelter</h3>
+                <div style={{ display: "grid", gap: "0.9rem" }}>
+                  {productTextKeys[selectedBuiltInSlug].map((textKey) => (
+                    <div key={textKey} style={{ borderTop: "1px solid rgba(127,127,127,0.14)", paddingTop: "0.9rem" }}>
+                      <strong>{prettifyKey(textKey)}</strong>
+                      <div className="intro-grid two-columns" style={{ marginTop: "0.55rem" }}>
+                        <div>
+                          <label>Norsk</label>
+                          <textarea style={textareaStyle} value={selectedBuiltInDraft.pageTextNo[textKey] ?? ""} onChange={(e) => updateProductPageText(selectedBuiltInSlug, "no", textKey, e.target.value)} />
+                        </div>
+                        <div>
+                          <label>English</label>
+                          <textarea style={textareaStyle} value={selectedBuiltInDraft.pageTextEn[textKey] ?? ""} onChange={(e) => updateProductPageText(selectedBuiltInSlug, "en", textKey, e.target.value)} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {activeTab === "products" && productView === "custom" ? (
+            selectedCustom ? (
+              <div style={panelStyle}>
+                <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                  <div>
+                    <h2 style={sectionTitleStyle}>Eget produkt · {selectedCustom.homeTitle.no}</h2>
+                    <p style={{ margin: 0, opacity: 0.78 }}>{selectedCustom.routePath}</p>
+                  </div>
+                  <div style={{ display: "flex", gap: "0.6rem", alignItems: "center", flexWrap: "wrap" }}>
+                    {statusChip(selectedCustom.status)}
+                    <button type="button" className="status-button" onClick={() => moveCustomProduct(selectedCustomIndex, -1)} disabled={selectedCustomIndex <= 0}>Flytt opp</button>
+                    <button type="button" className="status-button" onClick={() => moveCustomProduct(selectedCustomIndex, 1)} disabled={selectedCustomIndex >= customProducts.length - 1}>Flytt ned</button>
+                    <button type="button" className="status-button" onClick={() => removeCustomProduct(selectedCustomIndex)}>Slett</button>
+                  </div>
+                </div>
+
+                <div className="intro-grid two-columns" style={{ marginTop: "1rem" }}>
+                  <div style={softPanelStyle}>
+                    <h3 style={sectionTitleStyle}>Status og publisering</h3>
+                    <label>Status</label>
+                    <select style={inputStyle} value={selectedCustom.status} onChange={(e) => updateCustomProduct(selectedCustomIndex, { status: e.target.value as CustomProduct["status"] })}>
+                      <option value="draft">Kladd</option>
+                      <option value="published">Publisert</option>
+                    </select>
+                    <label style={{ display: "flex", alignItems: "center", gap: 8, marginTop: "0.9rem" }}>
+                      <input type="checkbox" checked={selectedCustom.visible} onChange={(e) => updateCustomProduct(selectedCustomIndex, { visible: e.target.checked })} />
+                      Vis på forsiden når publisert
+                    </label>
+                    <div style={{ marginTop: "0.9rem", opacity: 0.78, fontSize: "0.92rem" }}>
+                      Rekkefølge: {selectedCustom.order}
                     </div>
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </section>
-      ) : (
-        <section className="intro-grid" style={{ marginTop: "2rem" }}>
-          {EDITABLE_PAGES.map((page) => {
-            const draft = pageDrafts[page.slug];
-            const expanded = expandedPageSlug === page.slug;
-            return (
-              <div key={page.slug} className="intro-card" style={{ gridColumn: "1 / -1" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
-                  <div>
-                    <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>{page.title}</h3>
-                    <p style={{ margin: 0, opacity: 0.8 }}>Rute: <code>{page.routePath}</code></p>
+
+                  <div style={softPanelStyle}>
+                    <h3 style={sectionTitleStyle}>Teknisk identitet</h3>
+                    <label>Slug</label>
+                    <input style={inputStyle} value={selectedCustom.slug} onChange={(e) => updateCustomProduct(selectedCustomIndex, { slug: normalizeSlug(e.target.value) })} />
+                    <label style={{ marginTop: "0.8rem", display: "block" }}>Rute</label>
+                    <input style={inputStyle} value={selectedCustom.routePath} onChange={(e) => updateCustomProduct(selectedCustomIndex, { routePath: e.target.value })} />
+                    <label style={{ marginTop: "0.8rem", display: "block" }}>Bilde-URL</label>
+                    <input style={inputStyle} value={selectedCustom.imageUrl ?? ""} onChange={(e) => updateCustomProduct(selectedCustomIndex, { imageUrl: e.target.value })} />
                   </div>
-                  <button type="button" className="status-button" onClick={() => setExpandedPageSlug(expanded ? null : page.slug)}>{expanded ? "Skjul felter" : "Rediger side"}</button>
                 </div>
-                {!expanded ? null : (
-                  <div style={{ marginTop: "1rem", display: "grid", gap: "1rem" }}>
-                    {page.textKeys.map((textKey) => (
-                      <div key={textKey} style={cardStyle}>
-                        <p style={{ marginTop: 0, marginBottom: "0.35rem", fontWeight: 700 }}>{prettifyKey(textKey)}</p>
-                        <p style={{ marginTop: 0, marginBottom: "0.85rem", opacity: 0.65 }}><code>{textKey}</code></p>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-                          <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Norsk</span><textarea value={draft.textNo[textKey] ?? ""} onChange={(e) => updatePageText(page.slug, "no", textKey, e.target.value)} rows={3} style={textareaStyle} /></label>
-                          <label style={{ display: "block" }}><span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>English</span><textarea value={draft.textEn[textKey] ?? ""} onChange={(e) => updatePageText(page.slug, "en", textKey, e.target.value)} rows={3} style={textareaStyle} /></label>
+
+                <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                  <h3 style={sectionTitleStyle}>Forsideflis</h3>
+                  <div className="intro-grid two-columns">
+                    <div>
+                      <label>Badge · Norsk</label>
+                      <input style={inputStyle} value={selectedCustom.badge?.no ?? ""} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "badge", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Badge · English</label>
+                      <input style={inputStyle} value={selectedCustom.badge?.en ?? ""} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "badge", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Tittel · Norsk</label>
+                      <input style={inputStyle} value={selectedCustom.homeTitle.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeTitle", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Title · English</label>
+                      <input style={inputStyle} value={selectedCustom.homeTitle.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeTitle", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Tekst · Norsk</label>
+                      <textarea style={textareaStyle} value={selectedCustom.homeBody.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeBody", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Text · English</label>
+                      <textarea style={textareaStyle} value={selectedCustom.homeBody.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeBody", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>CTA · Norsk</label>
+                      <input style={inputStyle} value={selectedCustom.homeCta.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeCta", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>CTA · English</label>
+                      <input style={inputStyle} value={selectedCustom.homeCta.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "homeCta", "en", e.target.value)} />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                  <h3 style={sectionTitleStyle}>Produktside · hero og avslutning</h3>
+                  <div className="intro-grid two-columns">
+                    <div>
+                      <label>Sideoverskrift · Norsk</label>
+                      <input style={inputStyle} value={selectedCustom.pageTitle.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageTitle", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Page title · English</label>
+                      <input style={inputStyle} value={selectedCustom.pageTitle.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageTitle", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Tagline · Norsk</label>
+                      <textarea style={textareaStyle} value={selectedCustom.pageTagline.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageTagline", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Tagline · English</label>
+                      <textarea style={textareaStyle} value={selectedCustom.pageTagline.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageTagline", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Intro · Norsk</label>
+                      <textarea style={textareaStyle} value={selectedCustom.pageIntro.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageIntro", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Intro · English</label>
+                      <textarea style={textareaStyle} value={selectedCustom.pageIntro.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "pageIntro", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Avslutning · tittel NO</label>
+                      <input style={inputStyle} value={selectedCustom.finalTitle.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalTitle", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Closing title EN</label>
+                      <input style={inputStyle} value={selectedCustom.finalTitle.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalTitle", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Avslutning · tekst NO</label>
+                      <textarea style={textareaStyle} value={selectedCustom.finalBody.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalBody", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Closing text EN</label>
+                      <textarea style={textareaStyle} value={selectedCustom.finalBody.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalBody", "en", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Avsluttende CTA · NO</label>
+                      <input style={inputStyle} value={selectedCustom.finalCta.no} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalCta", "no", e.target.value)} />
+                    </div>
+                    <div>
+                      <label>Closing CTA · EN</label>
+                      <input style={inputStyle} value={selectedCustom.finalCta.en} onChange={(e) => updateCustomLocalizedField(selectedCustomIndex, "finalCta", "en", e.target.value)} />
+                    </div>
+                    <div style={{ gridColumn: "1 / -1" }}>
+                      <label>Avsluttende CTA-lenke</label>
+                      <input style={inputStyle} value={selectedCustom.finalCtaHref} onChange={(e) => updateCustomProduct(selectedCustomIndex, { finalCtaHref: e.target.value })} />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                  <h3 style={sectionTitleStyle}>Fordelskort</h3>
+                  <div style={{ display: "grid", gap: "1rem" }}>
+                    {selectedCustom.featureCards.map((feature, featureIndex) => (
+                      <div key={feature.id} style={{ borderTop: "1px solid rgba(127,127,127,0.14)", paddingTop: "0.9rem" }}>
+                        <strong>Kort {featureIndex + 1}</strong>
+                        <div className="intro-grid two-columns" style={{ marginTop: "0.55rem" }}>
+                          <div>
+                            <label>Tittel · Norsk</label>
+                            <input style={inputStyle} value={feature.title.no} onChange={(e) => updateCustomFeature(selectedCustomIndex, featureIndex, "title", "no", e.target.value)} />
+                          </div>
+                          <div>
+                            <label>Title · English</label>
+                            <input style={inputStyle} value={feature.title.en} onChange={(e) => updateCustomFeature(selectedCustomIndex, featureIndex, "title", "en", e.target.value)} />
+                          </div>
+                          <div>
+                            <label>Tekst · Norsk</label>
+                            <textarea style={textareaStyle} value={feature.body.no} onChange={(e) => updateCustomFeature(selectedCustomIndex, featureIndex, "body", "no", e.target.value)} />
+                          </div>
+                          <div>
+                            <label>Text · English</label>
+                            <textarea style={textareaStyle} value={feature.body.en} onChange={(e) => updateCustomFeature(selectedCustomIndex, featureIndex, "body", "en", e.target.value)} />
+                          </div>
                         </div>
                       </div>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
-            );
-          })}
-        </section>
-      )}
+            ) : (
+              <div style={panelStyle}>
+                <h2 style={sectionTitleStyle}>Egne produkter</h2>
+                <p>Velg et produkt i venstremenyen, eller opprett et nytt.</p>
+                <button type="button" className="hero-cta" onClick={addCustomProduct}>Legg til nytt produkt</button>
+              </div>
+            )
+          ) : null}
+
+          {activeTab === "pages" ? (
+            <div style={panelStyle}>
+              <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                <div>
+                  <h2 style={sectionTitleStyle}>Innholdsside · {selectedPage.title}</h2>
+                  <p style={{ margin: 0, opacity: 0.78 }}>{selectedPage.routePath}</p>
+                </div>
+              </div>
+              <div style={{ ...softPanelStyle, marginTop: "1rem" }}>
+                <h3 style={sectionTitleStyle}>Redigerbare tekstfelter</h3>
+                <div style={{ display: "grid", gap: "0.9rem" }}>
+                  {selectedPage.textKeys.map((textKey) => (
+                    <div key={textKey} style={{ borderTop: "1px solid rgba(127,127,127,0.14)", paddingTop: "0.9rem" }}>
+                      <strong>{prettifyKey(textKey)}</strong>
+                      <div className="intro-grid two-columns" style={{ marginTop: "0.55rem" }}>
+                        <div>
+                          <label>Norsk</label>
+                          <textarea style={textareaStyle} value={selectedPageDraft.textNo[textKey] ?? ""} onChange={(e) => updatePageText(selectedPage.slug, "no", textKey, e.target.value)} />
+                        </div>
+                        <div>
+                          <label>English</label>
+                          <textarea style={textareaStyle} value={selectedPageDraft.textEn[textKey] ?? ""} onChange={(e) => updatePageText(selectedPage.slug, "en", textKey, e.target.value)} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </section>
     </main>
   );
 };
