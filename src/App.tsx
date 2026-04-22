@@ -11,13 +11,14 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import IdeaBankPage from "./pages/IdeaBankPage";
 import ProgressPage from "./pages/ProgressPage";
+import ProductPage from "./pages/ProductPage";
+import AdminPage from "./pages/AdminPage";
 
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
 import PersonvernPage from "./pages/PersonvernPage";
 import RefusjonPage from "./pages/RefusjonPage";
 
-import ProductPage from "./pages/ProductPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
@@ -46,6 +47,7 @@ const AppShell: React.FC = () => {
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
+          <Route path="/admin" element={<AdminPage />} />
 
           {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
