@@ -4,7 +4,6 @@ import {
   PRODUCTS,
   type ProductContentBlock,
   type ProductDefinition,
-  type ProductSlug,
 } from "../config/products";
 import {
   PRODUCT_OVERRIDES_STORAGE_KEY,
@@ -24,6 +23,14 @@ import {
   type PageOverrideMap,
 } from "../config/pageOverrides";
 import { EDITABLE_PAGES } from "../config/editablePages";
+import {
+  CUSTOM_PRODUCTS_STORAGE_KEY,
+  createEmptyCustomProduct,
+  readCustomProducts,
+  resetCustomProducts,
+  writeCustomProducts,
+  type CustomProduct,
+} from "../config/customProducts";
 
 type DraftField = {
   visible: boolean;
@@ -37,7 +44,7 @@ type DraftField = {
   pageTextEn: Record<string, string>;
 };
 
-type DraftMap = Record<ProductSlug, DraftField>;
+type DraftMap = Record<string, DraftField>;
 
 type PageDraftField = {
   textNo: Record<string, string>;
@@ -50,10 +57,9 @@ type AdminTab = "products" | "pages";
 
 function collectTextKeys(blocks: ProductContentBlock[]): string[] {
   const keys = new Set<string>();
-
-  function add(key?: string) {
+  const add = (key?: string) => {
     if (key) keys.add(key);
-  }
+  };
 
   for (const block of blocks) {
     switch (block.type) {
@@ -179,12 +185,27 @@ function prettifyKey(key: string): string {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-const AdminPage: React.FC = () => {
+function makeUniqueSeed(customProducts: CustomProduct[]): number {
+  let seed = customProducts.length + 1;
+  const slugs = new Set([...PRODUCTS.map((p) => p.slug), ...customProducts.map((p) => p.slug)]);
 
+  while (slugs.has(`new-product${seed > 1 ? `-${seed}` : ""}`)) {
+    seed += 1;
+  }
+
+  return seed;
+}
+
+const inputStyle: React.CSSProperties = { width: "100%", padding: "0.7rem" };
+const textareaStyle: React.CSSProperties = { width: "100%", padding: "0.7rem", resize: "vertical" };
+
+const AdminPage: React.FC = () => {
   const [productDrafts, setProductDrafts] = useState<DraftMap | null>(null);
   const [pageDrafts, setPageDrafts] = useState<PageDraftMap | null>(null);
+  const [customProducts, setCustomProducts] = useState<CustomProduct[]>([]);
   const [savedAt, setSavedAt] = useState<string>("");
-  const [expandedSlug, setExpandedSlug] = useState<ProductSlug | null>(null);
+  const [saveError, setSaveError] = useState<string>("");
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
   const [expandedPageSlug, setExpandedPageSlug] = useState<EditablePageSlug | null>(null);
   const [activeTab, setActiveTab] = useState<AdminTab>("products");
 
@@ -200,6 +221,7 @@ const AdminPage: React.FC = () => {
 
       setProductDrafts(buildProductDrafts(readProductOverrides(), tNo, tEn));
       setPageDrafts(buildPageDrafts(readPageOverrides(), tNo, tEn));
+      setCustomProducts(readCustomProducts());
       setExpandedSlug(PRODUCTS[0]?.slug ?? null);
       setExpandedPageSlug(EDITABLE_PAGES[0]?.slug ?? null);
     }
@@ -214,17 +236,17 @@ const AdminPage: React.FC = () => {
     return PRODUCTS.reduce((acc, product) => {
       acc[product.slug] = collectTextKeys(product.blocks);
       return acc;
-    }, {} as Record<ProductSlug, string[]>);
+    }, {} as Record<string, string[]>);
   }, []);
 
-  function updateDraft(slug: ProductSlug, patch: Partial<DraftField>) {
+  function updateDraft(slug: string, patch: Partial<DraftField>) {
     setProductDrafts((current) => {
       if (!current) return current;
       return { ...current, [slug]: { ...current[slug], ...patch } };
     });
   }
 
-  function updateProductPageText(slug: ProductSlug, lang: "no" | "en", textKey: string, value: string) {
+  function updateProductPageText(slug: string, lang: "no" | "en", textKey: string, value: string) {
     setProductDrafts((current) => {
       if (!current) return current;
       return {
@@ -252,8 +274,91 @@ const AdminPage: React.FC = () => {
     });
   }
 
+  function updateCustomProduct(index: number, patch: Partial<CustomProduct>) {
+    setCustomProducts((current) => current.map((item, itemIndex) => (itemIndex === index ? { ...item, ...patch } : item)));
+  }
+
+  function updateCustomLocalizedField(
+    index: number,
+    field: keyof Pick<CustomProduct, "badge" | "homeTitle" | "homeBody" | "homeCta" | "pageTitle" | "pageTagline" | "pageIntro" | "finalTitle" | "finalBody" | "finalCta">,
+    lang: "no" | "en",
+    value: string
+  ) {
+    setCustomProducts((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+        const currentValue = item[field] ?? { no: "", en: "" };
+        return {
+          ...item,
+          [field]: { ...currentValue, [lang]: value },
+        };
+      })
+    );
+  }
+
+  function updateCustomFeature(index: number, featureIndex: number, field: "title" | "body", lang: "no" | "en", value: string) {
+    setCustomProducts((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+        return {
+          ...item,
+          featureCards: item.featureCards.map((feature, currentFeatureIndex) => {
+            if (currentFeatureIndex !== featureIndex) return feature;
+            return {
+              ...feature,
+              [field]: { ...feature[field], [lang]: value },
+            };
+          }),
+        };
+      })
+    );
+  }
+
+  function addCustomProduct() {
+    setCustomProducts((current) => {
+      const next = [...current, createEmptyCustomProduct(makeUniqueSeed(current))];
+      setExpandedSlug(next[next.length - 1].slug);
+      return next;
+    });
+  }
+
+  function removeCustomProduct(index: number) {
+    setCustomProducts((current) => current.filter((_, itemIndex) => itemIndex !== index));
+  }
+
+  function validateCustomProducts(productsToValidate: CustomProduct[]): string | null {
+    const baseSlugs = new Set(PRODUCTS.map((product) => product.slug));
+    const basePaths = new Set(PRODUCTS.map((product) => product.routePath));
+    const slugSet = new Set<string>();
+    const pathSet = new Set<string>();
+
+    for (const product of productsToValidate) {
+      const slug = product.slug.trim().toLowerCase();
+      const path = product.routePath.trim();
+
+      if (!slug) return "Alle egne produkter må ha en slug.";
+      if (!/^[a-z0-9-]+$/.test(slug)) return `Slug \"${slug}\" kan bare bruke små bokstaver, tall og bindestrek.`;
+      if (!path.startsWith("/")) return `Ruten for ${slug} må starte med /.`;
+      if (baseSlugs.has(slug)) return `Slug \"${slug}\" brukes allerede av et eksisterende produkt.`;
+      if (basePaths.has(path)) return `Ruten \"${path}\" brukes allerede av et eksisterende produkt.`;
+      if (slugSet.has(slug)) return `Slug \"${slug}\" brukes mer enn én gang blant egne produkter.`;
+      if (pathSet.has(path)) return `Ruten \"${path}\" brukes mer enn én gang blant egne produkter.`;
+
+      slugSet.add(slug);
+      pathSet.add(path);
+    }
+
+    return null;
+  }
+
   function handleSave() {
     if (!productDrafts || !pageDrafts) return;
+
+    const customValidationError = validateCustomProducts(customProducts);
+    if (customValidationError) {
+      setSaveError(customValidationError);
+      return;
+    }
 
     const productOverrides: ProductOverrideMap = PRODUCTS.reduce((acc, product) => {
       const draft = productDrafts[product.slug];
@@ -292,12 +397,19 @@ const AdminPage: React.FC = () => {
 
     writeProductOverrides(productOverrides);
     writePageOverrides(pageOverrides);
+    writeCustomProducts(customProducts.map((product) => ({
+      ...product,
+      slug: product.slug.trim().toLowerCase(),
+      routePath: product.routePath.trim(),
+    })));
+    setSaveError("");
     setSavedAt(new Date().toLocaleString());
   }
 
   async function handleResetAll() {
     resetProductOverrides();
     resetPageOverrides();
+    resetCustomProducts();
 
     const { dictionaries, createT } = await import("../i18n");
     const tNo = createT(dictionaries.no) as (key: string) => string;
@@ -305,7 +417,9 @@ const AdminPage: React.FC = () => {
 
     setProductDrafts(buildProductDrafts({}, tNo, tEn));
     setPageDrafts(buildPageDrafts({}, tNo, tEn));
+    setCustomProducts([]);
     setSavedAt("");
+    setSaveError("");
   }
 
   if (!productDrafts || !pageDrafts) {
@@ -324,10 +438,10 @@ const AdminPage: React.FC = () => {
       <section className="fs-hero" style={{ maxWidth: 1100 }}>
         <h1>MCL Admin</h1>
         <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          Nå styrer du produktfliser, produktsidetekst og generelle innholdssider fra samme kontrollpanel.
+          Nå styrer du produkter, produktsider og generelle innholdssider fra samme kontrollpanel.
         </p>
         <p style={{ maxWidth: 900 }}>
-          Dette lagres fortsatt lokalt i nettleseren. Vi bruker det bevisst for å spikre struktur og arbeidsflyt før vi kobler på Firebase og innlogging.
+          Denne versjonen lagrer fortsatt lokalt i nettleseren. Nå kan du i tillegg opprette helt nye, enkle produktsider uten å åpne kode.
         </p>
 
         <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", marginTop: "1rem" }}>
@@ -362,13 +476,28 @@ const AdminPage: React.FC = () => {
         </div>
 
         <p style={{ marginTop: "1rem", opacity: 0.8 }}>
-          Produktnøkkel: <code>{PRODUCT_OVERRIDES_STORAGE_KEY}</code> · Sidenøkkel: <code>{PAGE_OVERRIDES_STORAGE_KEY}</code>
+          Produktnøkkel: <code>{PRODUCT_OVERRIDES_STORAGE_KEY}</code> · Egenprodukter: <code>{CUSTOM_PRODUCTS_STORAGE_KEY}</code> · Sidenøkkel: <code>{PAGE_OVERRIDES_STORAGE_KEY}</code>
           {savedAt ? ` · sist lagret ${savedAt}` : ""}
         </p>
+        {saveError ? <p style={{ color: "#b42318", fontWeight: 700, marginTop: "0.75rem" }}>{saveError}</p> : null}
       </section>
 
       {activeTab === "products" ? (
         <section className="intro-grid" style={{ marginTop: "2rem" }}>
+          <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
+              <div>
+                <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>Opprett nytt produkt</h3>
+                <p style={{ margin: 0, opacity: 0.8 }}>
+                  Lager en enkel produktside med hero, tre fordelskort og avsluttende CTA. Perfekt for nye app-utkast og landingssider.
+                </p>
+              </div>
+              <button type="button" className="hero-cta" onClick={addCustomProduct}>
+                Legg til nytt produkt
+              </button>
+            </div>
+          </div>
+
           {PRODUCTS.map((product: ProductDefinition) => {
             const draft = productDrafts[product.slug];
             const expanded = expandedSlug === product.slug;
@@ -378,9 +507,7 @@ const AdminPage: React.FC = () => {
                 <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
                   <div>
                     <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>{product.slug}</h3>
-                    <p style={{ margin: 0, opacity: 0.8 }}>
-                      Rute: <code>{product.routePath}</code>
-                    </p>
+                    <p style={{ margin: 0, opacity: 0.8 }}>Rute: <code>{product.routePath}</code></p>
                   </div>
 
                   <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
@@ -411,15 +538,15 @@ const AdminPage: React.FC = () => {
                         <h4 style={{ marginTop: 0 }}>Forsideflis · Norsk</h4>
                         <label style={{ display: "block", marginBottom: "0.75rem" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel</span>
-                          <input value={draft.homeTitleNo} onChange={(event) => updateDraft(product.slug, { homeTitleNo: event.target.value })} style={{ width: "100%", padding: "0.7rem" }} />
+                          <input value={draft.homeTitleNo} onChange={(event) => updateDraft(product.slug, { homeTitleNo: event.target.value })} style={inputStyle} />
                         </label>
                         <label style={{ display: "block", marginBottom: "0.75rem" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Brødtekst</span>
-                          <textarea value={draft.homeBodyNo} onChange={(event) => updateDraft(product.slug, { homeBodyNo: event.target.value })} rows={5} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                          <textarea value={draft.homeBodyNo} onChange={(event) => updateDraft(product.slug, { homeBodyNo: event.target.value })} rows={5} style={textareaStyle} />
                         </label>
                         <label style={{ display: "block" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span>
-                          <input value={draft.homeCtaNo} onChange={(event) => updateDraft(product.slug, { homeCtaNo: event.target.value })} style={{ width: "100%", padding: "0.7rem" }} />
+                          <input value={draft.homeCtaNo} onChange={(event) => updateDraft(product.slug, { homeCtaNo: event.target.value })} style={inputStyle} />
                         </label>
                       </div>
 
@@ -427,15 +554,15 @@ const AdminPage: React.FC = () => {
                         <h4 style={{ marginTop: 0 }}>Forsideflis · English</h4>
                         <label style={{ display: "block", marginBottom: "0.75rem" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title</span>
-                          <input value={draft.homeTitleEn} onChange={(event) => updateDraft(product.slug, { homeTitleEn: event.target.value })} style={{ width: "100%", padding: "0.7rem" }} />
+                          <input value={draft.homeTitleEn} onChange={(event) => updateDraft(product.slug, { homeTitleEn: event.target.value })} style={inputStyle} />
                         </label>
                         <label style={{ display: "block", marginBottom: "0.75rem" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Body</span>
-                          <textarea value={draft.homeBodyEn} onChange={(event) => updateDraft(product.slug, { homeBodyEn: event.target.value })} rows={5} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                          <textarea value={draft.homeBodyEn} onChange={(event) => updateDraft(product.slug, { homeBodyEn: event.target.value })} rows={5} style={textareaStyle} />
                         </label>
                         <label style={{ display: "block" }}>
                           <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA</span>
-                          <input value={draft.homeCtaEn} onChange={(event) => updateDraft(product.slug, { homeCtaEn: event.target.value })} style={{ width: "100%", padding: "0.7rem" }} />
+                          <input value={draft.homeCtaEn} onChange={(event) => updateDraft(product.slug, { homeCtaEn: event.target.value })} style={inputStyle} />
                         </label>
                       </div>
                     </div>
@@ -450,12 +577,144 @@ const AdminPage: React.FC = () => {
                             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
                               <label style={{ display: "block" }}>
                                 <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Norsk</span>
-                                <textarea value={draft.pageTextNo[textKey] ?? ""} onChange={(event) => updateProductPageText(product.slug, "no", textKey, event.target.value)} rows={3} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                                <textarea value={draft.pageTextNo[textKey] ?? ""} onChange={(event) => updateProductPageText(product.slug, "no", textKey, event.target.value)} rows={3} style={textareaStyle} />
                               </label>
                               <label style={{ display: "block" }}>
                                 <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>English</span>
-                                <textarea value={draft.pageTextEn[textKey] ?? ""} onChange={(event) => updateProductPageText(product.slug, "en", textKey, event.target.value)} rows={3} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                                <textarea value={draft.pageTextEn[textKey] ?? ""} onChange={(event) => updateProductPageText(product.slug, "en", textKey, event.target.value)} rows={3} style={textareaStyle} />
                               </label>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {customProducts.map((product, index) => {
+            const expanded = expandedSlug === product.slug;
+            return (
+              <div key={product.slug} className="intro-card" style={{ gridColumn: "1 / -1" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
+                  <div>
+                    <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>{product.slug}</h3>
+                    <p style={{ margin: 0, opacity: 0.8 }}>Eget produkt · rute: <code>{product.routePath}</code></p>
+                  </div>
+                  <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
+                    <label style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontWeight: 600 }}>
+                      <input type="checkbox" checked={product.visible} onChange={(event) => updateCustomProduct(index, { visible: event.target.checked })} />
+                      Vis produkt på forsiden
+                    </label>
+                    <button type="button" className="status-button" style={{ cursor: "pointer" }} onClick={() => setExpandedSlug(expanded ? null : product.slug)}>
+                      {expanded ? "Skjul felter" : "Rediger produkt"}
+                    </button>
+                    <button type="button" className="status-button" style={{ cursor: "pointer" }} onClick={() => removeCustomProduct(index)}>
+                      Slett produkt
+                    </button>
+                  </div>
+                </div>
+
+                {!expanded ? null : (
+                  <div style={{ marginTop: "1.25rem", display: "grid", gap: "1.25rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
+                      <label style={{ display: "block" }}>
+                        <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Slug</span>
+                        <input value={product.slug} onChange={(event) => updateCustomProduct(index, { slug: event.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "-") })} style={inputStyle} />
+                      </label>
+                      <label style={{ display: "block" }}>
+                        <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Rute</span>
+                        <input value={product.routePath} onChange={(event) => updateCustomProduct(index, { routePath: event.target.value.startsWith("/") ? event.target.value : `/${event.target.value}` })} style={inputStyle} />
+                      </label>
+                      <label style={{ display: "block" }}>
+                        <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>CTA-lenke</span>
+                        <input value={product.finalCtaHref} onChange={(event) => updateCustomProduct(index, { finalCtaHref: event.target.value })} style={inputStyle} />
+                      </label>
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
+                      <div>
+                        <h4 style={{ marginTop: 0 }}>Forside + side · Norsk</h4>
+                        {[
+                          ["badge", "Badge"],
+                          ["homeTitle", "Forsidetittel"],
+                          ["homeBody", "Forsidebrødtekst"],
+                          ["homeCta", "Forside-CTA"],
+                          ["pageTitle", "Sidetittel"],
+                          ["pageTagline", "Undertittel"],
+                          ["pageIntro", "Intro"],
+                          ["finalTitle", "Avsluttende tittel"],
+                          ["finalBody", "Avsluttende tekst"],
+                          ["finalCta", "Avsluttende CTA"],
+                        ].map(([field, label]) => (
+                          <label key={field} style={{ display: "block", marginBottom: "0.75rem" }}>
+                            <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>{label}</span>
+                            <textarea
+                              value={(product[field as keyof CustomProduct] as { no: string; en: string } | undefined)?.no ?? ""}
+                              onChange={(event) => updateCustomLocalizedField(index, field as any, "no", event.target.value)}
+                              rows={field === "homeBody" || field === "pageIntro" || field === "finalBody" ? 4 : 2}
+                              style={textareaStyle}
+                            />
+                          </label>
+                        ))}
+                      </div>
+
+                      <div>
+                        <h4 style={{ marginTop: 0 }}>Home + page · English</h4>
+                        {[
+                          ["badge", "Badge"],
+                          ["homeTitle", "Home title"],
+                          ["homeBody", "Home body"],
+                          ["homeCta", "Home CTA"],
+                          ["pageTitle", "Page title"],
+                          ["pageTagline", "Tagline"],
+                          ["pageIntro", "Intro"],
+                          ["finalTitle", "Closing title"],
+                          ["finalBody", "Closing body"],
+                          ["finalCta", "Closing CTA"],
+                        ].map(([field, label]) => (
+                          <label key={field} style={{ display: "block", marginBottom: "0.75rem" }}>
+                            <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>{label}</span>
+                            <textarea
+                              value={(product[field as keyof CustomProduct] as { no: string; en: string } | undefined)?.en ?? ""}
+                              onChange={(event) => updateCustomLocalizedField(index, field as any, "en", event.target.value)}
+                              rows={field === "homeBody" || field === "pageIntro" || field === "finalBody" ? 4 : 2}
+                              style={textareaStyle}
+                            />
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 style={{ marginTop: 0, marginBottom: "0.5rem" }}>Fordelskort</h4>
+                      <div style={{ display: "grid", gap: "1rem" }}>
+                        {product.featureCards.map((feature, featureIndex) => (
+                          <div key={feature.id} style={{ border: "1px solid rgba(127,127,127,0.25)", borderRadius: "14px", padding: "1rem" }}>
+                            <p style={{ marginTop: 0, fontWeight: 700 }}>Kort {featureIndex + 1}</p>
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
+                              <div>
+                                <label style={{ display: "block", marginBottom: "0.75rem" }}>
+                                  <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Tittel · Norsk</span>
+                                  <input value={feature.title.no} onChange={(event) => updateCustomFeature(index, featureIndex, "title", "no", event.target.value)} style={inputStyle} />
+                                </label>
+                                <label style={{ display: "block" }}>
+                                  <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Brødtekst · Norsk</span>
+                                  <textarea value={feature.body.no} onChange={(event) => updateCustomFeature(index, featureIndex, "body", "no", event.target.value)} rows={4} style={textareaStyle} />
+                                </label>
+                              </div>
+                              <div>
+                                <label style={{ display: "block", marginBottom: "0.75rem" }}>
+                                  <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Title · English</span>
+                                  <input value={feature.title.en} onChange={(event) => updateCustomFeature(index, featureIndex, "title", "en", event.target.value)} style={inputStyle} />
+                                </label>
+                                <label style={{ display: "block" }}>
+                                  <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Body · English</span>
+                                  <textarea value={feature.body.en} onChange={(event) => updateCustomFeature(index, featureIndex, "body", "en", event.target.value)} rows={4} style={textareaStyle} />
+                                </label>
+                              </div>
                             </div>
                           </div>
                         ))}
@@ -494,11 +753,11 @@ const AdminPage: React.FC = () => {
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
                           <label style={{ display: "block" }}>
                             <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>Norsk</span>
-                            <textarea value={draft.textNo[textKey] ?? ""} onChange={(event) => updatePageText(page.slug, "no", textKey, event.target.value)} rows={3} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                            <textarea value={draft.textNo[textKey] ?? ""} onChange={(event) => updatePageText(page.slug, "no", textKey, event.target.value)} rows={3} style={textareaStyle} />
                           </label>
                           <label style={{ display: "block" }}>
                             <span style={{ display: "block", marginBottom: "0.35rem", fontWeight: 600 }}>English</span>
-                            <textarea value={draft.textEn[textKey] ?? ""} onChange={(event) => updatePageText(page.slug, "en", textKey, event.target.value)} rows={3} style={{ width: "100%", padding: "0.7rem", resize: "vertical" }} />
+                            <textarea value={draft.textEn[textKey] ?? ""} onChange={(event) => updatePageText(page.slug, "en", textKey, event.target.value)} rows={3} style={textareaStyle} />
                           </label>
                         </div>
                       </div>
