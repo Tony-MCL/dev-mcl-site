@@ -6,10 +6,18 @@ import { PRODUCTS, type ProductDefinition } from "../config/products";
 import { getHomeCardValue, getProductVisibility, readProductOverrides } from "../config/productOverrides";
 import { getLocalizedValue, readCustomProducts, type CustomProduct } from "../config/customProducts";
 
+const imageStyle: React.CSSProperties = {
+  width: "100%",
+  aspectRatio: "16 / 9",
+  objectFit: "cover",
+  borderRadius: "14px",
+  marginBottom: "0.9rem",
+};
+
 const HomePage: React.FC = () => {
   const { t, lang } = useI18n();
   const overrides = readProductOverrides();
-  const customProducts = readCustomProducts().filter((product) => product.visible);
+  const customProducts = readCustomProducts().filter((product) => product.visible && product.status === "published");
 
   return (
     <main className="page home-page">
@@ -59,6 +67,8 @@ const HomePage: React.FC = () => {
 
           {customProducts.map((product: CustomProduct) => (
             <div key={product.slug} className="intro-card">
+              {product.imageUrl ? <img src={product.imageUrl} alt={getLocalizedValue(product.homeTitle, lang)} style={imageStyle} /> : null}
+
               {product.badge ? (
                 <div className="app-card-topline">
                   <span className="badge">{getLocalizedValue(product.badge, lang)}</span>
