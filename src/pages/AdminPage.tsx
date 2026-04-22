@@ -327,7 +327,7 @@ const AdminPage: React.FC = () => {
   }
 
   function validateCustomProducts(productsToValidate: CustomProduct[]): string | null {
-    const baseSlugs = new Set(PRODUCTS.map((product) => product.slug));
+    const baseSlugs = new Set<string>(PRODUCTS.map((product) => product.slug));
     const basePaths = new Set(PRODUCTS.map((product) => product.routePath));
     const slugSet = new Set<string>();
     const pathSet = new Set<string>();
