@@ -180,6 +180,7 @@ function prettifyKey(key: string): string {
 }
 
 const AdminPage: React.FC = () => {
+
   const [productDrafts, setProductDrafts] = useState<DraftMap | null>(null);
   const [pageDrafts, setPageDrafts] = useState<PageDraftMap | null>(null);
   const [savedAt, setSavedAt] = useState<string>("");
@@ -323,7 +324,7 @@ const AdminPage: React.FC = () => {
       <section className="fs-hero" style={{ maxWidth: 1100 }}>
         <h1>MCL Admin</h1>
         <p className="fs-tagline" style={{ maxWidth: 900 }}>
-          Nå styrer du produktfliser, produktsidetekst og utvalgte innholdssider fra samme kontrollpanel.
+          Nå styrer du produktfliser, produktsidetekst og generelle innholdssider fra samme kontrollpanel.
         </p>
         <p style={{ maxWidth: 900 }}>
           Dette lagres fortsatt lokalt i nettleseren. Vi bruker det bevisst for å spikre struktur og arbeidsflyt før vi kobler på Firebase og innlogging.
