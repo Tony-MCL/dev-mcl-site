@@ -4,7 +4,7 @@ import { getProductBySlug, type ProductContentBlock, type ProductSlug } from "..
 import { getProductTextValue } from "../config/productOverrides";
 import { getLocalizedValue, readCustomProducts, type CustomProduct } from "../config/customProducts";
 
-const txt = (slug: string, t: (key: string) => string, lang: "no" | "en", key: string) =>
+const txt = (slug: ProductSlug, t: (key: string) => string, lang: "no" | "en", key: string) =>
   getProductTextValue(slug, key, lang, t(key));
 
 type ProductPageProps = {
@@ -237,7 +237,7 @@ function renderCustomProduct(product: CustomProduct, lang: "no" | "en") {
 
 const ProductPage: React.FC<ProductPageProps> = ({ slug }) => {
   const { t, lang } = useI18n();
-  const product = getProductBySlug(slug);
+  const product = getProductBySlug(slug as ProductSlug);
   const customProduct = readCustomProducts().find((item) => item.slug === slug) ?? null;
 
   useEffect(() => {
