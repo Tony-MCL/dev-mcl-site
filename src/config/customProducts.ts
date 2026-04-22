@@ -9,10 +9,15 @@ export type CustomFeatureCard = {
   body: LocalizedText;
 };
 
+export type CustomProductStatus = "draft" | "published";
+
 export type CustomProduct = {
   slug: string;
   routePath: string;
   visible: boolean;
+  status: CustomProductStatus;
+  order: number;
+  imageUrl?: string;
   badge?: LocalizedText;
   homeTitle: LocalizedText;
   homeBody: LocalizedText;
@@ -68,6 +73,9 @@ function sanitizeCustomProduct(value: unknown): CustomProduct | null {
     slug,
     routePath,
     visible: typeof value.visible === "boolean" ? value.visible : true,
+    status: value.status === "published" ? "published" : "draft",
+    order: typeof value.order === "number" && Number.isFinite(value.order) ? value.order : 0,
+    imageUrl: typeof value.imageUrl === "string" && value.imageUrl.trim() ? value.imageUrl.trim() : undefined,
     badge: value.badge ? sanitizeLocalizedText(value.badge) : undefined,
     homeTitle: sanitizeLocalizedText(value.homeTitle),
     homeBody: sanitizeLocalizedText(value.homeBody),
@@ -83,6 +91,10 @@ function sanitizeCustomProduct(value: unknown): CustomProduct | null {
   };
 }
 
+function sortProducts(products: CustomProduct[]): CustomProduct[] {
+  return [...products].sort((a, b) => a.order - b.order || a.homeTitle.no.localeCompare(b.homeTitle.no));
+}
+
 export function readCustomProducts(): CustomProduct[] {
   if (typeof window === "undefined") return [];
 
@@ -93,9 +105,11 @@ export function readCustomProducts(): CustomProduct[] {
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
 
-    return parsed
-      .map((item) => sanitizeCustomProduct(item))
-      .filter((item): item is CustomProduct => Boolean(item));
+    return sortProducts(
+      parsed
+        .map((item) => sanitizeCustomProduct(item))
+        .filter((item): item is CustomProduct => Boolean(item))
+    );
   } catch {
     return [];
   }
@@ -103,7 +117,7 @@ export function readCustomProducts(): CustomProduct[] {
 
 export function writeCustomProducts(products: CustomProduct[]) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(CUSTOM_PRODUCTS_STORAGE_KEY, JSON.stringify(products));
+  window.localStorage.setItem(CUSTOM_PRODUCTS_STORAGE_KEY, JSON.stringify(sortProducts(products)));
 }
 
 export function resetCustomProducts() {
@@ -117,6 +131,9 @@ export function createEmptyCustomProduct(seed = 1): CustomProduct {
     slug: `new-product${suffix}`,
     routePath: `/new-product${suffix}`,
     visible: true,
+    status: "draft",
+    order: seed,
+    imageUrl: "",
     badge: { no: "App", en: "App" },
     homeTitle: { no: "Nytt produkt", en: "New product" },
     homeBody: {
