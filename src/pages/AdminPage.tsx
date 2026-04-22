@@ -189,13 +189,25 @@ const AdminPage: React.FC = () => {
     return () => window.clearTimeout(timer);
   }, [saveMessage]);
 
-  const pageItems: NavItem[] = useMemo(
-    () => EDITABLE_PAGES.map((page) => ({ kind: "page", slug: page.slug, title: page.title, routePath: page.routePath })),
+  const pageItems: Array<Extract<NavItem, { kind: "page" }>> = useMemo(
+    () =>
+      EDITABLE_PAGES.map((page) => ({
+        kind: "page",
+        slug: page.slug,
+        title: page.title,
+        routePath: page.routePath,
+      })),
     []
   );
-
-  const productItems: NavItem[] = useMemo(
-    () => PRODUCTS.map((product) => ({ kind: "product", slug: product.slug, title: getProductTitle(product, t), routePath: product.routePath })),
+  
+  const productItems: Array<Extract<NavItem, { kind: "product" }>> = useMemo(
+    () =>
+      PRODUCTS.map((product) => ({
+        kind: "product",
+        slug: product.slug,
+        title: getProductTitle(product, t),
+        routePath: product.routePath,
+      })),
     [t]
   );
 
