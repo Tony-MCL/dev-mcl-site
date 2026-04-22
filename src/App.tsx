@@ -49,30 +49,18 @@ const AppShell: React.FC = () => {
           <Route path="/idebank" element={<IdeaBankPage />} />
           <Route path="/admin" element={<AdminPage />} />
 
-          {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<ProductPage slug="husket" />} />
           <Route path="/receipts" element={<ProductPage slug="receipts" />} />
 
-          {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
           <Route path="/brukervilkar" element={<BrukervilkarPage />} />
           <Route path="/personvern" element={<PersonvernPage />} />
           <Route path="/refusjon" element={<RefusjonPage />} />
 
-          {/* Husket legal */}
-          <Route
-            path="/husket/kjopsvilkar"
-            element={<HusketKjopsvilkarPage />}
-          />
-          <Route
-            path="/husket/brukervilkar"
-            element={<HusketBrukervilkarPage />}
-          />
-          <Route
-            path="/husket/personvern"
-            element={<HusketPersonvernPage />}
-          />
+          <Route path="/husket/kjopsvilkar" element={<HusketKjopsvilkarPage />} />
+          <Route path="/husket/brukervilkar" element={<HusketBrukervilkarPage />} />
+          <Route path="/husket/personvern" element={<HusketPersonvernPage />} />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
