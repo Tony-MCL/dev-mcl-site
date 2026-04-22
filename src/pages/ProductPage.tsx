@@ -18,18 +18,13 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
         <section key={block.id} className={block.className ?? "fs-hero"}>
           {block.titleKey ? <h1 className={block.titleClassName}>{txt(slug, t, lang, block.titleKey)}</h1> : null}
           {block.taglineKey ? <p className={block.taglineClassName}>{txt(slug, t, lang, block.taglineKey)}</p> : null}
-          {block.bodyKeys?.map((bodyKey, index) => (
+          {block.bodyKeys?.map((bodyKey: string, index: number) => (
             <p key={bodyKey} className={index === block.bodyKeys!.length - 1 ? block.lastBodyClassName : undefined}>
               {txt(slug, t, lang, bodyKey)}
             </p>
           ))}
           {block.cta ? (
-            <a
-              href={block.cta.href}
-              target={block.cta.external ? "_blank" : undefined}
-              rel={block.cta.external ? "noopener noreferrer" : undefined}
-              className={block.cta.className ?? "hero-cta"}
-            >
+            <a href={block.cta.href} target={block.cta.external ? "_blank" : undefined} rel={block.cta.external ? "noopener noreferrer" : undefined} className={block.cta.className}>
               {txt(slug, t, lang, block.cta.labelKey)}
             </a>
           ) : null}
@@ -46,21 +41,16 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
               className={block.image.className}
             />
           </div>
-
           <div className={block.copyClassName}>
             {block.titleKey ? <h1 className={block.titleClassName}>{txt(slug, t, lang, block.titleKey)}</h1> : null}
             {block.taglineKey ? <p className={block.taglineClassName}>{txt(slug, t, lang, block.taglineKey)}</p> : null}
-            {block.bodyKeys?.map((bodyKey) => (
-              <p key={bodyKey} className={block.bodyClassName}>{txt(slug, t, lang, bodyKey)}</p>
+            {block.bodyKeys?.map((bodyKey: string) => (
+              <p key={bodyKey} className={block.bodyClassName}>
+                {txt(slug, t, lang, bodyKey)}
+              </p>
             ))}
-
             {block.cta ? (
-              <a
-                href={block.cta.href}
-                target={block.cta.external ? "_blank" : undefined}
-                rel={block.cta.external ? "noopener noreferrer" : undefined}
-                className={block.cta.className ?? "hero-cta"}
-              >
+              <a href={block.cta.href} target={block.cta.external ? "_blank" : undefined} rel={block.cta.external ? "noopener noreferrer" : undefined} className={block.cta.className}>
                 {txt(slug, t, lang, block.cta.labelKey)}
               </a>
             ) : null}
@@ -71,30 +61,25 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
     case "imageGrid":
       return (
         <section key={block.id} className={block.className}>
-          {block.items.map((item) => (
-            <div key={item.src} className={item.cardClassName}>
-              <img
-                src={`${import.meta.env.BASE_URL}${item.src}`}
-                alt={txt(slug, t, lang, item.altKey)}
-                className={item.imageClassName}
-              />
-            </div>
-          ))}
+          {block.titleKey ? <h3 style={{ marginTop: 0 }}>{txt(slug, t, lang, block.titleKey)}</h3> : null}
+          <div className={block.className}>
+            {block.items.map((item) => (
+              <div key={item.src} className={item.cardClassName}>
+                <img src={`${import.meta.env.BASE_URL}${item.src}`} alt={txt(slug, t, lang, item.altKey)} className={item.imageClassName} />
+              </div>
+            ))}
+          </div>
         </section>
       );
 
     case "figureGrid":
       return (
-        <section key={block.id} className={block.wrapperClassName ?? "intro-card"}>
+        <section key={block.id} className={block.wrapperClassName}>
           {block.titleKey ? <h3 style={{ marginTop: 0 }}>{txt(slug, t, lang, block.titleKey)}</h3> : null}
           <div className={block.className}>
             {block.items.map((item) => (
               <figure key={item.src} className={item.figureClassName}>
-                <img
-                  src={`${import.meta.env.BASE_URL}${item.src}`}
-                  alt={txt(slug, t, lang, item.altKey)}
-                  className={item.imageClassName}
-                />
+                <img src={`${import.meta.env.BASE_URL}${item.src}`} alt={txt(slug, t, lang, item.altKey)} className={item.imageClassName} />
                 <figcaption className={item.captionClassName}>{txt(slug, t, lang, item.captionKey)}</figcaption>
               </figure>
             ))}
@@ -106,14 +91,12 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
       return (
         <section key={block.id} className={block.className ?? "intro-card"}>
           <ul>
-            {block.bulletKeys.map((bulletKey) => (
+            {block.bulletKeys.map((bulletKey: string) => (
               <li key={bulletKey}>{txt(slug, t, lang, bulletKey)}</li>
             ))}
           </ul>
-          {block.strongBodyKeys?.map((bodyKey) => (
-            <p key={bodyKey}>
-              <strong>{txt(slug, t, lang, bodyKey)}</strong>
-            </p>
+          {block.strongBodyKeys?.map((bodyKey: string) => (
+            <p key={bodyKey}><strong>{txt(slug, t, lang, bodyKey)}</strong></p>
           ))}
         </section>
       );
@@ -122,22 +105,13 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
       return (
         <section key={block.id} className={block.className}>
           {block.items.map((item) => (
-            <div
-              key={item.titleKey}
-              className={item.cardClassName ?? "intro-card"}
-              style={item.fullWidth ? { gridColumn: "1 / -1" } : undefined}
-            >
+            <div key={item.titleKey} className={item.cardClassName ?? "intro-card"} style={item.fullWidth ? { gridColumn: "1 / -1" } : undefined}>
               <h3 style={item.removeTopMargin ? { marginTop: 0 } : undefined}>{txt(slug, t, lang, item.titleKey)}</h3>
-              {item.bodyKeys.map((bodyKey) => (
+              {item.bodyKeys.map((bodyKey: string) => (
                 <p key={bodyKey}>{txt(slug, t, lang, bodyKey)}</p>
               ))}
               {item.cta ? (
-                <a
-                  href={item.cta.href}
-                  target={item.cta.external ? "_blank" : undefined}
-                  rel={item.cta.external ? "noopener noreferrer" : undefined}
-                  className={item.cta.className ?? "hero-cta"}
-                >
+                <a href={item.cta.href} target={item.cta.external ? "_blank" : undefined} rel={item.cta.external ? "noopener noreferrer" : undefined} className={item.cta.className}>
                   {txt(slug, t, lang, item.cta.labelKey)}
                 </a>
               ) : null}
@@ -188,31 +162,35 @@ function renderBlock(block: ProductContentBlock, slug: ProductSlug, t: (key: str
           <div className={block.innerClassName}>
             <h2>{txt(slug, t, lang, block.titleKey)}</h2>
             <p className={block.subClassName}>{txt(slug, t, lang, block.subKey)}</p>
-            <a
-              href={block.button.href}
-              target={block.button.external ? "_blank" : undefined}
-              rel={block.button.external ? "noopener noreferrer" : undefined}
-              className={block.button.className ?? "hero-cta"}
-            >
+            <a href={block.button.href} target={block.button.external ? "_blank" : undefined} rel={block.button.external ? "noopener noreferrer" : undefined} className={block.button.className}>
               {txt(slug, t, lang, block.button.labelKey)}
             </a>
             <p className={block.noteClassName}>{txt(slug, t, lang, block.noteKey)}</p>
           </div>
         </section>
       );
-
-    default:
-      return null;
   }
 }
 
 function renderCustomProduct(product: CustomProduct, lang: "no" | "en") {
   return (
     <main className="page">
-      <section className="fs-hero">
+      <section className="fs-hero" style={{ maxWidth: 980 }}>
+        {product.status === "draft" ? (
+          <p style={{ marginBottom: "0.75rem" }}>
+            <span className="badge">Draft</span>
+          </p>
+        ) : null}
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={getLocalizedValue(product.pageTitle, lang)}
+            style={{ width: "100%", maxWidth: 980, aspectRatio: "16 / 9", objectFit: "cover", borderRadius: 18, marginBottom: "1rem" }}
+          />
+        ) : null}
         <h1 className="hero-title">{getLocalizedValue(product.pageTitle, lang)}</h1>
         <p className="hero-tagline">{getLocalizedValue(product.pageTagline, lang)}</p>
-        <p className="hero-sub" style={{ maxWidth: 900 }}>{getLocalizedValue(product.pageIntro, lang)}</p>
+        <p className="hero-sub" style={{ maxWidth: 820 }}>{getLocalizedValue(product.pageIntro, lang)}</p>
       </section>
 
       <section className="intro-grid two-columns">
@@ -237,22 +215,26 @@ function renderCustomProduct(product: CustomProduct, lang: "no" | "en") {
 
 const ProductPage: React.FC<ProductPageProps> = ({ slug }) => {
   const { t, lang } = useI18n();
-  const product = getProductBySlug(slug as ProductSlug);
-  const customProduct = readCustomProducts().find((item) => item.slug === slug) ?? null;
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [slug]);
 
-  if (product) {
-    return <main className={product.pageClassName}>{product.blocks.map((block) => renderBlock(block, product.slug, t, lang))}</main>;
+  const baseProduct = getProductBySlug(slug);
+  if (baseProduct) {
+    return <main className={baseProduct.pageClassName}>{baseProduct.blocks.map((block) => renderBlock(block, slug as ProductSlug, t, lang))}</main>;
   }
 
-  if (customProduct) {
-    return renderCustomProduct(customProduct, lang);
-  }
+  const customProduct = readCustomProducts().find((item) => item.slug === slug);
+  if (customProduct) return renderCustomProduct(customProduct, lang);
 
-  return null;
+  return (
+    <main className="page">
+      <section className="fs-hero">
+        <h1>Produkt ikke funnet</h1>
+      </section>
+    </main>
+  );
 };
 
 export default ProductPage;
