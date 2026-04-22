@@ -222,7 +222,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ slug }) => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [slug]);
 
-  const baseProduct = isBaseProductSlug(slug) ? getProductBySlug(slug) : undefined;
+  const baseProduct = isBaseProductSlug(slug) ? getProductBySlug(slug as any) : undefined;
   if (baseProduct) {
     return <main className={baseProduct.pageClassName}>{baseProduct.blocks.map((block) => renderBlock(block, slug, t, lang))}</main>;
   }
