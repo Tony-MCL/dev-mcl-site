@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
+import { PRODUCTS } from "../content/products";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n();
@@ -58,33 +59,22 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* HUSKET */}
-          <div className="intro-card">
-            <div className="app-card-topline">
-              <span className="badge">{t("home.cards.husket.badge")}</span>
+          {PRODUCTS.map((product) => (
+            <div key={product.slug} className="intro-card">
+              {product.home.badgeKey ? (
+                <div className="app-card-topline">
+                  <span className="badge">{t(product.home.badgeKey)}</span>
+                </div>
+              ) : null}
+
+              <h3>{t(product.home.titleKey)}</h3>
+              <p>{t(product.home.bodyKey)}</p>
+
+              <p style={{ marginTop: "0.7rem" }}>
+                <Link to={product.routePath}>{t(product.home.ctaKey)}</Link>
+              </p>
             </div>
-
-            <h3>{t("home.cards.husket.title")}</h3>
-            <p>{t("home.cards.husket.body")}</p>
-
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/husket">{t("home.cards.husket.cta")}</Link>
-            </p>
-          </div>
-
-          {/* RECEIPT APP */}
-          <div className="intro-card">
-            <div className="app-card-topline">
-              <span className="badge">{t("home.cards.receipts.badge")}</span>
-            </div>
-
-            <h3>{t("home.cards.receipts.title")}</h3>
-            <p>{t("home.cards.receipts.body")}</p>
-
-            <p style={{ marginTop: "0.7rem" }}>
-              <Link to="/receipts">{t("home.cards.receipts.cta")}</Link>
-            </p>
-          </div>
+          ))}
 
           {/* TJENESTER */}
           <div className="intro-card">
