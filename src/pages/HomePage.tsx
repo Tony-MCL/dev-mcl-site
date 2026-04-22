@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
 import { PRODUCTS, type ProductDefinition } from "../config/products";
+import { getHomeCardValue, getProductVisibility, readProductOverrides } from "../config/productOverrides";
 
 const HomePage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const overrides = readProductOverrides();
 
   return (
     <main className="page home-page">
@@ -50,7 +52,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {PRODUCTS.map((product: ProductDefinition) => (
+          {PRODUCTS.filter((product: ProductDefinition) => getProductVisibility(product, overrides)).map((product: ProductDefinition) => (
             <div key={product.slug} className="intro-card">
               {product.home.badgeKey ? (
                 <div className="app-card-topline">
@@ -58,11 +60,11 @@ const HomePage: React.FC = () => {
                 </div>
               ) : null}
 
-              <h3>{t(product.home.titleKey)}</h3>
-              <p>{t(product.home.bodyKey)}</p>
+              <h3>{getHomeCardValue(product, overrides, lang, t(product.home.titleKey), "homeTitle")}</h3>
+              <p>{getHomeCardValue(product, overrides, lang, t(product.home.bodyKey), "homeBody")}</p>
 
               <p style={{ marginTop: "0.7rem" }}>
-                <Link to={product.routePath}>{t(product.home.ctaKey)}</Link>
+                <Link to={product.routePath}>{getHomeCardValue(product, overrides, lang, t(product.home.ctaKey), "homeCta")}</Link>
               </p>
             </div>
           ))}
