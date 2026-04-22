@@ -24,14 +24,16 @@ import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
 import HusketRefusjonPage from "./pages/HusketRefusjonPage";
 
+import { PRODUCTS } from "./config/products";
+import { readCustomProducts } from "./config/customProducts";
+
 const AppShell: React.FC = () => {
   const location = useLocation();
+  const dynamicProducts = [...PRODUCTS, ...readCustomProducts()];
 
-  const isCleanProductRoute =
-    location.pathname === "/husket" ||
-    location.pathname.startsWith("/husket/") ||
-    location.pathname === "/receipts" ||
-    location.pathname.startsWith("/receipts/");
+  const isCleanProductRoute = dynamicProducts.some(
+    (product) => location.pathname === product.routePath || location.pathname.startsWith(`${product.routePath}/`)
+  );
 
   return (
     <div className="app-shell">
@@ -50,8 +52,9 @@ const AppShell: React.FC = () => {
           <Route path="/admin" element={<AdminPage />} />
 
           <Route path="/progress" element={<ProgressPage />} />
-          <Route path="/husket" element={<ProductPage slug="husket" />} />
-          <Route path="/receipts" element={<ProductPage slug="receipts" />} />
+          {dynamicProducts.map((product) => (
+            <Route key={product.slug} path={product.routePath} element={<ProductPage slug={product.slug} />} />
+          ))}
 
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
           <Route path="/brukervilkar" element={<BrukervilkarPage />} />
