@@ -7,6 +7,8 @@ import { getLocalizedValue, readCustomProducts, type CustomProduct } from "../co
 const txt = (slug: ProductSlug, t: (key: string) => string, lang: "no" | "en", key: string) =>
   getProductTextValue(slug, key, lang, t(key));
 
+const isBaseProductSlug = (value: string): value is ProductSlug => value === "husket" || value === "receipts";
+
 type ProductPageProps = {
   slug: string;
 };
@@ -220,9 +222,9 @@ const ProductPage: React.FC<ProductPageProps> = ({ slug }) => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [slug]);
 
-  const baseProduct = getProductBySlug(slug);
+  const baseProduct = isBaseProductSlug(slug) ? getProductBySlug(slug) : undefined;
   if (baseProduct) {
-    return <main className={baseProduct.pageClassName}>{baseProduct.blocks.map((block) => renderBlock(block, slug as ProductSlug, t, lang))}</main>;
+    return <main className={baseProduct.pageClassName}>{baseProduct.blocks.map((block) => renderBlock(block, slug, t, lang))}</main>;
   }
 
   const customProduct = readCustomProducts().find((item) => item.slug === slug);
