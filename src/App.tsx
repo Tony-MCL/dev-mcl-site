@@ -17,8 +17,7 @@ import BrukervilkarPage from "./pages/BrukervilkarPage";
 import PersonvernPage from "./pages/PersonvernPage";
 import RefusjonPage from "./pages/RefusjonPage";
 
-import HusketPage from "./pages/HusketPage";
-import ReceiptPage from "./pages/ReceiptPage";
+import ProductPage from "./pages/ProductPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
@@ -50,8 +49,8 @@ const AppShell: React.FC = () => {
 
           {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
-          <Route path="/husket" element={<HusketPage />} />
-          <Route path="/receipts" element={<ReceiptPage />} />
+          <Route path="/husket" element={<ProductPage slug="husket" />} />
+          <Route path="/receipts" element={<ProductPage slug="receipts" />} />
 
           {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
