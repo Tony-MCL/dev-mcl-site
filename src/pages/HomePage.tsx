@@ -4,10 +4,12 @@ import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
 import { PRODUCTS, type ProductDefinition } from "../config/products";
 import { getHomeCardValue, getProductVisibility, readProductOverrides } from "../config/productOverrides";
+import { getLocalizedValue, readCustomProducts, type CustomProduct } from "../config/customProducts";
 
 const HomePage: React.FC = () => {
   const { t, lang } = useI18n();
   const overrides = readProductOverrides();
+  const customProducts = readCustomProducts().filter((product) => product.visible);
 
   return (
     <main className="page home-page">
@@ -27,26 +29,12 @@ const HomePage: React.FC = () => {
             <h3>{t("home.cards.progress.title")}</h3>
             <p>{t("home.cards.progress.body")}</p>
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.8rem",
-                marginTop: "1rem",
-              }}
-            >
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", marginTop: "1rem" }}>
               <a href={LINKS.ms} className="hero-cta" rel="noopener noreferrer">
                 {t("home.cards.progress.cta")}
               </a>
 
-              <Link
-                to="/kontakt"
-                style={{
-                  alignSelf: "center",
-                  fontSize: "0.95rem",
-                  textDecoration: "underline",
-                }}
-              >
+              <Link to="/kontakt" style={{ alignSelf: "center", fontSize: "0.95rem", textDecoration: "underline" }}>
                 {t("home.cards.progress.contactCta")}
               </Link>
             </div>
@@ -65,6 +53,23 @@ const HomePage: React.FC = () => {
 
               <p style={{ marginTop: "0.7rem" }}>
                 <Link to={product.routePath}>{getHomeCardValue(product, overrides, lang, t(product.home.ctaKey), "homeCta")}</Link>
+              </p>
+            </div>
+          ))}
+
+          {customProducts.map((product: CustomProduct) => (
+            <div key={product.slug} className="intro-card">
+              {product.badge ? (
+                <div className="app-card-topline">
+                  <span className="badge">{getLocalizedValue(product.badge, lang)}</span>
+                </div>
+              ) : null}
+
+              <h3>{getLocalizedValue(product.homeTitle, lang)}</h3>
+              <p>{getLocalizedValue(product.homeBody, lang)}</p>
+
+              <p style={{ marginTop: "0.7rem" }}>
+                <Link to={product.routePath}>{getLocalizedValue(product.homeCta, lang)}</Link>
               </p>
             </div>
           ))}
