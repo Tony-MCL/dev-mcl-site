@@ -317,13 +317,14 @@ const AdminPage: React.FC = () => {
   function addCustomProduct() {
     setCustomProducts((current) => {
       const next = [...current, createEmptyCustomProduct(makeUniqueSeed(current))];
-      setExpandedSlug(next[next.length - 1].slug);
+      setExpandedSlug(`custom-${next.length - 1}`);
       return next;
     });
   }
 
   function removeCustomProduct(index: number) {
     setCustomProducts((current) => current.filter((_, itemIndex) => itemIndex !== index));
+    setExpandedSlug((current) => (current === `custom-${index}` ? null : current));
   }
 
   function validateCustomProducts(productsToValidate: CustomProduct[]): string | null {
@@ -595,9 +596,10 @@ const AdminPage: React.FC = () => {
           })}
 
           {customProducts.map((product, index) => {
-            const expanded = expandedSlug === product.slug;
+            const customEditorKey = `custom-${index}`;
+            const expanded = expandedSlug === customEditorKey;
             return (
-              <div key={product.slug} className="intro-card" style={{ gridColumn: "1 / -1" }}>
+              <div key={customEditorKey} className="intro-card" style={{ gridColumn: "1 / -1" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
                   <div>
                     <h3 style={{ marginTop: 0, marginBottom: "0.35rem" }}>{product.slug}</h3>
@@ -608,7 +610,7 @@ const AdminPage: React.FC = () => {
                       <input type="checkbox" checked={product.visible} onChange={(event) => updateCustomProduct(index, { visible: event.target.checked })} />
                       Vis produkt på forsiden
                     </label>
-                    <button type="button" className="status-button" style={{ cursor: "pointer" }} onClick={() => setExpandedSlug(expanded ? null : product.slug)}>
+                    <button type="button" className="status-button" style={{ cursor: "pointer" }} onClick={() => setExpandedSlug(expanded ? null : customEditorKey)}>
                       {expanded ? "Skjul felter" : "Rediger produkt"}
                     </button>
                     <button type="button" className="status-button" style={{ cursor: "pointer" }} onClick={() => removeCustomProduct(index)}>
