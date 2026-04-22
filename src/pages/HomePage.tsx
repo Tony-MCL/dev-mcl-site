@@ -2,30 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
-import { PRODUCTS } from "../content/products";
+import { PRODUCTS, type ProductDefinition } from "../config/products";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n();
 
   return (
     <main className="page home-page">
-      {/* HERO */}
       <section className="hero">
         <h1 className="hero-title">{t("home.hero.title")}</h1>
-
         <p className="hero-tagline">{t("home.hero.tagline")}</p>
-
         <p className="hero-sub" style={{ maxWidth: 820 }}>
           {t("home.hero.sub")}
         </p>
       </section>
 
-      {/* HVA SOM BYGGES */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.building")}</h2>
 
         <section className="intro-grid">
-          {/* MANAGE PROGRESS – FULL BREDD */}
           <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
             <h3>{t("home.cards.progress.title")}</h3>
             <p>{t("home.cards.progress.body")}</p>
@@ -38,11 +33,7 @@ const HomePage: React.FC = () => {
                 marginTop: "1rem",
               }}
             >
-              <a
-                href={LINKS.ms}
-                className="hero-cta"
-                rel="noopener noreferrer"
-              >
+              <a href={LINKS.ms} className="hero-cta" rel="noopener noreferrer">
                 {t("home.cards.progress.cta")}
               </a>
 
@@ -59,7 +50,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {PRODUCTS.map((product) => (
+          {PRODUCTS.map((product: ProductDefinition) => (
             <div key={product.slug} className="intro-card">
               {product.home.badgeKey ? (
                 <div className="app-card-topline">
@@ -76,7 +67,6 @@ const HomePage: React.FC = () => {
             </div>
           ))}
 
-          {/* TJENESTER */}
           <div className="intro-card">
             <h3>{t("home.cards.services.title")}</h3>
             <p>{t("home.cards.services.body")}</p>
@@ -98,7 +88,6 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
-      {/* PRINSIPPER */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.principles")}</h2>
 
@@ -120,7 +109,6 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
-      {/* HVEM DETTE PASSER FOR */}
       <section>
         <h2 style={{ marginBottom: "0.6rem" }}>{t("home.sections.audience")}</h2>
         <p style={{ maxWidth: 820 }}>{t("home.audience")}</p>
