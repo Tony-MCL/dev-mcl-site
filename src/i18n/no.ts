@@ -834,7 +834,27 @@ const no = {
       button: "Ta kontakt",
       note: "Ingen forpliktelser. Bare ekte interesse.",
     },
-  }
+  },
+
+  qrGenerator: {
+    title: "Gratis QR-generator",
+    tagline:
+      "Lag QR-koder med valgfri logo i midten. Ingen konto. Ingen betaling. Ingen abonnementstull.",
+    inputLabel: "Lenke eller tekst",
+    logoLabel: "Logo i midten",
+    logoSize: "Logo-størrelse",
+    fgColor: "QR-farge",
+    bgColor: "Bakgrunn",
+    download: "Last ned PNG",
+    removeLogo: "Fjern logo",
+    note:
+      "Tips: Hold logoen moderat i størrelse, spesielt hvis QR-koden skal trykkes på klær, plakater eller små etiketter.",
+    warning:
+      "Logoen er ganske stor. Test QR-koden med mobilkamera før du trykker eller deler den.",
+    alerts: {
+      chooseImage: "Velg en bildefil.",
+    },
+  },
 } as const;
 
 export default no;
