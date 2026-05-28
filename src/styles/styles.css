@@ -726,3 +726,137 @@ html[data-theme="dark"] .theme-toggle {
 html[data-theme="dark"] .header::after {
   background: rgba(255, 255, 255, 0.10);
 }
+/* ===== QR Generator ===== */
+
+.qr-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.qr-hero {
+  max-width: 840px;
+}
+
+.qr-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.qr-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.qr-control-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.qr-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.qr-preview {
+  position: relative;
+  width: min(100%, 390px);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid var(--mcl-border);
+  box-shadow: var(--mcl-shadow);
+}
+
+.qr-preview canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.qr-logo-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 18%;
+  padding: 2.5%;
+}
+
+.qr-logo-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.qr-download {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.qr-secondary-button {
+  align-self: flex-start;
+  border: 1px solid var(--mcl-border);
+  border-radius: 999px;
+  background: var(--mcl-surface);
+  color: var(--mcl-text);
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.qr-note,
+.qr-warning {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.qr-note {
+  color: var(--mcl-text-dim);
+  font-size: 0.95rem;
+}
+
+.qr-warning {
+  color: #8a4b00;
+  background: rgba(226, 181, 103, 0.18);
+  border: 1px solid rgba(226, 181, 103, 0.35);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+}
+
+html[data-theme="dark"] .qr-warning {
+  color: #ffd79a;
+}
+
+@media (max-width: 900px) {
+  .qr-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-preview-card {
+    align-items: stretch;
+  }
+
+  .qr-preview {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .qr-control-grid {
+    grid-template-columns: 1fr;
+  }
+}
