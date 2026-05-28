@@ -11,29 +11,28 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import IdeaBankPage from "./pages/IdeaBankPage";
 import ProgressPage from "./pages/ProgressPage";
-import ProductPage from "./pages/ProductPage";
-import AdminPage from "./pages/AdminPage";
+import QrGeneratorPage from "./pages/QrGeneratorPage";
 
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
 import PersonvernPage from "./pages/PersonvernPage";
 import RefusjonPage from "./pages/RefusjonPage";
 
+import HusketPage from "./pages/HusketPage";
+import ReceiptPage from "./pages/ReceiptPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
 import HusketBrukervilkarPage from "./pages/HusketBrukervilkarPage";
 import HusketPersonvernPage from "./pages/HusketPersonvernPage";
 import HusketRefusjonPage from "./pages/HusketRefusjonPage";
 
-import { PRODUCTS } from "./config/products";
-import { readCustomProducts } from "./config/customProducts";
-
 const AppShell: React.FC = () => {
   const location = useLocation();
-  const dynamicProducts = [...PRODUCTS, ...readCustomProducts()];
 
-  const isCleanProductRoute = dynamicProducts.some(
-    (product) => location.pathname === product.routePath || location.pathname.startsWith(`${product.routePath}/`)
-  );
+  const isCleanProductRoute =
+    location.pathname === "/husket" ||
+    location.pathname.startsWith("/husket/") ||
+    location.pathname === "/receipts" ||
+    location.pathname.startsWith("/receipts/");
 
   return (
     <div className="app-shell">
@@ -49,21 +48,34 @@ const AppShell: React.FC = () => {
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
-          <Route path="/admin" element={<AdminPage />} />
 
+          {/* Verktøy */}
+          <Route path="/qr-generator" element={<QrGeneratorPage />} />
+
+          {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
-          {dynamicProducts.map((product) => (
-            <Route key={product.slug} path={product.routePath} element={<ProductPage slug={product.slug} />} />
-          ))}
+          <Route path="/husket" element={<HusketPage />} />
+          <Route path="/receipts" element={<ReceiptPage />} />
 
+          {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
           <Route path="/brukervilkar" element={<BrukervilkarPage />} />
           <Route path="/personvern" element={<PersonvernPage />} />
           <Route path="/refusjon" element={<RefusjonPage />} />
 
-          <Route path="/husket/kjopsvilkar" element={<HusketKjopsvilkarPage />} />
-          <Route path="/husket/brukervilkar" element={<HusketBrukervilkarPage />} />
-          <Route path="/husket/personvern" element={<HusketPersonvernPage />} />
+          {/* Husket legal */}
+          <Route
+            path="/husket/kjopsvilkar"
+            element={<HusketKjopsvilkarPage />}
+          />
+          <Route
+            path="/husket/brukervilkar"
+            element={<HusketBrukervilkarPage />}
+          />
+          <Route
+            path="/husket/personvern"
+            element={<HusketPersonvernPage />}
+          />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
