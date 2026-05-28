@@ -5,7 +5,7 @@ import { useI18n } from "../i18n/useI18n";
 const DEFAULT_VALUE = "https://morningcoffeelabs.no";
 
 const QrGeneratorPage: React.FC = () => {
-  const { lang } = useI18n();
+  const { t } = useI18n();
 
   const qrCanvasRef = useRef<HTMLDivElement | null>(null);
 
@@ -15,35 +15,13 @@ const QrGeneratorPage: React.FC = () => {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [logoSize, setLogoSize] = useState(22);
 
-  const isNo = lang === "no";
-
-  const text = {
-    title: isNo ? "Gratis QR-generator" : "Free QR generator",
-    tagline: isNo
-      ? "Lag QR-koder med valgfri logo i midten. Ingen konto. Ingen betaling. Ingen abonnementstull."
-      : "Create QR codes with an optional logo in the center. No account. No payment. No subscription nonsense.",
-    inputLabel: isNo ? "Lenke eller tekst" : "Link or text",
-    logoLabel: isNo ? "Logo i midten" : "Center logo",
-    logoSize: isNo ? "Logo-størrelse" : "Logo size",
-    fgColor: isNo ? "QR-farge" : "QR color",
-    bgColor: isNo ? "Bakgrunn" : "Background",
-    download: isNo ? "Last ned PNG" : "Download PNG",
-    removeLogo: isNo ? "Fjern logo" : "Remove logo",
-    note: isNo
-      ? "Tips: Hold logoen moderat i størrelse, spesielt hvis QR-koden skal trykkes på klær, plakater eller små etiketter."
-      : "Tip: Keep the logo moderate in size, especially if the QR code will be printed on clothing, posters, or small labels.",
-    warning: isNo
-      ? "Logoen er ganske stor. Test QR-koden med mobilkamera før du trykker eller deler den."
-      : "The logo is fairly large. Test the QR code with a phone camera before printing or sharing it.",
-  };
-
   const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      alert(isNo ? "Velg en bildefil." : "Please choose an image file.");
+      alert(t("qrGenerator.alerts.chooseImage"));
       return;
     }
 
@@ -60,7 +38,6 @@ const QrGeneratorPage: React.FC = () => {
 
   const downloadPng = async () => {
     const sourceCanvas = qrCanvasRef.current?.querySelector("canvas");
-
     if (!sourceCanvas) return;
 
     const outputSize = 1200;
@@ -107,15 +84,15 @@ const QrGeneratorPage: React.FC = () => {
   return (
     <main className="page qr-page">
       <section className="hero qr-hero">
-        <h1 className="hero-title">{text.title}</h1>
-        <p className="hero-tagline">{text.tagline}</p>
+        <h1 className="hero-title">{t("qrGenerator.title")}</h1>
+        <p className="hero-tagline">{t("qrGenerator.tagline")}</p>
       </section>
 
       <section className="qr-layout">
         <div className="qr-panel intro-card">
           <div className="form-row">
             <label>
-              {text.inputLabel}
+              {t("qrGenerator.inputLabel")}
               <textarea
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
@@ -128,7 +105,7 @@ const QrGeneratorPage: React.FC = () => {
           <div className="qr-control-grid">
             <div className="form-row">
               <label>
-                {text.fgColor}
+                {t("qrGenerator.fgColor")}
                 <input
                   type="color"
                   value={fgColor}
@@ -139,7 +116,7 @@ const QrGeneratorPage: React.FC = () => {
 
             <div className="form-row">
               <label>
-                {text.bgColor}
+                {t("qrGenerator.bgColor")}
                 <input
                   type="color"
                   value={bgColor}
@@ -151,7 +128,7 @@ const QrGeneratorPage: React.FC = () => {
 
           <div className="form-row">
             <label>
-              {text.logoLabel}
+              {t("qrGenerator.logoLabel")}
               <input type="file" accept="image/*" onChange={handleLogoUpload} />
             </label>
           </div>
@@ -159,7 +136,7 @@ const QrGeneratorPage: React.FC = () => {
           {logoUrl ? (
             <div className="form-row">
               <label>
-                {text.logoSize}: {logoSize}%
+                {t("qrGenerator.logoSize")}: {logoSize}%
                 <input
                   type="range"
                   min="10"
@@ -174,16 +151,16 @@ const QrGeneratorPage: React.FC = () => {
                 className="qr-secondary-button"
                 onClick={() => setLogoUrl(null)}
               >
-                {text.removeLogo}
+                {t("qrGenerator.removeLogo")}
               </button>
             </div>
           ) : null}
 
           {logoUrl && logoSize > 26 ? (
-            <p className="qr-warning">{text.warning}</p>
+            <p className="qr-warning">{t("qrGenerator.warning")}</p>
           ) : null}
 
-          <p className="qr-note">{text.note}</p>
+          <p className="qr-note">{t("qrGenerator.note")}</p>
         </div>
 
         <div className="qr-preview-card intro-card">
@@ -216,7 +193,7 @@ const QrGeneratorPage: React.FC = () => {
           </div>
 
           <button type="button" className="hero-cta qr-download" onClick={downloadPng}>
-            {text.download}
+            {t("qrGenerator.download")}
           </button>
         </div>
       </section>
