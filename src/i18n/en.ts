@@ -834,7 +834,27 @@ const en = {
       button: "Get in touch",
       note: "No commitment. Just genuine interest.",
     },
-  }
+  },
+
+  qrGenerator: {
+    title: "Free QR generator",
+    tagline:
+      "Create QR codes with an optional logo in the center. No account. No payment. No subscription nonsense.",
+    inputLabel: "Link or text",
+    logoLabel: "Center logo",
+    logoSize: "Logo size",
+    fgColor: "QR color",
+    bgColor: "Background",
+    download: "Download PNG",
+    removeLogo: "Remove logo",
+    note:
+      "Tip: Keep the logo moderate in size, especially if the QR code will be printed on clothing, posters, or small labels.",
+    warning:
+      "The logo is fairly large. Test the QR code with a phone camera before printing or sharing it.",
+    alerts: {
+      chooseImage: "Please choose an image file.",
+    },
+  },
 } as const;
 
 export default en;
