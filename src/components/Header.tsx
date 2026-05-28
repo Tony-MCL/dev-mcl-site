@@ -114,6 +114,13 @@ const Header: React.FC = () => {
             {t("header.nav.services")}
           </Link>
 
+          <Link
+            className={isActive("/qr-generator") ? "active" : ""}
+            to="/qr-generator"
+          >
+            QR
+          </Link>
+
           <Link className={isActive("/om") ? "active" : ""} to="/om">
             {t("header.nav.about")}
           </Link>
@@ -177,6 +184,10 @@ const Header: React.FC = () => {
 
         <Link to="/idebank" onClick={closeMenu}>
           {t("header.nav.services")}
+        </Link>
+
+        <Link to="/qr-generator" onClick={closeMenu}>
+          QR
         </Link>
 
         <Link to="/om" onClick={closeMenu}>
