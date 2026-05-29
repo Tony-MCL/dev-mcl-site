@@ -845,6 +845,7 @@ const en = {
     logoSize: "Logo size",
     fgColor: "QR color",
     bgColor: "Background",
+    logoBackground: "Protect logo with background",
     download: "Download PNG",
     removeLogo: "Remove logo",
     note:
