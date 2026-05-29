@@ -14,10 +14,10 @@ const QrGeneratorPage: React.FC = () => {
   const [bgColor, setBgColor] = useState("#ffffff");
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const [logoSize, setLogoSize] = useState(22);
+  const [logoBackground, setLogoBackground] = useState(false);
 
   const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
@@ -62,10 +62,17 @@ const QrGeneratorPage: React.FC = () => {
       });
 
       const logoPx = Math.round(outputSize * (logoSize / 100));
-      const padding = Math.round(logoPx * 0.16);
+      const padding = logoBackground ? Math.round(logoPx * 0.16) : 0;
       const boxSize = logoPx + padding * 2;
       const x = Math.round((outputSize - boxSize) / 2);
       const y = Math.round((outputSize - boxSize) / 2);
+
+      if (logoBackground) {
+        ctx.fillStyle = bgColor;
+        ctx.beginPath();
+        ctx.roundRect(x, y, boxSize, boxSize, Math.round(boxSize * 0.16));
+        ctx.fill();
+      }
 
       ctx.drawImage(img, x + padding, y + padding, logoPx, logoPx);
     }
@@ -141,6 +148,15 @@ const QrGeneratorPage: React.FC = () => {
                 />
               </label>
 
+              <label className="qr-checkbox-row">
+                <input
+                  type="checkbox"
+                  checked={logoBackground}
+                  onChange={(event) => setLogoBackground(event.target.checked)}
+                />
+                {t("qrGenerator.logoBackground")}
+              </label>
+
               <button
                 type="button"
                 className="qr-secondary-button"
@@ -179,6 +195,8 @@ const QrGeneratorPage: React.FC = () => {
                 style={{
                   width: `${logoSize}%`,
                   height: `${logoSize}%`,
+                  backgroundColor: logoBackground ? bgColor : "transparent",
+                  padding: logoBackground ? "2.5%" : "0",
                 }}
               >
                 <img src={logoUrl} alt="" />
