@@ -837,21 +837,30 @@ const en = {
   },
 
   qrGenerator: {
-    title: "Free QR generator",
+    title: "QR generator",
     tagline:
-      "Create QR codes with an optional logo in the center. No account. No payment. No subscription nonsense.",
+      "Create static QR codes with or without a logo in the center. The service is simple, free to use, and provided as is, without any guarantee that the QR code will work in every situation or on every printed surface.",
     inputLabel: "Link or text",
     logoLabel: "Center logo",
     logoSize: "Logo size",
     fgColor: "QR color",
     bgColor: "Background",
-    logoBackground: "Protect logo with background",
     download: "Download PNG",
     removeLogo: "Remove logo",
+    logoBackground: "Protect logo with background",
     note:
       "Tip: Keep the logo moderate in size, especially if the QR code will be printed on clothing, posters, or small labels.",
     warning:
       "The logo is fairly large. Test the QR code with a phone camera before printing or sharing it.",
+    info: {
+      title: "Good to know before using the QR code",
+      p1:
+        "QR codes work best with clear contrast between the code and the background. A dark code on a light background is usually the safest choice. Weak colors, low contrast, or busy backgrounds can make the code harder to read.",
+      p2:
+        "A logo in the center can make the QR code look better, but it also covers part of the code. A background behind the logo often improves readability, while a logo without background can look cleaner. Always test the QR code with a phone camera before downloading, sharing, or sending it to print.",
+      p3:
+        "The QR code is generated locally in your browser. Morning Coffee Labs does not store the text you enter, the logo you upload, or the QR code you create. The downloaded file is the result.",
+    },
     alerts: {
       chooseImage: "Please choose an image file.",
     },
