@@ -39,7 +39,7 @@ const AppShell: React.FC = () => {
     <div className="app-shell">
       <ScrollToTop />
 
-      {!isCleanProductRoute ? <WatermarkLayer /> : null}
+      {/*!isCleanProductRoute ? <WatermarkLayer /> : null */}
 
       <Header />
 
