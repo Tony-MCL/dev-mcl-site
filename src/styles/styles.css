@@ -858,3 +858,16 @@ html[data-theme="dark"] .qr-warning {
     grid-template-columns: 1fr;
   }
 }
+  .qr-checkbox-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 0.5rem;
+    color: var(--mcl-text);
+  }
+  
+  .qr-checkbox-row input {
+    width: auto;
+  }
+
