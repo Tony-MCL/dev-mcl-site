@@ -758,8 +758,8 @@ html[data-theme="dark"] .header::after {
 }
 
 .qr-control-grid input[type="color"] {
-  width: 72%;
-  height: 38px;
+  width: 42px;
+  height: 28px;
   padding: 0;
   border: 1px solid var(--mcl-border);
   border-radius: 10px;
