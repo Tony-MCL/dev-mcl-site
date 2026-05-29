@@ -209,6 +209,13 @@ const QrGeneratorPage: React.FC = () => {
           </button>
         </div>
       </section>
+
+      <section className="qr-info-card intro-card">
+        <h2>{t("qrGenerator.info.title")}</h2>
+        <p>{t("qrGenerator.info.p1")}</p>
+        <p>{t("qrGenerator.info.p2")}</p>
+        <p>{t("qrGenerator.info.p3")}</p>
+      </section>
     </main>
   );
 };
