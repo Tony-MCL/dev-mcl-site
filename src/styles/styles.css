@@ -799,11 +799,11 @@ html[data-theme="dark"] .header::after {
 }
 
 .qr-signature {
-  position: absolute;
-  bottom: -24px;
-  right: 0;
+  width: min(100%, 390px);
+  text-align: right;
   font-size: 0.75rem;
   opacity: 0.75;
+  margin-top: -0.65rem;
   white-space: nowrap;
 }
 
