@@ -839,6 +839,19 @@ html[data-theme="dark"] .qr-warning {
   color: #ffd79a;
 }
 
+.qr-info-card {
+  max-width: 900px;
+}
+
+.qr-info-card h2 {
+  margin-top: 0;
+  color: var(--mcl-accent-light);
+}
+
+.qr-info-card p + p {
+  margin-top: 0.85rem;
+}
+
 @media (max-width: 900px) {
   .qr-layout {
     grid-template-columns: 1fr;
