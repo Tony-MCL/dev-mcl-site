@@ -789,8 +789,6 @@ html[data-theme="dark"] .header::after {
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  border-radius: 18%;
-  padding: 2.5%;
 }
 
 .qr-logo-overlay img {
