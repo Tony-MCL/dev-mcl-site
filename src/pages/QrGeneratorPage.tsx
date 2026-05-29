@@ -67,11 +67,6 @@ const QrGeneratorPage: React.FC = () => {
       const x = Math.round((outputSize - boxSize) / 2);
       const y = Math.round((outputSize - boxSize) / 2);
 
-      ctx.fillStyle = bgColor;
-      ctx.beginPath();
-      ctx.roundRect(x, y, boxSize, boxSize, Math.round(boxSize * 0.16));
-      ctx.fill();
-
       ctx.drawImage(img, x + padding, y + padding, logoPx, logoPx);
     }
 
@@ -184,7 +179,6 @@ const QrGeneratorPage: React.FC = () => {
                 style={{
                   width: `${logoSize}%`,
                   height: `${logoSize}%`,
-                  backgroundColor: bgColor,
                 }}
               >
                 <img src={logoUrl} alt="" />
