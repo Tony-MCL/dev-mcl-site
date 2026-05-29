@@ -798,6 +798,15 @@ html[data-theme="dark"] .header::after {
   display: block;
 }
 
+.qr-signature {
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
 .qr-download {
   border: none;
   cursor: pointer;
