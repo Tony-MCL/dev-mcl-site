@@ -845,6 +845,7 @@ const no = {
     logoSize: "Logo-størrelse",
     fgColor: "QR-farge",
     bgColor: "Bakgrunn",
+    logoBackground: "Beskytt logo med bakgrunn",
     download: "Last ned PNG",
     removeLogo: "Fjern logo",
     note:
