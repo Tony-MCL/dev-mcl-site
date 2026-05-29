@@ -42,7 +42,7 @@ const QrGeneratorPage: React.FC = () => {
     if (!sourceCanvas) return;
 
     const outputSize = 1200;
-    const signatureArea = 70;
+    const signatureArea = 90;
 
     const canvas = document.createElement("canvas");
     canvas.width = outputSize;
@@ -82,7 +82,7 @@ const QrGeneratorPage: React.FC = () => {
     }
 
     ctx.fillStyle = fgColor;
-    ctx.font = "20px sans-serif";
+    ctx.font = "34px sans-serif";
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
     ctx.fillText(SIGNATURE_TEXT, outputSize - 24, outputSize + signatureArea / 2);
@@ -185,37 +185,35 @@ const QrGeneratorPage: React.FC = () => {
         </div>
 
         <div className="qr-preview-card intro-card">
-          <div
-            className="qr-preview"
-            style={{ backgroundColor: bgColor }}
-            ref={qrCanvasRef}
-          >
-            <QRCodeCanvas
-              value={value.trim() || " "}
-              size={360}
-              level="H"
-              bgColor={bgColor}
-              fgColor={fgColor}
-              includeMargin
-            />
-
-            {logoUrl ? (
-              <div
-                className="qr-logo-overlay"
-                style={{
-                  width: `${logoSize}%`,
-                  height: `${logoSize}%`,
-                  backgroundColor: logoBackground ? bgColor : "transparent",
-                  padding: logoBackground ? "2.5%" : "0",
-                }}
-              >
-                <img src={logoUrl} alt="" />
-              </div>
-            ) : null}
-          </div>
-
-          <div className="qr-signature" style={{ color: fgColor }}>
-            {SIGNATURE_TEXT}
+          <div className="qr-preview" style={{ backgroundColor: bgColor }}>
+            <div className="qr-preview-code" ref={qrCanvasRef}>
+              <QRCodeCanvas
+                value={value.trim() || " "}
+                size={360}
+                level="H"
+                bgColor={bgColor}
+                fgColor={fgColor}
+                includeMargin
+              />
+          
+              {logoUrl ? (
+                <div
+                  className="qr-logo-overlay"
+                  style={{
+                    width: `${logoSize}%`,
+                    height: `${logoSize}%`,
+                    backgroundColor: logoBackground ? bgColor : "transparent",
+                    padding: logoBackground ? "2.5%" : "0",
+                  }}
+                >
+                  <img src={logoUrl} alt="" />
+                </div>
+              ) : null}
+            </div>
+          
+            <div className="qr-signature" style={{ color: fgColor }}>
+              {SIGNATURE_TEXT}
+            </div>
           </div>
 
           <button type="button" className="hero-cta qr-download" onClick={downloadPng}>
