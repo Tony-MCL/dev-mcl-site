@@ -41,9 +41,11 @@ const QrGeneratorPage: React.FC = () => {
     if (!sourceCanvas) return;
 
     const outputSize = 1200;
+    const signatureArea = 60;
+    
     const canvas = document.createElement("canvas");
     canvas.width = outputSize;
-    canvas.height = outputSize;
+    canvas.height = outputSize + signatureArea;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -51,6 +53,16 @@ const QrGeneratorPage: React.FC = () => {
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, outputSize, outputSize);
     ctx.drawImage(sourceCanvas, 0, 0, outputSize, outputSize);
+
+    ctx.fillStyle = fgColor;
+    ctx.font = "20px sans-serif";
+    ctx.textAlign = "right";
+    
+    ctx.fillText(
+      "Generated at morningcoffeelabs.no",
+      outputSize - 20,
+      outputSize + 35
+    );
 
     if (logoUrl) {
       const img = new Image();
@@ -202,6 +214,12 @@ const QrGeneratorPage: React.FC = () => {
                 <img src={logoUrl} alt="" />
               </div>
             ) : null}
+            <div
+              className="qr-signature"
+              style={{ color: fgColor }}
+            >
+              Generated at morningcoffeelabs.no
+            </div>
           </div>
 
           <button type="button" className="hero-cta qr-download" onClick={downloadPng}>
