@@ -837,25 +837,34 @@ const no = {
   },
 
   qrGenerator: {
-    title: "Gratis QR-generator",
-    tagline:
-      "Lag QR-koder med valgfri logo i midten. Ingen konto. Ingen betaling. Ingen abonnementstull.",
-    inputLabel: "Lenke eller tekst",
-    logoLabel: "Logo i midten",
-    logoSize: "Logo-størrelse",
-    fgColor: "QR-farge",
-    bgColor: "Bakgrunn",
-    logoBackground: "Beskytt logo med bakgrunn",
-    download: "Last ned PNG",
-    removeLogo: "Fjern logo",
-    note:
-      "Tips: Hold logoen moderat i størrelse, spesielt hvis QR-koden skal trykkes på klær, plakater eller små etiketter.",
-    warning:
-      "Logoen er ganske stor. Test QR-koden med mobilkamera før du trykker eller deler den.",
-    alerts: {
-      chooseImage: "Velg en bildefil.",
-    },
+  title: "QR-generator",
+  tagline:
+    "Her kan du lage statiske QR-koder med eller uten logo i midten. Tjenesten er enkel, gratis å bruke og tilbys som den er, uten garanti for at QR-koden fungerer i alle situasjoner eller på alle trykkflater.",
+  inputLabel: "Lenke eller tekst",
+  logoLabel: "Logo i midten",
+  logoSize: "Logo-størrelse",
+  fgColor: "QR-farge",
+  bgColor: "Bakgrunn",
+  download: "Last ned PNG",
+  removeLogo: "Fjern logo",
+  logoBackground: "Beskytt logo med bakgrunn",
+  note:
+    "Tips: Hold logoen moderat i størrelse, spesielt hvis QR-koden skal trykkes på klær, plakater eller små etiketter.",
+  warning:
+    "Logoen er ganske stor. Test QR-koden med mobilkamera før du trykker eller deler den.",
+  info: {
+    title: "Greit å vite før du bruker QR-koden",
+    p1:
+      "QR-koder fungerer best med tydelig kontrast mellom kode og bakgrunn. Mørk kode på lys bakgrunn er som regel tryggest. Svake farger, lav kontrast eller urolige bakgrunner kan gjøre koden vanskeligere å lese.",
+    p2:
+      "Logo i midten kan gjøre QR-koden penere, men den dekker også deler av koden. Bakgrunn bak logoen gir ofte bedre lesbarhet, mens logo uten bakgrunn kan se renere ut. Test alltid QR-koden med mobilkamera før du laster den ned, deler den eller sender den til trykk.",
+    p3:
+      "QR-koden genereres lokalt i nettleseren din. Morning Coffee Labs lagrer ikke innholdet du skriver inn, logoen du laster opp eller QR-koden du lager. Det du laster ned, er resultatet.",
   },
+  alerts: {
+    chooseImage: "Velg en bildefil.",
+  },
+},
 } as const;
 
 export default no;
