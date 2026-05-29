@@ -761,7 +761,7 @@ html[data-theme="dark"] .header::after {
   width: 42px;
   height: 28px;
   padding: 0;
-  border: 1px solid var(--mcl-border);
+  border: 2px solid var(--mcl-border);
   border-radius: 10px;
   cursor: pointer;
   background: transparent;
