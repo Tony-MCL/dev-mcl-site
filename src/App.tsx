@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import WatermarkLayer from "./components/WatermarkLayer";
 
 import HomePage from "./pages/HomePage";
+import AdminPage from "./pages/AdminPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import IdeaBankPage from "./pages/IdeaBankPage";
@@ -48,6 +49,7 @@ const AppShell: React.FC = () => {
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
+          <Route path="/admin" element={<AdminPage />} />
 
           {/* Verktøy */}
           <Route path="/qr-generator" element={<QrGeneratorPage />} />
