@@ -85,7 +85,10 @@ const QrGeneratorPage: React.FC = () => {
     ctx.font = "34px sans-serif";
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
+    
+    ctx.globalAlpha = 0.55;
     ctx.fillText(SIGNATURE_TEXT, outputSize - 24, outputSize + signatureArea / 2);
+    ctx.globalAlpha = 1;
 
     const link = document.createElement("a");
     link.download = "morning-coffee-labs-qr.png";
