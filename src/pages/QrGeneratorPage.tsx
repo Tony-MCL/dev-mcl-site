@@ -3,6 +3,7 @@ import { QRCodeCanvas } from "qrcode.react";
 import { useI18n } from "../i18n/useI18n";
 
 const DEFAULT_VALUE = "https://morningcoffeelabs.no";
+const SIGNATURE_TEXT = "Generated at morningcoffeelabs.no";
 
 const QrGeneratorPage: React.FC = () => {
   const { t } = useI18n();
@@ -41,8 +42,8 @@ const QrGeneratorPage: React.FC = () => {
     if (!sourceCanvas) return;
 
     const outputSize = 1200;
-    const signatureArea = 60;
-    
+    const signatureArea = 70;
+
     const canvas = document.createElement("canvas");
     canvas.width = outputSize;
     canvas.height = outputSize + signatureArea;
@@ -51,18 +52,9 @@ const QrGeneratorPage: React.FC = () => {
     if (!ctx) return;
 
     ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, outputSize, outputSize);
-    ctx.drawImage(sourceCanvas, 0, 0, outputSize, outputSize);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = fgColor;
-    ctx.font = "20px sans-serif";
-    ctx.textAlign = "right";
-    
-    ctx.fillText(
-      "Generated at morningcoffeelabs.no",
-      outputSize - 20,
-      outputSize + 35
-    );
+    ctx.drawImage(sourceCanvas, 0, 0, outputSize, outputSize);
 
     if (logoUrl) {
       const img = new Image();
@@ -88,6 +80,12 @@ const QrGeneratorPage: React.FC = () => {
 
       ctx.drawImage(img, x + padding, y + padding, logoPx, logoPx);
     }
+
+    ctx.fillStyle = fgColor;
+    ctx.font = "20px sans-serif";
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    ctx.fillText(SIGNATURE_TEXT, outputSize - 24, outputSize + signatureArea / 2);
 
     const link = document.createElement("a");
     link.download = "morning-coffee-labs-qr.png";
@@ -214,12 +212,10 @@ const QrGeneratorPage: React.FC = () => {
                 <img src={logoUrl} alt="" />
               </div>
             ) : null}
-            <div
-              className="qr-signature"
-              style={{ color: fgColor }}
-            >
-              Generated at morningcoffeelabs.no
-            </div>
+          </div>
+
+          <div className="qr-signature" style={{ color: fgColor }}>
+            {SIGNATURE_TEXT}
           </div>
 
           <button type="button" className="hero-cta qr-download" onClick={downloadPng}>
