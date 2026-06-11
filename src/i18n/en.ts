@@ -1,568 +1,568 @@
-const en = {
+const no = {
   header: {
     nav: {
-      home: "Home",
-      services: "Services",
-      about: "About",
-      contact: "Contact",
+      home: "Hjem",
+      services: "Tjenester",
+      about: "Om",
+      contact: "Kontakt",
       progress: "Progress",
     },
     theme: {
-      ariaToLight: "Switch to light mode",
-      ariaToDark: "Switch to dark mode",
-      titleLight: "Light mode",
-      titleDark: "Dark mode",
-      labelLight: "Light",
-      labelDark: "Dark",
-      mobileLight: "Light mode",
-      mobileDark: "Dark mode",
+      ariaToLight: "Bytt til lys modus",
+      ariaToDark: "Bytt til mørk modus",
+      titleLight: "Lys modus",
+      titleDark: "Mørk modus",
+      labelLight: "Lys",
+      labelDark: "Mørk",
+      mobileLight: "Lys modus",
+      mobileDark: "Mørk modus",
     },
     lang: {
-      label: "Language",
+      label: "Språk",
       nb: "NO",
       en: "EN",
-      aria: "Switch language",
+      aria: "Bytt språk",
     },
   },
 
   footer: {
     copyright: "Morning Coffee Labs",
     links: {
-      termsPurchase: "Purchase terms",
-      termsUse: "Terms of use",
-      privacy: "Privacy policy",
-      refund: "Refunds",
+      termsPurchase: "Kjøpsvilkår",
+      termsUse: "Brukervilkår",
+      privacy: "Personvern",
+      refund: "Refusjon",
     },
     husketLinks: {
-      termsPurchase: "husk'et purchase terms",
-      termsUse: "husk'et terms of use",
-      privacy: "husk'et privacy policy",
-      refund: "husk'et refunds",
+      termsPurchase: "husk'et kjøpsvilkår",
+      termsUse: "husk'et brukervilkår",
+      privacy: "husk'et personvern",
+      refund: "husk'et refusjon",
     },
     kvittekLinks: {
-      termsPurchase: "Kvittek purchase terms",
-      termsUse: "Kvittek terms of use",
-      privacy: "Kvittek privacy policy",
-      refund: "Kvittek refunds",
+      termsPurchase: "Kvittek kjøpsvilkår",
+      termsUse: "Kvittek brukervilkår",
+      privacy: "Kvittek personvern",
+      refund: "Kvittek refusjon",
     },
   },
 
   home: {
     hero: {
-      title: "Simple tools for complex work",
+      title: "Enkle verktøy for komplekst arbeid",
       tagline:
-        "Digital tools for structure, overview, and delivery — built for real life, not for demos.",
+        "Digitale verktøy for struktur, oversikt og gjennomføring – bygget for virkeligheten, ikke for demoer.",
       sub:
-        "We prioritize clear structure, predictable functionality, and tools that are easy to adopt — even as needs grow. Built for daily use under real constraints.",
+        "Her prioriteres tydelig struktur, forutsigbar funksjonalitet og verktøy som er enkle å ta i bruk – også når behovene vokser. Løsninger laget for daglig bruk, under reelle rammer.",
     },
 
     sections: {
-      building: "What we build",
-      principles: "Principles",
-      audience: "Who this is for",
+      building: "Hva som bygges",
+      principles: "Prinsipper",
+      audience: "Hvem dette passer for",
     },
 
     cards: {
       progress: {
         title: "Manage Progress",
         body:
-          "Manage Progress is a lightweight tool for project planning and follow-up. Built to provide fast overview, clear structure, and control — without heavy setup, complex terminology, or unnecessary choices.",
-        cta: "See Progress →",
-        launchNote: "(launching February 1)",
-        contactCta: "Questions? Get in touch →",
+          "Manage Progress er et lettvekts verktøy for planlegging og oppfølging av prosjekter. Det er laget for å gi rask oversikt, tydelig struktur og kontroll – uten tunge oppsett, komplekse begreper eller unødvendige valg.",
+        cta: "Se Progress →",
+        launchNote: "(lanseres 1. februar)",
+        contactCta: "Spørsmål? Ta kontakt →",
       },
 
       husket: {
         title: "husk'et",
         badge: "App",
         body:
-          "husk'et is a mobile app for saving things you want to remember. Take a photo, add a note or category, and keep the details that make the moment easy to find later. Some photos are meant to be shared. Others are just for you. Your memories, organized your way.",
-        cta: "See husk'et →",
+          "husk'et er en mobilapp for å lagre ting du vil huske. Ta et bilde, legg til et notat eller en kategori, og behold detaljene som gjør det enkelt å finne igjen senere. Noen bilder er ment å deles. Andre er bare for deg. Dine minner – organisert på din måte.",
+        cta: "Se husk'et →",
       },
 
       receipts: {
-        title: "Kvittek" ,
+        title: "Kvittek",
         badge: "App",
         body:
-          "A practical mobile app for saving, organizing, and finding receipts when they actually matter. Snap them, import PDFs or screenshots, and keep your documentation ready for reimbursements, returns, warranties, or resale.",
-        cta: "See Kvittek →",
+          "En praktisk mobilapp for å lagre, organisere og finne igjen kvitteringer når du faktisk trenger dem. Ta bilde, importer PDF eller skjermbilder, og ha dokumentasjonen klar for refusjon, retur, garanti eller videresalg.",
+        cta: "Se Kvittek →",
       },
 
       services: {
-        title: "From challenge to solution",
+        title: "Fra utfordring til løsning",
         body:
-          "We build tools that start from a real challenge, take shape as a clear idea — and end as a solution that works in practice. You can commission an app you own, or share an idea that can become an MCL product.",
-        cta: "See services and idea bank →",
+          "Vi bygger verktøy som starter i en reell utfordring, formes som en tydelig idé – og ender som en løsning som fungerer i praksis. Du kan bestille en app dere eier, eller dele en idé som kan bli et MCL-produkt.",
+        cta: "Se tjenester og idébank →",
       },
 
       documentation: {
-        title: "Structure and documentation",
+        title: "Struktur og dokumentasjon",
         body:
-          "Solutions that make it easy to track work, decisions, and changes — and retrieve it when it actually matters.",
+          "Løsninger som gjør det enkelt å følge opp arbeid, beslutninger og endringer – og hente det frem igjen når det faktisk trengs.",
       },
 
       realWorld: {
-        title: "Tools that handle real life",
+        title: "Verktøy som tåler virkeligheten",
         body:
-          "Built for daily use under time pressure, changes, and real-world constraints — not for perfect demo scenarios.",
+          "Bygget for daglig bruk under tidspress, endringer og reelle rammebetingelser – ikke for perfekte demo-scenarioer.",
       },
     },
 
     principles: {
       singleSource: {
-        title: "One source of truth",
+        title: "Én kilde til sannhet",
         body:
-          "No duplicated logic, no hidden magic. What applies, applies — and can be explained, debugged, and trusted.",
+          "Ingen dobbeltlogikk, ingen skjult magi. Det som gjelder, gjelder – og kan forklares, feilsøkes og stoles på.",
       },
       predictability: {
-        title: "Predictability over wow",
+        title: "Forutsigbarhet foran wow",
         body:
-          "The same action produces the same result. Design and engineering must align — or it doesn’t ship.",
+          "Samme handling gir samme resultat. Design og teknikk henger sammen – eller så bygges det ikke.",
       },
       respect: {
-        title: "Respect for time and headspace",
+        title: "Respekt for tid og hode",
         body:
-          "Anything that steals focus without adding value is a bug. The goal is calm confidence: “it just works”.",
+          "Alt som stjeler fokus uten å gi verdi regnes som en feil. Målet er rolig trygghet: “det bare fungerer”.",
       },
     },
 
     audience:
-      "Tools for people who work in a structured way with projects, follow-up, and delivery — and who want overview, control, and documentation without the tool becoming a burden.",
+      "Dette er verktøy for folk som jobber strukturert med prosjekter, oppfølging og gjennomføring – og som ønsker oversikt, kontroll og dokumentasjon uten at verktøyet blir en belastning i seg selv.",
   },
 
   husket: {
     hero: {
       title: "husk'et",
       tagline:
-        "A photo helps you remember the moment. husk'et helps you remember the details.",
+        "Et bilde hjelper deg å huske øyeblikket. husk'et hjelper deg å huske detaljene.",
       intro:
-        "husk'et helps you hold onto the small things that are easy to forget later, like where you were, what you noticed, or why the moment mattered. Add a note or category to keep it organized and easy to find when you need it.",
-      badgeOne: "Mobile app",
+        "husk'et hjelper deg å holde fast i de små tingene som er lette å glemme senere, som hvor du var, hva du la merke til, eller hvorfor øyeblikket betydde noe. Legg til et notat eller en kategori for å holde det organisert og enkelt å finne igjen når du trenger det.",
+      badgeOne: "Mobil app",
       badgeTwo: "Offline-first",
     },
     cards: {
       capture: {
-        title: "Capture quickly",
+        title: "Fang det raskt",
         body:
-          "When something is worth remembering, saving it should take only a moment. Add a photo and a few details without breaking your flow.",
+          "Når noe er verdt å huske, bør det bare ta et øyeblikk å lagre det. Legg til et bilde og noen få detaljer uten å bryte flyten.",
       },
       structure: {
-        title: "Keep the details",
+        title: "Ta vare på detaljene",
         body:
-          "A photo shows the moment, but not everything about it. Notes, categories, and ratings help you remember what made it meaningful.",
+          "Et bilde viser øyeblikket, men ikke alt rundt det. Notater, kategorier og vurderinger hjelper deg å huske hva som gjorde det meningsfullt.",
       },
       offline: {
-        title: "Find it again",
+        title: "Finn det igjen",
         body:
-          "No endless scrolling through your camera roll. Search and categories help you get back to the moments that matter.",
+          "Ingen endeløs scrolling gjennom kamerarullen. Søk og kategorier hjelper deg tilbake til øyeblikkene som betyr noe.",
       },
       privacy: {
-        title: "Your memories stay yours",
+        title: "Minnene dine forblir dine",
         body:
-          "Everything stays on your phone. No feeds, no followers, and no pressure to share.",
+          "Alt blir liggende på telefonen din. Ingen feed, ingen følgere og ingen forventning om å dele.",
       },
     },
     legal: {
       title: "Legal for husk'et",
       body:
-        "These pages apply specifically to husk'et and can be used both from the website and as legal links from inside the app.",
+        "Disse sidene gjelder spesifikt for husk'et, og kan brukes både fra nettsiden og som juridiske lenker fra appen.",
       links: {
-        privacy: "Privacy policy",
-        termsUse: "Terms of use",
-        termsPurchase: "Purchase terms",
-        refund: "Refunds",
+        privacy: "Personvern",
+        termsUse: "Brukervilkår",
+        termsPurchase: "Kjøpsvilkår",
+        refund: "Refusjon",
       },
     },
     glimpse: {
-      title: "A quick glimpse",
+      title: "En liten sniktitt",
       body:
-        "Three quick glimpses from the app — showing mood, flow, and visual expression without filling the page with too much detail.",
+        "Tre raske glimt fra appen – for å vise stemning, flyt og uttrykk uten å fylle siden med for mye detaljer.",
       alt: {
-        one: "Screenshot 1 from husk'et",
-        two: "Screenshot 2 from husk'et",
-        three: "Screenshot 3 from husk'et",
+        one: "Skjermdump 1 fra husk'et",
+        two: "Skjermdump 2 fra husk'et",
+        three: "Skjermdump 3 fra husk'et",
       },
       caption: {
-        one: "Separate your galleries",
-        two: "Add the details",
-        three: "Set it up your way",
+        one: "Skill galleriene dine",
+        two: "Legg til detaljene",
+        three: "Sett det opp på din måte",
       },
     },
     next: {
       title: "Early access",
       body:
-        "husk'et is now available on Google Play.",
-      cta: "Download from Google Play →",
+        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
+      cta: "Bli med i testpanelet →",
     },
   },
 
   about: {
     hero: {
-      title: "About Morning Coffee Labs",
+      title: "Om Morning Coffee Labs",
       tagline:
-        "A small product workshop building digital work tools — with low friction, high precision, and respect for how work is actually done.",
+        "Et lite produktverksted som lager digitale arbeidsverktøy – med lav terskel, høy presisjon og respekt for hvordan arbeid faktisk gjøres.",
     },
 
     started: {
-      title: "How it started",
+      title: "Hvordan dette startet",
       p1:
-        "Morning Coffee Labs started from a simple need: better flow and better overview in work that is often complex, full of dependencies — and where changes happen along the way. We don’t believe more “system” always means more control. Often it’s the opposite: control comes from clear choices, predictability, and tools that don’t get in the way.",
+        "Morning Coffee Labs ble til av et ganske enkelt behov: å få bedre flyt og bedre oversikt i arbeid som ofte er komplekst, fullt av avhengigheter – og hvor endringer skjer underveis. Vi tror ikke at mer “system” alltid gir mer kontroll. Ofte er det motsatt: kontroll kommer av tydelige valg, forutsigbarhet og verktøy som ikke står i veien.",
       p2:
-        "That’s why we’d rather build a few things properly than many things halfway. Like a workshop — not a factory.",
+        "Derfor bygger vi heller få ting skikkelig, enn mange ting halvveis. Som et verksted – ikke som en fabrikk.",
     },
 
     workshop: {
-      title: "A workshop, not a factory",
+      title: "Et verksted, ikke en fabrikk",
       p1:
-        "We build with the same mindset as good craft: it should withstand use, withstand time, and be easy to understand. The pace can be high, but the direction is stable: low friction, high precision, and zero tolerance for noise.",
+        "Vi bygger med samme tankesett som i godt fagarbeid: det skal tåle bruk, tåle tid og være lett å forstå. Tempoet kan være høyt, men retningen er stabil: lav terskel, høy presisjon og null toleranse for støy.",
       p2:
-        "When we add something, it should make the job easier — not just add more buttons.",
+        "Når vi legger til noe, skal det gjøre jobben enklere – ikke bare gi flere knapper.",
     },
 
     quality: {
-      title: "Quality means control",
+      title: "Kvalitet betyr kontroll",
       p1:
-        "For us, quality is more about control than perfection: control of data, flow, ownership, and consequences. The same action should yield the same result. What’s stored should be explainable. And what’s shown should be trustworthy.",
+        "For oss handler kvalitet mer om kontroll enn om perfeksjon: kontroll på data, flyt, eierskap og konsekvens. Samme handling skal gi samme resultat. Det som lagres, skal kunne forklares. Og det som vises, skal være mulig å stole på.",
       p2:
-        "We prioritize robustness over “smart” magic that works — until it doesn’t.",
+        "Vi prioriterer robusthet foran “smart” magi som virker – helt til det ikke gjør det.",
     },
 
     principles: {
-      title: "Our principles",
+      title: "Prinsippene våre",
       lead:
-        "We have a few simple principles that show up in everything we build. They aren’t “nice words” — they are working rules:",
+        "Vi har noen enkle prinsipper som går igjen i alt vi lager. De er ikke “fine ord” – de er arbeidsregler:",
       bullets: {
-        singleSource: "One source of truth",
-        singleSourceBody: "no duplicated logic, no hidden deviations.",
-        predictability: "Predictability over wow",
-        predictabilityBody: "design and engineering must align — or it doesn’t ship.",
-        respect: "Respect for time and headspace",
-        respectBody: "anything that steals focus without adding value is a bug.",
-        realWork: "Built for real work",
-        realWorkBody: "including printing, documentation, and traceability.",
+        singleSource: "Én kilde til sannhet",
+        singleSourceBody: "ingen dobbeltlogikk, ingen skjulte avvik.",
+        predictability: "Forutsigbarhet foran wow",
+        predictabilityBody: "design og teknikk må henge sammen – ellers bygges det ikke.",
+        respect: "Respekt for tid og hode",
+        respectBody: "alt som stjeler fokus uten å gi verdi regnes som en feil.",
+        realWork: "Bygget for ekte arbeid",
+        realWorkBody: "også når det skal printes, dokumenteres og etterprøves.",
       },
-      outro: "The result should feel calm:",
-      outroEm: "it just works.",
+      outro: "Resultatet skal føles rolig:",
+      outroEm: "det bare fungerer.",
     },
 
     deliver: {
-      title: "What we deliver",
+      title: "Hva vi leverer",
       p1:
-        "We build our own products — and we can also build commissioned solutions. The common denominator is always the same: clear structure, low friction, and practical value.",
-      linkLead: "Want to read more about how we work?",
-      linkCta: "See working models →",
+        "Vi bygger egne produkter – og vi kan også bygge løsninger på bestilling. Fellesnevneren er alltid den samme: tydelig struktur, lav friksjon og praktisk nytte.",
+      linkLead: "Vil du lese mer om hvordan vi jobber?",
+      linkCta: "Se arbeidsmodeller →",
     },
 
     direction: {
-      title: "Products and direction",
+      title: "Produkter og retning",
       p1:
-        "Our first product is Manage Progress: a focused Gantt app with low friction and high precision. Over time, more tools may come — but never at the expense of clarity, structure, and real usefulness.",
-      linkLead: "See the product here:",
+        "Første produkt ut er Manage Progress: en ren Gantt-app med lav terskel og høy presisjon. Over tid kan flere verktøy komme – men aldri på bekostning av klarhet, struktur og reell nytte.",
+      linkLead: "Se produktet her:",
       linkCta: "Manage Progress →",
     },
   },
 
   contact: {
-    title: "Contact",
+    title: "Kontakt",
     tagline:
-      "For general inquiries, email or phone is the best way to reach us.",
-    emailLabel: "Email:",
-    phoneLabel: "Phone:",
+      "For generelle henvendelser er e-post eller telefon den beste måten å nå oss på.",
+    emailLabel: "E-post:",
+    phoneLabel: "Telefon:",
   },
 
   services: {
     hero: {
-      title: "Services",
+      title: "Tjenester",
       tagline:
-        "From challenges to ideas — and onward to solutions built for real life.",
+        "Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.",
       p1:
-        "Morning Coffee Labs builds digital work tools with low friction and high precision. Whether it’s commissioned development or the idea bank, the goal is the same: clear structure, predictable functionality, and solutions that hold up over time.",
+        "Morning Coffee Labs bygger digitale arbeidsverktøy med lav terskel og høy presisjon. Enten det gjelder bestillingsutvikling eller idébanken er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler reell bruk over tid.",
       p2:
-        "We start from a problem that actually costs time, focus, or quality. Then we shape it into an idea that can be tested and built. Finally, we deliver a solution that’s easy to adopt, easy to maintain — and clear about what it does.",
-      back: "← Back to home",
-      contact: "Get in touch →",
+        "Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges. Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.",
+      back: "← Tilbake til forsiden",
+      contact: "Ta kontakt →",
     },
 
     model1: {
-      label: "Model 1",
-      title: "Commissioned development",
+      label: "Modell 1",
+      title: "Bestillingsutvikling",
       lead:
-        "For companies that need a specific tool — delivered as the customer’s owned asset.",
+        "For bedrifter som trenger et konkret verktøy – overlevert som kundens eiendel.",
       bullets: {
-        b1Strong: "Need → delivery:",
-        b1: "you describe goals, constraints, and the desired outcome",
-        b2Strong: "Development:",
-        b2: "delivered for an agreed price and scope",
-        b3Strong: "Ownership:",
-        b3: "the solution is handed over and owned by the customer",
+        b1Strong: "Behov → leveranse:",
+        b1: "dere beskriver mål, rammer og ønsket resultat",
+        b2Strong: "Utvikling:",
+        b2: "leveres mot avtalt betaling og scope",
+        b3Strong: "Eierskap:",
+        b3: "løsningen overleveres og eies av kunden",
       },
       p1:
-        "Upon delivery, the solution is the customer’s property. A limited service period can be agreed, but long-term operation and any further development will normally be the customer’s responsibility.",
-      cta: "Contact us about commissioned development →",
+        "Ved overlevering er løsningen kundens eiendom. En begrenset serviceperiode kan avtales, men ansvaret for langsiktig drift og eventuell videreutvikling vil normalt ligge hos kunden.",
+      cta: "Ta kontakt om bestillingsutvikling →",
     },
 
     model2: {
-      label: "Model 2",
-      title: "Idea bank",
+      label: "Modell 2",
+      title: "Idébanken",
       lead:
-        "For ideas that can become a new MCL product. Ownership and risk stay with MCL — and the product can later be offered as a licensed solution.",
+        "For idéer som kan bli til et nytt MCL-produkt. Her er eierskap og risiko på MCL – og produktet kan senere tilbys som lisensiert løsning.",
       bullets: {
-        b1Strong: "You share an idea:",
-        b1: "problem, audience, and desired impact",
-        b2Strong: "We evaluate:",
-        b2: "practical value, low friction, and product direction",
-        b3Strong: "If it’s built:",
-        b3: "it becomes an MCL product and is launched",
+        b1Strong: "Du deler en idé:",
+        b1: "problem, målgruppe og ønsket effekt",
+        b2Strong: "Vi vurderer:",
+        b2: "praktisk nytte, lav terskel og produktretning",
+        b3Strong: "Hvis idéen bygges:",
+        b3: "utvikles den som et MCL-produkt og lanseres",
       },
       p1a:
-        "The idea bank is not a commission and provides no guarantee of delivery. But if the idea becomes a launched MCL app, the idea contributor receives",
-      p1bStrong: "lifetime access",
-      p1c: "to the product (free subscription) as a thank you.",
-      submitEmailCta: "Submit an idea →",
+        "Idébanken er ikke en bestilling og gir ingen garanti for realisering. Men hvis idéen ender som en lansert MCL-app, får idé-giver som takk",
+      p1bStrong: "livstidstilgang",
+      p1c: "til produktet (gratis abonnement).",
+      submitEmailCta: "Send inn en idé →",
     },
 
     interesting: {
-      title: "What makes an idea interesting",
+      title: "Hva som gjør en idé interessant",
       lead:
-        "The best ideas have low friction and high value: a concrete problem, a clear user group, and a result that can be documented.",
+        "De beste idéene har lav terskel og høy verdi: et konkret problem, en tydelig brukergruppe og et resultat som kan dokumenteres.",
       bullets: {
-        b1: "Describe today’s workflow and where the friction occurs",
-        b2: "Describe what must become easier or safer",
-        b3: "Describe who uses the tool — and in what situation",
-        b4: "Describe what should be “enough” — and what isn’t needed",
+        b1: "Beskriv dagens arbeidsflyt og hvor friksjonen oppstår",
+        b2: "Beskriv hva som må bli enklere eller tryggere",
+        b3: "Beskriv hvem som bruker verktøyet – og i hvilken situasjon",
+        b4: "Beskriv hva som bør være “nok” – og hva som ikke trengs",
       },
-      exampleLead: "Want to see an example of an MCL product?",
-      exampleCta: "See Progress →",
+      exampleLead: "Ønsker du et eksempel på et MCL-produkt?",
+      exampleCta: "Se Progress →",
     },
   },
 
   progressPage: {
     hero: {
-      tagline: "Project planning without noise.",
+      tagline: "Fremdriftsplanlegging uten støy.",
       intro:
-        "Manage Progress is a focused Gantt tool for project-based work. Built for daily use under time pressure — and for situations where overview, predictability, and documentation actually matter.",
-      badge: "Launching February 1",
-      notifyCta: "Want a heads-up at launch? Get in touch →",
+        "Manage Progress er et rendyrket Gantt-verktøy for prosjektbasert arbeid. Utviklet for daglig bruk under tidspress – og for situasjoner der oversikt, forutsigbarhet og dokumentasjon faktisk betyr noe.",
+      badge: "Lanseres 1. februar",
+      notifyCta: "Ønsker du beskjed ved lansering? Ta kontakt →",
     },
 
     cards: {
       oneTruth: {
-        title: "One plan, one truth",
+        title: "Én plan, én sannhet",
         body:
-          "The table is the source of truth. The Gantt view mirrors the exact same content. No hidden logic, no surprises.",
+          "Tabellen er kilden til sannhet. Gantt-visningen speiler nøyaktig det samme innholdet. Ingen skjult logikk, ingen overraskelser.",
       },
       realProjects: {
-        title: "Built for real projects",
+        title: "Bygget for virkelige prosjekter",
         body:
-          "Changes, dependencies, shifts, and replanning are handled without the structure collapsing. Built for projects that actually live.",
+          "Endringer, avhengigheter, forskyvninger og omplanlegging håndteres uten at strukturen kollapser. Dette er laget for prosjekter som faktisk lever.",
       },
       print: {
-        title: "Printing is a feature",
+        title: "Print er en funksjon",
         body:
-          "Print and export aren’t afterthoughts. Plans can be brought to meetings, included in documentation, and reused — with predictable results every time.",
+          "Utskrift og eksport er ikke ettertanker. Planer kan tas med i møter, legges i dokumentasjon og brukes videre – med forutsigbart resultat hver gang.",
       },
       lowFriction: {
-        title: "Low friction, high precision",
+        title: "Lav terskel, høy presisjon",
         body:
-          "Get started quickly and keep the plan tidy. The focus is structure and control — without the tool becoming a project of its own.",
+          "Kom i gang raskt og hold planen ryddig. Fokus er å gi struktur og kontroll uten at verktøyet blir et eget prosjekt.",
       },
     },
 
     audience: {
-      title: "Who this is for",
+      title: "Hvem dette passer for",
       body:
-        "Manage Progress is for project managers, technical teams, and project-based organizations that need a plan that handles change, can be documented, and is easy to bring into meetings and deliveries.",
+        "Manage Progress passer for prosjektledere, tekniske miljøer og team som jobber prosjektbasert – og som trenger en plan som tåler endringer, kan dokumenteres og er enkel å ta med videre i møter og leveranser.",
     },
 
     next: {
-      title: "Next",
+      title: "Videre",
       body:
-        "Manage Progress is part of what will become Manage System over time — an ecosystem of small, independent tools that can work alone, or together when needed.",
-      back: "← Back to Morning Coffee Labs",
+        "Manage Progress er del av det som over tid blir Manage System – et økosystem av små, selvstendige verktøy som kan fungere alene, men også sammen når behovet oppstår.",
+      back: "← Tilbake til Morning Coffee Labs",
     },
   },
 
   legal: {
     terms: {
-      title: "Terms of use",
+      title: "Brukervilkår",
       intro:
-        "These terms of use govern how you may use services and apps provided by Mathisens Morning Coffee Labs.",
+        "Disse brukervilkårene regulerer hvordan du kan bruke tjenester og apper levert av Mathisens Morning Coffee Labs.",
       s1: {
-        title: "1. License and use",
+        title: "1. Lisens og bruk",
         body:
-          "You receive a personal, non-transferable license to use the service in accordance with the selected license model. The license permits normal internal use within your own organization, but not resale or redistribution of the service.",
+          "Du får en personlig, ikke-overførbar lisens til å bruke tjenesten i henhold til valgt lisensmodell. Lisensen gir rett til normal bruk internt i egen virksomhet, men ikke til videresalg eller videredistribusjon av tjenesten.",
       },
       s2: {
-        title: "2. Account and access",
+        title: "2. Konto og tilgang",
         body:
-          "Where the service requires login, you are responsible for keeping your login details secure and ensuring that unauthorized parties do not gain access. Misuse or suspected misuse must be reported to us as soon as possible.",
+          "Der tjenesten krever innlogging, er du ansvarlig for å ta vare på innloggingsinformasjonen og sørge for at uvedkommende ikke får tilgang. Misbruk eller mistenkt misbruk må meldes til oss så snart som mulig.",
       },
       s3: {
-        title: "3. Acceptable use",
+        title: "3. Akseptabel bruk",
         body:
-          "The services must not be used in a manner that violates applicable law, infringes the rights of others, or attempts to circumvent technical limitations and licensing mechanisms.",
+          "Tjenestene skal ikke brukes på en måte som bryter gjeldende lovverk, krenker andres rettigheter eller forsøker å omgå tekniske begrensninger og lisensmekanismer.",
       },
       s4: {
-        title: "4. Availability and changes",
+        title: "4. Tilgjengelighet og endringer",
         body:
-          "We aim for stable operation, but we cannot guarantee 100% uptime. The services may be updated or changed over time, including to improve functionality or security.",
+          "Vi tilstreber stabil drift, men kan ikke garantere 100 % oppetid. Tjenestene kan oppdateres eller endres over tid, blant annet for å forbedre funksjonalitet eller sikkerhet.",
       },
       s5: {
-        title: "5. Limitation of liability",
+        title: "5. Ansvarsbegrensning",
         body:
-          "The services are provided “as is”. We are not liable for indirect losses, such as loss of profit or business interruption, to the extent permitted by applicable law.",
+          "Tjenestene leveres «som de er». Vi er ikke ansvarlige for indirekte tap, som f.eks. tapt fortjeneste eller driftsstans, så langt dette er tillatt etter gjeldende rett.",
       },
       s6: {
-        title: "6. Changes to these terms",
+        title: "6. Endringer i brukervilkår",
         body:
-          "These terms may be updated when needed. Material changes will be communicated via the website or by email. The latest version will always be available here.",
+          "Brukervilkårene kan oppdateres ved behov. Vesentlige endringer vil bli varslet gjennom nettsiden eller per e-post. Oppdatert versjon vil alltid være tilgjengelig her.",
       },
     },
 
     privacy: {
-      title: "Privacy policy",
+      title: "Personvernerklæring",
       intro:
-        "This privacy policy describes how Mathisens Morning Coffee Labs processes personal data in connection with our websites and digital services.",
+        "Denne personvernerklæringen beskriver hvordan Mathisens Morning Coffee Labs behandler personopplysninger i tilknytning til våre nettsider og digitale tjenester.",
       s1: {
-        title: "1. Data controller",
+        title: "1. Behandlingsansvarlig",
         body:
-          "Mathisens Morning Coffee Labs is the data controller for personal data collected through the website and the services.",
+          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som samles inn gjennom nettsiden og tjenestene.",
       },
       s2: {
-        title: "2. What data we collect",
-        lead: "Typical information we may process includes, for example:",
+        title: "2. Hvilke opplysninger vi samler inn",
+        lead: "Typiske opplysninger vi kan behandle er for eksempel:",
         bullets: [
-          "Name and contact details (for example, email address)",
-          "Billing details for purchases (primarily handled via Stripe)",
-          "Text submitted via contact forms, the idea bank, or other forms",
-          "Technical data about use of the service (for example, which pages are visited)",
+          "Navn og kontaktinformasjon (for eksempel e-postadresse)",
+          "Faktureringsopplysninger ved kjøp (håndteres hovedsakelig via Stripe)",
+          "Tekst som sendes inn via kontaktskjema, idebank eller andre skjemaer",
+          "Tekniske data om bruk av tjenesten (for eksempel hvilke sider som besøkes)",
         ],
       },
       s3: {
-        title: "3. Purpose and legal basis",
-        lead: "We use the information, among other things, to:",
+        title: "3. Formål og behandlingsgrunnlag",
+        lead: "Opplysningene brukes blant annet til å:",
         bullets: [
-          "Provide and administer services and licenses",
-          "Handle purchases, payments, and customer support",
-          "Improve and further develop the services",
-          "Send relevant information if you have consented to this (newsletters, etc.)",
+          "levere og administrere tjenester og lisenser",
+          "håndtere kjøp, betaling og kundeservice",
+          "forbedre og videreutvikle tjenestene",
+          "sende relevant informasjon dersom du har samtykket til dette (nyhetsbrev o.l.).",
         ],
       },
       s4: {
-        title: "4. Storage and deletion",
+        title: "4. Lagring og sletting",
         body:
-          "We store personal data for as long as necessary for the purpose for which it was collected, or as long as we are required to do so under accounting and bookkeeping rules. Data that is no longer necessary is deleted or anonymized.",
+          "Vi lagrer personopplysninger så lenge det er nødvendig for formålet de ble samlet inn for, eller så lenge vi er pålagt det gjennom regnskaps- og bokføringsregler. Opplysninger som ikke lenger er nødvendige blir slettet eller anonymisert.",
       },
       s5: {
-        title: "5. Your rights",
+        title: "5. Dine rettigheter",
         body:
-          "You have the right to access, correct, and in some cases delete personal data we hold about you. You may also object to or request restriction of processing, and withdraw any consent you have given.",
+          "Du har rett til innsyn, retting og i noen tilfeller sletting av personopplysninger vi har om deg. Du kan også protestere mot eller be om begrensning av behandlingen, samt trekke tilbake eventuelle samtykker.",
       },
       s6: {
-        title: "6. Third parties and processors",
+        title: "6. Tredjeparter og databehandlere",
         body:
-          "We may use subcontractors (for example, Stripe for payments and hosting providers) to process data on our behalf. These parties are bound by data processing agreements and may not use the information for their own purposes.",
+          "Vi kan bruke underleverandører (for eksempel Stripe for betaling og hosting-leverandører) til å behandle data på våre vegne. Disse er bundet av databehandleravtaler og kan ikke bruke opplysningene til egne formål.",
       },
       s7: {
-        title: "7. Changes to this privacy policy",
+        title: "7. Endringer i personvernerklæringen",
         body:
-          "This privacy policy may be updated when needed. The latest version will always be available on this page.",
+          "Personvernerklæringen kan oppdateres ved behov. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
       },
       s8: {
-        title: "8. Contact",
+        title: "8. Kontakt",
         body:
-          "If you have questions about privacy, you can contact us via the contact page on the website.",
+          "For spørsmål om personvern kan du kontakte oss via kontaktskjemaet på nettsiden.",
       },
     },
 
     purchase: {
-      title: "Purchase terms",
+      title: "Kjøpsvilkår",
       intro:
-        "These purchase terms apply to purchases of digital products from Mathisens Morning Coffee Labs (“we”, “us”, or “the seller”).",
+        "Disse kjøpsvilkårene gjelder for kjøp av digitale produkter fra Mathisens Morning Coffee Labs («vi», «oss» eller «selgeren»).",
       s1: {
-        title: "1. The parties",
+        title: "1. Partene",
         body:
-          "The seller is Mathisens Morning Coffee Labs. The buyer is the person or organization that completes the order in the online store or via our apps.",
+          "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen eller virksomheten som gjennomfører bestillingen i nettbutikken eller via våre apper.",
       },
       s2: {
-        title: "2. Product and license",
+        title: "2. Produkt og lisens",
         body:
-          "Our products are delivered as digital services and software. Upon purchase, you receive a non-exclusive license to use the service in accordance with the selected license model (for example monthly, yearly, or a one-time license), and within the scope described in the product information.",
+          "Produktene våre leveres som digitale tjenester og programvare. Ved kjøp får du en ikke-eksklusiv lisens til å bruke tjenesten i henhold til valgt lisensmodell (for eksempel månedlig, årlig eller engangslisens), og innenfor de rammer som er beskrevet i produktinformasjonen.",
       },
       s3: {
-        title: "3. Price and payment",
+        title: "3. Pris og betaling",
         body:
-          "The prices shown in the online store apply at the time of ordering and are stated in NOK, and in some cases also as an indicative price in EUR. Payments are processed via Stripe. For subscriptions, the amount will be charged automatically upon each renewal until the subscription is cancelled.",
+          "Prisene som vises i nettbutikken gjelder på bestillingstidspunktet og oppgis i NOK, og i noen tilfeller også veiledende pris i EUR. Betaling håndteres via Stripe. For abonnement vil beløpet trekkes automatisk ved hver fornyelse inntil abonnementet sies opp.",
       },
       s4: {
-        title: "4. Delivery of digital content",
+        title: "4. Levering av digitalt innhold",
         body:
-          "The license is normally activated immediately after payment has been completed. By confirming the purchase, you consent to delivery starting before any withdrawal period has expired.",
+          "Lisensen aktiveres normalt umiddelbart etter gjennomført betaling. Ved å bekrefte kjøpet samtykker du til at leveringen starter før angrefristen er utløpt.",
       },
       s5: {
-        title: "5. Right of withdrawal and cancellation",
+        title: "5. Angrerett og oppsigelse",
         body:
-          "For digital services delivered immediately, the right of withdrawal lapses once you have consented to delivery starting before the withdrawal period expires. Subscriptions can be cancelled at any time and will then remain active until the end of the current paid period.",
+          "For digitale tjenester som leveres umiddelbart, bortfaller retten til å angre når du har samtykket til at leveringen starter før angrefristen utløper. Abonnement kan sies opp når som helst og vil da løpe ut inneværende betalte periode.",
       },
       s6: {
-        title: "6. Complaints",
+        title: "6. Reklamasjon",
         body:
-          "If the service does not work as described, you can contact us via the contact page on the website. We will then attempt to fix the issue, provide guidance, or offer another reasonable solution.",
+          "Dersom tjenesten ikke fungerer som beskrevet, kan du kontakte oss via kontaktskjemaet på nettsiden. Vi vil da forsøke å rette feilen, gi veiledning eller tilby annen rimelig løsning.",
       },
       s7: {
-        title: "7. Changes to these terms",
+        title: "7. Endringer i vilkår",
         body:
-          "We may update these terms when needed. For material changes, we will inform you via the website or email. The latest version will always be available on this page.",
+          "Vi kan oppdatere disse vilkårene ved behov. Ved vesentlige endringer vil vi informere gjennom nettsiden eller e-post. Oppdatert versjon vil alltid være tilgjengelig på denne siden.",
       },
       s8: {
-        title: "8. Contact information",
+        title: "8. Kontaktinformasjon",
         body:
-          "Questions about purchases or licenses can be directed via the contact page on the website.",
+          "Spørsmål om kjøp eller lisens kan rettes via kontaktsiden på nettsiden.",
       },
     },
 
     refund: {
-      title: "Refunds and complaints",
+      title: "Refusjon og klage",
       intro:
-        "Here we describe how we handle refunds, cancelled purchases, and complaints for digital licenses.",
+        "Her beskriver vi hvordan vi håndterer refusjon, avbrutte kjøp og reklamasjoner for digitale lisenser.",
       s1: {
-        title: "1. Digital goods and right of withdrawal",
+        title: "1. Digitale varer og angrerett",
         p1:
-          "Our licenses are delivered digitally and are activated immediately after payment has been completed. Under the Norwegian Right of Withdrawal Act (Angrerettloven) section 22 (n) and the EU Digital Content Directive, the right of withdrawal lapses when:",
+          "Lisensene våre leveres digitalt og aktiveres umiddelbart etter gjennomført betaling. I henhold til Angrerettloven §22 n og EU Digital Content Directive bortfaller angreretten når:",
         bullets: [
-          "you request immediate delivery, and",
-          "you confirm that the right of withdrawal lapses once the license has been delivered and activated.",
+          "du ber om umiddelbar levering, og",
+          "du bekrefter at angreretten bortfaller når lisensen er levert og aktivert.",
         ],
-        p2: "This consent is given in the purchase flow before payment.",
+        p2: "Dette samtykket gis i kjøpsdialogen før betaling.",
       },
       s2: {
-        title: "2. Refunds in case of technical issues",
+        title: "2. Refusjon ved tekniske problemer",
         p1:
-          "If you have paid but do not get access to the license or PRO features due to a technical error on our side, we will:",
+          "Dersom du har betalt, men ikke får tilgang til lisensen eller PRO funksjoner på grunn av teknisk feil hos oss, vil vi:",
         bullets: [
-          "attempt to fix the issue and activate the license as quickly as possible",
-          "consider a refund or an extension of the license period if the issue cannot be resolved within a reasonable time",
+          "forsøke å rette feilen og aktivere lisensen så raskt som mulig",
+          "vurdere refusjon eller forlengelse av lisensperioden dersom problemet ikke kan løses innen rimelig tid",
         ],
       },
       s3: {
-        title: "3. Subscription cancellation",
+        title: "3. Avslutning av abonnement",
         body:
-          "For subscriptions, you can stop renewals at any time via Stripe or by contacting us. Already charged periods are normally not refunded, but you will keep access until the end of the current period.",
+          "Ved abonnement kan du når som helst stoppe videre fornyelse via Stripe eller ved å kontakte oss. Allerede belastede perioder refunderes normalt ikke, men du beholder tilgangen ut inneværende periode.",
       },
       s4: {
-        title: "4. Incorrect charges",
+        title: "4. Feil ved belastning",
         body:
-          "If you believe you have been charged incorrectly, please contact us as soon as possible, and no later than 30 days after you discovered the issue. We will review the transaction together with you and Stripe.",
+          "Dersom du mener at det er gjort en feilbelastning, ber vi deg ta kontakt med oss så snart som mulig, og senest innen 30 dager etter at du oppdaget feilen. Vi vil da gjennomgå transaksjonen sammen med deg og Stripe.",
       },
       s5: {
-        title: "5. How to contact us",
-        lead: "Send an email to",
-        bodyAfterEmail: "including:",
+        title: "5. Slik kontakter du oss",
+        lead: "Send en e-post til",
+        bodyAfterEmail: "med:",
         bullets: [
-          "name and email address",
-          "which product the license relates to",
-          "purchase date and, if available, the Stripe receipt",
-          "a short description of the issue",
+          "navn og e-postadresse",
+          "hvilket produkt lisensen gjelder",
+          "dato for kjøp og eventuelt Stripe-kvittering",
+          "en kort beskrivelse av problemet",
         ],
       },
     },
@@ -570,365 +570,365 @@ const en = {
 
   husketLegal: {
     terms: {
-      title: "Terms of use for husk'et",
+      title: "Brukervilkår for husk'et",
       intro:
-        "These terms of use apply to the use of the husk'et app provided by Mathisens Morning Coffee Labs.",
+        "Disse brukervilkårene gjelder for bruk av appen husk'et, levert av Mathisens Morning Coffee Labs.",
       s1: {
-        title: "1. Use of the app",
+        title: "1. Bruk av appen",
         body:
-          "husk'et gives you a personal, non-transferable right to use the app in accordance with the functionality available in the relevant version. The app must not be resold, redistributed, or used in violation of applicable law.",
+          "husk'et gir deg en personlig, ikke-overførbar rett til å bruke appen i samsvar med den funksjonaliteten som tilbys i den aktuelle versjonen. Appen skal ikke videreselges, redistribueres eller brukes i strid med gjeldende lovverk.",
       },
       s2: {
-        title: "2. Content you store",
+        title: "2. Innhold du lagrer",
         body:
-          "You are responsible for the content you store in the app, including text, images, categories, ratings, and other entries. You must not store content you do not have the right to use or that infringes the rights of others.",
+          "Du er selv ansvarlig for innholdet du lagrer i appen, inkludert tekst, bilder, kategorier og andre registreringer. Du skal ikke lagre innhold du ikke har rett til å bruke, eller som krenker andres rettigheter.",
       },
       s3: {
-        title: "3. Access and functionality",
+        title: "3. Tilgang og funksjonalitet",
         body:
-          "We aim for the app to function reliably, but we cannot guarantee that all features will always be available or error-free. The app may be updated, improved, or changed over time.",
+          "Vi tilstreber at appen fungerer stabilt, men kan ikke garantere at alle funksjoner alltid er tilgjengelige eller feilfrie. Appen kan oppdateres, forbedres eller endres over tid.",
       },
       s4: {
-        title: "4. Limitation of liability",
+        title: "4. Begrensning av ansvar",
         body:
-          "husk'et is provided as is. To the extent permitted by law, we are not liable for indirect losses, loss of data, loss of profit, or other consequential damages arising from the use of the app.",
+          "husk'et leveres som den er. Så langt loven tillater det, er vi ikke ansvarlige for indirekte tap, tap av data, tapt fortjeneste eller andre følgeskader som kan oppstå ved bruk av appen.",
       },
       s5: {
-        title: "5. Termination and changes",
+        title: "5. Oppsigelse og endringer",
         body:
-          "If the app is later offered with subscriptions or paid features, these may be terminated in accordance with the applicable purchase terms. We may update these terms when needed, and the latest version will always be available here.",
+          "Dersom appen senere tilbys med abonnement eller betalte funksjoner, kan disse sies opp i henhold til gjeldende kjøpsvilkår. Vi kan oppdatere vilkårene ved behov, og siste versjon vil alltid være tilgjengelig her.",
       },
       s6: {
-        title: "6. Contact",
+        title: "6. Kontakt",
         body:
-          "Questions about the app or these terms can be sent to us via the contact page or by email at post@morningcoffeelabs.no.",
+          "Spørsmål om appen eller disse vilkårene kan sendes til oss via kontaktsiden eller på e-post til post@morningcoffeelabs.no.",
       },
     },
 
     privacy: {
-      title: "Privacy policy for husk'et",
+      title: "Personvern for husk'et",
       intro:
-        "This privacy policy describes how husk'et handles information in the app. husk'et is designed so that the content you create is stored locally on your own device. The app does not collect personal data and does not transmit user content or information to Morning Coffee Labs or any third parties.",
+        "Denne personvernerklæringen beskriver hvordan husk'et håndterer informasjon i appen. husk'et er utviklet slik at innholdet du oppretter lagres lokalt på din egen enhet. Appen samler ikke inn personopplysninger og sender ikke innhold eller data til Morning Coffee Labs eller andre tredjeparter.",
       s1: {
-        title: "1. Data controller",
+        title: "1. Behandlingsansvarlig",
         body:
-          "Mathisens Morning Coffee Labs is the data controller for any personal data that may be processed in connection with husk'et.",
+          "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som eventuelt behandles i forbindelse med husk'et.",
       },
       s2: {
-        title: "2. What information the app may process",
-        lead: "When you use the app, this may include:",
+        title: "2. Hvilke opplysninger appen kan behandle",
+        lead: "Når du bruker appen, kan dette omfatte:",
         bullets: [
-          "information you enter in the app yourself, such as text, photos, ratings, and categories",
-          "location data if you actively grant the app access to it",
-          "limited technical information required for the app to function on your device",
+          "opplysninger du selv registrerer i appen, som tekst, bilder, vurderinger og kategorier",
+          "lokasjonsdata dersom du aktivt gir appen tilgang til dette",
+          "begrenset teknisk informasjon som er nødvendig for at appen skal fungere på enheten",
         ],
       },
       s3: {
-        title: "3. What the information is used for",
-        lead: "The information is used to:",
+        title: "3. Hva opplysningene brukes til",
+        lead: "Opplysningene brukes til å:",
         bullets: [
-          "store and display content you create in the app",
-          "associate location with content if you choose to use that feature",
-          "ensure that the app functions properly on your device",
+          "lagre og vise innhold du selv oppretter i appen",
+          "knytte lokasjon til innhold dersom du velger å bruke denne funksjonen",
+          "sørge for at appens funksjoner virker som de skal på enheten din",
         ],
       },
       s4: {
-        title: "4. Storage",
+        title: "4. Lagring",
         body:
-          "All content you create in husk'et is stored locally on your own device. The app does not use user accounts, cloud storage, or servers to store user content. Morning Coffee Labs therefore does not have access to the content you store in the app.",
+          "Alt innhold du oppretter i husk'et lagres lokalt på din egen enhet. Appen bruker ikke brukerkonto, skybasert lagring eller servere til å lagre brukerinnhold. Morning Coffee Labs har derfor ikke tilgang til innholdet du lagrer i appen.",
       },
       s5: {
-        title: "5. Sharing with third parties",
+        title: "5. Deling med tredjeparter",
         body:
-          "husk'et does not share data with Morning Coffee Labs or any third parties. If you choose to export or share content from the app, this happens only by your own choice and through services or apps you choose yourself.",
+          "husk'et deler ikke data med Morning Coffee Labs eller andre tredjeparter. Dersom du velger å eksportere eller dele innhold fra appen, skjer dette kun etter ditt eget valg og via tjenester eller apper du selv bruker.",
       },
       s6: {
-        title: "6. Your choices and rights",
+        title: "6. Dine valg og rettigheter",
         body:
-          "You can choose whether to grant the app access to location. Location is used only to associate a place with content you store in the app. Location data is stored locally on the device and is not sent to Morning Coffee Labs. You can also delete content from the app on your device and manage permissions in your device settings.",
+          "Du kan selv velge om du vil gi appen tilgang til lokasjon. Lokasjon brukes kun til å knytte sted til innhold du lagrer i appen. Lokasjonsdata lagres lokalt på enheten og sendes ikke til Morning Coffee Labs. Du kan også slette innhold fra appen på enheten din og styre tillatelser i enhetens innstillinger.",
       },
       s7: {
-        title: "7. Changes to this policy",
+        title: "7. Endringer i erklæringen",
         body:
-          "We may update this policy if the app’s features or data practices change. The latest version will always be available on this page.",
+          "Vi kan oppdatere denne erklæringen dersom appens funksjoner eller behandlingen av opplysninger endrer seg. Siste versjon vil alltid være tilgjengelig på denne siden.",
       },
       s8: {
-        title: "8. Contact",
+        title: "8. Kontakt",
         body:
-          "For privacy-related questions about husk'et, contact us at post@morningcoffeelabs.no.",
+          "For spørsmål om personvern knyttet til husk'et, kontakt oss på post@morningcoffeelabs.no.",
       },
     },
 
     purchase: {
-      title: "Purchase terms for husk'et",
+      title: "Kjøpsvilkår for husk'et",
       intro:
-        "These purchase terms apply if husk'et is offered with in-app purchases, subscriptions, or other paid features.",
+        "Disse kjøpsvilkårene gjelder dersom husk'et tilbys med kjøp i app, abonnement eller andre betalte funksjoner.",
       s1: {
-        title: "1. The parties",
+        title: "1. Partene",
         body:
-          "The seller is Mathisens Morning Coffee Labs. The buyer is the person who completes the purchase through an app store or other payment solution.",
+          "Selger er Mathisens Morning Coffee Labs. Kjøper er den personen som gjennomfører kjøpet via appbutikk eller annen betalingsløsning.",
       },
       s2: {
-        title: "2. Product",
+        title: "2. Produkt",
         body:
-          "husk'et is delivered as digital software. In the event of a purchase, you receive access to the functionality described in the app or in the relevant purchase flow.",
+          "husk'et leveres som digital programvare. Ved eventuelle kjøp får du tilgang til den funksjonaliteten som er beskrevet i appen eller i den aktuelle kjøpsflyten.",
       },
       s3: {
-        title: "3. Price and payment",
+        title: "3. Pris og betaling",
         body:
-          "Price, currency, and payment terms are stated at the time of purchase. Payment is handled through the relevant app store or payment provider.",
+          "Pris, valuta og betalingsvilkår oppgis i kjøpsøyeblikket. Betaling håndteres via relevant appbutikk eller betalingsleverandør.",
       },
       s4: {
-        title: "4. Delivery",
+        title: "4. Levering",
         body:
-          "Digital features or subscriptions are normally activated immediately after payment has been completed, unless otherwise stated in the purchase flow.",
+          "Digitale funksjoner eller abonnement aktiveres normalt umiddelbart etter gjennomført betaling, med mindre annet er opplyst i kjøpsflyten.",
       },
       s5: {
-        title: "5. Subscription and cancellation",
+        title: "5. Abonnement og oppsigelse",
         body:
-          "If husk'et is offered as a subscription, future renewals can be stopped through the platform where the purchase was made. Access normally continues until the end of the current paid period.",
+          "Dersom husk'et tilbys med abonnement, kan videre fornyelse stoppes via den plattformen kjøpet ble gjort gjennom. Tilgangen varer normalt ut inneværende betalte periode.",
       },
       s6: {
-        title: "6. Right of withdrawal",
+        title: "6. Angrerett",
         body:
-          "For digital services delivered immediately, the right of withdrawal may lapse once delivery has started with your consent, in accordance with applicable rules for digital content.",
+          "For digitale ytelser som leveres umiddelbart, kan angreretten falle bort når levering er startet etter ditt samtykke, i tråd med gjeldende regler for digitalt innhold.",
       },
       s7: {
-        title: "7. Errors and complaints",
+        title: "7. Feil og reklamasjon",
         body:
-          "If a purchased feature does not work as described, we will attempt to fix the issue, provide guidance, or consider a refund where reasonable and required.",
+          "Dersom en kjøpt funksjon ikke virker som beskrevet, vil vi forsøke å rette feilen, gi veiledning eller vurdere refusjon der dette er rimelig og påkrevd.",
       },
       s8: {
-        title: "8. Contact",
+        title: "8. Kontakt",
         body:
-          "Questions about purchases, licenses, or payment may be sent to post@morningcoffeelabs.no.",
+          "Spørsmål om kjøp, lisens eller betaling kan sendes til post@morningcoffeelabs.no.",
       },
     },
 
     refund: {
-      title: "Refunds and complaints for husk'et",
+      title: "Refusjon og klage for husk'et",
       intro:
-        "Here we describe how we handle refunds, incorrect charges, and complaints related to paid features in husk'et.",
+        "Her beskriver vi hvordan vi håndterer refusjoner, feilbelastninger og klager knyttet til betalte funksjoner i husk'et.",
       s1: {
-        title: "1. Digital purchases",
+        title: "1. Digitale kjøp",
         p1:
-          "If paid features in husk'et are delivered digitally and activated immediately, the right of withdrawal may lapse once delivery has started with your consent. This typically applies when:",
+          "Dersom betalte funksjoner i husk'et leveres digitalt og aktiveres umiddelbart, kan angreretten bortfalle når levering er startet etter ditt samtykke. Dette gjelder typisk når:",
         bullets: [
-          "you request delivery to begin immediately, and",
-          "you confirm that the right of withdrawal may lapse once the feature is activated.",
+          "du ber om at leveringen starter med en gang, og",
+          "du bekrefter at angreretten kan bortfalle når funksjonen er aktivert.",
         ],
-        p2: "Any such consent is given in the purchase flow before payment is completed.",
+        p2: "Eventuelt samtykke gis i kjøpsflyten før betaling gjennomføres.",
       },
       s2: {
-        title: "2. Technical issues",
+        title: "2. Tekniske problemer",
         p1:
-          "If you have paid for a feature in husk'et that is not made available due to a technical issue on our side or on the platform side, we will normally:",
+          "Dersom du har betalt for en funksjon i husk'et som ikke blir tilgjengelig på grunn av teknisk feil hos oss eller plattformen, vil vi normalt:",
         bullets: [
-          "attempt to fix the issue as quickly as possible",
-          "consider a refund or another reasonable solution if the issue cannot be resolved within a reasonable time",
+          "forsøke å rette feilen så raskt som mulig",
+          "vurdere refusjon eller annen rimelig løsning dersom problemet ikke kan løses innen rimelig tid",
         ],
       },
       s3: {
-        title: "3. Subscription charges",
+        title: "3. Abonnement",
         body:
-          "For any subscriptions in husk'et, future renewals can be stopped through the platform where you made the purchase. Periods already charged are normally not refunded, but access remains until the end of the paid period.",
+          "For eventuelle abonnement i husk'et kan videre fornyelse stoppes via den plattformen du kjøpte gjennom. Allerede belastede perioder refunderes normalt ikke, men tilgangen beholdes ut perioden.",
       },
       s4: {
-        title: "4. Incorrect charges",
+        title: "4. Feilbelastning",
         body:
-          "If you believe you have been charged incorrectly, please contact us as soon as possible and describe what happened so we can review the case together with the payment provider or app store.",
+          "Mener du at du er belastet feil, ber vi deg ta kontakt så raskt som mulig og beskrive hva som har skjedd, slik at vi kan undersøke saken sammen med betalingsleverandør eller appbutikk.",
       },
       s5: {
-        title: "5. How to contact us",
-        lead: "Send an email to",
-        bodyAfterEmail: "including:",
+        title: "5. Slik kontakter du oss",
+        lead: "Send en e-post til",
+        bodyAfterEmail: "med:",
         bullets: [
-          "name and email address",
-          "which feature or purchase the case concerns",
-          "date of purchase and receipt if available",
-          "a short description of the issue",
+          "navn og e-postadresse",
+          "hvilken funksjon eller hvilket kjøp saken gjelder",
+          "dato for kjøpet og kvittering dersom du har det",
+          "en kort beskrivelse av problemet",
         ],
       },
     },
   },
 
- receipt: {
+  receipt: {
     hero: {
-      title: "Never lose a receipt again.",
-      sub: "From capture to warranty, everything in one place. Ready when you need it.",
-      line: "No piles. No digging through photos  or e-mails. Just your receipts, organized.",
-      cta: "Try early access",
+      title: "Mist aldri en kvittering igjen.",
+      sub: "Fra fangst til garanti, alt på ett sted. Klart når du trenger det.",
+      line: "Ingen bunker. Ingen leting i bilder eller e-poster. Bare kvitteringene dine, organisert.",
+      cta: "Prøv tidlig tilgang",
     },
 
     visual: {
-      before: "Messy receipts",
-      after: "Organized receipts in app",
+      before: "Rotete kvitteringer",
+      after: "Organiserte kvitteringer i app",
     },
 
     problem: {
-      one: "You needed a receipt and could not find it",
-      two: "It faded in your car",
-      three: "It went through the wash",
-      four: "You missed a reimbursement",
-      five: "You lost a warranty claim",
-      line1: "This is not rare. It happens all the time.",
-      line2: "That is why this app exists.",
+      one: "Du trengte en kvittering og fant den ikke",
+      two: "Den ble uleselig i bilen",
+      three: "Den gikk gjennom vasken",
+      four: "Du gikk glipp av refusjon",
+      five: "Du mistet et garantikrav",
+      line1: "Dette er ikke sjeldent. Det skjer hele tiden.",
+      line2: "Det er derfor denne appen finnes.",
     },
 
     flow: {
       save: {
-        title: "Save it",
+        title: "Lagre den",
         capture: {
-          title: "Snap or import in seconds.",
-          body: "Open the app and capture instantly. Speed matters.",
+          title: "Ta bilde eller importer på sekunder.",
+          body: "Åpne appen og fang den med en gang. Fart betyr noe.",
         },
         import: {
-          title: "Import digital receipts",
-          body: "PDFs, emails, screenshots. All in one place.",
+          title: "Importer digitale kvitteringer",
+          body: "PDF-er, e-poster, skjermbilder. Alt på ett sted.",
         },
       },
 
       store: {
-        title: "Store it",
+        title: "Oppbevar den",
         organized: {
-          title: "Everything organized automatically.",
-          body1: "Everything in one place.",
-          body2: "No piles. No folders. Just a clean archive you can trust.",
+          title: "Alt organiseres automatisk.",
+          body1: "Alt på ett sted.",
+          body2: "Ingen bunker. Ingen mapper. Bare et ryddig arkiv du kan stole på.",
         },
         autofill: {
-          title: "Smart autofill",
-          body: "Date, amount, store. Already filled. You just confirm.",
+          title: "Smart autofyll",
+          body: "Dato, beløp, butikk. Allerede fylt ut. Du bare bekrefter.",
         },
       },
 
       use: {
-        title: "Use it",
+        title: "Bruk den",
         whenNeeded: {
-          title: "Find, share, or use it when it matters.",
-          body: "In the app. Ready when you need it.",
+          title: "Finn, del eller bruk den når det gjelder.",
+          body: "I appen. Klar når du trenger den.",
         },
         proof: {
-          title: "Reimbursements. Returns. Proof.",
-          body: "Save, share, and export your receipts your way.",
+          title: "Refusjon. Retur. Dokumentasjon.",
+          body: "Lagre, del og eksporter kvitteringene dine på din måte.",
         },
         warranty: {
-          title: "Warranty reminders",
-          body: "Before it expires. Not after.",
+          title: "Garantipåminnelser",
+          body: "Før den utløper. Ikke etterpå.",
         },
       },
 
       bottom: {
         safe: {
-          title: "A safe place for your receipts.",
-          body: "Simple. Private. Always available.",
+          title: "Et trygt sted for kvitteringene dine.",
+          body: "Enkelt. Privat. Alltid tilgjengelig.",
         },
         product: {
-          title: "The receipt follows the product.",
-          body1: "When you sell something, send the receipt with it.",
-          body2: "More trust. Easier resale.",
+          title: "Kvitteringen følger produktet.",
+          body1: "Når du selger noe, sender du kvitteringen med.",
+          body2: "Mer tillit. Enklere videresalg.",
         },
         timing: {
-          title: "The difference is timing.",
-          body: "“It expired yesterday.” vs “I fixed it in time.”",
+          title: "Forskjellen er timing.",
+          body: "«Den gikk ut i går.» vs «Jeg fikset det i tide.»",
         },
       },
     },
 
     cta: {
-      title: "Want early access?",
-      sub: "Get early access and help shape the product.",
-      button: "Get in touch",
-      note: "No commitment. Just genuine interest.",
+      title: "Vil du ha tidlig tilgang?",
+      sub: "Få tidlig tilgang og hjelp oss forme produktet videre.",
+      button: "Ta kontakt",
+      note: "Ingen forpliktelser. Bare ekte interesse.",
     },
   },
 
   kvittekLanding: {
-    title: "Because control gives peace of mind",
+    title: "Fordi kontroll gir trygghet",
     intro:
-      "Whether you keep receipts for warranty claims, returns, work, travel expenses or just to stay organized, Kvittek helps you keep them all in one place.",
+      "Uansett om du tar vare på kvitteringer for garanti, reklamasjon, jobb, reiseregninger eller bare for å holde orden, hjelper Kvittek deg med å samle dem på ett sted.",
     problems: {
-      title: "Common receipt problems",
+      title: "Vanlige kvitteringsproblemer",
       items: [
-        "Receipts in drawers",
-        "Digging in pockets and folders",
-        "Stress when you suddenly need documentation",
+        "Kvitteringer i skuffer",
+        "Leting i lommer og mapper",
+        "Stress når du plutselig trenger dokumentasjon",
       ],
     },
     benefits: {
-      title: "With Kvittek you keep everything organized for",
+      title: "Med Kvittek holder du enkelt orden på",
       items: [
-        "Warranties and returns",
-        "Work and travel expenses",
-        "Reimbursements and claims",
-        "Organizing your receipts",
-        "Secure storage and backup",
+        "Garanti og reklamasjon",
+        "Jobb- og reiseregninger",
+        "Utlegg og refusjoner",
+        "Organisering av kvitteringer",
+        "Sikker lagring og backup",
       ],
     },
     reminder:
-      "Take a photo of the receipt when you get it. Then you’ll know where it is when you need it.",
+      "Ta bilde av kvitteringen når du får den. Da vet du hvor den er når du trenger den.",
     download: {
-      title: "Download Kvittek",
-      googleAlt: "Get it on Google Play",
-      googleAria: "Download Kvittek from Google Play",
-      appleAlt: "Download on the App Store",
-      appleAria: "Download Kvittek from the App Store",
-      appleSoon: "App Store coming soon",
+      title: "Last ned Kvittek",
+      googleAlt: "Tilgjengelig på Google Play",
+      googleAria: "Last ned Kvittek fra Google Play",
+      appleAlt: "Last ned fra App Store",
+      appleAria: "Last ned Kvittek fra App Store",
+      appleSoon: "App Store kommer snart",
     },
     support: {
-      lead: "Questions or support?",
+      lead: "Spørsmål eller support?",
     },
-    more: "Learn more about Kvittek →",
+    more: "Les mer om Kvittek →",
   },
 
   kvittekLegal: {
     terms: {
-      title: "Terms of use for Kvittek",
-      intro: "These terms of use apply to the Kvittek app provided by Mathisens Morning Coffee Labs.",
+      title: "Brukervilkår for Kvittek",
+      intro: "Disse brukervilkårene gjelder for bruk av Kvittek, levert av Mathisens Morning Coffee Labs.",
       sections: [
-        { title: "1. Use of the app", body: "Kvittek gives you a personal, non-transferable right to use the app according to the functionality available in the current version. The app must not be resold, redistributed, or used in violation of applicable law." },
-        { title: "2. Content you store", body: "You are responsible for receipts, images, files, categories, folders, and other information you store in the app. You must not store content you do not have the right to use or that infringes the rights of others." },
-        { title: "3. Account and synchronization", body: "Kvittek can be used locally on your device. If you create a Kvittek account or use backup and synchronization, necessary data is stored to provide this functionality across devices." },
-        { title: "4. Availability and changes", body: "We aim for the app to function reliably, but we cannot guarantee that all features will always be available or error-free. The app may be updated, improved, or changed over time." },
-        { title: "5. Limitation of liability", body: "Kvittek is provided as is. To the extent permitted by law, we are not liable for indirect losses, loss of data, loss of profit, or other consequential damages arising from use of the app." },
-        { title: "6. Contact", body: "Questions about the app or these terms can be sent to support@morningcoffeelabs.no." },
+        { title: "1. Bruk av appen", body: "Kvittek gir deg en personlig, ikke-overførbar rett til å bruke appen i samsvar med den funksjonaliteten som tilbys i den aktuelle versjonen. Appen skal ikke videreselges, redistribueres eller brukes i strid med gjeldende lovverk." },
+        { title: "2. Innhold du lagrer", body: "Du er selv ansvarlig for kvitteringer, bilder, filer, kategorier, mapper og annen informasjon du lagrer i appen. Du skal ikke lagre innhold du ikke har rett til å bruke, eller som krenker andres rettigheter." },
+        { title: "3. Konto og synkronisering", body: "Kvittek kan brukes lokalt på enheten. Dersom du oppretter Kvittek-konto eller bruker backup og synkronisering, lagres nødvendige data for å levere denne funksjonen på tvers av enheter." },
+        { title: "4. Tilgjengelighet og endringer", body: "Vi tilstreber at appen fungerer stabilt, men kan ikke garantere at alle funksjoner alltid er tilgjengelige eller feilfrie. Appen kan oppdateres, forbedres eller endres over tid." },
+        { title: "5. Ansvarsbegrensning", body: "Kvittek leveres som den er. Så langt loven tillater det, er vi ikke ansvarlige for indirekte tap, tap av data, tapt fortjeneste eller andre følgeskader som kan oppstå ved bruk av appen." },
+        { title: "6. Kontakt", body: "Spørsmål om appen eller disse vilkårene kan sendes til support@morningcoffeelabs.no." },
       ],
     },
     privacy: {
-      title: "Privacy policy for Kvittek",
-      intro: "This privacy policy describes how Kvittek handles information in the app and when using account, backup, and synchronization features.",
+      title: "Personvern for Kvittek",
+      intro: "Denne personvernerklæringen beskriver hvordan Kvittek håndterer informasjon i appen og ved bruk av konto, backup og synkronisering.",
       sections: [
-        { title: "1. Data controller", body: "Mathisens Morning Coffee Labs is the data controller for personal data processed in connection with Kvittek." },
-        { title: "2. Information the app may process", lead: "When you use Kvittek, this may include:", bullets: ["receipts, images, PDFs, and screenshots you add", "categories, folders, notes, and other organization you create", "account information such as email address if you create an account", "technical information needed for backup, synchronization, troubleshooting, and secure operation"] },
-        { title: "3. Purpose", lead: "The information is used to:", bullets: ["store and show your receipts in the app", "synchronize and back up data when you use a Kvittek account", "restore data on a new or different device", "provide support and fix issues when you ask for help"] },
-        { title: "4. Local storage and account", body: "Kvittek is designed to make receipts easy to store and find again. Data may be stored locally on your device. If you activate account, backup, or synchronization, necessary data is transferred to our service providers to deliver that functionality." },
-        { title: "5. Third parties", body: "We may use service providers for login, cloud storage, payment, app distribution, and operation. They may only process data to provide the service and not for their own purposes." },
-        { title: "6. Deletion", body: "You can request deletion of your account and related data by contacting support@morningcoffeelabs.no. Some information may need to be retained where required by law, such as accounting or payment documentation." },
-        { title: "7. Contact", body: "For privacy questions, contact support@morningcoffeelabs.no." },
+        { title: "1. Behandlingsansvarlig", body: "Mathisens Morning Coffee Labs er behandlingsansvarlig for personopplysninger som behandles i forbindelse med Kvittek." },
+        { title: "2. Hvilke opplysninger appen kan behandle", lead: "Når du bruker Kvittek, kan dette omfatte:", bullets: ["kvitteringer, bilder, PDF-er og skjermbilder du legger inn", "kategorier, mapper, notater og annen organisering du oppretter", "kontoopplysninger som e-postadresse dersom du oppretter konto", "teknisk informasjon som trengs for backup, synkronisering, feilsøking og sikker drift"] },
+        { title: "3. Formål", lead: "Opplysningene brukes til å:", bullets: ["lagre og vise kvitteringene dine i appen", "synkronisere og sikkerhetskopiere data når du bruker Kvittek-konto", "gjenopprette data på ny eller annen enhet", "gi support og rette feil når du ber om hjelp"] },
+        { title: "4. Lokal lagring og konto", body: "Kvittek er laget for at kvitteringer skal være enkle å lagre og finne igjen. Data kan lagres lokalt på enheten. Dersom du aktiverer konto, backup eller synkronisering, overføres nødvendige data til våre tjenesteleverandører for å levere denne funksjonen." },
+        { title: "5. Tredjeparter", body: "Vi kan bruke underleverandører for innlogging, skylagring, betaling, appdistribusjon og drift. Disse skal kun behandle data for å levere tjenesten og ikke for egne formål." },
+        { title: "6. Sletting", body: "Du kan be om sletting av konto og tilhørende data ved å kontakte support@morningcoffeelabs.no. Enkelte opplysninger kan måtte beholdes så lenge vi er pålagt det etter lov, for eksempel regnskaps- og betalingsdokumentasjon." },
+        { title: "7. Kontakt", body: "For spørsmål om personvern kan du kontakte support@morningcoffeelabs.no." },
       ],
     },
     purchase: {
-      title: "Purchase terms for Kvittek",
-      intro: "These purchase terms apply to purchases and subscriptions related to Kvittek.",
+      title: "Kjøpsvilkår for Kvittek",
+      intro: "Disse kjøpsvilkårene gjelder for kjøp og abonnement knyttet til Kvittek.",
       sections: [
-        { title: "1. The parties", body: "The seller is Mathisens Morning Coffee Labs. The buyer is the person purchasing or subscribing to Kvittek through App Store, Google Play, or another approved purchase channel." },
-        { title: "2. Product and access", body: "Kvittek is delivered as a mobile app. Certain features, such as account, backup, synchronization, or extended use, may be connected to a paid subscription or purchase." },
-        { title: "3. Price and payment", body: "Price, currency, and payment terms are shown in App Store or Google Play before the purchase is confirmed. Payment and any renewal are handled by the relevant store." },
-        { title: "4. Subscription", body: "If you purchase a subscription, it renews according to the terms in App Store or Google Play. Subscriptions are managed and cancelled through the account settings in the store where the purchase was made." },
-        { title: "5. Delivery", body: "Digital features are normally activated shortly after payment, provided that payment and store confirmation are registered correctly." },
-        { title: "6. Contact", body: "Questions about Kvittek, access, or purchases can be sent to support@morningcoffeelabs.no." },
+        { title: "1. Partene", body: "Selger er Mathisens Morning Coffee Labs. Kjøper er personen som kjøper eller abonnerer på Kvittek via App Store, Google Play eller annen godkjent kjøpskanal." },
+        { title: "2. Produkt og tilgang", body: "Kvittek leveres som en mobilapp. Enkelte funksjoner, som konto, backup, synkronisering eller utvidet bruk, kan være knyttet til betalt abonnement eller kjøp." },
+        { title: "3. Pris og betaling", body: "Pris, valuta og betalingsvilkår vises i App Store eller Google Play før kjøpet bekreftes. Betaling og eventuell fornyelse håndteres av den aktuelle butikken." },
+        { title: "4. Abonnement", body: "Dersom du kjøper abonnement, fornyes dette i henhold til vilkårene i App Store eller Google Play. Abonnement administreres og sies opp via kontoinnstillingene i den butikken hvor kjøpet ble gjort." },
+        { title: "5. Levering", body: "Digitale funksjoner aktiveres normalt kort tid etter gjennomført betaling, forutsatt at betaling og butikkbekreftelse er registrert korrekt." },
+        { title: "6. Kontakt", body: "Spørsmål om Kvittek, tilgang eller kjøp kan sendes til support@morningcoffeelabs.no." },
       ],
     },
     refund: {
-      title: "Refunds for Kvittek",
-      intro: "This page describes how refunds and complaints are handled for purchases related to Kvittek.",
+      title: "Refusjon for Kvittek",
+      intro: "Her beskriver vi hvordan refusjon og klager håndteres for kjøp knyttet til Kvittek.",
       sections: [
-        { title: "1. Purchases via App Store or Google Play", body: "Purchases and subscriptions in Kvittek are normally handled by App Store or Google Play. Refund requests should generally be submitted through the store where the purchase was made." },
-        { title: "2. Technical issues", body: "If you have paid but do not get access to paid features due to a technical issue, contact support@morningcoffeelabs.no. We will try to help restore access or find a reasonable solution." },
-        { title: "3. Subscription cancellation", body: "Subscriptions can be cancelled through App Store or Google Play. Already paid periods are normally not refunded by us, but you keep access until the end of the period unless the store decides otherwise." },
-        { title: "4. What to send us", lead: "For support, please send:", bullets: ["which store the purchase was made in", "purchase date", "the email address used in Kvittek", "a short description of the issue"] },
+        { title: "1. Kjøp via App Store eller Google Play", body: "Kjøp og abonnement i Kvittek håndteres normalt av App Store eller Google Play. Refusjonsforespørsler må som hovedregel sendes gjennom den butikken hvor kjøpet ble gjort." },
+        { title: "2. Tekniske problemer", body: "Dersom du har betalt, men ikke får tilgang til betalte funksjoner på grunn av teknisk feil, ber vi deg kontakte support@morningcoffeelabs.no. Vi vil forsøke å hjelpe deg med å gjenopprette tilgang eller finne en rimelig løsning." },
+        { title: "3. Oppsigelse av abonnement", body: "Abonnement kan sies opp via App Store eller Google Play. Allerede betalte perioder refunderes normalt ikke av oss, men du beholder tilgangen ut perioden dersom butikken ikke bestemmer noe annet." },
+        { title: "4. Hva du bør sende oss", lead: "Ved support bør du sende:", bullets: ["hvilken butikk kjøpet ble gjort i", "dato for kjøp", "e-postadressen som er brukt i Kvittek", "en kort beskrivelse av problemet"] },
       ],
     },
   }
 } as const;
 
-export default en;
+export default no;
