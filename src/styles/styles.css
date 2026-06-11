@@ -974,11 +974,11 @@ html[data-theme="dark"] .receipt-landing-card {
   display: none;
 }
 
-html[data-theme="dark"] .receipt-landing-logo-light {
+html[data-theme="dark"] .receipt-landing-logo-dark {
   display: none;
 }
 
-html[data-theme="dark"] .receipt-landing-logo-dark {
+html[data-theme="dark"] .receipt-landing-logo-light {
   display: block;
 }
 
