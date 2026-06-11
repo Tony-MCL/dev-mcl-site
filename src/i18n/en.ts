@@ -843,40 +843,41 @@ const en = {
   },
 
   kvittekLanding: {
-    kicker: "Kvittek",
-    title: "Because control brings peace of mind",
+    title: "Because control gives peace of mind",
     intro:
-      "Whether you keep receipts for warranties, claims, work, travel expenses, or just to stay organized, Kvittek helps you keep them in one place.",
+      "Whether you keep receipts for warranty claims, returns, work, travel expenses or just to stay organized, Kvittek helps you keep them all in one place.",
     problems: {
-      aria: "Common receipt problems",
-      drawer: "✕ Receipts in drawers",
-      searching: "✕ Searching pockets and folders",
-      stress: "✕ Stress when you suddenly need proof",
+      title: "Common receipt problems",
+      items: [
+        "Receipts in drawers",
+        "Digging in pockets and folders",
+        "Stress when you suddenly need documentation",
+      ],
     },
     benefits: {
-      title: "With Kvittek, you can keep track of",
+      title: "With Kvittek you keep everything organized for",
       items: [
-        "Warranties and claims",
+        "Warranties and returns",
         "Work and travel expenses",
-        "Outlays and reimbursements",
-        "Receipt organization",
-        "Safe storage and backup",
+        "Reimbursements and claims",
+        "Organizing your receipts",
+        "Secure storage and backup",
       ],
     },
     reminder:
-      "Take a photo of the receipt when you get it. Then you know where it is when you need it.",
+      "Take a photo of the receipt when you get it. Then you’ll know where it is when you need it.",
     download: {
       title: "Download Kvittek",
-      googleSmall: "Get it on",
-      google: "Google Play",
-      appleSmall: "Download on the",
-      apple: "App Store",
+      googleAlt: "Get it on Google Play",
+      googleAria: "Download Kvittek from Google Play",
+      appleAlt: "Download on the App Store",
+      appleAria: "Download Kvittek from the App Store",
       appleSoon: "App Store coming soon",
     },
     support: {
       lead: "Questions or support?",
     },
-    more: "Read more about Kvittek →",
+    more: "Learn more about Kvittek →",
   },
 
   kvittekLegal: {
