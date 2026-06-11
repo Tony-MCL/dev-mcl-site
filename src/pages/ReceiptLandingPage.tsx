@@ -4,8 +4,8 @@ import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
 
 const assetBase = import.meta.env.BASE_URL || "/";
-const kvittekLogoLight = `${assetBase}kvittek-logo-light.png`;
-const kvittekLogoDark = `${assetBase}kvittek-logo-dark.png`;
+const kvittekLogoLight = `${assetBase}kvittek-logo-dark.png`;
+const kvittekLogoDark = `${assetBase}kvittek-logo-light.png`;
 
 const storeBadges = {
   no: {
