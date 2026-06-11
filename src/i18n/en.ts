@@ -958,7 +958,7 @@ const en = {
     alerts: {
       chooseImage: "Please choose an image file.",
     },
-  }
+  },
 } as const;
 
 export default en;
