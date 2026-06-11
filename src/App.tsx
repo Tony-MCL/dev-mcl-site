@@ -11,6 +11,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import IdeaBankPage from "./pages/IdeaBankPage";
 import ProgressPage from "./pages/ProgressPage";
+import QrGeneratorPage from "./pages/QrGeneratorPage";
 
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
@@ -43,7 +44,7 @@ const AppShell: React.FC = () => {
     <div className="app-shell">
       <ScrollToTop />
 
-      {!isCleanProductRoute ? <WatermarkLayer /> : null}
+      {/*!isCleanProductRoute ? <WatermarkLayer /> : null*/}
 
       <Header />
 
@@ -53,6 +54,9 @@ const AppShell: React.FC = () => {
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
+
+          {/* Verktøy */}
+          <Route path="/qr-generator" element={<QrGeneratorPage />} />
 
           {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
