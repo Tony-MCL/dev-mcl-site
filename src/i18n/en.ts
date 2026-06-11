@@ -928,7 +928,7 @@ const en = {
         { title: "4. What to send us", lead: "For support, please send:", bullets: ["which store the purchase was made in", "purchase date", "the email address used in Kvittek", "a short description of the issue"] },
       ],
     },
-  }
+  },
 
   qrGenerator: {
     title: "QR generator",
@@ -958,7 +958,7 @@ const en = {
     alerts: {
       chooseImage: "Please choose an image file.",
     },
-  },
+  }
 } as const;
 
 export default en;
