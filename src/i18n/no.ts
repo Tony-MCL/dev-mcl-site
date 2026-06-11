@@ -928,7 +928,7 @@ const no = {
         { title: "4. Hva du bør sende oss", lead: "Ved support bør du sende:", bullets: ["hvilken butikk kjøpet ble gjort i", "dato for kjøp", "e-postadressen som er brukt i Kvittek", "en kort beskrivelse av problemet"] },
       ],
     },
-  }
+  },
 
   qrGenerator: {
     title: "QR-generator",
