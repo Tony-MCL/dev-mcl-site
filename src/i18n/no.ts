@@ -843,15 +843,16 @@ const no = {
   },
 
   kvittekLanding: {
-    kicker: "Kvittek",
     title: "Fordi kontroll gir trygghet",
     intro:
       "Uansett om du tar vare på kvitteringer for garanti, reklamasjon, jobb, reiseregninger eller bare for å holde orden, hjelper Kvittek deg med å samle dem på ett sted.",
     problems: {
-      aria: "Vanlige kvitteringsproblemer",
-      drawer: "✕ Kvitteringer i skuffer",
-      searching: "✕ Leting i lommer og mapper",
-      stress: "✕ Stress når du plutselig trenger dokumentasjon",
+      title: "Vanlige kvitteringsproblemer",
+      items: [
+        "Kvitteringer i skuffer",
+        "Leting i lommer og mapper",
+        "Stress når du plutselig trenger dokumentasjon",
+      ],
     },
     benefits: {
       title: "Med Kvittek holder du enkelt orden på",
@@ -867,10 +868,10 @@ const no = {
       "Ta bilde av kvitteringen når du får den. Da vet du hvor den er når du trenger den.",
     download: {
       title: "Last ned Kvittek",
-      googleSmall: "Last ned fra",
-      google: "Google Play",
-      appleSmall: "Last ned fra",
-      apple: "App Store",
+      googleAlt: "Tilgjengelig på Google Play",
+      googleAria: "Last ned Kvittek fra Google Play",
+      appleAlt: "Last ned fra App Store",
+      appleAria: "Last ned Kvittek fra App Store",
       appleSoon: "App Store kommer snart",
     },
     support: {

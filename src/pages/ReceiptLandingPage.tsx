@@ -18,11 +18,46 @@ const storeBadges = {
   },
 } as const;
 
+const fallbackProblems = {
+  no: [
+    "Kvitteringer i skuffer",
+    "Leting i lommer og mapper",
+    "Stress når du plutselig trenger dokumentasjon",
+  ],
+  en: [
+    "Receipts in drawers",
+    "Digging in pockets and folders",
+    "Stress when you suddenly need documentation",
+  ],
+} as const;
+
+const fallbackBenefits = {
+  no: [
+    "Garanti og reklamasjon",
+    "Jobb- og reiseregninger",
+    "Utlegg og refusjoner",
+    "Organisering av kvitteringer",
+    "Sikker lagring og backup",
+  ],
+  en: [
+    "Warranties and returns",
+    "Work and travel expenses",
+    "Reimbursements and claims",
+    "Organizing your receipts",
+    "Secure storage and backup",
+  ],
+} as const;
+
+function readStringList(value: unknown, fallback: readonly string[]) {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [...fallback];
+}
+
 const ReceiptLandingPage: React.FC = () => {
   const { t, lang } = useI18n();
-  const problems = t("kvittekLanding.problems.items") as unknown as string[];
-  const benefits = t("kvittekLanding.benefits.items") as unknown as string[];
-  const badges = lang === "en" ? storeBadges.en : storeBadges.no;
+  const activeLang = lang === "en" ? "en" : "no";
+  const problems = readStringList(t("kvittekLanding.problems.items"), fallbackProblems[activeLang]);
+  const benefits = readStringList(t("kvittekLanding.benefits.items"), fallbackBenefits[activeLang]);
+  const badges = activeLang === "en" ? storeBadges.en : storeBadges.no;
 
   return (
     <main className="page receipt-landing-page">
@@ -86,10 +121,6 @@ const ReceiptLandingPage: React.FC = () => {
               : null}
           </ul>
         </section>
-
-        <div className="receipt-landing-camera" aria-hidden="true">
-          <span />
-        </div>
 
         <p className="receipt-landing-reminder">{t("kvittekLanding.reminder")}</p>
 
