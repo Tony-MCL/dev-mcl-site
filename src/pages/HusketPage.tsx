@@ -1,8 +1,18 @@
 import React, { useEffect } from "react";
 import { useI18n } from "../i18n/useI18n";
 
+const assetBase = import.meta.env.BASE_URL || "/";
+
+const storeBadges = {
+  no: `${assetBase}google-play-badge-no.svg`,
+  en: `${assetBase}google-play-badge-en.svg`,
+};
+
+const googlePlayUrl =
+  "https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share";
+
 const HusketPage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -27,12 +37,16 @@ const HusketPage: React.FC = () => {
           <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
         
           <a
-            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share"
+            className="receipt-store-badge-link"
+            href={googlePlayUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta"
           >
-            {t("husket.next.cta")}
+            <img
+              className="receipt-store-badge-image"
+              src={lang === "en" ? storeBadges.en : storeBadges.no}
+              alt="Google Play"
+            />
           </a>
         </div>
       </section>
@@ -112,12 +126,16 @@ const HusketPage: React.FC = () => {
           <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
         
           <a
-            href="https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share"
+            className="receipt-store-badge-link"
+            href={googlePlayUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta"
           >
-            {t("husket.next.cta")}
+            <img
+              className="receipt-store-badge-image"
+              src={lang === "en" ? storeBadges.en : storeBadges.no}
+              alt="Google Play"
+            />
           </a>
         </div>
       </section>

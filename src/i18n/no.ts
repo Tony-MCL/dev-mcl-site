@@ -189,10 +189,9 @@ const no = {
       },
     },
     next: {
-      title: "Early access",
+      title: "Last ned husk'et",
       body:
-        "husk'et er nå tilgjengelig i early access på Google Play. Hvis du vil prøve appen før den offisielle lanseringen, kan du bli med i husk'et testpanel. Medlemmer av gruppen får tilgang til den nåværende testversjonen og kan være med og forme appen før lansering.",
-      cta: "Bli med i testpanelet →",
+        "Minnene dine fortjener bedre enn å bli borte i kamerarullen.",
     },
   },
 
@@ -276,8 +275,10 @@ const no = {
       tagline:
         "Fra utfordringer til idéer – og videre til løsninger som tåler virkeligheten.",
       p1:
-        "Morning Coffee Labs bygger digitale arbeidsverktøy med lav terskel og høy presisjon. Enten det gjelder bestillingsutvikling eller idébanken er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler reell bruk over tid.",
+        "Morning Coffee Labs utvikler egne digitale verktøy og apper, men hjelper også kunder med å forme utfordringer, behov og idéer til funksjonelle løsninger. Enten utgangspunktet er en konkret problemstilling eller en tidlig idé, er målet å skape verktøy som er enkle å bruke, enkle å vedlikeholde og bygget for reell bruk over tid.",
       p2:
+        "Enten det gjelder egne idéer, bestillingsutvikling eller idébanken, er målet det samme: tydelig struktur, forutsigbar funksjonalitet og løsninger som tåler virkeligheten.",
+      p3:
         "Vi starter med et problem som faktisk koster tid, fokus eller kvalitet. Deretter gjør vi det om til en idé som kan testes og bygges. Til slutt leverer vi en løsning som er enkel å ta i bruk, lett å vedlikeholde – og tydelig i hva den gjør.",
       back: "← Tilbake til forsiden",
       contact: "Ta kontakt →",
@@ -755,7 +756,7 @@ const no = {
   receipt: {
     hero: {
       title: "Mist aldri en kvittering igjen.",
-      sub: "Fra fangst til garanti, alt på ett sted. Klart når du trenger det.",
+      sub: "Fra innkjøp til garanti, alt på ett sted. Klart når du trenger det.",
       line: "Ingen bunker. Ingen leting i bilder eller e-poster. Bare kvitteringene dine, organisert.",
       cta: "Prøv tidlig tilgang",
     },

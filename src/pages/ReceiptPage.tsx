@@ -2,8 +2,28 @@
 import React, { useEffect } from "react";
 import { useI18n } from "../i18n/useI18n";
 
+const assetBase = import.meta.env.BASE_URL || "/";
+
+const googlePlayUrl =
+  "https://play.google.com/store/apps/details?id=com.morningcoffeelabs.kvittek";
+
+const appStoreUrl = "";
+
+const storeBadges = {
+  no: {
+    google: `${assetBase}google-play-badge-no.svg`,
+    apple: `${assetBase}app-store-badge-no.svg`,
+  },
+  en: {
+    google: `${assetBase}google-play-badge-en.svg`,
+    apple: `${assetBase}app-store-badge-en.svg`,
+  },
+} as const;
+
 const ReceiptPage: React.FC = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const activeLang = lang === "en" ? "en" : "no";
+  const badges = activeLang === "en" ? storeBadges.en : storeBadges.no;
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -19,12 +39,74 @@ const ReceiptPage: React.FC = () => {
         <p className="hero-tagline">{t("receipt.hero.sub")}</p>
         <p className="hero-sub">{t("receipt.hero.line")}</p>
 
-        <a
-          href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
-          className="hero-cta"
-        >
-          {t("receipt.cta.button")}
-        </a>
+        <div className="receipt-store-badges">
+          <a
+            className="receipt-store-badge-link"
+            href={googlePlayUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={
+              activeLang === "en"
+                ? "Download Kvittek from Google Play"
+                : "Last ned Kvittek fra Google Play"
+            }
+          >
+            <img
+              className="receipt-store-badge-image"
+              src={badges.google}
+              alt={
+                activeLang === "en"
+                  ? "Get it on Google Play"
+                  : "Tilgjengelig på Google Play"
+              }
+            />
+          </a>
+
+          {appStoreUrl ? (
+            <a
+              className="receipt-store-badge-link"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={
+                activeLang === "en"
+                  ? "Download Kvittek from the App Store"
+                  : "Last ned Kvittek fra App Store"
+              }
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={badges.apple}
+                alt={
+                  activeLang === "en"
+                    ? "Download on the App Store"
+                    : "Last ned på App Store"
+                }
+              />
+            </a>
+          ) : (
+            <button
+              className="receipt-store-badge-link receipt-store-badge-disabled"
+              type="button"
+              disabled
+              aria-label={
+                activeLang === "en"
+                  ? "App Store coming soon"
+                  : "App Store kommer snart"
+              }
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={badges.apple}
+                alt={
+                  activeLang === "en"
+                    ? "App Store coming soon"
+                    : "App Store kommer snart"
+                }
+              />
+            </button>
+          )}
+        </div>
       </section>
 
       {/* =============================== */}
@@ -33,7 +115,7 @@ const ReceiptPage: React.FC = () => {
       <section className="receipt-visual-grid">
         <div className="intro-card">
           <img
-            src={`${import.meta.env.BASE_URL}receipt-before.png`}
+            src={`${assetBase}receipt-before.png`}
             alt={t("receipt.visual.before")}
             className="receipt-visual-image"
           />
@@ -41,7 +123,7 @@ const ReceiptPage: React.FC = () => {
 
         <div className="intro-card">
           <img
-            src={`${import.meta.env.BASE_URL}receipt-after.png`}
+            src={`${assetBase}receipt-after.png`}
             alt={t("receipt.visual.after")}
             className="receipt-visual-image"
           />
@@ -175,21 +257,94 @@ const ReceiptPage: React.FC = () => {
       </section>
 
       {/* =============================== */}
-      {/* FINAL CTA */}
+      {/* FINAL DOWNLOAD */}
       {/* =============================== */}
       <section className="receipt-cta receipt-cta-standalone">
         <div className="receipt-cta-inner">
-          <h2>{t("receipt.cta.title")}</h2>
-          <p className="receipt-cta-sub">{t("receipt.cta.sub")}</p>
+          <h2>
+            {activeLang === "en" ? "Download Kvittek" : "Last ned Kvittek"}
+          </h2>
 
-          <a
-            href="mailto:post@morningcoffeelabs.no?subject=Interest%20in%20receipt%20app"
-            className="hero-cta receipt-cta-button"
-          >
-            {t("receipt.cta.button")}
-          </a>
+          <p className="receipt-cta-sub">
+            {activeLang === "en"
+              ? "Save, organize and find your receipts when you need them."
+              : "Lagre, organiser og finn igjen kvitteringene når du trenger dem."}
+          </p>
 
-          <p className="receipt-cta-note">{t("receipt.cta.note")}</p>
+          <div className="receipt-store-badges">
+            <a
+              className="receipt-store-badge-link"
+              href={googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={
+                activeLang === "en"
+                  ? "Download Kvittek from Google Play"
+                  : "Last ned Kvittek fra Google Play"
+              }
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={badges.google}
+                alt={
+                  activeLang === "en"
+                    ? "Get it on Google Play"
+                    : "Tilgjengelig på Google Play"
+                }
+              />
+            </a>
+
+            {appStoreUrl ? (
+              <a
+                className="receipt-store-badge-link"
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  activeLang === "en"
+                    ? "Download Kvittek from the App Store"
+                    : "Last ned Kvittek fra App Store"
+                }
+              >
+                <img
+                  className="receipt-store-badge-image"
+                  src={badges.apple}
+                  alt={
+                    activeLang === "en"
+                      ? "Download on the App Store"
+                      : "Last ned på App Store"
+                  }
+                />
+              </a>
+            ) : (
+              <button
+                className="receipt-store-badge-link receipt-store-badge-disabled"
+                type="button"
+                disabled
+                aria-label={
+                  activeLang === "en"
+                    ? "App Store coming soon"
+                    : "App Store kommer snart"
+                }
+              >
+                <img
+                  className="receipt-store-badge-image"
+                  src={badges.apple}
+                  alt={
+                    activeLang === "en"
+                      ? "App Store coming soon"
+                      : "App Store kommer snart"
+                  }
+                />
+              </button>
+            )}
+          </div>
+
+          <p className="receipt-cta-note">
+            {activeLang === "en"
+              ? "Available on Google Play. App Store is coming soon."
+              : "Tilgjengelig på Google Play. App Store kommer snart."}
+          </p>
         </div>
       </section>
     </main>

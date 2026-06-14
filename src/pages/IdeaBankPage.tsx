@@ -23,6 +23,7 @@ const IdeaBankPage: React.FC = () => {
         </p>
 
         <p style={{ maxWidth: 980 }}>{tr("services.hero.p2")}</p>
+        <p style={{ maxWidth: 980 }}>{tr("services.hero.p3")}</p>
 
         <div
           style={{
