@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/useI18n";
 import { LINKS } from "../config/links";
+import {
+  trackKvittekAppStoreClick,
+  trackKvittekGooglePlayClick,
+  trackKvittekLandingView,
+} from "../lib/kvittekAnalytics";
 
 const assetBase = import.meta.env.BASE_URL || "/";
 const kvittekLogoLight = `${assetBase}kvittek-logo-dark.png`;
@@ -49,15 +54,27 @@ const fallbackBenefits = {
 } as const;
 
 function readStringList(value: unknown, fallback: readonly string[]) {
-  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [...fallback];
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === "string")
+    : [...fallback];
 }
 
 const ReceiptLandingPage: React.FC = () => {
   const { t, lang } = useI18n();
   const activeLang = lang === "en" ? "en" : "no";
-  const problems = readStringList(t("kvittekLanding.problems.items"), fallbackProblems[activeLang]);
-  const benefits = readStringList(t("kvittekLanding.benefits.items"), fallbackBenefits[activeLang]);
+  const problems = readStringList(
+    t("kvittekLanding.problems.items"),
+    fallbackProblems[activeLang]
+  );
+  const benefits = readStringList(
+    t("kvittekLanding.benefits.items"),
+    fallbackBenefits[activeLang]
+  );
   const badges = activeLang === "en" ? storeBadges.en : storeBadges.no;
+
+  useEffect(() => {
+    trackKvittekLandingView();
+  }, []);
 
   return (
     <main className="page receipt-landing-page">
@@ -89,16 +106,17 @@ const ReceiptLandingPage: React.FC = () => {
           </h2>
 
           <ul>
-            {Array.isArray(problems)
-              ? problems.map((item) => (
-                  <li key={item}>
-                    <span className="receipt-landing-list-icon receipt-landing-list-icon-bad" aria-hidden="true">
-                      ×
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))
-              : null}
+            {problems.map((item) => (
+              <li key={item}>
+                <span
+                  className="receipt-landing-list-icon receipt-landing-list-icon-bad"
+                  aria-hidden="true"
+                >
+                  ×
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </section>
 
@@ -109,16 +127,17 @@ const ReceiptLandingPage: React.FC = () => {
           <h2 id="kvittek-benefits-title">{t("kvittekLanding.benefits.title")}</h2>
 
           <ul>
-            {Array.isArray(benefits)
-              ? benefits.map((item) => (
-                  <li key={item}>
-                    <span className="receipt-landing-list-icon receipt-landing-list-icon-good" aria-hidden="true">
-                      ✓
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))
-              : null}
+            {benefits.map((item) => (
+              <li key={item}>
+                <span
+                  className="receipt-landing-list-icon receipt-landing-list-icon-good"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </section>
 
@@ -134,6 +153,9 @@ const ReceiptLandingPage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("kvittekLanding.download.googleAria")}
+              onClick={() => {
+                trackKvittekGooglePlayClick();
+              }}
             >
               <img
                 className="receipt-store-badge-image"
@@ -149,6 +171,9 @@ const ReceiptLandingPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("kvittekLanding.download.appleAria")}
+                onClick={() => {
+                  trackKvittekAppStoreClick();
+                }}
               >
                 <img
                   className="receipt-store-badge-image"

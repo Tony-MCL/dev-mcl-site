@@ -4,7 +4,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import WatermarkLayer from "./components/WatermarkLayer";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -12,6 +11,7 @@ import ContactPage from "./pages/ContactPage";
 import IdeaBankPage from "./pages/IdeaBankPage";
 import ProgressPage from "./pages/ProgressPage";
 import QrGeneratorPage from "./pages/QrGeneratorPage";
+import AdminPage from "./pages/AdminPage";
 
 import KjopsvilkarPage from "./pages/KjopsvilkarPage";
 import BrukervilkarPage from "./pages/BrukervilkarPage";
@@ -44,8 +44,6 @@ const AppShell: React.FC = () => {
     <div className="app-shell">
       <ScrollToTop />
 
-      {/*!isCleanProductRoute ? <WatermarkLayer /> : null*/}
-
       <Header />
 
       <div className="app-content">
@@ -54,38 +52,25 @@ const AppShell: React.FC = () => {
           <Route path="/om" element={<AboutPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/idebank" element={<IdeaBankPage />} />
+          <Route path="/admin" element={<AdminPage />} />
 
-          {/* Verktøy */}
           <Route path="/qr-generator" element={<QrGeneratorPage />} />
 
-          {/* Produktsider */}
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<HusketPage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
-          {/* Generell legal */}
           <Route path="/kjopsvilkar" element={<KjopsvilkarPage />} />
           <Route path="/brukervilkar" element={<BrukervilkarPage />} />
           <Route path="/personvern" element={<PersonvernPage />} />
           <Route path="/refusjon" element={<RefusjonPage />} />
 
-          {/* Husket legal */}
-          <Route
-            path="/husket/kjopsvilkar"
-            element={<HusketKjopsvilkarPage />}
-          />
-          <Route
-            path="/husket/brukervilkar"
-            element={<HusketBrukervilkarPage />}
-          />
-          <Route
-            path="/husket/personvern"
-            element={<HusketPersonvernPage />}
-          />
+          <Route path="/husket/kjopsvilkar" element={<HusketKjopsvilkarPage />} />
+          <Route path="/husket/brukervilkar" element={<HusketBrukervilkarPage />} />
+          <Route path="/husket/personvern" element={<HusketPersonvernPage />} />
           <Route path="/husket/refusjon" element={<HusketRefusjonPage />} />
 
-          {/* Kvittek legal */}
           <Route path="/receipts/kjopsvilkar" element={<KvittekKjopsvilkarPage />} />
           <Route path="/receipts/brukervilkar" element={<KvittekBrukervilkarPage />} />
           <Route path="/receipts/personvern" element={<KvittekPersonvernPage />} />
