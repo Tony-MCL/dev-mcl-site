@@ -204,11 +204,23 @@ html[data-theme="dark"] .header {
   margin-top: 7rem;
   padding: 0;
   text-align: left;
-  color: #f8f9ff;
-  background: linear-gradient(110deg, #0d1330 0%, #151947 58%, #2e1467 100%);
+  color: #12162b;
+  background:
+    radial-gradient(circle at 8% 78%, rgba(8, 124, 240, .22), transparent 30%),
+    radial-gradient(circle at 84% 14%, rgba(239, 63, 167, .16), transparent 31%),
+    radial-gradient(circle at 72% 105%, rgba(167, 233, 61, .18), transparent 27%),
+    linear-gradient(115deg, #dff4ff 0%, #ece8ff 48%, #ffe8f5 77%, #fff0d9 100%);
   overflow: visible;
   position: relative;
   z-index: 3;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #087cf0, #6d35f2, #ef3fa7, #ff8a24, #a7e93d);
 }
 
 .footer-inner {
@@ -221,16 +233,16 @@ html[data-theme="dark"] .header {
 }
 
 .footer-brand { position: relative; min-height: 330px; overflow: visible; }
-.footer-brand::before { content: ""; position: absolute; width: 510px; height: 510px; border: 1px solid rgba(123, 103, 255, .25); border-radius: 50%; left: -2px; top: -142px; background: rgba(250, 250, 255, .97); box-shadow: 0 24px 70px rgba(6, 10, 34, .34), 0 0 0 12px rgba(124, 88, 255, .07); }
-.footer-brand img { position: absolute; z-index: 1; width: 470px; max-width: none; left: 18px; top: -122px; filter: drop-shadow(0 22px 38px rgba(41, 22, 15, .2)); opacity: 1; }
+.footer-brand::before { content: none; }
+.footer-brand img { position: absolute; z-index: 1; width: 470px; max-width: none; left: 18px; top: -122px; filter: drop-shadow(0 22px 34px rgba(41, 22, 15, .18)); opacity: 1; }
 .footer-content { padding: 4.5rem 2rem 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; position: relative; z-index: 1; }
 .footer-nav-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .footer-nav-groups nav { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
-.footer-nav-groups strong { margin-bottom: .25rem; color: #fff; font-size: .92rem; }
-.footer-nav-groups a { color: #c6ceef; font-size: .88rem; }
+.footer-nav-groups strong { margin-bottom: .25rem; color: #12162b; font-size: .92rem; }
+.footer-nav-groups a { color: #34305c; font-size: .88rem; }
 
 .footer-copy {
-  color: #8f99c2;
+  color: #5c6280;
   font-size: 0.9rem;
 }
 
