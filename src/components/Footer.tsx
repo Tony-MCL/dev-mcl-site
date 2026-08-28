@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand" aria-hidden="true">
-          <img src={`${import.meta.env.BASE_URL || "/"}mcl-logo.png`} alt="" />
+          <img src={`${import.meta.env.BASE_URL || "/"}mcl-logo_new.png`} alt="" />
         </div>
         <div className="footer-content">
           <div className="footer-nav-groups">
