@@ -215,14 +215,6 @@ html[data-theme="dark"] .header {
   z-index: 3;
 }
 
-.footer::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 5px;
-  background: linear-gradient(90deg, #087cf0, #6d35f2, #ef3fa7, #ff8a24, #a7e93d);
-}
-
 .footer-inner {
   max-width: 1320px;
   min-height: 330px;
