@@ -4,7 +4,7 @@ import { useI18n } from "../i18n/useI18n";
 import type { Lang } from "../i18n";
 
 const assetBase = import.meta.env.BASE_URL || "/";
-const logoUrl = `${assetBase}mcl-logo.png`;
+const logoUrl = `${assetBase}mcl-logo_new.png`;
 
 type ThemeMode = "light" | "dark";
 
@@ -91,6 +91,10 @@ const Header: React.FC = () => {
         <div className="header-logo">
           <Link to="/" onClick={closeMenu}>
             <img src={logoUrl} alt="Morning Coffee Labs" />
+            <span className="header-wordmark">
+              <strong>Morning Coffee Labs</strong>
+              <small>Apps · Games · Ideas</small>
+            </span>
           </Link>
         </div>
 
