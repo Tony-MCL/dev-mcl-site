@@ -76,9 +76,9 @@ main.page {
   /* fallback (ser bra ut uten color-mix) */
   background: linear-gradient(
     180deg,
-    #d7c2a8 0%,
-    #ead8c4 55%,
-    #fffaf4 100%
+    #ffffff 0%,
+    #f5f7ff 72%,
+    rgba(245, 247, 255, 0.92) 100%
   );
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -106,9 +106,9 @@ main.page {
 html[data-theme="dark"] .header {
   background: linear-gradient(
     180deg,
-    #3b2e23 0%,
-    #221d17 55%,
-    #12110f 100%
+    #11162b 0%,
+    #0d1122 72%,
+    rgba(9, 12, 26, 0.94) 100%
   );
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -192,8 +192,8 @@ html[data-theme="dark"] .header {
   margin-top: 4rem;
   padding: 0;
   text-align: left;
-  color: #fff7ed;
-  background: #241710;
+  color: #f8f9ff;
+  background: linear-gradient(135deg, #080b1a 0%, #10163a 48%, #351170 100%);
   overflow: hidden;
   position: relative;
   z-index: 3;
@@ -209,16 +209,16 @@ html[data-theme="dark"] .header {
 }
 
 .footer-brand { position: relative; min-height: 330px; }
-.footer-brand::before { content: ""; position: absolute; width: 430px; height: 430px; border: 1px solid rgba(238, 179, 120, 0.2); border-radius: 50%; left: -86px; top: -110px; }
-.footer-brand img { position: absolute; width: 690px; max-width: none; left: -38px; top: 34px; filter: sepia(.6) saturate(.65) brightness(1.45); opacity: .92; }
+.footer-brand::before { content: ""; position: absolute; width: 430px; height: 430px; border: 1px solid rgba(96, 213, 255, 0.2); border-radius: 50%; left: -86px; top: -110px; box-shadow: 0 0 90px rgba(112, 57, 255, .2); }
+.footer-brand img { position: absolute; width: 690px; max-width: none; left: -38px; top: 34px; filter: brightness(1.35) saturate(1.2); opacity: .95; }
 .footer-content { padding: 4.5rem 2rem 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; position: relative; z-index: 1; }
 .footer-nav-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .footer-nav-groups nav { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
 .footer-nav-groups strong { margin-bottom: .25rem; color: #fff; font-size: .92rem; }
-.footer-nav-groups a { color: #d6c1b2; font-size: .88rem; }
+.footer-nav-groups a { color: #c6ceef; font-size: .88rem; }
 
 .footer-copy {
-  color: #9f8b7d;
+  color: #8f99c2;
   font-size: 0.9rem;
 }
 
