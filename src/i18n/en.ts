@@ -6,6 +6,9 @@ const en = {
       about: "About",
       contact: "Contact",
       progress: "Progress",
+      apps: "Our apps",
+      inLab: "In the lab",
+      workshop: "Workshop",
     },
     theme: {
       ariaToLight: "Switch to light mode",
@@ -27,6 +30,10 @@ const en = {
 
   footer: {
     copyright: "Morning Coffee Labs",
+    site: "Morning Coffee Labs",
+    legal: "Terms and privacy",
+    siteNavLabel: "About the website",
+    legalNavLabel: "Legal information",
     links: {
       termsPurchase: "Purchase terms",
       termsUse: "Terms of use",
@@ -44,6 +51,57 @@ const en = {
       termsUse: "Kvittek terms of use",
       privacy: "Kvittek privacy policy",
       refund: "Kvittek refunds",
+    },
+  },
+
+  homeNew: {
+    hero: {
+      kicker: "Independent app and game studio",
+      title: "Mobile apps for everyday life. Games for fun.",
+      body: "Morning Coffee Labs creates mobile apps, games and digital tools – with simple use, clear purpose and respect for your time.",
+      cta: "See what we have made",
+      mark: "APPS · GAMES · IDEAS",
+    },
+    apps: {
+      kicker: "Out in the world",
+      title: "Our apps and games",
+      intro: "Ideas large and small that became real products – made, tested and released to users.",
+      kvittek: "Keep, organize and find receipts again when you actually need them.",
+      husket: "A calm place for photos, notes and the details you want to find again later.",
+      fury: "A simple and surprisingly difficult circle game, made for short breaks and one more round.",
+      r4: "Fast, reusable messages directly from your keyboard – especially useful while gaming.",
+    },
+    now: {
+      kicker: "On the workbench",
+      title: "What we are working on now",
+      intro: "Two very different projects share our main focus right now: one useful tool and one new game universe.",
+      priority: "Active main project",
+      mosaic: "A private and safe plural app giving systems, alters and the people around them a new option after established services disappeared.",
+      bopTitle: "BOP's first adventure",
+      bop: "A colourful bounce-and-precision game with handcrafted levels, chaotic chain reactions and a more player-friendly advertising model.",
+      bopAlt: "Placeholder for the BOP game",
+    },
+    pipeline: {
+      kicker: "Next in the workshop",
+      title: "What is waiting in line",
+      intro: "Some projects are well underway. Others are left to mature until the time is right.",
+      taptoken: "A mobile project in development. Its visual identity and product presentation will come later.",
+      husket: "The next generation of husk'et, with an improved flow and more possibilities than today's app.",
+      ideasTitle: "The idea bank",
+      ideas: "New app ideas, game concepts and small experiments that might become the next MCL product.",
+    },
+    status: {
+      available: "Available now",
+      inDevelopment: "In development",
+      workingTitle: "Working title",
+      visualComing: "Artwork coming",
+    },
+    actions: { readMore: "Read more", visit: "See the idea bank" },
+    origin: {
+      kicker: "And then the ‘boring’ things",
+      title: "Digital tools for real work",
+      body: "Professional tools for structure, documentation and project work were the origin of Morning Coffee Labs. They receive less attention right now, but the workshop still has room for them.",
+      cta: "Enter the workshop",
     },
   },
 
