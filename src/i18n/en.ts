@@ -67,6 +67,7 @@ const en = {
       title: "Our apps and games",
       intro: "Ideas large and small that became real products – made, tested and released to users.",
       kvittek: "Keep, organize and find receipts again when you actually need them.",
+      findback: "Save where you left something, then find your way back when memory lets you down.",
       husket: "A calm place for photos, notes and the details you want to find again later.",
       fury: "A simple and surprisingly difficult circle game, made for short breaks and one more round.",
       r4: "Fast, reusable messages directly from your keyboard – especially useful while gaming.",
@@ -92,6 +93,7 @@ const en = {
     },
     status: {
       available: "Available now",
+      availableBoth: "Google Play + App Store",
       inDevelopment: "In development",
       workingTitle: "Working title",
       visualComing: "Artwork coming",
