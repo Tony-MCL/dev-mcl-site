@@ -67,6 +67,7 @@ const no = {
       title: "Våre apper og spill",
       intro: "Små og store idéer som er blitt til ekte produkter – laget, testet og sendt ut til brukere.",
       kvittek: "Ta vare på, organiser og finn igjen kvitteringer når du faktisk trenger dem.",
+      findback: "Lagre hvor du la igjen noe, og finn veien tilbake når hukommelsen ikke spiller på lag.",
       husket: "Et rolig sted for bilder, notater og detaljene du gjerne vil finne igjen senere.",
       fury: "Et enkelt og overraskende vanskelig sirkelspill, laget for korte pauser og én runde til.",
       r4: "Raske, gjenbrukbare meldinger rett fra tastaturet – særlig nyttig når du spiller.",
@@ -92,6 +93,7 @@ const no = {
     },
     status: {
       available: "Tilgjengelig nå",
+      availableBoth: "Google Play + App Store",
       inDevelopment: "Under utvikling",
       workingTitle: "Arbeidstittel",
       visualComing: "Grafikk kommer",
