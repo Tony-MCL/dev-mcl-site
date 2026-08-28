@@ -6,6 +6,9 @@ const no = {
       about: "Om",
       contact: "Kontakt",
       progress: "Progress",
+      apps: "Våre apper",
+      inLab: "I labben nå",
+      workshop: "Verkstedet",
     },
     theme: {
       ariaToLight: "Bytt til lys modus",
@@ -27,6 +30,10 @@ const no = {
 
   footer: {
     copyright: "Morning Coffee Labs",
+    site: "Morning Coffee Labs",
+    legal: "Vilkår og personvern",
+    siteNavLabel: "Om nettstedet",
+    legalNavLabel: "Juridisk informasjon",
     links: {
       termsPurchase: "Kjøpsvilkår",
       termsUse: "Brukervilkår",
@@ -44,6 +51,57 @@ const no = {
       termsUse: "Kvittek brukervilkår",
       privacy: "Kvittek personvern",
       refund: "Kvittek refusjon",
+    },
+  },
+
+  homeNew: {
+    hero: {
+      kicker: "Uavhengig app- og spillstudio",
+      title: "Mobilapper for hverdagen. Spill for moro skyld.",
+      body: "Morning Coffee Labs utvikler egne mobilapper, spill og digitale verktøy – med enkel bruk, tydelig funksjon og respekt for tiden din.",
+      cta: "Se hva vi har laget",
+      mark: "APPER · SPILL · IDÉER",
+    },
+    apps: {
+      kicker: "Ute i verden",
+      title: "Våre apper og spill",
+      intro: "Små og store idéer som er blitt til ekte produkter – laget, testet og sendt ut til brukere.",
+      kvittek: "Ta vare på, organiser og finn igjen kvitteringer når du faktisk trenger dem.",
+      husket: "Et rolig sted for bilder, notater og detaljene du gjerne vil finne igjen senere.",
+      fury: "Et enkelt og overraskende vanskelig sirkelspill, laget for korte pauser og én runde til.",
+      r4: "Raske, gjenbrukbare meldinger rett fra tastaturet – særlig nyttig når du spiller.",
+    },
+    now: {
+      kicker: "På arbeidsbenken",
+      title: "Dette arbeider vi med nå",
+      intro: "To ulike prosjekter deler hovedfokuset akkurat nå: ett nyttig verktøy og ett nytt spillunivers.",
+      priority: "Aktivt hovedprosjekt",
+      mosaic: "En privat og trygg plural-app for å gi systemer, alters og menneskene rundt dem et nytt alternativ etter at etablerte tjenester har forsvunnet.",
+      bopTitle: "BOPs første eventyr",
+      bop: "Et fargerikt sprett- og presisjonsspill med håndbygde baner, kaotiske kjedereaksjoner og en mer spiller­vennlig reklamemodell.",
+      bopAlt: "Plassholder for BOP-spillet",
+    },
+    pipeline: {
+      kicker: "Videre i verkstedet",
+      title: "Det neste som står i kø",
+      intro: "Noen prosjekter er godt i gang. Andre får ligge og modne til tiden er riktig.",
+      taptoken: "Et mobilprosjekt under utvikling. Egen visuell profil og produktpresentasjon kommer senere.",
+      husket: "Neste generasjon av husk'et, med videreutviklet flyt og flere muligheter enn dagens app.",
+      ideasTitle: "Idébanken",
+      ideas: "Nye appidéer, spillkonsepter og små eksperimenter som kan bli det neste MCL-produktet.",
+    },
+    status: {
+      available: "Tilgjengelig nå",
+      inDevelopment: "Under utvikling",
+      workingTitle: "Arbeidstittel",
+      visualComing: "Grafikk kommer",
+    },
+    actions: { readMore: "Les mer", visit: "Se idébanken" },
+    origin: {
+      kicker: "Og så de «kjedelige» tingene",
+      title: "Digitale verktøy for ekte arbeid",
+      body: "Faglige programmer for struktur, dokumentasjon og prosjektarbeid var opphavet til Morning Coffee Labs. De får mindre oppmerksomhet akkurat nå, men verkstedet har fortsatt plass til dem.",
+      cta: "Inn i verkstedet",
     },
   },
 
