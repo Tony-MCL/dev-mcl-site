@@ -674,6 +674,27 @@ const en = {
     support: "Questions or need help?",
   },
 
+  r4: {
+    tagline: "The texts you use often. Always within reach.",
+    intro:
+      "Save the messages and texts you use often and access them from a small floating button over other apps. Tap the text you need, paste it – and carry on where you left off.",
+    purpose: "Save once. Use again and again.",
+    audience:
+      "R4 was created for mobile-game leaders who repeatedly send the same event messages, rules and reminders. It works just as well for standard replies, work messages, addresses, instructions and any other text you use often.",
+    promise:
+      "R4 never sends anything on your behalf. You always decide where and when a text is pasted or sent.",
+    privacy:
+      "Your texts are stored locally on the device. No user account, required cloud service or AI changing what you wrote.",
+    platform:
+      "Available for Android. This version uses Android's ability to display a floating button over other apps.",
+    download: {
+      title: "Download R4",
+      googleAria: "Open R4 in Google Play",
+      googleAlt: "Get R4 on Google Play",
+    },
+    support: "Questions or need help?",
+  },
+
   husketLegal: {
     terms: {
       title: "Terms of use for husk'et",
