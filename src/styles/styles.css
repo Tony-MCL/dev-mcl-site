@@ -39,6 +39,8 @@
 .section-heading-light > p { color: #b6bedc; }.section-heading-light .section-kicker { color: #65d7ff; }
 .current-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .current-project { min-width: 0; overflow: hidden; display: grid; grid-template-columns: 44% 56%; min-height: 365px; border-radius: 30px; background: rgba(19, 24, 54, .92); border: 1px solid rgba(126, 147, 255, .22); box-shadow: 0 20px 45px rgba(0,0,0,.22); }
+.current-project-link { color: inherit; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.current-project-link:hover { opacity: 1; transform: translateY(-4px); border-color: rgba(126, 147, 255, .48); box-shadow: 0 26px 55px rgba(0,0,0,.32); }
 .current-media { min-height: 300px; display: grid; place-items: center; background: #08080d; }
 .current-media img { width: 80%; height: 80%; object-fit: contain; }
 .current-copy { position: relative; padding: 2.5rem 2rem; align-self: center; }
@@ -1329,6 +1331,131 @@ html[data-theme="dark"] .r4-landing-card {
 
 html[data-theme="dark"] .r4-landing-purpose {
   color: #b9f267;
+}
+
+.project-preview-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) 1.25rem 3rem;
+}
+
+.project-preview-hero,
+.mosaic-story,
+.mosaic-long-term {
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid var(--mcl-border);
+  border-radius: 26px;
+  background: var(--mcl-surface);
+  box-shadow: var(--mcl-shadow);
+}
+
+.project-preview-hero {
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(116, 56, 244, 0.17), transparent 42%),
+    var(--mcl-surface);
+}
+
+.mosaic-preview-logo {
+  display: block;
+  width: min(390px, 82vw);
+  max-height: 230px;
+  margin: 0 auto 1rem;
+  object-fit: contain;
+}
+
+.project-preview-tagline {
+  margin: 0;
+  color: var(--mcl-text);
+  font-size: clamp(1.75rem, 5vw, 2.7rem);
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.project-preview-lead {
+  max-width: 690px;
+  margin: 1.2rem auto 0;
+  color: var(--mcl-text);
+  font-size: clamp(1.03rem, 2vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.project-preview-status {
+  max-width: 620px;
+  margin: 2rem auto 0;
+  padding: 1rem 1.2rem;
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, #ffd52b 12%, var(--mcl-surface));
+  text-align: left;
+}
+
+.project-preview-status img { width: 86px; height: 86px; object-fit: contain; }
+.project-preview-status div { display: grid; gap: .3rem; }
+.project-preview-status strong { color: var(--mcl-text); }
+.project-preview-status span { color: var(--mcl-text-dim); font-size: .92rem; line-height: 1.45; }
+
+.mosaic-story,
+.mosaic-long-term { margin-top: 1.25rem; }
+.mosaic-story h2,
+.mosaic-principles h2,
+.mosaic-long-term h2 { margin: 0 0 .8rem; color: var(--mcl-text); font-size: clamp(1.3rem, 3vw, 1.75rem); }
+.mosaic-story p,
+.mosaic-principles p,
+.mosaic-long-term p { margin: .7rem 0 0; color: var(--mcl-text-dim); line-height: 1.65; }
+
+.mosaic-principles {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mosaic-principles section {
+  padding: 1.5rem;
+  border: 1px solid var(--mcl-border);
+  border-radius: 22px;
+  background: var(--mcl-surface);
+  box-shadow: var(--mcl-shadow);
+}
+
+.mosaic-long-term {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, #087cf0 8%, var(--mcl-surface)), color-mix(in srgb, #ef3fa7 7%, var(--mcl-surface)));
+}
+.mosaic-long-term strong { display: block; margin-top: 1rem; color: #6d35f2; font-size: 1.12rem; }
+.project-preview-support { margin-top: 2rem; text-align: center; }
+
+.bop-preview-card {
+  background:
+    radial-gradient(circle at top, rgba(255, 213, 43, 0.2), transparent 38%),
+    var(--mcl-surface);
+}
+.bop-construction-image { display: block; width: min(300px, 74vw); height: auto; margin: 0 auto 1.3rem; object-fit: contain; }
+.bop-preview-card .section-kicker { margin-bottom: .65rem; }
+.bop-preview-card h1 { margin: 0; }
+.bop-preview-tagline { max-width: 520px; margin: 1rem auto 0; color: var(--mcl-text); font-size: clamp(1.3rem, 4vw, 1.7rem); font-weight: 800; line-height: 1.3; }
+.bop-preview-note { max-width: 520px; margin: 1.4rem auto 0; color: var(--mcl-text-dim); font-size: .92rem; line-height: 1.5; }
+
+html[data-theme="dark"] .project-preview-hero {
+  background:
+    radial-gradient(circle at top, rgba(116, 56, 244, 0.25), transparent 44%),
+    var(--mcl-surface);
+}
+html[data-theme="dark"] .mosaic-long-term strong { color: #ad9aff; }
+html[data-theme="dark"] .bop-preview-card {
+  background:
+    radial-gradient(circle at top, rgba(255, 213, 43, 0.2), transparent 40%),
+    var(--mcl-surface);
+}
+
+@media (max-width: 760px) {
+  .mosaic-principles { grid-template-columns: 1fr; }
+  .project-preview-status { grid-template-columns: 68px minmax(0, 1fr); }
+  .project-preview-status img { width: 68px; height: 68px; }
 }
 
 html[data-theme="dark"] .receipt-landing-logo-dark {
