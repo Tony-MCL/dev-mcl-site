@@ -140,14 +140,14 @@ const HomePage: React.FC = () => {
           <p>{t("homeNew.now.intro")}</p>
         </div>
         <div ref={currentCarouselRef} className="current-grid">
-          <article className="current-project current-project-mosaic">
+          <Link className="current-project current-project-link current-project-mosaic" to="/mosaic-me">
             <div className="current-media"><img src={`${assetBase}mosaic_me_logo.png`} alt="Mosaic ME logo" /></div>
             <div className="current-copy"><span className="project-number">01</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>Mosaic ME</h3><p>{t("homeNew.now.mosaic")}</p></div>
-          </article>
-          <article className="current-project current-project-bop">
+          </Link>
+          <Link className="current-project current-project-link current-project-bop" to="/bop">
             <div className="current-media bop-placeholder" aria-label={t("homeNew.now.bopAlt")}><span className="bop-ball" /><strong>BOP</strong><small>{t("homeNew.status.visualComing")}</small></div>
             <div className="current-copy"><span className="project-number">02</span><span className="section-kicker">{t("homeNew.now.priority")}</span><h3>{t("homeNew.now.bopTitle")}</h3><p>{t("homeNew.now.bop")}</p></div>
-          </article>
+          </Link>
         </div>
       </section>
 
