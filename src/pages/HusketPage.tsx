@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { LINKS } from "../config/links";
 import { useI18n } from "../i18n/useI18n";
 
 const assetBase = import.meta.env.BASE_URL || "/";
@@ -6,138 +7,62 @@ const assetBase = import.meta.env.BASE_URL || "/";
 const storeBadges = {
   no: `${assetBase}google-play-badge-no.svg`,
   en: `${assetBase}google-play-badge-en.svg`,
-};
-
-const googlePlayUrl =
-  "https://play.google.com/store/apps/details?id=no.morningcoffeelabs.husket&pcampaignid=web_share";
+} as const;
 
 const HusketPage: React.FC = () => {
   const { t, lang } = useI18n();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, []);
+  const badge = lang === "en" ? storeBadges.en : storeBadges.no;
 
   return (
-    <main className="page husket-page">
-      {/* =============================== */}
-      {/* HERO */}
-      {/* =============================== */}
-      <section className="husket-hero-layout">
-        <div className="husket-logo-wrap" aria-hidden="true">
+    <main className="page receipt-landing-page">
+      <section
+        className="receipt-landing-card husket-landing-card"
+        aria-labelledby="husket-title"
+      >
+        <div className="receipt-landing-logo-wrap">
           <img
-            src={`${import.meta.env.BASE_URL}husketlogo.svg`}
+            className="husket-landing-logo"
+            src={`${assetBase}husketlogo.svg`}
             alt="husk'et"
-            className="husket-logo-image"
           />
         </div>
 
-        <div className="husket-hero-copy">
-          <p className="husket-hero-tagline">{t("husket.hero.tagline")}</p>
-          <p className="husket-hero-intro">{t("husket.hero.intro")}</p>
-        
-          <a
-            className="receipt-store-badge-link"
-            href={googlePlayUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className="receipt-store-badge-image"
-              src={lang === "en" ? storeBadges.en : storeBadges.no}
-              alt="Google Play"
-            />
+        <h1 id="husket-title" className="receipt-landing-visually-hidden">
+          {t("husket.hero.title")}
+        </h1>
+
+        <p className="husket-landing-tagline">{t("husket.hero.tagline")}</p>
+        <p className="receipt-landing-intro">{t("husket.hero.intro")}</p>
+
+        <section
+          className="receipt-landing-download"
+          aria-labelledby="husket-download-title"
+        >
+          <h2 id="husket-download-title">{t("husket.download.title")}</h2>
+
+          <div className="receipt-store-badges">
+            <a
+              className="receipt-store-badge-link"
+              href={LINKS.husketGooglePlay}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("husket.download.googleAria")}
+            >
+              <img
+                className="receipt-store-badge-image"
+                src={badge}
+                alt={t("husket.download.googleAlt")}
+              />
+            </a>
+          </div>
+        </section>
+
+        <p className="receipt-landing-support">
+          <span>{t("husket.support")}</span>
+          <a href="mailto:support@morningcoffeelabs.no">
+            support@morningcoffeelabs.no
           </a>
-        </div>
-      </section>
-
-      {/* =============================== */}
-      {/* QUICK GLIMPSE */}
-      {/* =============================== */}
-      <section className="intro-card">
-        <h3 style={{ marginTop: 0 }}>{t("husket.glimpse.title")}</h3>
-
-        <div className="husket-glimpse-grid">
-          <figure className="husket-glimpse-card">
-            <img
-              src={`${import.meta.env.BASE_URL}husket-screen-1.png`}
-              alt={t("husket.glimpse.alt.one")}
-              className="husket-glimpse-image"
-            />
-            <figcaption className="husket-glimpse-caption">
-              {t("husket.glimpse.caption.one")}
-            </figcaption>
-          </figure>
-
-          <figure className="husket-glimpse-card">
-            <img
-              src={`${import.meta.env.BASE_URL}husket-screen-2.png`}
-              alt={t("husket.glimpse.alt.two")}
-              className="husket-glimpse-image"
-            />
-            <figcaption className="husket-glimpse-caption">
-              {t("husket.glimpse.caption.two")}
-            </figcaption>
-          </figure>
-
-          <figure className="husket-glimpse-card">
-            <img
-              src={`${import.meta.env.BASE_URL}husket-screen-3.png`}
-              alt={t("husket.glimpse.alt.three")}
-              className="husket-glimpse-image"
-            />
-            <figcaption className="husket-glimpse-caption">
-              {t("husket.glimpse.caption.three")}
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* =============================== */}
-      {/* CONTENT */}
-      {/* =============================== */}
-      <section className="intro-grid two-columns">
-        <div className="intro-card">
-          <h3>{t("husket.cards.capture.title")}</h3>
-          <p>{t("husket.cards.capture.body")}</p>
-        </div>
-
-        <div className="intro-card">
-          <h3>{t("husket.cards.structure.title")}</h3>
-          <p>{t("husket.cards.structure.body")}</p>
-        </div>
-
-        <div className="intro-card">
-          <h3>{t("husket.cards.offline.title")}</h3>
-          <p>{t("husket.cards.offline.body")}</p>
-        </div>
-
-        <div className="intro-card">
-          <h3>{t("husket.cards.privacy.title")}</h3>
-          <p>{t("husket.cards.privacy.body")}</p>
-        </div>
-
-        {/* =============================== */}
-        {/* NEXT / COMING SOON */}
-        {/* =============================== */}
-        <div className="intro-card" style={{ gridColumn: "1 / -1" }}>
-          <h3 style={{ marginTop: 0 }}>{t("husket.next.title")}</h3>
-        
-          <p style={{ marginBottom: "1rem" }}>{t("husket.next.body")}</p>
-        
-          <a
-            className="receipt-store-badge-link"
-            href={googlePlayUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className="receipt-store-badge-image"
-              src={lang === "en" ? storeBadges.en : storeBadges.no}
-              alt="Google Play"
-            />
-          </a>
-        </div>
+        </p>
       </section>
     </main>
   );
