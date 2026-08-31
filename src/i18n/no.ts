@@ -59,6 +59,8 @@ const no = {
       kicker: "Uavhengig app- og spillstudio",
       title: "Mobilapper for hverdagen. Spill for moro skyld.",
       body: "Morning Coffee Labs utvikler egne mobilapper, spill og digitale verktøy – med enkel bruk, tydelig funksjon og respekt for tiden din.",
+      continuityTitle: "Bygget for mer enn lanseringsdagen.",
+      continuityBody: "Vi velger løsninger vi kan drifte, vedlikeholde og videreføre, slik at appene våre kan forbli tilgjengelige for brukerne også over tid.",
       cta: "Se hva vi har laget",
       mark: "APPER · SPILL · IDÉER",
     },
