@@ -111,6 +111,10 @@ const HomePage: React.FC = () => {
           <span className="hero-kicker">{t("homeNew.hero.kicker")}</span>
           <h1 id="home-title">{t("homeNew.hero.title")}</h1>
           <p>{t("homeNew.hero.body")}</p>
+          <div className="hero-continuity">
+            <strong>{t("homeNew.hero.continuityTitle")}</strong>
+            <span>{t("homeNew.hero.continuityBody")}</span>
+          </div>
           <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
         </div>
         <div className="hero-cup-art" aria-hidden="true">
