@@ -697,6 +697,54 @@ const en = {
     support: "Questions or need help?",
   },
 
+  mosaicPage: {
+    tagline: "Many parts. One me.",
+    lead:
+      "Mosaic ME is a private, local-first companion for plural systems – built to help you keep track of alters, fronting, co-fronting, journals and the people you choose to share with.",
+    status: {
+      title: "The final pieces are being built",
+      body: "Mosaic ME is being prepared for launch. Store links will be added as soon as the app is published.",
+    },
+    system: {
+      title: "Your system, your way",
+      bodyOne:
+        "Create alters with their own names, avatars, pronouns, colours, symbols and descriptions. Use a practical list when managing your system, or a visual deck when you simply want to browse.",
+      bodyTwo:
+        "Keep track of who is fronting and co-fronting, review fronting history, and use the journal to preserve notes and experiences over time.",
+    },
+    private: {
+      title: "Private means private",
+      body:
+        "Information intended for sharing is deliberately kept separate from journals, internal notes, history and other private content. Nothing is shared unless you choose it.",
+    },
+    sharing: {
+      title: "Share with people you trust",
+      body:
+        "An optional account lets you connect with approved friends and choose which alters they can see. Friend Mode shows only what has actually been shared – not the private management side of your system.",
+    },
+    data: {
+      title: "Your data is not trapped",
+      body:
+        "Core information is stored locally on your device and can be exported and imported using the .mome format. Accounts, backup and synchronisation are additions – not requirements for retaining control of your own data.",
+    },
+    longTerm: {
+      title: "Built for the long term",
+      body:
+        "Mosaic ME prioritises privacy, data safety, stability, simplicity and user experience. The goal is a tool people can rely on without having to keep paying simply to continue using it.",
+      free: "The core Mosaic ME experience is free.",
+    },
+    support: "Questions about Mosaic ME?",
+  },
+
+  bopPage: {
+    kicker: "In development",
+    title: "BOP's first adventure",
+    tagline: "A colourful bounce-and-precision game with ever-increasing chaos.",
+    body:
+      "We are building handcrafted levels, chain reactions and a new BOP universe around one simple idea: aim, shoot and see where the ball goes. The game should be easy to understand, satisfying to master and use a more player-friendly advertising model.",
+    note: "The game title, images and launch date will be revealed when the project is ready to show.",
+  },
+
   husketLegal: {
     terms: {
       title: "Terms of use for husk'et",
