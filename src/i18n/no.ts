@@ -655,6 +655,25 @@ const no = {
     support: "Spørsmål eller behov for hjelp?",
   },
 
+  fury: {
+    tagline: "Én åpning. Stadig mer kaos. Hvor lenge holder du ut?",
+    intro:
+      "FURY O er et raskt arkadespill der du styrer en roterende ring og forsøker å fange ballene som kommer fra alle kanter – uten å bli truffet.",
+    gameplay:
+      "Overlev, fang baller, bygg poengserier og jakt på stadig høyere score mens tempoet øker. Bonusballer gir ekstra poeng, Revive-baller kan redde runden, og bomber gjør sitt beste for å avslutte den.",
+    modes:
+      "Spillet starter enkelt, men blir raskt mindre rimelig. Velg mellom Normal, Fury og Extreme Fury, og se hvor langt reaksjonsevnen faktisk holder.",
+    promise: "Enkelt å forstå. Vanskelig å mestre. Laget for «bare én runde til».",
+    download: {
+      title: "Last ned FURY O",
+      googleAria: "Åpne FURY O i Google Play",
+      googleAlt: "Last ned FURY O fra Google Play",
+      appleAria: "Åpne FURY O i App Store",
+      appleAlt: "Last ned FURY O fra App Store",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
   husketLegal: {
     terms: {
       title: "Brukervilkår for husk'et",
