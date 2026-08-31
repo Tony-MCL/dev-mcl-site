@@ -1159,6 +1159,54 @@ html[data-theme="dark"] .husket-landing-card {
     var(--mcl-surface);
 }
 
+.findback-landing-card {
+  background:
+    radial-gradient(circle at top, rgba(8, 124, 240, 0.16), transparent 36%),
+    var(--mcl-surface);
+}
+
+.findback-landing-logo {
+  display: block;
+  width: min(190px, 52vw);
+  aspect-ratio: 1;
+  border-radius: 24%;
+  object-fit: cover;
+  box-shadow: 0 18px 42px rgba(0, 77, 180, 0.23);
+}
+
+.findback-landing-purpose,
+.findback-landing-how,
+.findback-landing-privacy {
+  max-width: 560px;
+  margin: 1rem auto 0;
+  color: var(--mcl-text);
+  line-height: 1.58;
+}
+
+.findback-landing-purpose {
+  font-size: 1.18rem;
+  font-weight: 750;
+}
+
+.findback-landing-promise {
+  margin: 1.5rem auto 0;
+  color: #087cf0;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  font-weight: 850;
+  letter-spacing: -0.025em;
+}
+
+html[data-theme="dark"] .findback-landing-card {
+  background:
+    radial-gradient(circle at top, rgba(8, 124, 240, 0.24), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    var(--mcl-surface);
+}
+
+html[data-theme="dark"] .findback-landing-promise {
+  color: #65d7ff;
+}
+
 html[data-theme="dark"] .receipt-landing-logo-dark {
   display: none;
 }
