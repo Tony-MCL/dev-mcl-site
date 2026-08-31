@@ -635,6 +635,26 @@ const no = {
     },
   },
 
+  findback: {
+    title: "Finn tilbake. Helt enkelt.",
+    intro:
+      "Har du parkert på et stort område, funnet en god fiskeplass eller jaktpost, oppdaget et fint sted på tur – eller vil du finne tilbake til et sted i en by du besøker for første gang?",
+    purpose: "FindBack husker stedet for deg.",
+    how:
+      "Trykk én gang for å lagre posisjonen. Når du vil tilbake, åpner FindBack stedet i kartappen på telefonen din.",
+    promise: "Én app. Én posisjon. To trykk.",
+    privacy:
+      "Ingen konto, innlogging, reklame eller abonnement. Posisjonen lagres bare på telefonen din og blir der til du erstatter den med et nytt sted.",
+    download: {
+      title: "Last ned FindBack",
+      googleAria: "Åpne FindBack i Google Play",
+      googleAlt: "Last ned FindBack fra Google Play",
+      appleAria: "Åpne FindBack i App Store",
+      appleAlt: "Last ned FindBack fra App Store",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
   husketLegal: {
     terms: {
       title: "Brukervilkår for husk'et",
