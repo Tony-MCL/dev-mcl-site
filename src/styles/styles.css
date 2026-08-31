@@ -10,6 +10,9 @@
 .hero-kicker, .section-kicker { display: block; color: #6d35f2; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .home-hero h1 { margin: .75rem 0 1.35rem; font-size: clamp(3rem, 6.1vw, 6.1rem); line-height: .97; letter-spacing: -.055em; color: var(--mcl-text); }
 .home-hero-copy > p { max-width: 680px; margin-bottom: 2rem; color: var(--mcl-text-dim); font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.7; }
+.hero-continuity { max-width: 680px; margin: -0.45rem 0 2rem; padding-left: 1rem; display: grid; gap: .25rem; border-left: 3px solid #6d35f2; }
+.hero-continuity strong { color: var(--mcl-text); font-size: 1rem; }
+.hero-continuity span { color: var(--mcl-text-dim); font-size: .94rem; line-height: 1.55; }
 .primary-button { display: inline-flex; align-items: center; min-height: 48px; padding: .75rem 1.25rem; border-radius: 999px; background: linear-gradient(105deg, #6740f5, #ef3fa7); color: #fff; font-weight: 750; box-shadow: 0 14px 36px rgba(103, 64, 245, .28); }
 .primary-button:hover { opacity: 1; transform: translateY(-2px); }
 .hero-cup-art { width: min(470px, 42vw); aspect-ratio: 1; display: grid; place-items: center; }
