@@ -13,15 +13,23 @@ const BopGamePage: React.FC = () => {
         aria-labelledby="bop-title"
       >
         <img
-          className="bop-construction-image"
-          src={`${assetBase}mcl_under_construction.png`}
-          alt=""
+          className="bop-meet-image"
+          src={`${assetBase}meet_BOP.png`}
+          alt="Meet BOP"
         />
         <span className="section-kicker">{t("bopPage.kicker")}</span>
         <h1 id="bop-title">{t("bopPage.title")}</h1>
         <p className="bop-preview-tagline">{t("bopPage.tagline")}</p>
         <p className="receipt-landing-intro">{t("bopPage.body")}</p>
         <p className="bop-preview-note">{t("bopPage.note")}</p>
+
+        <div className="project-preview-status bop-preview-status">
+          <img src={`${assetBase}mcl_under_construction.png`} alt="" />
+          <div>
+            <strong>{t("bopPage.status.title")}</strong>
+            <span>{t("bopPage.status.body")}</span>
+          </div>
+        </div>
       </section>
     </main>
   );
