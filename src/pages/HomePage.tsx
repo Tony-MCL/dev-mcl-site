@@ -125,7 +125,7 @@ const HomePage: React.FC = () => {
         </div>
         <div ref={appsCarouselRef} className="product-grid product-grid-featured">
           <ProductCard name="Kvittek" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.kvittek")} image="kvitteklogo.png" accent="#ff9a3d" href="/receipts" cta={t("homeNew.actions.readMore")} />
-          <ProductCard name="FindBack" eyebrow={t("homeNew.status.availableBoth")} description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" />
+          <ProductCard name="FindBack" eyebrow={t("homeNew.status.availableBoth")} description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" href="/findback" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="husk'et" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.husket")} image="husketlogo.svg" accent="#ea386f" href="/husket" cta={t("homeNew.actions.readMore")} />
           <ProductCard name="Fury O" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.fury")} image="fury-logo.png" imageClassName="product-logo-contain" accent="#ff6b2d" />
           <ProductCard name="R4" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.r4")} image="r4-logo.png" imageClassName="product-logo-cover" accent="#a7e93d" />
