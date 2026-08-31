@@ -200,6 +200,12 @@ const no = {
       badgeOne: "Mobil app",
       badgeTwo: "Offline-first",
     },
+    download: {
+      title: "Last ned husk'et",
+      googleAria: "Åpne husk'et i Google Play",
+      googleAlt: "Last ned husk'et fra Google Play",
+    },
+    support: "Spørsmål eller behov for hjelp?",
     cards: {
       capture: {
         title: "Fang det raskt",
