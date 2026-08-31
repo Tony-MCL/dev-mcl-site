@@ -641,8 +641,8 @@ const no = {
       "Har du parkert på et stort område, funnet en god fiskeplass eller jaktpost, oppdaget et fint sted på tur – eller vil du finne tilbake til et sted i en by du besøker for første gang?",
     purpose: "FindBack husker stedet for deg.",
     how:
-      "Trykk én gang for å lagre posisjonen. Når du vil tilbake, åpner FindBack stedet i kartappen på telefonen din.",
-    promise: "Én app. Én posisjon. To trykk.",
+      "Trykk på lagreknappen for å lagre posisjonen. Da får du en egen FindBack-knapp som åpner det lagrede stedet i kartappen når du vil tilbake.",
+    promise: "Én lagret posisjon. To enkle knapper.",
     privacy:
       "Ingen konto, innlogging, reklame eller abonnement. Posisjonen lagres bare på telefonen din og blir der til du erstatter den med et nytt sted.",
     download: {
