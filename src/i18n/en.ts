@@ -200,6 +200,12 @@ const en = {
       badgeOne: "Mobile app",
       badgeTwo: "Offline-first",
     },
+    download: {
+      title: "Download husk'et",
+      googleAria: "Open husk'et in Google Play",
+      googleAlt: "Get husk'et on Google Play",
+    },
+    support: "Questions or need help?",
     cards: {
       capture: {
         title: "Capture quickly",
