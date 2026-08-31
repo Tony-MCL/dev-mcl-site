@@ -674,6 +674,27 @@ const no = {
     support: "Spørsmål eller behov for hjelp?",
   },
 
+  r4: {
+    tagline: "Tekstene du bruker ofte. Alltid innen rekkevidde.",
+    intro:
+      "Lagre meldingene og tekstene du bruker ofte, og hent dem frem i en liten flytende knapp over andre apper. Trykk på teksten du trenger, lim den inn – og fortsett der du var.",
+    purpose: "Lagre én gang. Bruk igjen og igjen.",
+    audience:
+      "R4 ble laget for ledere i mobilspill som stadig sender de samme eventmeldingene, reglene og påminnelsene. Den fungerer like godt til standardsvar, arbeidsmeldinger, adresser, instruksjoner og andre tekster du bruker ofte.",
+    promise:
+      "R4 sender ingenting på dine vegne. Du bestemmer alltid selv hvor og når teksten limes inn eller sendes.",
+    privacy:
+      "Tekstene lagres lokalt på enheten. Ingen brukerkonto, nødvendig skytjeneste eller AI som endrer det du har skrevet.",
+    platform:
+      "Tilgjengelig for Android. Denne versjonen bruker Androids mulighet til å vise en flytende knapp over andre apper.",
+    download: {
+      title: "Last ned R4",
+      googleAria: "Åpne R4 i Google Play",
+      googleAlt: "Last ned R4 fra Google Play",
+    },
+    support: "Spørsmål eller behov for hjelp?",
+  },
+
   husketLegal: {
     terms: {
       title: "Brukervilkår for husk'et",
