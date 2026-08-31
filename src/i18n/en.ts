@@ -743,6 +743,10 @@ const en = {
     body:
       "We are building handcrafted levels, chain reactions and a new BOP universe around one simple idea: aim, shoot and see where the ball goes. The game should be easy to understand, satisfying to master and use a more player-friendly advertising model.",
     note: "The game title, images and launch date will be revealed when the project is ready to show.",
+    status: {
+      title: "BOP is getting ready",
+      body: "The game is still in development. More images and details will arrive as the adventure takes shape.",
+    },
   },
 
   husketLegal: {
