@@ -743,6 +743,10 @@ const no = {
     body:
       "Vi bygger håndlagde baner, kjedereaksjoner og et eget BOP-univers rundt en enkel idé: sikt, skyt og se hvor ballen tar veien. Spillet skal være lett å forstå, tilfredsstillende å mestre og ha en mer spillervennlig reklamemodell.",
     note: "Spillnavn, bilder og lanseringsdato kommer når prosjektet er klart for å vises frem.",
+    status: {
+      title: "BOP gjør seg klar",
+      body: "Spillet er fortsatt under utvikling. Flere bilder og detaljer kommer etter hvert som eventyret tar form.",
+    },
   },
 
   husketLegal: {
