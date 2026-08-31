@@ -697,6 +697,54 @@ const no = {
     support: "Spørsmål eller behov for hjelp?",
   },
 
+  mosaicPage: {
+    tagline: "Mange deler. Ett meg.",
+    lead:
+      "Mosaic ME er en privat, lokal-først følgesvenn for plurale systemer – laget for å holde oversikt over alters, fronting, co-fronting, journaler og menneskene du selv velger å dele med.",
+    status: {
+      title: "De siste delene bygges nå",
+      body: "Mosaic ME klargjøres for lansering. Butikklenker kommer så snart appen er publisert.",
+    },
+    system: {
+      title: "Ditt system, på din måte",
+      bodyOne:
+        "Opprett alters med egne navn, avatarer, pronomen, farger, symboler og beskrivelser. Bruk en praktisk liste når du administrerer systemet, eller en visuell kortstokk når du vil bla gjennom det.",
+      bodyTwo:
+        "Hold oversikt over hvem som fronter og co-fronter, se tilbake på frontinghistorikken og bruk journalen til å ta vare på notater og opplevelser over tid.",
+    },
+    private: {
+      title: "Privat betyr privat",
+      body:
+        "Informasjon som kan deles, holdes bevisst adskilt fra journaler, interne notater, historikk og annet privat innhold. Ingenting deles uten at du velger det.",
+    },
+    sharing: {
+      title: "Del med mennesker du stoler på",
+      body:
+        "Med en valgfri konto kan du koble deg til godkjente venner og velge hvilke alters de får se. Vennemodus viser bare det som faktisk er delt – ikke den private administrasjonen av systemet.",
+    },
+    data: {
+      title: "Dataene dine blir ikke låst inne",
+      body:
+        "Kjerneinformasjonen lagres lokalt på enheten og kan eksporteres og importeres i .mome-format. Konto, sikkerhetskopiering og synkronisering er tillegg – ikke et krav for å beholde kontrollen over egne data.",
+    },
+    longTerm: {
+      title: "Bygget for å vare",
+      body:
+        "Mosaic ME prioriterer personvern, datasikkerhet, stabilitet, enkelhet og brukeropplevelse. Målet er et verktøy mennesker kan stole på, uten at de må fortsette å betale bare for å kunne bruke det.",
+      free: "Kjerneopplevelsen i Mosaic ME er gratis.",
+    },
+    support: "Spørsmål om Mosaic ME?",
+  },
+
+  bopPage: {
+    kicker: "Under utvikling",
+    title: "BOPs første eventyr",
+    tagline: "Et fargerikt sprett- og presisjonsspill med stadig mer kaos.",
+    body:
+      "Vi bygger håndlagde baner, kjedereaksjoner og et eget BOP-univers rundt en enkel idé: sikt, skyt og se hvor ballen tar veien. Spillet skal være lett å forstå, tilfredsstillende å mestre og ha en mer spillervennlig reklamemodell.",
+    note: "Spillnavn, bilder og lanseringsdato kommer når prosjektet er klart for å vises frem.",
+  },
+
   husketLegal: {
     terms: {
       title: "Brukervilkår for husk'et",
