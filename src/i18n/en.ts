@@ -635,6 +635,26 @@ const en = {
     },
   },
 
+  findback: {
+    title: "Find your way back. Simply.",
+    intro:
+      "Parked in a large area, found a good fishing spot or hunting post, discovered a great place outdoors – or want to return to a place in a city you are visiting for the first time?",
+    purpose: "FindBack remembers the place for you.",
+    how:
+      "Tap once to save your position. When you want to return, FindBack opens the saved place in your phone's map app.",
+    promise: "One app. One position. Two taps.",
+    privacy:
+      "No account, sign-in, advertising or subscription. Your position is stored only on your phone and stays there until you replace it with a new place.",
+    download: {
+      title: "Download FindBack",
+      googleAria: "Open FindBack in Google Play",
+      googleAlt: "Get FindBack on Google Play",
+      appleAria: "Open FindBack in the App Store",
+      appleAlt: "Download FindBack from the App Store",
+    },
+    support: "Questions or need help?",
+  },
+
   husketLegal: {
     terms: {
       title: "Terms of use for husk'et",
