@@ -1128,6 +1128,37 @@ html[data-theme="dark"] .receipt-landing-card {
   display: none;
 }
 
+.husket-landing-card {
+  background:
+    radial-gradient(circle at top, rgba(234, 56, 111, 0.13), transparent 34%),
+    var(--mcl-surface);
+}
+
+.husket-landing-logo {
+  display: block;
+  width: min(260px, 72vw);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 22px rgba(112, 28, 65, 0.16));
+}
+
+.husket-landing-tagline {
+  max-width: 540px;
+  margin: 0 auto;
+  color: var(--mcl-text);
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+html[data-theme="dark"] .husket-landing-card {
+  background:
+    radial-gradient(circle at top, rgba(234, 56, 111, 0.18), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    var(--mcl-surface);
+}
+
 html[data-theme="dark"] .receipt-landing-logo-dark {
   display: none;
 }
