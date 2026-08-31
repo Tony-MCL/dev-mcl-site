@@ -641,8 +641,8 @@ const en = {
       "Parked in a large area, found a good fishing spot or hunting post, discovered a great place outdoors – or want to return to a place in a city you are visiting for the first time?",
     purpose: "FindBack remembers the place for you.",
     how:
-      "Tap once to save your position. When you want to return, FindBack opens the saved place in your phone's map app.",
-    promise: "One app. One position. Two taps.",
+      "Tap the save button to store your position. This gives you a dedicated FindBack button that opens the saved place in your phone's map app when you want to return.",
+    promise: "One saved position. Two simple buttons.",
     privacy:
       "No account, sign-in, advertising or subscription. Your position is stored only on your phone and stays there until you replace it with a new place.",
     download: {
