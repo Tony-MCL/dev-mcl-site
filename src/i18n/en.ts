@@ -655,6 +655,25 @@ const en = {
     support: "Questions or need help?",
   },
 
+  fury: {
+    tagline: "One opening. More and more chaos. How long can you hold out?",
+    intro:
+      "FURY O is a fast arcade game where you control a rotating ring and try to catch balls coming from every direction – without getting hit.",
+    gameplay:
+      "Survive, catch balls, build scoring streaks and chase ever-higher scores as the pace increases. Bonus balls add extra points, Revive balls can save your run, and bombs do their best to end it.",
+    modes:
+      "The game starts simple, but quickly becomes less reasonable. Choose between Normal, Fury and Extreme Fury, and see how long your reactions can keep up.",
+    promise: "Easy to understand. Hard to master. Made for just one more round.",
+    download: {
+      title: "Download FURY O",
+      googleAria: "Open FURY O in Google Play",
+      googleAlt: "Get FURY O on Google Play",
+      appleAria: "Open FURY O in the App Store",
+      appleAlt: "Download FURY O from the App Store",
+    },
+    support: "Questions or need help?",
+  },
+
   husketLegal: {
     terms: {
       title: "Terms of use for husk'et",
