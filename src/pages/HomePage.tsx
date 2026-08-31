@@ -114,8 +114,7 @@ const HomePage: React.FC = () => {
           <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
         </div>
         <div className="hero-cup-art" aria-hidden="true">
-          <span className="hero-cup-glow" />
-          <img src={`${assetBase}mcl-cup.png`} alt="" />
+          <img src={`${assetBase}mcl-cup-paint.png`} alt="" />
         </div>
       </section>
 
