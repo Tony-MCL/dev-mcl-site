@@ -113,11 +113,9 @@ const HomePage: React.FC = () => {
           <p>{t("homeNew.hero.body")}</p>
           <a className="primary-button" href="#apps">{t("homeNew.hero.cta")}</a>
         </div>
-        <div className="hero-lab-mark" aria-hidden="true">
-          <span className="hero-orbit hero-orbit-one" />
-          <span className="hero-orbit hero-orbit-two" />
-          <span className="hero-steam">MCL</span>
-          <small>{t("homeNew.hero.mark")}</small>
+        <div className="hero-cup-art" aria-hidden="true">
+          <span className="hero-cup-glow" />
+          <img src={`${assetBase}mcl-cup.png`} alt="" />
         </div>
       </section>
 
