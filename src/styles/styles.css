@@ -12,12 +12,12 @@
 .home-hero-copy > p { max-width: 680px; margin-bottom: 2rem; color: var(--mcl-text-dim); font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.7; }
 .primary-button { display: inline-flex; align-items: center; min-height: 48px; padding: .75rem 1.25rem; border-radius: 999px; background: linear-gradient(105deg, #6740f5, #ef3fa7); color: #fff; font-weight: 750; box-shadow: 0 14px 36px rgba(103, 64, 245, .28); }
 .primary-button:hover { opacity: 1; transform: translateY(-2px); }
-.hero-lab-mark { position: relative; width: min(360px, 35vw); aspect-ratio: 1; border-radius: 34%; display: grid; place-content: center; text-align: center; color: #fff; background: radial-gradient(circle at 26% 20%, #5ee7ff 0 8%, #167bf7 27%, #703af2 56%, #ef3fa7 78%, #ff8a24 100%); box-shadow: 0 32px 80px rgba(83, 66, 238, .28); transform: rotate(3deg); }
-.hero-lab-mark::after { content: ""; position: absolute; inset: 14%; border-radius: 30%; border: 1px solid rgba(255,255,255,.48); }
-.hero-steam { font-size: clamp(3rem, 6vw, 5.4rem); font-weight: 900; letter-spacing: -.08em; z-index: 1; }
-.hero-lab-mark small { z-index: 1; font-size: .66rem; font-weight: 800; letter-spacing: .15em; }
-.hero-orbit { position: absolute; border-radius: 38%; border: 1px solid rgba(98, 87, 255, .24); }
-.hero-orbit-one { inset: -8%; }.hero-orbit-two { inset: -18%; border-style: dashed; }
+.hero-cup-art { position: relative; width: min(410px, 38vw); aspect-ratio: 1; display: grid; place-items: center; isolation: isolate; }
+.hero-cup-art::before, .hero-cup-art::after { content: ""; position: absolute; border-radius: 50%; z-index: -2; }
+.hero-cup-art::before { inset: 5%; background: radial-gradient(circle at 28% 24%, rgba(94, 231, 255, .72), rgba(8, 124, 240, .42) 32%, rgba(112, 58, 242, .25) 58%, rgba(239, 63, 167, .18) 76%, transparent 77%); filter: blur(3px); }
+.hero-cup-art::after { inset: 20% 2% 3% 16%; background: rgba(108, 63, 242, .18); filter: blur(30px); }
+.hero-cup-glow { position: absolute; width: 72%; height: 72%; border-radius: 50%; background: rgba(255,255,255,.7); box-shadow: 0 30px 75px rgba(64, 69, 160, .2); z-index: -1; }
+.hero-cup-art img { display: block; width: 92%; height: 92%; object-fit: contain; filter: drop-shadow(0 26px 26px rgba(38, 25, 20, .2)); transform: translateY(-1%); }
 .home-section { padding: 6rem 2rem; scroll-margin-top: calc(var(--header-height) + 1rem); }
 .section-heading { display: grid; grid-template-columns: minmax(0, .95fr) minmax(280px, .65fr); gap: 3rem; align-items: end; margin-bottom: 2.4rem; }
 .section-heading h2, .origin-note h2 { margin: .55rem 0 0; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.05; letter-spacing: -.035em; }
@@ -60,7 +60,7 @@
 }
 
 @media (max-width: 760px) {
-  .home-hero { min-height: auto; padding-top: 5rem; grid-template-columns: 1fr; text-align: left; }.hero-lab-mark { width: 240px; justify-self: center; order: -1; }.home-section { padding: 4.25rem 1.25rem; }.section-heading { grid-template-columns: 1fr; gap: 1rem; }.product-grid, .current-grid { grid-template-columns: 1fr; }.current-project { grid-template-columns: 42% 58%; min-height: 300px; }.current-media { min-height: 300px; }.current-copy { padding: 2rem 1.25rem; }.current-copy h3 { font-size: 1.55rem; }.pipeline-item { grid-template-columns: 32px 54px minmax(0, 1fr); gap: .8rem; }.pipeline-item > img, .pipeline-icon { width: 50px; height: 50px; }.pipeline-status { grid-column: 3; justify-self: start; }.origin-note { margin: 1rem 1.25rem 2rem; grid-template-columns: 48px 1fr; padding: 1.4rem; }.origin-link { grid-column: 2; }
+  .home-hero { min-height: auto; padding-top: 5rem; grid-template-columns: 1fr; text-align: left; }.hero-cup-art { width: 270px; justify-self: center; order: -1; }.home-section { padding: 4.25rem 1.25rem; }.section-heading { grid-template-columns: 1fr; gap: 1rem; }.product-grid, .current-grid { grid-template-columns: 1fr; }.current-project { grid-template-columns: 42% 58%; min-height: 300px; }.current-media { min-height: 300px; }.current-copy { padding: 2rem 1.25rem; }.current-copy h3 { font-size: 1.55rem; }.pipeline-item { grid-template-columns: 32px 54px minmax(0, 1fr); gap: .8rem; }.pipeline-item > img, .pipeline-icon { width: 50px; height: 50px; }.pipeline-status { grid-column: 3; justify-self: start; }.origin-note { margin: 1rem 1.25rem 2rem; grid-template-columns: 48px 1fr; padding: 1.4rem; }.origin-link { grid-column: 2; }
 }
 
 @media (max-width: 520px) {
