@@ -19,6 +19,7 @@ import PersonvernPage from "./pages/PersonvernPage";
 import RefusjonPage from "./pages/RefusjonPage";
 
 import HusketPage from "./pages/HusketPage";
+import FindBackPage from "./pages/FindBackPage";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -36,6 +37,7 @@ const AppShell: React.FC = () => {
   const isCleanProductRoute =
     location.pathname === "/husket" ||
     location.pathname.startsWith("/husket/") ||
+    location.pathname === "/findback" ||
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/") ||
     location.pathname === "/kvittek";
@@ -58,6 +60,7 @@ const AppShell: React.FC = () => {
 
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/husket" element={<HusketPage />} />
+          <Route path="/findback" element={<FindBackPage />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
