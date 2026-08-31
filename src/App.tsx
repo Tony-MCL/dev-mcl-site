@@ -21,6 +21,7 @@ import RefusjonPage from "./pages/RefusjonPage";
 import HusketPage from "./pages/HusketPage";
 import FindBackPage from "./pages/FindBackPage";
 import FuryOPage from "./pages/FuryOPage";
+import R4Page from "./pages/R4Page";
 import ReceiptPage from "./pages/ReceiptPage";
 import ReceiptLandingPage from "./pages/ReceiptLandingPage";
 import HusketKjopsvilkarPage from "./pages/HusketKjopsvilkarPage";
@@ -40,6 +41,7 @@ const AppShell: React.FC = () => {
     location.pathname.startsWith("/husket/") ||
     location.pathname === "/findback" ||
     location.pathname === "/fury-o" ||
+    location.pathname === "/r4" ||
     location.pathname === "/receipts" ||
     location.pathname.startsWith("/receipts/") ||
     location.pathname === "/kvittek";
@@ -64,6 +66,7 @@ const AppShell: React.FC = () => {
           <Route path="/husket" element={<HusketPage />} />
           <Route path="/findback" element={<FindBackPage />} />
           <Route path="/fury-o" element={<FuryOPage />} />
+          <Route path="/r4" element={<R4Page />} />
           <Route path="/kvittek" element={<ReceiptPage />} />
           <Route path="/receipts" element={<ReceiptLandingPage />} />
 
