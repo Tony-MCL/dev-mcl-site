@@ -134,7 +134,22 @@
 @media (max-width: 760px) {
   .product-grid,
   .current-grid,
-  .pipeline-list { grid-template-columns: none; margin-right: -1.25rem; padding-right: 1.25rem; }
+  .pipeline-list {
+    grid-template-columns: none;
+    margin-right: -1.25rem;
+    padding-right: 1.25rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .product-grid::-webkit-scrollbar,
+  .current-grid::-webkit-scrollbar,
+  .pipeline-list::-webkit-scrollbar { display: none; }
+
+  .product-card,
+  .current-project,
+  .pipeline-item { scroll-snap-stop: always; }
 
   .product-grid { grid-auto-columns: minmax(265px, 88%); }
   .current-grid { grid-auto-columns: minmax(300px, 90%); }
