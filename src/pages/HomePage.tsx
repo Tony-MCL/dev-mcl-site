@@ -77,18 +77,16 @@ type ProductCardProps = {
   image?: string;
   imageClassName?: string;
   accent: string;
-  eyebrow: string;
   href?: string;
   cta?: string;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, description, image, imageClassName = "", accent, eyebrow, href, cta }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, description, image, imageClassName = "", accent, href, cta }) => {
   const content = <>
     <div className="product-card-media" style={{ "--product-accent": accent } as React.CSSProperties}>
       {image ? <img className={imageClassName} src={`${assetBase}${image}`} alt={`${name} logo`} /> : <div className="media-placeholder" aria-hidden="true"><span>{name.charAt(0)}</span></div>}
     </div>
     <div className="product-card-copy">
-      <span className="section-kicker">{eyebrow}</span>
       <h3>{name}</h3>
       <p>{description}</p>
       {cta ? <span className="text-link">{cta} <span aria-hidden="true">→</span></span> : null}
@@ -128,11 +126,11 @@ const HomePage: React.FC = () => {
           <p>{t("homeNew.apps.intro")}</p>
         </div>
         <div ref={appsCarouselRef} className="product-grid product-grid-featured">
-          <ProductCard name="Kvittek" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.kvittek")} image="kvitteklogo.png" accent="#ff9a3d" href="/receipts" cta={t("homeNew.actions.readMore")} />
-          <ProductCard name="FindBack" eyebrow={t("homeNew.status.availableBoth")} description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" href="/findback" cta={t("homeNew.actions.readMore")} />
-          <ProductCard name="husk'et" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.husket")} image="husketlogo.svg" accent="#ea386f" href="/husket" cta={t("homeNew.actions.readMore")} />
-          <ProductCard name="Fury O" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.fury")} image="fury-logo.png" imageClassName="product-logo-contain" accent="#ff6b2d" href="/fury-o" cta={t("homeNew.actions.readMore")} />
-          <ProductCard name="R4" eyebrow={t("homeNew.status.available")} description={t("homeNew.apps.r4")} image="r4-logo.png" imageClassName="product-logo-cover" accent="#a7e93d" href="/r4" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="Kvittek" description={t("homeNew.apps.kvittek")} image="kvitteklogo.png" accent="#ff9a3d" href="/receipts" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="FindBack" description={t("homeNew.apps.findback")} image="findback-icon.png" imageClassName="product-logo-app-icon" accent="#087cf0" href="/findback" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="husk'et" description={t("homeNew.apps.husket")} image="husketlogo.svg" accent="#ea386f" href="/husket" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="Fury O" description={t("homeNew.apps.fury")} image="fury-logo.png" imageClassName="product-logo-contain" accent="#ff6b2d" href="/fury-o" cta={t("homeNew.actions.readMore")} />
+          <ProductCard name="R4" description={t("homeNew.apps.r4")} image="r4-logo.png" imageClassName="product-logo-cover" accent="#a7e93d" href="/r4" cta={t("homeNew.actions.readMore")} />
         </div>
       </section>
 
