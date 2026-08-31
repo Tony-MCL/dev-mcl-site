@@ -59,6 +59,8 @@ const en = {
       kicker: "Independent app and game studio",
       title: "Mobile apps for everyday life. Games for fun.",
       body: "Morning Coffee Labs creates mobile apps, games and digital tools – with simple use, clear purpose and respect for your time.",
+      continuityTitle: "Built for more than launch day.",
+      continuityBody: "We choose solutions we can operate, maintain and carry forward, so our apps can remain available to users over time.",
       cta: "See what we have made",
       mark: "APPS · GAMES · IDEAS",
     },
